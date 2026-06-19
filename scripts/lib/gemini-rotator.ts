@@ -30,10 +30,10 @@ export interface RotatorConfig {
 }
 
 const DEFAULT_CONFIG: RotatorConfig = {
-  rpmPerKey: Number(process.env.GEMINI_RPM_PER_KEY) || 10,
-  rpdPerKey: Number(process.env.GEMINI_RPD_PER_KEY) || 250,
-  maxRetries: 6,
-  baseBackoffMs: 2000,
+  rpmPerKey: Number(process.env.GEMINI_RPM_PER_KEY) || 8,
+  rpdPerKey: Number(process.env.GEMINI_RPD_PER_KEY) || 200,
+  maxRetries: 15,
+  baseBackoffMs: 5000,
   generationModel: process.env.GEMINI_GENERATION_MODEL || "gemini-2.5-flash",
   fallbackModel: process.env.GEMINI_FALLBACK_MODEL || "gemini-2.5-flash-lite",
   verifyModel: process.env.GEMINI_VERIFY_MODEL || "gemini-2.5-flash",
@@ -148,9 +148,10 @@ export class GeminiKeyRotator {
   }
 
   private markCooldown(key: RotatorKeyState, attempt: number): void {
+    // For 429 errors, cooldown longer to let the rate window reset
     const backoff = Math.min(
-      this.config.baseBackoffMs * Math.pow(2, attempt),
-      120000
+      this.config.baseBackoffMs * Math.pow(2, Math.min(attempt, 4)),
+      90000
     );
     key.cooldownUntil = Date.now() + backoff;
     key.totalErrors++;
