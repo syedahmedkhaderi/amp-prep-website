@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+dist/
+
+# env files
+.env
+.env.local
+.env*.local
+/scripts/.env
+.env.example.local
+
+# generated data (regenerate via scripts)
+/data/generated/*.json
+!/data/generated/.gitkeep
+
+# logs
+*.log
+npm-debug.log*
+
+# os
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# sqlite dev db
+*.sqlite
+*.sqlite-journal
+*.db
+
+# vercel
+.vercel
