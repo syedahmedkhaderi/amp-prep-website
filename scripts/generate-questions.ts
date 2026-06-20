@@ -1,59 +1,35 @@
 import * as fs from "fs";
 import * as path from "path";
-import { GeminiKeyRotator } from "./lib/gemini-rotator";
-import { generationPrompt } from "./lib/prompts";
 import { loadScriptsEnv } from "./lib/env";
-import type {
-  Difficulty,
-  ExamCode,
-  GeneratedQuestion,
-  QType,
-  TopicsFile,
-  TopicOutline,
-} from "./lib/types";
-
 loadScriptsEnv();
 
-/**
- * Generate original AMP 1 and AMP 2 practice questions using Gemini through
- * the key rotator. For each topic we generate items across difficulties and
- * question types. Output goes to /data/generated/questions.json.
- *
- * Targets are configurable via env. Defaults produce a useful bank that can
- * be expanded by re running the script with higher targets.
- *
- * Output: /data/generated/questions.json
- */
+import { GeminiKeyRotator } from "./lib/gemini-rotator";
+import { generationPrompt } from "./lib/prompts";
+import type { ExamCode, Difficulty, QType, TopicsFile, GeneratedQuestion } from "./lib/types";
 
 const TOPICS_PATH = path.resolve(process.cwd(), "data/generated/topics.json");
 const OUT_PATH = path.resolve(process.cwd(), "data/generated/questions.json");
 const LOG_PATH = path.resolve(process.cwd(), "Final_Outputs/generation-log.md");
 
 const TYPES: QType[] = ["single_mcq", "multi_mcq", "matching", "fill_blank", "numeric"];
-
-// Per topic per difficulty target. Configurable.
-const PER_DIFFICULTY = Number(process.env.GEN_PER_DIFFICULTY) || 8;
-
-// Approximate difficulty distribution
 const DIFFS: Difficulty[] = ["easy", "medium", "hard"];
 
-function genId(): string {
-  return "q_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
-}
+// Target: 3000 AMP1 + 800 AMP2 = 3800 total
+// 20 AMP1 topics * 3 diffs * 50 = 3000
+// 12 AMP2 topics * 3 diffs * ~22 = 800
+const AMP1_PER_TOPIC_PER_DIFF = Number(process.env.AMP1_PER_DIFF) || 50;
+const AMP2_PER_TOPIC_PER_DIFF = Number(process.env.AMP2_PER_DIFF) || 22;
 
-function normalize(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/\$+/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ")
-    .slice(0, 200);
+const genId = () => "q_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+function normalize(s: string): string {
+  return s.toLowerCase().replace(/\$+/g, "").replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ").slice(0, 200);
 }
 
 function loadTopics(): TopicsFile {
   if (!fs.existsSync(TOPICS_PATH)) {
-    console.error(`[generate] topics.json not found at ${TOPICS_PATH}. Run parse-pdf first.`);
+    console.error("topics.json not found. Run parse-pdf first.");
     process.exit(1);
   }
   return JSON.parse(fs.readFileSync(TOPICS_PATH, "utf-8"));
@@ -63,160 +39,168 @@ function loadExisting(): GeneratedQuestion[] {
   if (!fs.existsSync(OUT_PATH)) return [];
   try {
     const data = JSON.parse(fs.readFileSync(OUT_PATH, "utf-8"));
-    return Array.isArray(data) ? data : data.questions || [];
-  } catch {
-    return [];
-  }
+    return Array.isArray(data) ? data : [];
+  } catch { return []; }
 }
 
-async function generateForTopic(
+function save(all: GeneratedQuestion[]) {
+  fs.writeFileSync(OUT_PATH, JSON.stringify(all, null, 2));
+}
+
+async function generateOne(
   rotator: GeminiKeyRotator,
-  topic: TopicOutline,
-  skills: string[],
   exam: ExamCode,
-  existingHashes: Set<string>,
-  counts: Record<string, number>,
-  onSave: (allSoFar: GeneratedQuestion[]) => void,
-  globalAccumulator: GeneratedQuestion[]
-): Promise<GeneratedQuestion[]> {
-  const out: GeneratedQuestion[] = [];
+  topic: { name: string; slug: string; description: string },
+  skills: string[],
+  difficulty: Difficulty,
+  type: QType,
+  existingHashes: Set<string>
+): Promise<GeneratedQuestion | null> {
+  try {
+    const prompt = generationPrompt(exam, topic.name, topic.description, skills, difficulty, type);
+    const resp = await rotator.generateContent(prompt, {
+      temperature: 0.85,
+      responseMimeType: "application/json",
+    });
 
-  for (const diff of DIFFS) {
-    const targetForThis = PER_DIFFICULTY;
-    let made = 0;
-    let attempts = 0;
-    const maxAttempts = targetForThis * 3;
+    let item: any;
+    try { item = JSON.parse(resp); } catch { return null; }
+    if (!item || !item.stem) return null;
 
-    while (made < targetForThis && attempts < maxAttempts) {
-      attempts++;
-      const type = TYPES[(made + attempts) % TYPES.length];
+    const norm = normalize(item.stem);
+    if (existingHashes.has(norm)) return null;
+    existingHashes.add(norm);
 
-      try {
-        const prompt = generationPrompt(
-          exam,
-          topic.name,
-          topic.description,
-          skills,
-          diff,
-          type
-        );
-        const resp = await rotator.generateContent(prompt, {
-          temperature: 0.8,
-          responseMimeType: "application/json",
-        });
-
-        let item: any;
-        try {
-          item = JSON.parse(resp);
-        } catch {
-          continue;
-        }
-
-        if (!item || !item.stem) continue;
-
-        // Dedup check
-        const norm = normalize(item.stem);
-        if (existingHashes.has(norm)) {
-          console.log(`  [dedup] Skipped near duplicate for ${topic.slug}/${diff}`);
-          continue;
-        }
-        existingHashes.add(norm);
-
-        const q: GeneratedQuestion = {
-          id: genId(),
-          exam,
-          topic_slug: topic.slug,
-          type: item.type || type,
-          difficulty: diff,
-          stem: item.stem,
-          options: item.options,
-          matches: item.matches,
-          match_choices: item.match_choices,
-          numeric_answer: item.numeric_answer,
-          final_answer: item.final_answer || "",
-          explanation_steps: item.explanation_steps || [],
-          distractor_rationales: item.distractor_rationales || {},
-          concept_summary: item.concept_summary || "",
-        };
-
-        out.push(q);
-        globalAccumulator.push(q);
-        made++;
-        counts[exam] = (counts[exam] || 0) + 1;
-        // Save incrementally
-        onSave(globalAccumulator);
-        if (made % 3 === 0 || made === targetForThis) {
-          console.log(`  [${topic.slug}] ${diff}: ${made}/${targetForThis} items generated (exam total: ${counts[exam]})`);
-        }
-      } catch (e: any) {
-        console.warn(`  [${topic.slug}] Generation error: ${e.message}`);
-      }
-    }
+    return {
+      id: genId(), exam, topic_slug: topic.slug,
+      type: item.type || type, difficulty,
+      stem: item.stem,
+      options: item.options,
+      matches: item.matches,
+      match_choices: item.match_choices,
+      numeric_answer: item.numeric_answer,
+      final_answer: item.final_answer || "",
+      explanation_steps: item.explanation_steps || [],
+      distractor_rationales: item.distractor_rationales || {},
+      concept_summary: item.concept_summary || "",
+    };
+  } catch (e: any) {
+    return null;
   }
-
-  return out;
 }
 
 async function main() {
-  console.log("[generate] Starting question generation.");
+  console.log("=== AMP Prep Question Generation ===");
   const topicsFile = loadTopics();
   const existing = loadExisting();
-  console.log(`[generate] Loaded ${existing.length} existing questions.`);
-
-  const existingHashes = new Set(existing.map((q) => normalize(q.stem)));
-  const allQuestions: GeneratedQuestion[] = [...existing];
-  const counts: Record<string, number> = {
-    AMP1: existing.filter((q) => q.exam === "AMP1").length,
-    AMP2: existing.filter((q) => q.exam === "AMP2").length,
-  };
-
-  const onSave = (data: GeneratedQuestion[]) => {
-    fs.writeFileSync(OUT_PATH, JSON.stringify(data, null, 2));
-  };
+  const existingHashes = new Set(existing.map(q => normalize(q.stem)));
+  const all = [...existing];
 
   const rotator = new GeminiKeyRotator();
-  console.log(`[generate] Rotator: ${rotator.keyCount()} keys.`);
-  console.log(`[generate] Target per topic per difficulty: ${PER_DIFFICULTY}`);
+  console.log(`Existing: ${existing.length} questions`);
 
-  const log: string[] = [
-    "# Question Generation Log",
-    "",
+  const counts = {
+    AMP1: all.filter(q => q.exam === "AMP1").length,
+    AMP2: all.filter(q => q.exam === "AMP2").length,
+  };
+
+  const logLines: string[] = [
+    "# Generation Log", "",
     `Started: ${new Date().toISOString()}`,
     `Keys: ${rotator.keyCount()}`,
-    `Per topic per difficulty: ${PER_DIFFICULTY}`,
-    "",
-    "## Progress",
-    "",
+    `Existing: ${existing.length}`, "",
+    "## Progress", "",
   ];
 
-  // AMP 1 topics
-  for (const topic of topicsFile.amp1) {
-    console.log(`\n[generate] AMP1 topic: ${topic.name}`);
-    const skills = topic.skills.length > 0 ? topic.skills.map((s) => s.name) : [topic.description];
-    const qs = await generateForTopic(rotator, topic, skills, "AMP1", existingHashes, counts, onSave, allQuestions);
-    log.push(`- AMP1 ${topic.slug}: +${qs.length} (running total AMP1: ${counts.AMP1})`);
+  // Build work queue: (exam, topic, difficulty, type) tuples
+  type Task = { exam: ExamCode; topic: any; diff: Difficulty; perDiff: number };
+  const tasks: Task[] = [];
+
+  for (const t of topicsFile.amp1) {
+    for (const d of DIFFS) {
+      tasks.push({ exam: "AMP1", topic: t, diff: d, perDiff: AMP1_PER_TOPIC_PER_DIFF });
+    }
+  }
+  for (const t of topicsFile.amp2) {
+    for (const d of DIFFS) {
+      tasks.push({ exam: "AMP2", topic: t, diff: d, perDiff: AMP2_PER_TOPIC_PER_DIFF });
+    }
   }
 
-  // AMP 2 topics
-  for (const topic of topicsFile.amp2) {
-    console.log(`\n[generate] AMP2 topic: ${topic.name}`);
-    const skills = topic.skills.length > 0 ? topic.skills.map((s) => s.name) : [topic.description];
-    const qs = await generateForTopic(rotator, topic, skills, "AMP2", existingHashes, counts, onSave, allQuestions);
-    log.push(`- AMP2 ${topic.slug}: +${qs.length} (running total AMP2: ${counts.AMP2})`);
+  let totalGenerated = 0;
+  let saveCounter = 0;
+
+  for (const task of tasks) {
+    const skills = task.topic.skills?.length > 0
+      ? task.topic.skills.map((s: any) => s.name || s)
+      : [task.topic.description];
+
+    // Count what we already have for this topic+difficulty
+    const have = all.filter(q =>
+      q.topic_slug === task.topic.slug && q.difficulty === task.diff
+    ).length;
+
+    const needed = task.perDiff - have;
+    if (needed <= 0) {
+      console.log(`[${task.topic.slug}/${task.diff}] already have ${have}, skip`);
+      continue;
+    }
+
+    console.log(`\n[${task.exam}] ${task.topic.name} / ${task.diff}: need ${needed}`);
+
+    let made = 0;
+    let attempts = 0;
+    const maxAttempts = needed * 3;
+
+    while (made < needed && attempts < maxAttempts) {
+      attempts++;
+      const type = TYPES[(made + attempts) % TYPES.length];
+
+      const q = await generateOne(rotator, task.exam, task.topic, skills, task.diff, type, existingHashes);
+
+      if (q) {
+        all.push(q);
+        counts[task.exam]++;
+        made++;
+        totalGenerated++;
+        saveCounter++;
+
+        if (made % 5 === 0 || made === needed) {
+          console.log(`  ${task.diff}: ${made}/${needed} (total ${task.exam}: ${counts[task.exam]})`);
+        }
+
+        // Save every 10 questions
+        if (saveCounter >= 10) {
+          save(all);
+          saveCounter = 0;
+        }
+      }
+    }
+
+    // Save after each topic+difficulty
+    save(all);
+    logLines.push(`- ${task.exam} ${task.topic.slug} ${task.diff}: +${made} (total ${task.exam}: ${counts[task.exam]})`);
   }
+
+  save(all);
 
   const stats = rotator.stats();
-  log.push("", "## Summary", "", `- Total questions: ${allQuestions.length}`, `- AMP1: ${counts.AMP1}`, `- AMP2: ${counts.AMP2}`, `- Total API requests: ${stats.totalRequests}`, `- Total errors: ${stats.totalErrors}`, "");
+  logLines.push("", "## Summary", "",
+    `- Total questions: ${all.length}`,
+    `- AMP1: ${counts.AMP1}`,
+    `- AMP2: ${counts.AMP2}`,
+    `- New this run: ${totalGenerated}`,
+    `- API requests: ${stats.totalRequests}`,
+    `- API successes: ${stats.totalSuccess}`,
+    `- API errors: ${stats.totalErrors}`,
+  );
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(allQuestions, null, 2));
   fs.mkdirSync(path.dirname(LOG_PATH), { recursive: true });
-  fs.writeFileSync(LOG_PATH, log.join("\n"));
+  fs.writeFileSync(LOG_PATH, logLines.join("\n"));
 
-  console.log(`\n[generate] Done. ${allQuestions.length} total questions saved to ${OUT_PATH}`);
-  console.log(`[generate] Stats: ${stats.totalRequests} requests, ${stats.totalErrors} errors.`);
+  console.log(`\n=== DONE ===`);
+  console.log(`Total: ${all.length} (AMP1: ${counts.AMP1}, AMP2: ${counts.AMP2})`);
+  console.log(`New: ${totalGenerated} | API: ${stats.totalRequests} req, ${stats.totalSuccess} ok, ${stats.totalErrors} err`);
 }
 
-main().catch((e) => {
-  console.error("[generate] Fatal:", e);
-  process.exit(1);
-});
+main().catch(e => { console.error("Fatal:", e); process.exit(1); });
