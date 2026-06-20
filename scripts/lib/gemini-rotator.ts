@@ -1,10 +1,15 @@
 /**
  * GeminiKeyRotator
  *
- * Round-robin across up to 12 Gemini API keys. Tracks per-key requests in the
- * current minute (RPM) and current day (RPD). On 429 / quota error marks the
- * key as cooling down with exponential backoff and moves to the next available
- * key. If every key is cooling down, sleeps until the earliest key is free.
+ * Round-robin across Gemini API keys with proactive rate limiting.
+ * The core design: cycle through keys one at a time, with a minimum delay
+ * between requests that keeps every key well under its per-minute ceiling.
+ *
+ * With N keys and an RPM limit of R per key:
+ *   - We fire at most 1 request every (60 / (N * R * 0.7)) seconds
+ *   - This gives ~70% of max throughput while staying safely under limits
+ *   - Each key gets used roughly once every N requests, so its personal
+ *     RPM stays far below the ceiling
  *
  * Spec reference: UDST_AMP_PRACTICE_BUILD_SPEC.md Section 22.
  */
@@ -14,26 +19,25 @@ export interface RotatorKeyState {
   key: string;
   requestsThisMinute: number;
   requestsToday: number;
-  cooldownUntil: number; // epoch ms
+  cooldownUntil: number;
   totalRequests: number;
   totalErrors: number;
+  totalSuccess: number;
 }
 
 export interface RotatorConfig {
   rpmPerKey: number;
   rpdPerKey: number;
   maxRetries: number;
-  baseBackoffMs: number;
   generationModel: string;
   fallbackModel: string;
   verifyModel: string;
 }
 
 const DEFAULT_CONFIG: RotatorConfig = {
-  rpmPerKey: Number(process.env.GEMINI_RPM_PER_KEY) || 18,
-  rpdPerKey: Number(process.env.GEMINI_RPD_PER_KEY) || 200,
-  maxRetries: 20,
-  baseBackoffMs: 30000,
+  rpmPerKey: Number(process.env.GEMINI_RPM_PER_KEY) || 20,
+  rpdPerKey: Number(process.env.GEMINI_RPD_PER_KEY) || 250,
+  maxRetries: 30,
   generationModel: process.env.GEMINI_GENERATION_MODEL || "gemini-2.5-flash",
   fallbackModel: process.env.GEMINI_FALLBACK_MODEL || "gemini-2.5-flash-lite",
   verifyModel: process.env.GEMINI_VERIFY_MODEL || "gemini-2.5-flash",
@@ -41,14 +45,9 @@ const DEFAULT_CONFIG: RotatorConfig = {
 
 export class GeminiKeyRotator {
   private keys: RotatorKeyState[] = [];
-  private nextKeyIndex = 0;
   private config: RotatorConfig;
-  private currentDay: number;
-  private lastRequestTime = 0;
-  // Minimum delay between any two requests across all keys.
-  // With N keys at RPM per key, effective throughput is N*RPM/60 req/sec.
-  // We pace at slightly under that to avoid coordinated exhaustion.
-  private minRequestIntervalMs: number;
+  private nextKeyIndex = 0;
+  private minIntervalMs: number;
 
   constructor(config: Partial<RotatorConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
@@ -66,13 +65,19 @@ export class GeminiKeyRotator {
       cooldownUntil: 0,
       totalRequests: 0,
       totalErrors: 0,
+      totalSuccess: 0,
     }));
-    this.currentDay = this.dayKey(Date.now());
-    // Pace requests: with N keys at RPM per key, spread them evenly.
-    // E.g. 12 keys * 18 RPM = 216/min. Interval = 60000/216 * 0.8 = ~222ms
-    // This prevents all keys from being exhausted simultaneously.
-    const totalRPM = rawKeys.length * this.config.rpmPerKey;
-    this.minRequestIntervalMs = Math.max(Math.ceil(60000 / (totalRPM * 1.3)), 300);
+
+    // Calculate safe minimum interval between requests.
+    // With N keys at R RPM each, max throughput = N*R/60 requests per second.
+    // We use 70% of that to leave safety margin.
+    const maxRPS = (rawKeys.length * this.config.rpmPerKey) / 60;
+    const safeRPS = maxRPS * 0.7;
+    this.minIntervalMs = Math.ceil(1000 / safeRPS);
+    console.log(
+      `[rotator] ${rawKeys.length} keys, ${this.config.rpmPerKey} RPM each, ` +
+      `safe throughput: ${safeRPS.toFixed(1)} req/s, interval: ${this.minIntervalMs}ms`
+    );
   }
 
   private loadKeysFromEnv(): string[] {
@@ -89,41 +94,21 @@ export class GeminiKeyRotator {
     return keys;
   }
 
-  private dayKey(ts: number): number {
-    const d = new Date(ts);
-    return d.getUTCFullYear() * 10000 + (d.getUTCMonth() + 1) * 100 + d.getUTCDate();
-  }
-
-  private minuteKey(ts: number): number {
-    return Math.floor(ts / 60000);
-  }
-  private lastMinute = 0;
-
-  private resetWindowIfNeeded(): void {
+  private resetMinuteIfNeeded(): void {
     const now = Date.now();
-    const m = this.minuteKey(now);
-    if (m !== this.lastMinute) {
-      this.lastMinute = m;
+    const currentMinute = Math.floor(now / 60000);
+    if (this._lastMinute !== currentMinute) {
+      this._lastMinute = currentMinute;
       for (const k of this.keys) k.requestsThisMinute = 0;
     }
-    const d = this.dayKey(now);
-    if (d !== this.currentDay) {
-      this.currentDay = d;
-      for (const k of this.keys) {
-        k.requestsToday = 0;
-        k.cooldownUntil = 0;
-      }
-    }
   }
+  private _lastMinute = 0;
 
-  /**
-   * Find the next available key that is not cooling down and under its RPM/RPD
-   * ceiling. Round-robin starting from nextKeyIndex.
-   */
   private pickKey(): RotatorKeyState | null {
-    this.resetWindowIfNeeded();
+    this.resetMinuteIfNeeded();
     const now = Date.now();
     const n = this.keys.length;
+
     for (let i = 0; i < n; i++) {
       const idx = (this.nextKeyIndex + i) % n;
       const k = this.keys[idx];
@@ -136,47 +121,37 @@ export class GeminiKeyRotator {
     return null;
   }
 
-  private earliestAvailableTime(): number {
-    let earliest = Infinity;
+  private findEarliestFree(): number {
     const now = Date.now();
+    let earliest = Infinity;
     for (const k of this.keys) {
-      if (now >= k.cooldownUntil && k.requestsThisMinute < this.config.rpmPerKey && k.requestsToday < this.config.rpdPerKey) {
+      if (now >= k.cooldownUntil && k.requestsThisMinute < this.config.rpmPerKey) {
         return now;
       }
-      if (k.cooldownUntil > now && k.cooldownUntil < earliest) earliest = k.cooldownUntil;
-      if (k.requestsThisMinute >= this.config.rpmPerKey) {
-        const t = now + 60000;
-        if (t < earliest) earliest = t;
-      }
+      earliest = Math.min(earliest, k.cooldownUntil);
     }
     return earliest === Infinity ? now + 1000 : earliest;
   }
 
-  private async sleep(ms: number): Promise<void> {
-    if (ms <= 0) return;
-    await new Promise((r) => setTimeout(r, ms));
+  private sleep(ms: number): Promise<void> {
+    return ms > 0 ? new Promise((r) => setTimeout(r, ms)) : Promise.resolve();
   }
 
-  private markCooldown(key: RotatorKeyState, attempt: number): void {
-    // Default cooldown when no API hint is available.
-    // Short for transient errors (503), moderate for rate limits.
-    const backoff = Math.min(5000 + attempt * 5000, 30000);
-    key.cooldownUntil = Date.now() + backoff;
-    key.totalErrors++;
+  private async pace(): Promise<void> {
+    const elapsed = Date.now() - this._lastFire;
+    const wait = this.minIntervalMs - elapsed;
+    if (wait > 0) await this.sleep(wait);
+    this._lastFire = Date.now();
   }
+  private _lastFire = 0;
 
-  /**
-   * Call the Gemini API with automatic key rotation, rate limiting, and
-   * exponential backoff. Returns the parsed JSON response or throws if all
-   * retries fail.
-   */
   async generateContent(
     prompt: string,
     opts?: {
       model?: string;
       temperature?: number;
       responseMimeType?: "application/json" | "text/plain";
-      inlineData?: { mimeType: string; data: string }; // for PDF/image input
+      inlineData?: { mimeType: string; data: string };
     }
   ): Promise<string> {
     const model = opts?.model || this.config.generationModel;
@@ -186,62 +161,55 @@ export class GeminiKeyRotator {
     let lastErr: Error | null = null;
 
     for (let attempt = 0; attempt < this.config.maxRetries; attempt++) {
-      // Global pacing: ensure we don't fire too many requests too fast
-      const elapsed = Date.now() - this.lastRequestTime;
-      if (elapsed < this.minRequestIntervalMs) {
-        await this.sleep(this.minRequestIntervalMs - elapsed);
-      }
+      await this.pace();
 
       let key = this.pickKey();
-      this.lastRequestTime = Date.now();
 
       if (!key) {
-        const wait = this.earliestAvailableTime() - Date.now();
-        const waitMs = Math.max(wait, 1000);
-        console.warn(
-          `[rotator] All keys busy. Sleeping ${(waitMs / 1000).toFixed(1)}s until a key frees up.`
-        );
-        await this.sleep(waitMs);
-        key = this.pickKey();
-        if (!key) {
-          lastErr = new Error("No keys available after waiting.");
-          continue;
+        const wait = this.findEarliestFree() - Date.now();
+        if (attempt === 0 || attempt % 5 === 0) {
+          console.warn(
+            `[rotator] All keys busy. Waiting ${(Math.max(wait, 1000) / 1000).toFixed(1)}s.`
+          );
         }
+        await this.sleep(Math.max(wait, 1000));
+        continue;
       }
 
-      const result = await this.callGemini(key.key, model, prompt, temperature, responseMimeType, opts?.inlineData);
+      const result = await this.callGemini(
+        key.key, model, prompt, temperature, responseMimeType, opts?.inlineData
+      );
 
       if (result.ok) {
         key.requestsThisMinute++;
         key.requestsToday++;
         key.totalRequests++;
+        key.totalSuccess++;
         return result.text;
       }
 
       key.totalErrors++;
-      const status = result.status;
-      // 429, 403 quota, 503 overload -> rotate
-      if (status === 429 || status === 403 || status === 503 || status === 500 || status === 0) {
-        // Use the retry hint from the API if available, otherwise default cooldown
-        if (result.retryAfterSec) {
-          key.cooldownUntil = Date.now() + result.retryAfterSec * 1000;
-          key.totalErrors++;
-          console.warn(
-            `[rotator] Key #${key.index + 1} returned ${status}. Cooling down ${result.retryAfterSec}s (API hint).`
-          );
-        } else {
-          console.warn(
-            `[rotator] Key #${key.index + 1} returned ${status}. Cooling down and rotating.`
-          );
-          this.markCooldown(key, attempt);
-        }
-        continue;
+
+      // Parse retry hint from Gemini error response
+      let cooldownMs = 62000; // default: assume 60s rate window
+      if (result.retryAfterSec) {
+        cooldownMs = result.retryAfterSec * 1000;
       }
-      // Other 4xx: log but still try another key
-      lastErr = new Error(`Gemini ${status}: ${result.text.slice(0, 200)}`);
-      console.warn(`[rotator] Key #${key.index + 1} returned ${status}. Error: ${result.text.slice(0, 100)}`);
-      this.markCooldown(key, attempt);
-      continue;
+      key.cooldownUntil = Date.now() + cooldownMs;
+
+      if (attempt < 3 || attempt % 5 === 0) {
+        console.warn(
+          `[rotator] Key #${key.index + 1} ${result.status}. ` +
+          `Cooldown ${(cooldownMs / 1000).toFixed(0)}s. ` +
+          `(attempt ${attempt + 1}/${this.config.maxRetries})`
+        );
+      }
+
+      lastErr = new Error(
+        result.status === 429
+          ? `Rate limited`
+          : `Gemini ${result.status}: ${result.text.slice(0, 100)}`
+      );
     }
 
     throw lastErr || new Error("Gemini call failed after all retries.");
@@ -258,16 +226,11 @@ export class GeminiKeyRotator {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     const parts: any[] = [{ text: prompt }];
-    if (inlineData) {
-      parts.unshift({ inlineData });
-    }
+    if (inlineData) parts.unshift({ inlineData });
 
     const body: any = {
       contents: [{ role: "user", parts }],
-      generationConfig: {
-        temperature,
-        responseMimeType,
-      },
+      generationConfig: { temperature, responseMimeType },
     };
 
     try {
@@ -277,45 +240,43 @@ export class GeminiKeyRotator {
         body: JSON.stringify(body),
       });
       const text = await res.text();
+
       if (!res.ok) {
-        // Parse "Please retry in X.Xs" from the error message
         let retryAfterSec: number | undefined;
         const retryMatch = text.match(/retry in ([\d.]+)s/i);
-        if (retryMatch) {
-          retryAfterSec = Math.ceil(parseFloat(retryMatch[1])) + 2; // add buffer
-        }
-        // Also check Retry-After header
+        if (retryMatch) retryAfterSec = Math.ceil(parseFloat(retryMatch[1])) + 3;
         const headerRetry = res.headers.get("retry-after");
-        if (headerRetry) {
-          retryAfterSec = parseInt(headerRetry) + 2;
-        }
+        if (headerRetry) retryAfterSec = parseInt(headerRetry) + 3;
         return { ok: false, status: res.status, text, retryAfterSec };
       }
-      // Extract text from response
+
       let parsed: any;
       try {
         parsed = JSON.parse(text);
       } catch {
         return { ok: false, status: 600, text: "Non-JSON response" };
       }
+
       const out =
-        parsed?.candidates?.[0]?.content?.parts?.map((p: any) => p.text).join("") ||
-        "";
+        parsed?.candidates?.[0]?.content?.parts
+          ?.map((p: any) => p.text)
+          .join("") || "";
       return { ok: true, status: 200, text: out };
     } catch (e: any) {
       return { ok: false, status: 0, text: e.message };
     }
   }
 
-  stats(): { totalRequests: number; totalErrors: number; perKey: any[] } {
+  stats() {
     return {
       totalRequests: this.keys.reduce((s, k) => s + k.totalRequests, 0),
+      totalSuccess: this.keys.reduce((s, k) => s + k.totalSuccess, 0),
       totalErrors: this.keys.reduce((s, k) => s + k.totalErrors, 0),
       perKey: this.keys.map((k) => ({
         index: k.index + 1,
         total: k.totalRequests,
+        success: k.totalSuccess,
         today: k.requestsToday,
-        thisMinute: k.requestsThisMinute,
         errors: k.totalErrors,
         coolingDown: Date.now() < k.cooldownUntil,
       })),
