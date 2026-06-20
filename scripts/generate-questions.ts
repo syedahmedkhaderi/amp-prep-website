@@ -75,7 +75,9 @@ async function generateForTopic(
   skills: string[],
   exam: ExamCode,
   existingHashes: Set<string>,
-  counts: Record<string, number>
+  counts: Record<string, number>,
+  onSave: (allSoFar: GeneratedQuestion[]) => void,
+  globalAccumulator: GeneratedQuestion[]
 ): Promise<GeneratedQuestion[]> {
   const out: GeneratedQuestion[] = [];
 
@@ -138,9 +140,12 @@ async function generateForTopic(
         };
 
         out.push(q);
+        globalAccumulator.push(q);
         made++;
         counts[exam] = (counts[exam] || 0) + 1;
-        if (made % 4 === 0 || made === targetForThis) {
+        // Save incrementally
+        onSave(globalAccumulator);
+        if (made % 3 === 0 || made === targetForThis) {
           console.log(`  [${topic.slug}] ${diff}: ${made}/${targetForThis} items generated (exam total: ${counts[exam]})`);
         }
       } catch (e: any) {
@@ -165,6 +170,10 @@ async function main() {
     AMP2: existing.filter((q) => q.exam === "AMP2").length,
   };
 
+  const onSave = (data: GeneratedQuestion[]) => {
+    fs.writeFileSync(OUT_PATH, JSON.stringify(data, null, 2));
+  };
+
   const rotator = new GeminiKeyRotator();
   console.log(`[generate] Rotator: ${rotator.keyCount()} keys.`);
   console.log(`[generate] Target per topic per difficulty: ${PER_DIFFICULTY}`);
@@ -184,21 +193,16 @@ async function main() {
   for (const topic of topicsFile.amp1) {
     console.log(`\n[generate] AMP1 topic: ${topic.name}`);
     const skills = topic.skills.length > 0 ? topic.skills.map((s) => s.name) : [topic.description];
-    const qs = await generateForTopic(rotator, topic, skills, "AMP1", existingHashes, counts);
-    allQuestions.push(...qs);
+    const qs = await generateForTopic(rotator, topic, skills, "AMP1", existingHashes, counts, onSave, allQuestions);
     log.push(`- AMP1 ${topic.slug}: +${qs.length} (running total AMP1: ${counts.AMP1})`);
-    // Save incrementally so progress is not lost
-    fs.writeFileSync(OUT_PATH, JSON.stringify(allQuestions, null, 2));
   }
 
   // AMP 2 topics
   for (const topic of topicsFile.amp2) {
     console.log(`\n[generate] AMP2 topic: ${topic.name}`);
     const skills = topic.skills.length > 0 ? topic.skills.map((s) => s.name) : [topic.description];
-    const qs = await generateForTopic(rotator, topic, skills, "AMP2", existingHashes, counts);
-    allQuestions.push(...qs);
+    const qs = await generateForTopic(rotator, topic, skills, "AMP2", existingHashes, counts, onSave, allQuestions);
     log.push(`- AMP2 ${topic.slug}: +${qs.length} (running total AMP2: ${counts.AMP2})`);
-    fs.writeFileSync(OUT_PATH, JSON.stringify(allQuestions, null, 2));
   }
 
   const stats = rotator.stats();
