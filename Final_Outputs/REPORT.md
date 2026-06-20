@@ -162,14 +162,17 @@ npm test
 
 ## What Remains
 
-The question generation is rate-limited by the Gemini free tier (20 RPM per
-key, shared across all 12 keys). 26 questions have been generated and verified
-working in the app. The generation script continues running in the background
-and will produce more questions as rate windows reset. To generate the full
-bank (target: 3000+ AMP1, 800+ AMP2), run the generation script over a longer
-period or use paid Gemini keys for higher rate limits.
+All 12 Gemini API keys share a single Google Cloud project quota. The burst
+testing during development exhausted the daily free tier quota. Generation
+will resume automatically when the quota resets (midnight Pacific time).
 
-The app is fully functional with any number of questions: practice mode works,
-mock mode works, the test runner matches the spec, and all security measures
-are in place. Adding more questions simply requires re-running seed after
-generation completes.
+26 questions have been generated, verified, and seeded. The generation script
+is ready and will produce the full bank (target: 3000+ AMP1, 800+ AMP2) once
+the daily quota resets. Run:
+```bash
+npm run generate    # generates more questions
+npm run seed        # seeds them into the database
+```
+
+The app is fully functional with any number of questions. Adding more is a
+matter of running the generation script and re-seeding.
