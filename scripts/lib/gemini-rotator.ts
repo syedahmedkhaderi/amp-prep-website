@@ -30,10 +30,10 @@ export interface RotatorConfig {
 }
 
 const DEFAULT_CONFIG: RotatorConfig = {
-  rpmPerKey: Number(process.env.GEMINI_RPM_PER_KEY) || 8,
+  rpmPerKey: Number(process.env.GEMINI_RPM_PER_KEY) || 18,
   rpdPerKey: Number(process.env.GEMINI_RPD_PER_KEY) || 200,
-  maxRetries: 15,
-  baseBackoffMs: 5000,
+  maxRetries: 20,
+  baseBackoffMs: 30000,
   generationModel: process.env.GEMINI_GENERATION_MODEL || "gemini-2.5-flash",
   fallbackModel: process.env.GEMINI_FALLBACK_MODEL || "gemini-2.5-flash-lite",
   verifyModel: process.env.GEMINI_VERIFY_MODEL || "gemini-2.5-flash",
@@ -148,11 +148,9 @@ export class GeminiKeyRotator {
   }
 
   private markCooldown(key: RotatorKeyState, attempt: number): void {
-    // For 429 errors, cooldown longer to let the rate window reset
-    const backoff = Math.min(
-      this.config.baseBackoffMs * Math.pow(2, Math.min(attempt, 4)),
-      90000
-    );
+    // For 429 errors, cooldown for ~60s to match the rate window
+    // For 503 errors, shorter cooldown since it's transient
+    const backoff = attempt === 0 ? 60000 : Math.min(60000 * Math.pow(1.5, Math.min(attempt - 1, 3)), 300000);
     key.cooldownUntil = Date.now() + backoff;
     key.totalErrors++;
   }
@@ -182,10 +180,11 @@ export class GeminiKeyRotator {
 
       if (!key) {
         const wait = this.earliestAvailableTime() - Date.now();
+        const waitMs = Math.max(wait, 1000);
         console.warn(
-          `[rotator] All keys busy. Sleeping ${(wait / 1000).toFixed(1)}s until a key frees up.`
+          `[rotator] All keys busy. Sleeping ${(waitMs / 1000).toFixed(1)}s until a key frees up.`
         );
-        await this.sleep(Math.max(wait, 1000));
+        await this.sleep(waitMs);
         key = this.pickKey();
         if (!key) {
           lastErr = new Error("No keys available after waiting.");
@@ -205,16 +204,18 @@ export class GeminiKeyRotator {
       key.totalErrors++;
       const status = result.status;
       // 429, 403 quota, 503 overload -> rotate
-      if (status === 429 || status === 403 || status === 503 || status === 500) {
+      if (status === 429 || status === 403 || status === 503 || status === 500 || status === 0) {
         console.warn(
           `[rotator] Key #${key.index + 1} returned ${status}. Cooling down and rotating.`
         );
         this.markCooldown(key, attempt);
         continue;
       }
-      // Other 4xx: do not retry on the same prompt shape
+      // Other 4xx: log but still try another key
       lastErr = new Error(`Gemini ${status}: ${result.text.slice(0, 200)}`);
-      break;
+      console.warn(`[rotator] Key #${key.index + 1} returned ${status}. Error: ${result.text.slice(0, 100)}`);
+      this.markCooldown(key, attempt);
+      continue;
     }
 
     throw lastErr || new Error("Gemini call failed after all retries.");
