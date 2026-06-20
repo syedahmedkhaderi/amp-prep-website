@@ -56,7 +56,10 @@ function seed() {
     insertTopic.run("top_" + t.slug, amp2Exam.id, t.name, t.slug, t.index, t.description);
   }
 
-  // Clear existing questions
+  // Clear existing data (order matters for foreign keys)
+  db.prepare("DELETE FROM paper_questions").run();
+  db.prepare("DELETE FROM attempt_answers").run();
+  db.prepare("DELETE FROM attempt_questions").run();
   db.prepare("DELETE FROM question_options").run();
   db.prepare("DELETE FROM question_matches").run();
   db.prepare("DELETE FROM question_match_choices").run();
