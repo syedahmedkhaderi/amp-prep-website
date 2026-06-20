@@ -143,7 +143,7 @@ function seed() {
       }
 
       // Numeric
-      if (q.numeric_answer) {
+      if (q.numeric_answer && typeof q.numeric_answer.value === "number") {
         insertNumeric.run(
           "na_" + uid(),
           q.id,
