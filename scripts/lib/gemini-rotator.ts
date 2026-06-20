@@ -30,10 +30,12 @@ export interface RotatorConfig {
 }
 
 const DEFAULT_MODELS = [
-  "gemini-2.5-flash",       // 20 RPM when available
-  "gemini-2.5-flash-lite",  // 10 RPM separate quota
-  "gemini-3.5-flash",       // 5 RPM separate quota
-  "gemini-flash-latest",    // separate quota
+  "gemini-2.5-flash",        // 20 RPM
+  "gemini-2.5-flash-lite",   // 10 RPM
+  "gemini-3.5-flash",        // 5 RPM
+  "gemini-flash-latest",     // 10 RPM
+  "gemini-3-flash-preview",  // available
+  "gemini-3.1-flash-lite",   // available
 ];
 
 const DEFAULT_CONFIG: RotatorConfig = {
