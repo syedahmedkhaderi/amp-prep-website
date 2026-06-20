@@ -44,6 +44,11 @@ export class GeminiKeyRotator {
   private nextKeyIndex = 0;
   private config: RotatorConfig;
   private currentDay: number;
+  private lastRequestTime = 0;
+  // Minimum delay between any two requests across all keys.
+  // With N keys at RPM per key, effective throughput is N*RPM/60 req/sec.
+  // We pace at slightly under that to avoid coordinated exhaustion.
+  private minRequestIntervalMs: number;
 
   constructor(config: Partial<RotatorConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
@@ -63,6 +68,11 @@ export class GeminiKeyRotator {
       totalErrors: 0,
     }));
     this.currentDay = this.dayKey(Date.now());
+    // Pace requests: with N keys at RPM per key, spread them evenly.
+    // E.g. 12 keys * 18 RPM = 216/min. Interval = 60000/216 * 0.8 = ~222ms
+    // This prevents all keys from being exhausted simultaneously.
+    const totalRPM = rawKeys.length * this.config.rpmPerKey;
+    this.minRequestIntervalMs = Math.max(Math.ceil(60000 / (totalRPM * 1.3)), 300);
   }
 
   private loadKeysFromEnv(): string[] {
@@ -148,9 +158,9 @@ export class GeminiKeyRotator {
   }
 
   private markCooldown(key: RotatorKeyState, attempt: number): void {
-    // For 429 errors, cooldown for ~60s to match the rate window
-    // For 503 errors, shorter cooldown since it's transient
-    const backoff = attempt === 0 ? 60000 : Math.min(60000 * Math.pow(1.5, Math.min(attempt - 1, 3)), 300000);
+    // Default cooldown when no API hint is available.
+    // Short for transient errors (503), moderate for rate limits.
+    const backoff = Math.min(5000 + attempt * 5000, 30000);
     key.cooldownUntil = Date.now() + backoff;
     key.totalErrors++;
   }
@@ -176,7 +186,14 @@ export class GeminiKeyRotator {
     let lastErr: Error | null = null;
 
     for (let attempt = 0; attempt < this.config.maxRetries; attempt++) {
+      // Global pacing: ensure we don't fire too many requests too fast
+      const elapsed = Date.now() - this.lastRequestTime;
+      if (elapsed < this.minRequestIntervalMs) {
+        await this.sleep(this.minRequestIntervalMs - elapsed);
+      }
+
       let key = this.pickKey();
+      this.lastRequestTime = Date.now();
 
       if (!key) {
         const wait = this.earliestAvailableTime() - Date.now();
@@ -205,10 +222,19 @@ export class GeminiKeyRotator {
       const status = result.status;
       // 429, 403 quota, 503 overload -> rotate
       if (status === 429 || status === 403 || status === 503 || status === 500 || status === 0) {
-        console.warn(
-          `[rotator] Key #${key.index + 1} returned ${status}. Cooling down and rotating.`
-        );
-        this.markCooldown(key, attempt);
+        // Use the retry hint from the API if available, otherwise default cooldown
+        if (result.retryAfterSec) {
+          key.cooldownUntil = Date.now() + result.retryAfterSec * 1000;
+          key.totalErrors++;
+          console.warn(
+            `[rotator] Key #${key.index + 1} returned ${status}. Cooling down ${result.retryAfterSec}s (API hint).`
+          );
+        } else {
+          console.warn(
+            `[rotator] Key #${key.index + 1} returned ${status}. Cooling down and rotating.`
+          );
+          this.markCooldown(key, attempt);
+        }
         continue;
       }
       // Other 4xx: log but still try another key
@@ -228,7 +254,7 @@ export class GeminiKeyRotator {
     temperature: number,
     responseMimeType: string,
     inlineData?: { mimeType: string; data: string }
-  ): Promise<{ ok: boolean; status: number; text: string }> {
+  ): Promise<{ ok: boolean; status: number; text: string; retryAfterSec?: number }> {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     const parts: any[] = [{ text: prompt }];
@@ -252,7 +278,18 @@ export class GeminiKeyRotator {
       });
       const text = await res.text();
       if (!res.ok) {
-        return { ok: false, status: res.status, text };
+        // Parse "Please retry in X.Xs" from the error message
+        let retryAfterSec: number | undefined;
+        const retryMatch = text.match(/retry in ([\d.]+)s/i);
+        if (retryMatch) {
+          retryAfterSec = Math.ceil(parseFloat(retryMatch[1])) + 2; // add buffer
+        }
+        // Also check Retry-After header
+        const headerRetry = res.headers.get("retry-after");
+        if (headerRetry) {
+          retryAfterSec = parseInt(headerRetry) + 2;
+        }
+        return { ok: false, status: res.status, text, retryAfterSec };
       }
       // Extract text from response
       let parsed: any;
