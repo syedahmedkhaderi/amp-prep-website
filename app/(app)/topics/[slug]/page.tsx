@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { getTopicBySlug, getQuestions } from "@/lib/db/queries";
+import { getTopicBySlug, getTopicQuestionStats } from "@/lib/db/queries";
 
 export default async function TopicDetailPage({
   params,
@@ -36,7 +36,7 @@ export default async function TopicDetailPage({
     );
   }
 
-  const questions = getQuestions({ topicId: topic.id, limit: 1000 });
+  const questionStats = getTopicQuestionStats(topic.id);
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-8">
@@ -51,7 +51,7 @@ export default async function TopicDetailPage({
         </div>
       )}
 
-      {questions.length === 0 ? (
+      {questionStats.total === 0 ? (
         <div className="mt-8 rounded-xl border border-surface-border bg-surface-panel p-8 text-center">
           <p className="text-ink-soft">
             Questions for this topic are being generated. Please check back soon.
@@ -61,18 +61,18 @@ export default async function TopicDetailPage({
         <>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             <div className="rounded-lg border border-surface-border bg-white p-4">
-              <p className="text-2xl font-bold text-brand-deep">{questions.length}</p>
+              <p className="text-2xl font-bold text-brand-deep">{questionStats.total}</p>
               <p className="text-xs text-ink-soft">Questions available</p>
             </div>
             <div className="rounded-lg border border-surface-border bg-white p-4">
               <p className="text-2xl font-bold text-brand-deep">
-                {questions.filter((q) => q.difficulty === "easy").length}
+                {questionStats.easy}
               </p>
               <p className="text-xs text-ink-soft">Easy questions</p>
             </div>
             <div className="rounded-lg border border-surface-border bg-white p-4">
               <p className="text-2xl font-bold text-brand-deep">
-                {questions.filter((q) => q.difficulty === "hard").length}
+                {questionStats.hard}
               </p>
               <p className="text-xs text-ink-soft">Hard questions</p>
             </div>
@@ -88,14 +88,14 @@ export default async function TopicDetailPage({
           </div>
 
           {/* Sample question preview */}
-          {questions.length > 0 && (
+          {questionStats.sample && (
             <div className="mt-10">
               <h2 className="text-lg font-bold text-ink">Sample question</h2>
               <div className="mt-4 rounded-xl border border-surface-border bg-white p-6">
                 <p className="text-sm text-ink-soft capitalize">
-                  {questions[0].difficulty} | {questions[0].type.replace(/_/g, " ")}
+                  {questionStats.sample.difficulty} | {questionStats.sample.type.replace(/_/g, " ")}
                 </p>
-                <p className="mt-2 text-ink">{questions[0].stem}</p>
+                <p className="mt-2 text-ink">{questionStats.sample.stem}</p>
               </div>
             </div>
           )}

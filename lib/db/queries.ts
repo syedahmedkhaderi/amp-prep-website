@@ -11,18 +11,38 @@ import type { Exam, Topic, Question, Attempt, Option, MatchItem } from "@/lib/ty
 import type { QType, Difficulty, ExamCode } from "@/lib/types";
 
 const uid = () => Math.random().toString(36).slice(2, 12);
+const MAX_QUESTION_LIMIT = 200;
+
+const EXAM_COLUMNS = "id, code, title, description, duration_minutes, total_questions";
+const TOPIC_COLUMNS = "id, exam_id, name, slug, order_index, description";
+const QUESTION_COLUMNS = `
+  q.id, q.exam_id, q.topic_id, q.type, q.stem, q.difficulty, q.points,
+  q.final_answer, q.explanation_steps, q.distractor_rationales,
+  q.concept_summary, q.source, q.status, q.is_free, q.created_at
+`;
+
+function normalizeLimit(limit?: number): number | null {
+  if (limit === undefined) return null;
+  if (!Number.isFinite(limit)) return MAX_QUESTION_LIMIT;
+  return Math.max(1, Math.min(Math.floor(limit), MAX_QUESTION_LIMIT));
+}
+
+function normalizeOffset(offset?: number): number {
+  if (!offset || !Number.isFinite(offset)) return 0;
+  return Math.max(0, Math.floor(offset));
+}
 
 export function getExams(): Exam[] {
   initDB();
   const db = getDB();
-  const rows = db.prepare("SELECT * FROM exams ORDER BY code").all() as any[];
+  const rows = db.prepare(`SELECT ${EXAM_COLUMNS} FROM exams ORDER BY code`).all() as any[];
   return rows.map(rowToExam);
 }
 
 export function getExamByCode(code: ExamCode): Exam | null {
   initDB();
   const db = getDB();
-  const row = db.prepare("SELECT * FROM exams WHERE code = ?").get(code) as any;
+  const row = db.prepare(`SELECT ${EXAM_COLUMNS} FROM exams WHERE code = ?`).get(code) as any;
   return row ? rowToExam(row) : null;
 }
 
@@ -32,13 +52,13 @@ export function getTopics(examCode?: ExamCode): Topic[] {
   let rows: any[];
   if (examCode) {
     rows = db.prepare(
-      `SELECT t.*, e.code as exam_code FROM topics t
+      `SELECT t.${TOPIC_COLUMNS.replace(/, /g, ", t.")}, e.code as exam_code FROM topics t
        JOIN exams e ON t.exam_id = e.id
        WHERE e.code = ? ORDER BY t.order_index`
     ).all(examCode) as any[];
   } else {
     rows = db.prepare(
-      `SELECT t.*, e.code as exam_code FROM topics t
+      `SELECT t.${TOPIC_COLUMNS.replace(/, /g, ", t.")}, e.code as exam_code FROM topics t
        JOIN exams e ON t.exam_id = e.id
        ORDER BY e.code, t.order_index`
     ).all() as any[];
@@ -50,7 +70,7 @@ export function getTopicBySlug(slug: string): Topic | null {
   initDB();
   const db = getDB();
   const row = db.prepare(
-    `SELECT t.*, e.code as exam_code FROM topics t
+    `SELECT t.${TOPIC_COLUMNS.replace(/, /g, ", t.")}, e.code as exam_code FROM topics t
      JOIN exams e ON t.exam_id = e.id
      WHERE t.slug = ?`
   ).get(slug) as any;
@@ -94,33 +114,48 @@ export function getQuestions(opts: {
   }
 
   const where = conditions.join(" AND ");
+  const limit = normalizeLimit(opts.limit);
+  const offset = normalizeOffset(opts.offset);
   let query = `
-    SELECT q.*, t.name as topic_name, t.slug as topic_slug, e.code as exam_code
+    SELECT ${QUESTION_COLUMNS}, t.name as topic_name, t.slug as topic_slug, e.code as exam_code
     FROM questions q
     JOIN topics t ON q.topic_id = t.id
     JOIN exams e ON q.exam_id = e.id
     WHERE ${where}
     ORDER BY q.difficulty, q.created_at
   `;
-  if (opts.limit) {
-    query += ` LIMIT ${opts.limit}`;
-    if (opts.offset) query += ` OFFSET ${opts.offset}`;
+  if (limit !== null) {
+    query += " LIMIT ?";
+    params.push(limit);
+    if (offset > 0) {
+      query += " OFFSET ?";
+      params.push(offset);
+    }
   }
 
   const rows = db.prepare(query).all(...params) as any[];
-  return rows.map((r) => rowToQuestion(r, db));
+  return rowsToQuestions(rows, db);
 }
 
 export function getQuestionById(id: string): Question | null {
+  return getQuestionsByIds([id])[0] ?? null;
+}
+
+export function getQuestionsByIds(ids: string[]): Question[] {
   initDB();
+  if (ids.length === 0) return [];
   const db = getDB();
-  const row = db.prepare(
-    `SELECT q.*, t.name as topic_name, t.slug as topic_slug
+  const uniqueIds = [...new Set(ids)];
+  const placeholders = uniqueIds.map(() => "?").join(",");
+  const rows = db.prepare(
+    `SELECT ${QUESTION_COLUMNS}, t.name as topic_name, t.slug as topic_slug
      FROM questions q
      JOIN topics t ON q.topic_id = t.id
-     WHERE q.id = ?`
-  ).get(id) as any;
-  return row ? rowToQuestion(row, db) : null;
+     WHERE q.id IN (${placeholders})`
+  ).all(...uniqueIds) as any[];
+
+  const byId = new Map(rowsToQuestions(rows, db).map((question) => [question.id, question]));
+  return ids.map((id) => byId.get(id)).filter((question): question is Question => !!question);
 }
 
 export function getQuestionCount(): { total: number; free: number; amp1: number; amp2: number } {
@@ -137,6 +172,38 @@ export function getQuestionCount(): { total: number; free: number; amp1: number;
      WHERE q.status = 'published' AND e.code = 'AMP2'`
   ).get() as any).c;
   return { total, free, amp1, amp2 };
+}
+
+export function getTopicQuestionStats(topicId: string): {
+  total: number;
+  easy: number;
+  hard: number;
+  sample: Pick<Question, "id" | "type" | "stem" | "difficulty"> | null;
+} {
+  initDB();
+  const db = getDB();
+  const counts = db.prepare(
+    `SELECT
+       COUNT(*) as total,
+       SUM(CASE WHEN difficulty = 'easy' THEN 1 ELSE 0 END) as easy,
+       SUM(CASE WHEN difficulty = 'hard' THEN 1 ELSE 0 END) as hard
+     FROM questions
+     WHERE topic_id = ? AND status = 'published'`
+  ).get(topicId) as any;
+  const sample = db.prepare(
+    `SELECT id, type, stem, difficulty
+     FROM questions
+     WHERE topic_id = ? AND status = 'published'
+     ORDER BY difficulty, created_at
+     LIMIT 1`
+  ).get(topicId) as any;
+
+  return {
+    total: counts?.total || 0,
+    easy: counts?.easy || 0,
+    hard: counts?.hard || 0,
+    sample: sample || null,
+  };
 }
 
 // ---------- Row mappers ----------
@@ -164,46 +231,108 @@ function rowToTopic(row: any): Topic {
   };
 }
 
-function rowToQuestion(row: any, db: ReturnType<typeof getDB>): Question {
+function rowsToQuestions(rows: any[], db: ReturnType<typeof getDB>): Question[] {
+  if (rows.length === 0) return [];
+  const ids = rows.map((row) => row.id);
+  const placeholders = ids.map(() => "?").join(",");
+
+  const optionRows = db.prepare(
+    `SELECT id, question_id, content, is_correct, order_index
+     FROM question_options
+     WHERE question_id IN (${placeholders})
+     ORDER BY question_id, order_index`
+  ).all(...ids) as any[];
+  const matchRows = db.prepare(
+    `SELECT id, question_id, left_content, correct_choice_index, order_index
+     FROM question_matches
+     WHERE question_id IN (${placeholders})
+     ORDER BY question_id, order_index`
+  ).all(...ids) as any[];
+  const matchChoiceRows = db.prepare(
+    `SELECT question_id, choice_text, order_index
+     FROM question_match_choices
+     WHERE question_id IN (${placeholders})
+     ORDER BY question_id, order_index`
+  ).all(...ids) as any[];
+  const numericRows = db.prepare(
+    `SELECT question_id, correct_value, tolerance, accepted_expressions
+     FROM numeric_answers
+     WHERE question_id IN (${placeholders})`
+  ).all(...ids) as any[];
+
+  const optionsByQuestion = groupBy(optionRows, "question_id");
+  const matchesByQuestion = groupBy(matchRows, "question_id");
+  const matchChoicesByQuestion = groupBy(matchChoiceRows, "question_id");
+  const numericByQuestion = new Map(numericRows.map((row) => [row.question_id, row]));
+
+  return rows.map((row) =>
+    rowToQuestion(row, {
+      options: optionsByQuestion.get(row.id) || [],
+      matches: matchesByQuestion.get(row.id) || [],
+      matchChoices: matchChoicesByQuestion.get(row.id) || [],
+      numericAnswer: numericByQuestion.get(row.id),
+    })
+  );
+}
+
+function groupBy(rows: any[], key: string): Map<string, any[]> {
+  const grouped = new Map<string, any[]>();
+  for (const row of rows) {
+    const group = grouped.get(row[key]) || [];
+    group.push(row);
+    grouped.set(row[key], group);
+  }
+  return grouped;
+}
+
+function parseAcceptedExpressions(value: string | null): string[] {
+  if (!value) return [];
+  try {
+    return JSON.parse(value);
+  } catch {
+    return [];
+  }
+}
+
+function rowToQuestion(
+  row: any,
+  children: {
+    options: any[];
+    matches: any[];
+    matchChoices: any[];
+    numericAnswer?: any;
+  }
+): Question {
   const options: Option[] | undefined =
     row.type === "single_mcq" || row.type === "multi_mcq" || row.type === "fill_blank"
-      ? (db.prepare("SELECT * FROM question_options WHERE question_id = ? ORDER BY order_index").all(row.id) as any[]).map(
-          (o) => ({
-            id: o.id,
-            content: o.content,
-            isCorrect: !!o.is_correct,
-            orderIndex: o.order_index,
-          })
-        )
+      ? children.options.map((o) => ({
+          id: o.id,
+          content: o.content,
+          isCorrect: !!o.is_correct,
+          orderIndex: o.order_index,
+        }))
       : undefined;
 
-  let matches: MatchItem[] | undefined;
-  let matchChoices: string[] | undefined;
-  if (row.type === "matching") {
-    matches = (db.prepare("SELECT * FROM question_matches WHERE question_id = ? ORDER BY order_index").all(row.id) as any[]).map(
-      (m) => ({
-        id: m.id,
-        leftContent: m.left_content,
-        correctChoiceIndex: m.correct_choice_index,
-        orderIndex: m.order_index,
-      })
-    );
-    matchChoices = (db.prepare("SELECT * FROM question_match_choices WHERE question_id = ? ORDER BY order_index").all(row.id) as any[]).map(
-      (c) => c.choice_text
-    );
-  }
+  const matches: MatchItem[] | undefined =
+    row.type === "matching"
+      ? children.matches.map((m) => ({
+          id: m.id,
+          leftContent: m.left_content,
+          correctChoiceIndex: m.correct_choice_index,
+          orderIndex: m.order_index,
+        }))
+      : undefined;
+  const matchChoices: string[] | undefined =
+    row.type === "matching" ? children.matchChoices.map((c) => c.choice_text) : undefined;
 
-  let numericAnswer: Question["numericAnswer"];
-  if (row.type === "numeric") {
-    const na = db.prepare("SELECT * FROM numeric_answers WHERE question_id = ?").get(row.id) as any;
-    if (na) {
-      numericAnswer = {
-        correctValue: na.correct_value,
-        tolerance: na.tolerance,
-        acceptedExpressions: na.accepted_expressions ? JSON.parse(na.accepted_expressions) : [],
-      };
-    }
-  }
+  const numericAnswer: Question["numericAnswer"] | undefined =
+    row.type === "numeric" && children.numericAnswer
+      ? {
+          correctValue: children.numericAnswer.correct_value,
+          tolerance: children.numericAnswer.tolerance,
+          acceptedExpressions: parseAcceptedExpressions(children.numericAnswer.accepted_expressions),
+        }
+      : undefined;
 
   return {
     id: row.id,

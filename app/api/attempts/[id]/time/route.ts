@@ -12,7 +12,11 @@ export async function GET(
 
   initDB();
   const db = getDB();
-  const attempt = db.prepare("SELECT * FROM attempts WHERE id = ?").get(attemptId) as any;
+  const attempt = db.prepare(
+    `SELECT user_id, started_at, submitted_at, time_limit_seconds
+     FROM attempts
+     WHERE id = ?`
+  ).get(attemptId) as any;
   if (!attempt) return NextResponse.json({ error: "Not found" }, { status: 404 });
   if (attempt.user_id !== user.id) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 

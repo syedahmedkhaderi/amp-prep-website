@@ -5,7 +5,7 @@
  */
 
 import { getDB, initDB } from "@/lib/db/sqlite";
-import { getQuestions, getQuestionById } from "@/lib/db/queries";
+import { getQuestions, getQuestionById, getQuestionsByIds } from "@/lib/db/queries";
 import { gradeAnswer } from "@/lib/grading";
 import { countTodayPractice, countWeeklyMocks } from "@/lib/entitlements";
 import type { Attempt, ClientSafeQuestion, Question } from "@/lib/types";
@@ -48,7 +48,9 @@ export function createAttempt(input: CreateAttemptInput): CreatedAttempt {
     }
   }
 
-  const exam = db.prepare("SELECT * FROM exams WHERE code = ?").get(input.examCode) as any;
+  const exam = db.prepare(
+    "SELECT id, duration_minutes, total_questions FROM exams WHERE code = ?"
+  ).get(input.examCode) as any;
   if (!exam) throw new Error("Exam not found.");
 
   // Gather questions
@@ -69,7 +71,7 @@ export function createAttempt(input: CreateAttemptInput): CreatedAttempt {
   } else {
     // Practice mode
     if (input.topicSlug) {
-      const topic = db.prepare("SELECT * FROM topics WHERE slug = ?").get(input.topicSlug) as any;
+      const topic = db.prepare("SELECT id FROM topics WHERE slug = ?").get(input.topicSlug) as any;
       if (topic) topicId = topic.id;
       questions = getQuestions({
         topicId: topicId || undefined,
@@ -123,7 +125,11 @@ export function saveAnswer(
   initDB();
   const db = getDB();
 
-  const attempt = db.prepare("SELECT * FROM attempts WHERE id = ?").get(attemptId) as any;
+  const attempt = db.prepare(
+    `SELECT id, user_id, mode, started_at, submitted_at, time_limit_seconds
+     FROM attempts
+     WHERE id = ?`
+  ).get(attemptId) as any;
   if (!attempt) throw new Error("Attempt not found.");
   if (attempt.user_id !== userId) throw new Error("Forbidden.");
   if (attempt.submitted_at) throw new Error("Attempt already submitted.");
@@ -193,26 +199,35 @@ export function submitAttempt(attemptId: string): SubmitResult {
   initDB();
   const db = getDB();
 
-  const attempt = db.prepare("SELECT * FROM attempts WHERE id = ?").get(attemptId) as any;
+  const attempt = db.prepare(
+    "SELECT id, submitted_at FROM attempts WHERE id = ?"
+  ).get(attemptId) as any;
   if (!attempt) throw new Error("Attempt not found.");
   if (attempt.submitted_at) throw new Error("Attempt already submitted.");
 
   const aqRows = db.prepare(
-    "SELECT * FROM attempt_questions WHERE attempt_id = ? ORDER BY order_index"
+    "SELECT question_id FROM attempt_questions WHERE attempt_id = ? ORDER BY order_index"
   ).all(attemptId) as any[];
+  const questionsById = new Map(
+    getQuestionsByIds(aqRows.map((aq) => aq.question_id)).map((question) => [question.id, question])
+  );
+  const answersByQuestionId = new Map(
+    (db.prepare(
+      `SELECT id, question_id, response
+       FROM attempt_answers
+       WHERE attempt_id = ?`
+    ).all(attemptId) as any[]).map((answer) => [answer.question_id, answer])
+  );
 
   let totalPoints = 0;
   let earnedPoints = 0;
 
   for (const aq of aqRows) {
-    const question = getQuestionById(aq.question_id);
+    const question = questionsById.get(aq.question_id);
     if (!question) continue;
     totalPoints += question.points;
 
-    const answerRow = db.prepare(
-      "SELECT * FROM attempt_answers WHERE attempt_id = ? AND question_id = ?"
-    ).get(attemptId, aq.question_id) as any;
-
+    const answerRow = answersByQuestionId.get(aq.question_id);
     if (!answerRow) continue;
 
     const response = answerRow.response ? JSON.parse(answerRow.response) : null;
@@ -265,20 +280,21 @@ export function getAttemptReview(attemptId: string): {
   initDB();
   const db = getDB();
 
-  const attempt = db.prepare("SELECT * FROM attempts WHERE id = ?").get(attemptId) as any;
+  const attempt = db.prepare(
+    `SELECT id, user_id, exam_id, mode, topic_id, started_at, submitted_at, score, total, time_limit_seconds
+     FROM attempts
+     WHERE id = ?`
+  ).get(attemptId) as any;
   if (!attempt) throw new Error("Attempt not found.");
 
   const aqRows = db.prepare(
-    "SELECT * FROM attempt_questions WHERE attempt_id = ? ORDER BY order_index"
+    "SELECT question_id FROM attempt_questions WHERE attempt_id = ? ORDER BY order_index"
   ).all(attemptId) as any[];
 
-  const questions = aqRows.map((aq) => {
-    const q = getQuestionById(aq.question_id);
-    return q;
-  }).filter(Boolean);
+  const questions = getQuestionsByIds(aqRows.map((aq) => aq.question_id));
 
   const answerRows = db.prepare(
-    "SELECT * FROM attempt_answers WHERE attempt_id = ?"
+    "SELECT question_id, response, is_correct, points_awarded FROM attempt_answers WHERE attempt_id = ?"
   ).all(attemptId) as any[];
 
   const answers = new Map<string, any>();
@@ -297,7 +313,11 @@ export function getUserAttempts(userId: string, limit = 10): Attempt[] {
   initDB();
   const db = getDB();
   const rows = db.prepare(
-    "SELECT * FROM attempts WHERE user_id = ? ORDER BY started_at DESC LIMIT ?"
+    `SELECT id, user_id, exam_id, mode, topic_id, started_at, submitted_at, score, total, time_limit_seconds
+     FROM attempts
+     WHERE user_id = ?
+     ORDER BY started_at DESC
+     LIMIT ?`
   ).all(userId, limit) as any[];
   return rows.map((r) => ({
     id: r.id,
@@ -316,7 +336,9 @@ export function getUserAttempts(userId: string, limit = 10): Attempt[] {
 export function isAttemptExpired(attemptId: string): boolean {
   initDB();
   const db = getDB();
-  const attempt = db.prepare("SELECT * FROM attempts WHERE id = ?").get(attemptId) as any;
+  const attempt = db.prepare(
+    "SELECT started_at, submitted_at, time_limit_seconds FROM attempts WHERE id = ?"
+  ).get(attemptId) as any;
   if (!attempt || !attempt.time_limit_seconds || attempt.submitted_at) return false;
 
   const started = new Date(attempt.started_at + "Z").getTime();
