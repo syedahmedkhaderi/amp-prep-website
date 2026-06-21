@@ -11,6 +11,7 @@ import { getDB, initDB } from "@/lib/db/sqlite";
 import type { User, Plan, Role } from "@/lib/types";
 
 const COOKIE_NAME = "amp_session";
+const USER_COLUMNS = "id, email, full_name, role, plan";
 
 const DEV_FALLBACK_SECRET = "local-dev-secret-change-in-production";
 
@@ -58,7 +59,9 @@ export async function signUp(email: string, password: string, fullName: string):
 export async function signIn(email: string, password: string): Promise<User> {
   initDB();
   const db = getDB();
-  const row = db.prepare("SELECT * FROM users WHERE email = ?").get(email.toLowerCase()) as any;
+  const row = db.prepare(
+    `SELECT ${USER_COLUMNS}, password_hash FROM users WHERE email = ?`
+  ).get(email.toLowerCase()) as any;
   if (!row) throw new Error("Invalid email or password.");
 
   const ok = await bcrypt.compare(password, row.password_hash);
@@ -88,7 +91,7 @@ export async function getCurrentUser(): Promise<User | null> {
   if (!session) return null;
   initDB();
   const db = getDB();
-  const row = db.prepare("SELECT * FROM users WHERE id = ?").get(session.userId) as any;
+  const row = db.prepare(`SELECT ${USER_COLUMNS} FROM users WHERE id = ?`).get(session.userId) as any;
   if (!row) return null;
   return rowToUser(row);
 }

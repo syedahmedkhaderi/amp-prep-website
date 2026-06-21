@@ -72,7 +72,7 @@ function seed() {
   const allTopics = [...topicsFile.amp1, ...topicsFile.amp2];
 
   // Get exam IDs
-  const exams = db.prepare("SELECT * FROM exams").all() as any[];
+  const exams = db.prepare("SELECT id, code FROM exams").all() as any[];
   const amp1Exam = exams.find((e) => e.code === "AMP1");
   const amp2Exam = exams.find((e) => e.code === "AMP2");
 

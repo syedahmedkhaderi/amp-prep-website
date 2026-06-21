@@ -163,9 +163,18 @@ export function initDB(): void {
     CREATE INDEX IF NOT EXISTS idx_questions_topic ON questions(topic_id);
     CREATE INDEX IF NOT EXISTS idx_questions_exam ON questions(exam_id);
     CREATE INDEX IF NOT EXISTS idx_questions_status ON questions(status);
+    CREATE INDEX IF NOT EXISTS idx_questions_status_topic ON questions(status, topic_id, difficulty, created_at);
+    CREATE INDEX IF NOT EXISTS idx_questions_status_exam_free ON questions(status, exam_id, is_free, difficulty, created_at);
     CREATE INDEX IF NOT EXISTS idx_options_question ON question_options(question_id);
+    CREATE INDEX IF NOT EXISTS idx_matches_question ON question_matches(question_id);
+    CREATE INDEX IF NOT EXISTS idx_match_choices_question ON question_match_choices(question_id);
+    CREATE INDEX IF NOT EXISTS idx_numeric_answers_question ON numeric_answers(question_id);
     CREATE INDEX IF NOT EXISTS idx_attempts_user ON attempts(user_id);
+    CREATE INDEX IF NOT EXISTS idx_attempts_user_mode_started ON attempts(user_id, mode, started_at);
+    CREATE INDEX IF NOT EXISTS idx_attempt_questions_attempt_order ON attempt_questions(attempt_id, order_index);
+    CREATE INDEX IF NOT EXISTS idx_attempt_questions_attempt_question ON attempt_questions(attempt_id, question_id);
     CREATE INDEX IF NOT EXISTS idx_attempt_answers_attempt ON attempt_answers(attempt_id);
+    CREATE INDEX IF NOT EXISTS idx_attempt_answers_attempt_question ON attempt_answers(attempt_id, question_id);
   `);
 
   // Seed exams if empty
