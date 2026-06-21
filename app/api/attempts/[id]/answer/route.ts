@@ -18,7 +18,7 @@ export async function POST(
   }
 
   try {
-    const result = saveAnswer(attemptId, questionId, response, "practice");
+    const result = saveAnswer(attemptId, questionId, response, user.id);
     return NextResponse.json(result);
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 400 });

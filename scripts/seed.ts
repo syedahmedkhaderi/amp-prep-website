@@ -19,6 +19,37 @@ const TOPICS_PATH = path.resolve(process.cwd(), "data/generated/topics.json");
 
 const uid = () => Math.random().toString(36).slice(2, 12);
 
+function validateQuestion(q: any): string | null {
+  if (!q?.id) return "missing id";
+  if (!q.topic_slug) return "missing topic slug";
+  if (!q.type) return "missing question type";
+  if (!q.stem) return "missing stem";
+
+  if (["single_mcq", "multi_mcq", "fill_blank"].includes(q.type)) {
+    if (!Array.isArray(q.options) || q.options.length === 0) return "missing options";
+    if (q.options.some((opt: any) => !opt?.content)) return "option content is missing";
+  }
+
+  if (q.type === "matching") {
+    if (!Array.isArray(q.matches) || q.matches.length === 0) return "missing match rows";
+    if (!Array.isArray(q.match_choices) || q.match_choices.length === 0) return "missing match choices";
+    const invalidMatch = q.matches.some(
+      (m: any) =>
+        !m?.left_content ||
+        !Number.isInteger(m.correct_choice_index) ||
+        m.correct_choice_index < 0 ||
+        m.correct_choice_index >= q.match_choices.length
+    );
+    if (invalidMatch) return "invalid match answer index";
+  }
+
+  if (q.type === "numeric" && typeof q.numeric_answer?.value !== "number") {
+    return "missing numeric answer";
+  }
+
+  return null;
+}
+
 function loadVerified() {
   if (fs.existsSync(QUESTIONS_PATH)) {
     const data = JSON.parse(fs.readFileSync(QUESTIONS_PATH, "utf-8"));
@@ -90,6 +121,7 @@ function seed() {
 
   let inserted = 0;
   let freeCount = 0;
+  let skipped = 0;
 
   for (const q of questions) {
     // Find topic and exam
@@ -97,6 +129,13 @@ function seed() {
     const topicRow = db.prepare("SELECT id, exam_id FROM topics WHERE slug = ?").get(topicSlug) as any;
     if (!topicRow) {
       console.warn(`  [seed] Topic not found: ${topicSlug}`);
+      skipped++;
+      continue;
+    }
+
+    const invalidReason = validateQuestion(q);
+    if (invalidReason) {
+      skipped++;
       continue;
     }
 
@@ -106,7 +145,6 @@ function seed() {
 
     // Mark ~40% of AMP1 questions as free
     const isFree = isAMP1 && Math.random() < 0.4;
-    if (isFree) freeCount++;
 
     try {
       insertQ.run(
@@ -157,12 +195,16 @@ function seed() {
       }
 
       inserted++;
+      if (isFree) freeCount++;
     } catch (e: any) {
-      console.warn(`  [seed] Failed to insert ${q.id}: ${e.message}`);
+      skipped++;
     }
   }
 
   console.log(`[seed] Done. Inserted ${inserted} questions (${freeCount} marked free).`);
+  if (skipped > 0) {
+    console.log(`[seed] Skipped ${skipped} malformed or incomplete questions.`);
+  }
 
   // Summary
   const counts = db.prepare(

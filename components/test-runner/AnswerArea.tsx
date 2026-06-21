@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useEffect, useState } from "react";
 import { MathText } from "@/components/ui/Katex";
 import type { ClientSafeQuestion } from "@/lib/types";
 
@@ -30,6 +30,9 @@ export function AnswerArea({ question, initialResponse, onAnswerChange, revealed
 
 function SingleMCQ({ question, initialResponse, onAnswerChange, revealed, feedback }: AnswerAreaProps) {
   const [selected, setSelected] = useState<string | undefined>(initialResponse?.optionId);
+  useEffect(() => {
+    setSelected(initialResponse?.optionId);
+  }, [initialResponse?.optionId, question.id]);
 
   return (
     <div className="space-y-2 mt-4">
@@ -47,7 +50,7 @@ function SingleMCQ({ question, initialResponse, onAnswerChange, revealed, feedba
             <input
               type="radio"
               name={`q_${question.id}`}
-              checked={isSelected || false}
+              checked={isSelected}
               disabled={revealed}
               onChange={() => {
                 setSelected(opt.id);
@@ -68,6 +71,9 @@ function SingleMCQ({ question, initialResponse, onAnswerChange, revealed, feedba
 
 function MultiMCQ({ question, initialResponse, onAnswerChange, revealed, feedback }: AnswerAreaProps) {
   const [checked, setChecked] = useState<Set<string>>(new Set(initialResponse?.optionIds || []));
+  useEffect(() => {
+    setChecked(new Set(initialResponse?.optionIds || []));
+  }, [initialResponse?.optionIds, question.id]);
 
   const toggle = (id: string) => {
     const next = new Set(checked);
@@ -108,6 +114,9 @@ function MultiMCQ({ question, initialResponse, onAnswerChange, revealed, feedbac
 
 function Matching({ question, initialResponse, onAnswerChange }: AnswerAreaProps) {
   const [answers, setAnswers] = useState<Record<string, number>>(initialResponse?.answers || {});
+  useEffect(() => {
+    setAnswers(initialResponse?.answers || {});
+  }, [initialResponse?.answers, question.id]);
 
   const handleChange = (matchId: string, value: number) => {
     const next = { ...answers, [matchId]: value };
@@ -126,7 +135,7 @@ function Matching({ question, initialResponse, onAnswerChange }: AnswerAreaProps
               onChange={(e) => handleChange(match.id, Number(e.target.value))}
               className="w-16 rounded border border-surface-border px-2 py-1.5 text-sm text-ink"
             >
-              <option value="">-</option>
+              <option value="">Select</option>
               {question.matchChoices?.map((_, idx) => (
                 <option key={idx} value={idx}>{idx + 1}</option>
               ))}
@@ -153,6 +162,9 @@ function Matching({ question, initialResponse, onAnswerChange }: AnswerAreaProps
 
 function Numeric({ question, initialResponse, onAnswerChange, revealed, feedback }: AnswerAreaProps) {
   const [value, setValue] = useState<string>(initialResponse?.value || "");
+  useEffect(() => {
+    setValue(initialResponse?.value || "");
+  }, [initialResponse?.value, question.id]);
 
   return (
     <div className="mt-4">

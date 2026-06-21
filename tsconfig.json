@@ -7,6 +7,10 @@
       "esnext"
     ],
     "allowJs": true,
+    "types": [
+      "vitest/globals",
+      "node"
+    ],
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,

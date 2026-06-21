@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "What does Pro add?",
-    a: "Pro removes the daily practice cap and weekly mock limit, unlocks the full AMP 2 precalculus content (800+ questions), adds topic analytics with weak area targeting, lets you retry only the questions you got wrong, and gives access to 40+ full length practice papers.",
+    a: "Pro removes the daily practice cap and weekly mock limit, gives access to the full AMP 2 precalculus content (800+ questions), adds topic analytics with weak area targeting, lets you retry only the questions you got wrong, and gives access to 40+ full length practice papers.",
   },
   {
     q: "How much does Pro cost?",

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
-import { submitAttempt, isAttemptExpired } from "@/lib/attempts";
+import { submitUserAttempt, isAttemptExpired } from "@/lib/attempts";
 
 export async function POST(
   _req: NextRequest,
@@ -15,7 +15,7 @@ export async function POST(
     if (isAttemptExpired(attemptId)) {
       // Allow submit even if expired
     }
-    const result = submitAttempt(attemptId);
+    const result = submitUserAttempt(attemptId, user.id);
     return NextResponse.json(result);
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 400 });

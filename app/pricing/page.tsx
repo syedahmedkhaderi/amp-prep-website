@@ -91,7 +91,7 @@ function Feature({ text, included }: { text: string; included: boolean }) {
   return (
     <li className={`flex items-start gap-2 ${included ? "text-ink" : "text-ink-light"}`}>
       <span className={`mt-0.5 ${included ? "text-green-600" : "text-surface-border"}`}>
-        {included ? "✓" : "—"}
+        {included ? "✓" : "Not included"}
       </span>
       <span>{text}</span>
     </li>
