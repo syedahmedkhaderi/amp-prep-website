@@ -24,12 +24,18 @@ export default async function MockStartPage({ params }: { params: Promise<{ exam
     redirect("/mock?reason=weekly-limit");
   }
 
-  const result = createAttempt({
-    userId: user.id,
-    examCode: code,
-    mode: "mock",
-    isPro: entitlements.isPro,
-  });
+  let attemptId: string;
+  try {
+    const result = createAttempt({
+      userId: user.id,
+      examCode: code,
+      mode: "mock",
+      isPro: entitlements.isPro,
+    });
+    attemptId = result.attemptId;
+  } catch {
+    redirect("/mock?reason=no-questions");
+  }
 
-  redirect(`/mock/runner/${result.attemptId}`);
+  redirect(`/mock/runner/${attemptId}`);
 }

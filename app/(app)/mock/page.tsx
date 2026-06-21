@@ -3,9 +3,14 @@ import { getCurrentUser } from "@/lib/auth";
 import { getExamByCode, getQuestionCount } from "@/lib/db/queries";
 import { getEntitlements } from "@/lib/entitlements";
 
-export default async function MockPage() {
+export default async function MockPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ reason?: string }>;
+}) {
   const user = await getCurrentUser();
   if (!user) return null;
+  const params = searchParams ? await searchParams : {};
 
   const entitlements = getEntitlements(user);
   const amp1 = getExamByCode("AMP1");
@@ -19,6 +24,11 @@ export default async function MockPage() {
         Sit a full length mock that reproduces the official quiz interface. The
         timer counts down and auto submits at zero. Your progress autosaves.
       </p>
+      {params.reason === "no-questions" && (
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          No published questions are available for that mock yet. Run the question pipeline or choose another exam.
+        </div>
+      )}
 
       {/* AMP 1 mock */}
       <div className="mt-8 rounded-xl border border-surface-border bg-white p-6">

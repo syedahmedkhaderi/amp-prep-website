@@ -1,67 +1,55 @@
-#!/bin/bash
-# AMP Prep setup script: install deps, init database, generate questions, seed, run.
-# Usage: bash setup.sh [skip-gen]
-#   skip-gen: skip question generation (use existing questions.json)
+#!/usr/bin/env bash
+set -euo pipefail
 
-set -e
-cd "$(dirname "$0")"
-echo "=== AMP Prep Setup ==="
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT_DIR"
 
-# 1. Install dependencies
-echo ""
-echo "[1/6] Installing dependencies..."
+PORT="${PORT:-3000}"
+HOST="${HOST:-0.0.0.0}"
+SKIP_CHECKS="${SKIP_CHECKS:-0}"
+RUN_PIPELINE="${RUN_PIPELINE:-0}"
+
+if ! command -v npm >/dev/null 2>&1; then
+  echo "npm is required. Install Node.js 20 or newer, then run this script again."
+  exit 1
+fi
+
+echo "AMP Prep setup"
+echo "1. Installing dependencies"
 npm install
 
-# 2. Initialize database
-echo ""
-echo "[2/6] Initializing database..."
+if [ ! -f .env.local ] && [ -f .env.example ]; then
+  cp .env.example .env.local
+  echo "Created .env.local from .env.example. Fill provider keys when you need payments or Supabase."
+fi
+
+echo "2. Initializing the local database"
 npx tsx -e "import { initDB } from './lib/db/sqlite'; initDB(); console.log('Database initialized.');"
 
-# 3. Parse PDF (skip if topics.json exists)
-echo ""
-echo "[3/6] Parsing PDF..."
-if [ ! -f data/generated/topics.json ]; then
-  echo "Place the AMP study guide PDF in data/source/ before running."
-  echo "Looking for PDF..."
-  if ls data/source/*.pdf 1>/dev/null 2>&1; then
-    npx tsx scripts/parse-pdf.ts
-  else
-    echo "No PDF found in data/source/. Using default topics."
-    npx tsx scripts/parse-pdf.ts || true
-  fi
-else
-  echo "topics.json already exists, skipping parse."
-fi
-
-# 4. Generate questions (skip if flag provided or questions.json exists)
-echo ""
-echo "[4/6] Generating questions..."
-if [ "$1" == "skip-gen" ]; then
-  echo "Skipping generation (skip-gen flag)."
-elif [ -f data/generated/questions.json ]; then
-  echo "questions.json already exists. Run 'npm run generate' to add more."
-else
-  echo "Starting generation. This uses the Gemini API and may take time."
-  echo "Make sure your Gemini keys are in scripts/.env"
+if [ "$RUN_PIPELINE" = "1" ]; then
+  echo "3. Running the question pipeline"
+  npm run parse-pdf
   npm run generate
+  npm run verify
+  npm run seed
+  npm run assemble
+else
+  echo "3. Using the existing question bank"
+  if [ -f data/generated/questions.json ]; then
+    npm run seed
+    npm run assemble
+  else
+    echo "No generated question file found. Set RUN_PIPELINE=1 after adding script keys."
+  fi
 fi
 
-# 5. Seed database
-echo ""
-echo "[5/6] Seeding database..."
-npx tsx scripts/seed.ts
+if [ "$SKIP_CHECKS" != "1" ]; then
+  echo "4. Running verification"
+  npm run typecheck
+  npm test
+else
+  echo "4. Skipping verification because SKIP_CHECKS=1"
+fi
 
-# 6. Assemble papers
-echo ""
-echo "[6/6] Assembling papers..."
-npx tsx scripts/assemble-papers.ts
-
-# Done
-echo ""
-echo "=== Setup complete ==="
-echo ""
-echo "To start the dev server:  npm run dev"
-echo "To run tests:             npm test"
-echo "To build for production:  npm run build"
-echo ""
-echo "App will be available at http://localhost:3000"
+echo "5. Starting AMP Prep on http://localhost:${PORT}"
+npm run dev -- --hostname "$HOST" --port "$PORT"

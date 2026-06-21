@@ -17,14 +17,20 @@ export default async function PracticeStartPage({ params }: { params: Promise<{ 
     redirect("/dashboard?reason=practice-limit");
   }
 
-  const result = createAttempt({
-    userId: user.id,
-    examCode: topic.examCode || "AMP1",
-    mode: "practice",
-    topicSlug: slug,
-    questionCount: 10,
-    isPro: entitlements.isPro,
-  });
+  let attemptId: string;
+  try {
+    const result = createAttempt({
+      userId: user.id,
+      examCode: topic.examCode || "AMP1",
+      mode: "practice",
+      topicSlug: slug,
+      questionCount: 10,
+      isPro: entitlements.isPro,
+    });
+    attemptId = result.attemptId;
+  } catch {
+    redirect(`/topics/${slug}?reason=no-questions`);
+  }
 
-  redirect(`/practice/runner/${result.attemptId}`);
+  redirect(`/practice/runner/${attemptId}`);
 }

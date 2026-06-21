@@ -118,14 +118,19 @@ export function saveAnswer(
   attemptId: string,
   questionId: string,
   response: any,
-  mode: "practice" | "mock"
+  userId: string
 ): { saved: number; feedback?: any } {
   initDB();
   const db = getDB();
 
   const attempt = db.prepare("SELECT * FROM attempts WHERE id = ?").get(attemptId) as any;
   if (!attempt) throw new Error("Attempt not found.");
+  if (attempt.user_id !== userId) throw new Error("Forbidden.");
   if (attempt.submitted_at) throw new Error("Attempt already submitted.");
+  const belongsToAttempt = db.prepare(
+    "SELECT 1 FROM attempt_questions WHERE attempt_id = ? AND question_id = ?"
+  ).get(attemptId, questionId);
+  if (!belongsToAttempt) throw new Error("Question is not part of this attempt.");
 
   // Upsert answer
   const existing = db.prepare(
@@ -147,7 +152,7 @@ export function saveAnswer(
   ).c;
 
   // Practice mode: return feedback for this question
-  if (mode === "practice") {
+  if (attempt.mode === "practice") {
     const question = getQuestionById(questionId);
     if (question) {
       const result = gradeAnswer(question, response);
@@ -222,6 +227,15 @@ export function submitAttempt(attemptId: string): SubmitResult {
     earnedPoints: Math.round(earnedPoints * 100) / 100,
     totalPoints,
   };
+}
+
+export function submitUserAttempt(attemptId: string, userId: string): SubmitResult {
+  initDB();
+  const db = getDB();
+  const attempt = db.prepare("SELECT user_id FROM attempts WHERE id = ?").get(attemptId) as any;
+  if (!attempt) throw new Error("Attempt not found.");
+  if (attempt.user_id !== userId) throw new Error("Forbidden.");
+  return submitAttempt(attemptId);
 }
 
 export interface SubmitResult {

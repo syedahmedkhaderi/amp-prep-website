@@ -3,8 +3,15 @@ import { notFound } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { getTopicBySlug, getQuestions } from "@/lib/db/queries";
 
-export default async function TopicDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function TopicDetailPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ reason?: string }>;
+}) {
   const { slug } = await params;
+  const query = searchParams ? await searchParams : {};
   const user = await getCurrentUser();
   if (!user) return null;
 
@@ -34,10 +41,15 @@ export default async function TopicDetailPage({ params }: { params: Promise<{ sl
   return (
     <div className="mx-auto max-w-3xl px-6 py-8">
       <Link href="/topics" className="text-sm text-brand-600 hover:text-brand-deep">
-        ← All topics
+        Back to all topics
       </Link>
       <h1 className="mt-4 text-2xl font-bold text-brand-deep">{topic.name}</h1>
       <p className="mt-2 text-ink-soft">{topic.description}</p>
+      {query.reason === "no-questions" && (
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          No published questions are available for this topic yet. Run the question pipeline or choose another topic.
+        </div>
+      )}
 
       {questions.length === 0 ? (
         <div className="mt-8 rounded-xl border border-surface-border bg-surface-panel p-8 text-center">

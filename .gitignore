@@ -36,6 +36,8 @@ Thumbs.db
 *.sqlite
 *.sqlite-journal
 *.db
+*.db-shm
+*.db-wal
 
 # vercel
 .vercel

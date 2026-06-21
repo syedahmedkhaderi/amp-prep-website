@@ -25,7 +25,7 @@ export default async function DashboardPage() {
           <p className="mt-1 text-sm text-ink-soft">
             {entitlements.isPro
               ? "You have unlimited practice and mocks."
-              : `You have ${entitlements.dailyPracticeLimit - entitlements.dailyPracticeUsed} practice questions and ${entitlements.weeklyMockLimit - entitlements.weeklyMocksUsed} mock remaining today.`}
+              : `You have ${entitlements.dailyPracticeLimit - entitlements.dailyPracticeUsed} practice questions today and ${entitlements.weeklyMockLimit - entitlements.weeklyMocksUsed} mock this week.`}
           </p>
         </div>
         {!entitlements.isPro && (
@@ -49,7 +49,7 @@ export default async function DashboardPage() {
             Choose a topic and answer questions with immediate feedback and full solutions.
           </p>
           <span className="mt-3 inline-block text-sm font-medium text-brand-600">
-            Browse {amp1Topics.length} AMP 1 topics →
+            Browse {amp1Topics.length} AMP 1 topics
           </span>
         </Link>
         <Link
@@ -62,7 +62,7 @@ export default async function DashboardPage() {
             Mirrors the real test interface with a live countdown.
           </p>
           <span className="mt-3 inline-block text-sm font-medium text-brand-600">
-            {entitlements.canTakeMock ? "Start mock exam →" : "Weekly limit reached"}
+            {entitlements.canTakeMock ? "Start mock exam" : "Weekly limit reached"}
           </span>
         </Link>
       </div>

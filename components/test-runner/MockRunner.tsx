@@ -57,6 +57,7 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
   };
 
   const handleAnswerChange = useCallback((response: any) => {
+    if (!currentQuestion) return;
     const qid = currentQuestion.id;
     setAnswers((prev) => ({ ...prev, [qid]: response }));
 
@@ -71,7 +72,7 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
         setSavedIds((prev) => new Set(prev).add(qid));
       }
     }).catch(() => {});
-  }, [currentQuestion.id, attemptId]);
+  }, [currentQuestion, attemptId]);
 
   const submitAttempt = async (auto = false) => {
     if (submitting) return;
@@ -96,6 +97,25 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
   const handleNext = () => {
     if (currentIndex < totalPages - 1) setCurrentIndex(currentIndex + 1);
   };
+
+  if (!questions.length || !currentQuestion) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-surface px-6">
+        <div className="max-w-xl rounded-lg border border-surface-border bg-white p-8 text-center">
+          <h1 className="text-2xl font-bold text-brand-deep">No questions available</h1>
+          <p className="mt-3 text-ink-soft">
+            This mock has no questions. Return to the mock page and choose another exam.
+          </p>
+          <a
+            href="/mock"
+            className="mt-6 inline-block rounded bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700"
+          >
+            Back to mocks
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   const isWarning = remainingSeconds !== null && remainingSeconds <= 300 && remainingSeconds > 60;
   const isCritical = remainingSeconds !== null && remainingSeconds <= 60;
@@ -180,6 +200,7 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
               </div>
 
               <AnswerArea
+                key={currentQuestion.id}
                 question={currentQuestion}
                 initialResponse={answers[currentQuestion.id]}
                 onAnswerChange={handleAnswerChange}

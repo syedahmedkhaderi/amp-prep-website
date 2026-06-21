@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { MathText } from "@/components/ui/Katex";
 import { AnswerArea } from "@/components/test-runner/AnswerArea";
 import type { ClientSafeQuestion } from "@/lib/types";
@@ -27,10 +27,12 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
   const currentQuestion = questions[currentIndex];
 
   const handleAnswerChange = useCallback((response: any) => {
+    if (!currentQuestion) return;
     setAnswers((prev) => ({ ...prev, [currentQuestion.id]: response }));
-  }, [currentQuestion.id]);
+  }, [currentQuestion]);
 
   const saveAnswer = async () => {
+    if (!currentQuestion) return;
     const response = answers[currentQuestion.id];
     if (!response) return;
 
@@ -67,6 +69,23 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
   const goPrev = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
   };
+
+  if (!questions.length || !currentQuestion) {
+    return (
+      <div className="mx-auto max-w-2xl px-6 py-16 text-center">
+        <h2 className="text-2xl font-bold text-brand-deep">No questions available</h2>
+        <p className="mt-4 text-ink-soft">
+          This practice set has no questions. Choose another topic or run the question pipeline again.
+        </p>
+        <a
+          href="/topics"
+          className="mt-8 inline-block rounded-lg bg-brand-deep px-6 py-3 font-medium text-white hover:bg-brand-700"
+        >
+          Back to topics
+        </a>
+      </div>
+    );
+  }
 
   if (completed) {
     return (
@@ -143,6 +162,7 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
         </div>
 
         <AnswerArea
+          key={currentQuestion.id}
           question={currentQuestion}
           initialResponse={answers[currentQuestion.id]}
           onAnswerChange={handleAnswerChange}
