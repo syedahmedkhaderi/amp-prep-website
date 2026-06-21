@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
 import { signOutAction } from "@/app/auth/actions";
+import { AppNav } from "@/components/ui/AppNav";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUser();
@@ -9,25 +10,15 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b border-surface-border bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <header className="sticky top-0 z-30 border-b border-surface-border bg-white">
+        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-8">
             <Link href="/dashboard" className="font-bold text-brand-deep">
               AMP Prep
             </Link>
-            <nav className="flex items-center gap-5 text-sm">
-              <Link href="/dashboard" className="text-ink-soft hover:text-brand-deep">
-                Dashboard
-              </Link>
-              <Link href="/topics" className="text-ink-soft hover:text-brand-deep">
-                Topics
-              </Link>
-              <Link href="/mock" className="text-ink-soft hover:text-brand-deep">
-                Mock exams
-              </Link>
-            </nav>
+            <AppNav />
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
               user.plan === "pro"
                 ? "bg-brand-deep text-white"
@@ -35,7 +26,10 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             }`}>
               {user.plan === "pro" ? "PRO" : "FREE"}
             </span>
-            <Link href="/account" className="text-sm text-ink-soft hover:text-brand-deep">
+            <Link
+              href="/account"
+              className="hidden max-w-[160px] truncate text-sm text-ink-soft transition-colors hover:text-brand-deep sm:inline-block"
+            >
               {user.fullName || user.email}
             </Link>
             <form action={signOutAction}>
@@ -46,7 +40,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           </div>
         </div>
       </header>
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1">{children}</main>
     </div>
   );
 }

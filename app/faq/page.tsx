@@ -41,7 +41,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 mx-auto max-w-3xl px-6 py-16 w-full">
+      <main id="main-content" className="flex-1 mx-auto max-w-3xl px-6 py-16 w-full">
         <h1 className="text-3xl font-bold text-brand-deep">
           Frequently asked questions
         </h1>

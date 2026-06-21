@@ -7,7 +7,7 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 mx-auto max-w-5xl px-6 py-16 w-full">
+      <main id="main-content" className="flex-1 mx-auto max-w-5xl px-6 py-16 w-full">
         <h1 className="text-3xl font-bold text-brand-deep text-center">
           Simple pricing
         </h1>
@@ -90,8 +90,23 @@ export default function PricingPage() {
 function Feature({ text, included }: { text: string; included: boolean }) {
   return (
     <li className={`flex items-start gap-2 ${included ? "text-ink" : "text-ink-light"}`}>
-      <span className={`mt-0.5 ${included ? "text-green-600" : "text-surface-border"}`}>
-        {included ? "✓" : "Not included"}
+      <span className={`mt-0.5 shrink-0 ${included ? "text-green-600" : "text-ink-light"}`}>
+        <span className="sr-only">{included ? "Included:" : "Not included:"}</span>
+        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+          {included ? (
+            <path
+              fillRule="evenodd"
+              d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.1 3.1 6.8-6.8a1 1 0 0 1 1.4 0Z"
+              clipRule="evenodd"
+            />
+          ) : (
+            <path
+              fillRule="evenodd"
+              d="M10 8.6 6.4 5 5 6.4 8.6 10 5 13.6 6.4 15 10 11.4 13.6 15 15 13.6 11.4 10 15 6.4 13.6 5 10 8.6Z"
+              clipRule="evenodd"
+            />
+          )}
+        </svg>
       </span>
       <span>{text}</span>
     </li>

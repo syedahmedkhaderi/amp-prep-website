@@ -27,7 +27,7 @@ const config: Config = {
         ink: {
           DEFAULT: "#1F2933",
           soft: "#3E4C59",
-          light: "#7B8794",
+          light: "#5B6573",
         },
         surface: {
           DEFAULT: "#FAFBFC",

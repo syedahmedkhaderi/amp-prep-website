@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <section className="border-b border-surface-border bg-white">
           <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
@@ -40,7 +40,10 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="overflow-hidden rounded-lg border border-surface-border bg-surface p-4 shadow-sm">
+            <div
+              aria-hidden="true"
+              className="overflow-hidden rounded-xl border border-surface-border bg-surface p-4 shadow-sm"
+            >
               <div className="flex flex-col gap-2 border-b border-surface-border bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm font-semibold text-brand-deep">AMP 1 Mock</p>
@@ -55,8 +58,16 @@ export default function HomePage() {
                       key={n}
                       className={`mb-2 rounded px-2 py-2 text-xs ${n === 3 ? "bg-quiz-blue text-white" : "text-ink"}`}
                     >
-                      <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded border border-surface-border bg-white text-[10px] text-ink">
-                        {n < 3 ? "✓" : ""}
+                      <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded border border-surface-border bg-white text-ink">
+                        {n < 3 && (
+                          <svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3 text-green-600">
+                            <path
+                              fillRule="evenodd"
+                              d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.1 3.1 6.8-6.8a1 1 0 0 1 1.4 0Z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        )}
                       </span>
                       Page {n}
                     </div>
