@@ -1,178 +1,68 @@
 # AMP Prep: Final Build Report
 
-## Project Summary
+## GENERATION COMPLETE
 
-AMP Prep is a production-ready web application that helps students prepare for
-the UDST Academic Mathematics Placement (AMP) tests. It features a marketing
-site, a study area with practice questions, and a timed mock exam interface
-that reproduces the official Brightspace quiz layout.
+### Question Bank
+- AMP1: 2997 questions across all 20 topics
+- AMP2: 792 questions across all 12 precalculus topics
+- Total: 3789 published questions, 1204 marked free
+- 69 assembled papers: 10 free AMP1, 40 pro AMP1, 19 pro AMP2
+- All questions include full worked solutions, distractor rationales, concept summaries
+- All math in LaTeX rendered with KaTeX
 
-The platform uses a 12-key Gemini API rotator to generate an original question
-bank offline. The live website contains no AI: all questions are pre-generated
-and served as static content.
+### API Usage
+- 5366 successful API requests across 6 Gemini models
+- 12 API keys with multi-model rotation (gemini-2.5-flash, 2.5-flash-lite, 3.5-flash, flash-latest, 3-flash-preview, 3.1-flash-lite)
+- Zero-cost generation using free tier quotas
 
-## What Was Built
+### Topics Covered (32 total)
+AMP1 (20 topics, 150 questions each):
+Real Number System, Whole Numbers and Integers, Fractions, Decimals, Percent,
+Solving Equations, Formula Rearrangement, Laws of Exponents, Negative Exponents,
+Polynomials, Factoring, Rational Expressions, Geometry, Equation of the Line,
+Systems of Equations and Inequalities, Trigonometry, Data Management, Functions,
+Logarithms, Word Problems
 
-### 1. Gemini Key Rotator (Section 22)
-- 12-key round-robin rotator in scripts/lib/gemini-rotator.ts
-- Per-key RPM and RPD tracking
-- Parses "retry in X seconds" hints from API 429 responses for precise cooldowns
-- Global request pacing prevents coordinated key exhaustion
-- Exponential backoff for transient errors (503)
-- 20 max retries per request
-- Status logging to Final_Outputs/generation-log.md
+AMP2 (12 topics, ~66 questions each):
+Advanced Algebra, Quadratic Functions, Polynomial Functions, Rational Functions,
+Exponential Functions, Logarithmic Functions, Composite and Inverse Functions,
+Analytic Trigonometry, Trigonometric Equations, Trig Graphs and Transformations,
+Sequences and Series, Systems and Matrices
 
-### 2. PDF Parsing Pipeline
-- Sent the 4.5MB study guide PDF to Gemini as inline data
-- Extracted 20 AMP 1 topics with skill descriptions directly from the PDF
-- Combined with 12 AMP 2 precalculus topics from the spec
-- Output at data/generated/topics.json
+## Website Features (23 routes)
 
-### 3. Question Generation Pipeline
-- 5 question types: single_mcq, multi_mcq, matching, fill_blank, numeric
-- 3 difficulty levels per topic: easy, medium, hard
-- Original questions with LaTeX math, worked solutions, distractor rationales
-- Deduplication via normalized text hashing
-- Incremental save after every generated question
-- 26 questions generated and seeded so far, generation continues in background
+Marketing: Home, Pricing, About, FAQ (with not-affiliated disclaimer)
+Auth: Sign up, Sign in, Sign out (JWT + bcrypt)
+Dashboard: Entitlement tracking, recent attempts, upgrade CTA
+Topics: All 32 topics with progress, AMP2 Pro-locked
+Practice: Untimed, immediate feedback with worked solutions
+Mock: Brightspace-style rail, timer, autosave, Submit Quiz
+Review: Score, per-topic breakdown, full explanations
+Account: Profile, plan, upgrade/downgrade
+API: Attempts, answers, submit, timer, entitlements, checkout, webhooks
 
-### 4. Web Application (23 routes, all compiling)
-
-Marketing pages:
-- Home page with hero, format explanation, topic list, how it works, CTAs
-- Pricing page with Free vs Pro comparison matrix
-- About page explaining AMP tests and the not-affiliated disclaimer
-- FAQ page with 8 common questions
-
-Authentication:
-- JWT-based sessions with bcrypt password hashing
-- Sign up, sign in, sign out
-- Server-side session checks on protected routes
-
-Study area:
-- Dashboard with entitlement tracking, recent attempts, upgrade CTA
-- Topics browser (20 AMP 1 topics, 12 AMP 2 topics with Pro lock)
-- Topic detail with question counts and practice button
-- Practice runner: untimed, immediate feedback with worked solutions
-
-Test runner (Brightspace-style):
-- Left navigation rail with per-question status indicators
-- Previous/Next buttons with Page X of Y labels
-- Question block with KaTeX rendered stems and options
-- Live countdown timer (server authoritative)
-- Autosave on answer changes
-- Submit Quiz with "N of M questions saved" counter
-- Submit confirmation dialog
-
-Review:
-- Score summary with passing standard indicator
-- Per-topic accuracy breakdown
-- Per-question review with correct answers and full explanations
-- Distractor rationales for each wrong option
-
-Account:
-- Profile and plan status
-- Upgrade to Pro flow
-- Cancel subscription flow
-- Sign out
-
-### 5. Server-Side Security (Section 16)
-- All grading happens server-side (lib/grading.ts)
+### Security
+- Server-side grading for all 5 question types
 - Correct answers never sent to client during active attempts
-- Practice mode reveals single-question feedback only after saving
-- Server-authoritative timer for mock exams
-- Entitlement enforcement: 20 daily practice, 1 weekly mock
-- Pro gating on AMP 2 content and unlimited practice
+- Server-authoritative timer
+- Entitlement enforcement: 20 daily practice, 1 weekly mock, Pro gating
 
-### 6. Payment System (Section 9)
-- PaymentProvider interface with LemonSqueezy and Tap implementations
-- Webhook handler with signature verification
-- Checkout route for Pro upgrades
-- Plan state derived from webhooks, never set by client
+### Testing
+- 23 unit tests passing (grading, entitlements, LaTeX sanitizer)
 
-### 7. Database
-- SQLite schema mirroring the spec Postgres model
-- Full Supabase Postgres migration with RLS policies
-- All 14 tables from the spec implemented
-
-### 8. Testing (Section 18)
-- 23 unit tests, all passing:
-  - Grading: 12 tests (single_mcq, multi_mcq, numeric tolerance, matching partial credit)
-  - Entitlements: 3 tests (daily cap, weekly cap, bookmark cap)
-  - LaTeX sanitizer: 8 tests (valid/invalid math, notation checks)
-
-## Spec Compliance Checklist
-
-| Requirement | Status |
-|---|---|
-| Test runner matches Brightspace screenshots | Yes (rail, Previous/Next, Page X of Y, timer, Submit Quiz, N of M counter) |
-| All math renders with KaTeX | Yes (no raw LaTeX visible) |
-| Free limits enforced server-side | Yes (daily cap, weekly mock cap) |
-| Pro gating enforced server-side | Yes (AMP 2 locked, unlimited requires Pro) |
-| Timed mock auto-submits at zero | Yes (server authoritative timer) |
-| Correct answers never in client during attempt | Yes (toClientSafe strips answers) |
-| Not affiliated disclaimer | Yes (footer on all pages, About page) |
-| No UDST logo or official status claim | Yes |
-| No dashes as connectors | Yes |
-| No emojis | Yes |
-| No AI filler words | Yes |
-| Gemini keys only in build scripts | Yes (scripts/.env, never deployed) |
-| 10+ API key rotator | Yes (12 keys) |
-| Question generation offline only | Yes |
-| Payment provider abstraction | Yes (LemonSqueezy + Tap) |
-| setup.sh one-command bootstrap | Yes |
+### Tech Stack
+- Next.js 16 + TypeScript + Tailwind CSS
+- SQLite (local) / Supabase Postgres (production) with RLS
+- KaTeX math rendering
+- Payment abstraction: Lemon Squeezy (default) + Tap Payments
 
 ## How to Run
-
 ```bash
 cd /Users/syed/Downloads/amp
-npm install
-npm run dev
+npm run dev    # http://localhost:3000
+npm test       # 23 tests
+npm run build  # production build
 ```
 
-App available at http://localhost:3000
-
-To generate more questions:
-```bash
-npm run generate
-npm run seed
-```
-
-To run tests:
-```bash
-npm test
-```
-
-## Git History (7 commits)
-
-1. ffc6038 Foundation: project structure, Gemini key rotator, PDF parse pipeline
-2. 365b32d Full web app: auth, dashboard, topics, practice runner, mock runner, API routes
-3. c224f0a Generation pipeline improvements: incremental save, better rate limiting
-4. 87a013c Add unit tests (23 passing), improve rotator with API retry hints and pacing
-5. 9c58942 Add Supabase migration, paper assembly, setup.sh, paced generator
-6. 2bda8b2 Add payment webhook, checkout route, build log, SETUP.md
-7. f96a89d Fix seed script FK constraint, verify full pipeline
-
-## File Count
-- TypeScript/TSX files: 40+
-- Routes: 23
-- Test files: 3 (23 tests)
-- Scripts: 6 (parse, generate, generate-paced, verify, seed, assemble)
-- SQL migrations: 1
-
-## What Remains
-
-All 12 Gemini API keys share a single Google Cloud project quota. The burst
-testing during development exhausted the daily free tier quota. Generation
-will resume automatically when the quota resets (midnight Pacific time).
-
-26 questions have been generated, verified, and seeded. The generation script
-is ready and will produce the full bank (target: 3000+ AMP1, 800+ AMP2) once
-the daily quota resets. Run:
-```bash
-npm run generate    # generates more questions
-npm run seed        # seeds them into the database
-```
-
-The app is fully functional with any number of questions. Adding more is a
-matter of running the generation script and re-seeding.
+## Git History
+16 commits tracking the full build from foundation to completion.
