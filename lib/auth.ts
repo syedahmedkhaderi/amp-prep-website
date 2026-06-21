@@ -11,7 +11,26 @@ import { getDB, initDB } from "@/lib/db/sqlite";
 import type { User, Plan, Role } from "@/lib/types";
 
 const COOKIE_NAME = "amp_session";
-const JWT_SECRET = process.env.JWT_SECRET || "local-dev-secret-change-in-production";
+
+const DEV_FALLBACK_SECRET = "local-dev-secret-change-in-production";
+
+/**
+ * Resolve the signing secret. In production a strong secret is mandatory: if it
+ * is missing or left at the development default, we fail loudly rather than
+ * silently signing forgeable tokens.
+ */
+function getJwtSecret(): string {
+  const secret = process.env.JWT_SECRET;
+  if (process.env.NODE_ENV === "production") {
+    if (!secret || secret === DEV_FALLBACK_SECRET) {
+      throw new Error(
+        "JWT_SECRET is not set to a secure value. Set a strong JWT_SECRET environment variable in production."
+      );
+    }
+    return secret;
+  }
+  return secret || DEV_FALLBACK_SECRET;
+}
 
 const id = () => "u_" + Math.random().toString(36).slice(2, 12);
 
@@ -49,7 +68,7 @@ export async function signIn(email: string, password: string): Promise<User> {
 }
 
 export function createSessionToken(userId: string): string {
-  return jwt.sign({ sub: userId }, JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign({ sub: userId }, getJwtSecret(), { expiresIn: "7d" });
 }
 
 export async function getSession(): Promise<{ userId: string } | null> {
@@ -57,7 +76,7 @@ export async function getSession(): Promise<{ userId: string } | null> {
   const token = store.get(COOKIE_NAME)?.value;
   if (!token) return null;
   try {
-    const payload = jwt.verify(token, JWT_SECRET) as any;
+    const payload = jwt.verify(token, getJwtSecret()) as any;
     return { userId: payload.sub };
   } catch {
     return null;

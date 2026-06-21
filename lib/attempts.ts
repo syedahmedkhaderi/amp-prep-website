@@ -127,6 +127,17 @@ export function saveAnswer(
   if (!attempt) throw new Error("Attempt not found.");
   if (attempt.user_id !== userId) throw new Error("Forbidden.");
   if (attempt.submitted_at) throw new Error("Attempt already submitted.");
+
+  // Time integrity: once a timed attempt's limit has elapsed, no further answers
+  // are accepted. The client autosaves, so this is the authoritative cutoff.
+  if (attempt.time_limit_seconds) {
+    const startedMs = new Date(attempt.started_at + "Z").getTime();
+    const elapsed = (Date.now() - startedMs) / 1000;
+    if (elapsed >= attempt.time_limit_seconds) {
+      throw new Error("Time is up. This attempt can no longer be changed.");
+    }
+  }
+
   const belongsToAttempt = db.prepare(
     "SELECT 1 FROM attempt_questions WHERE attempt_id = ? AND question_id = ?"
   ).get(attemptId, questionId);

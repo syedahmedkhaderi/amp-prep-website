@@ -13,14 +13,22 @@ export async function POST(_req: NextRequest) {
 
   const provider = getPaymentProvider();
   if (!provider) {
-    // Local development: upgrade directly
-    return NextResponse.json({ url: "/account?action=upgrade" });
+    // No payment provider configured. We intentionally do not grant Pro here:
+    // a real subscription must always come from a verified payment.
+    return NextResponse.json(
+      { error: "Checkout is not available yet. Please try again later." },
+      { status: 503 }
+    );
   }
 
   try {
     const session = await provider.createCheckoutSession(user.id, "pro");
+    if (!session.url) {
+      return NextResponse.json({ error: "Could not start checkout." }, { status: 502 });
+    }
     return NextResponse.json(session);
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 });
+  } catch {
+    // Avoid leaking provider internals to the client.
+    return NextResponse.json({ error: "Could not start checkout." }, { status: 502 });
   }
 }
