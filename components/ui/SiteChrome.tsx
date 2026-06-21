@@ -1,35 +1,17 @@
 import Link from "next/link";
+import { MarketingNav } from "@/components/ui/MarketingNav";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-surface-border bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-lg font-bold text-brand-deep">AMP Prep</span>
+    <header className="sticky top-0 z-30 border-b border-surface-border bg-white/95 backdrop-blur">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <Link
+          href="/"
+          className="flex items-center gap-2 rounded-md text-lg font-bold text-brand-deep"
+        >
+          AMP Prep
         </Link>
-        <nav className="flex items-center gap-6 text-sm">
-          <Link href="/pricing" className="text-ink-soft hover:text-brand-deep">
-            Pricing
-          </Link>
-          <Link href="/about" className="text-ink-soft hover:text-brand-deep">
-            About
-          </Link>
-          <Link href="/faq" className="text-ink-soft hover:text-brand-deep">
-            FAQ
-          </Link>
-          <Link
-            href="/signin"
-            className="text-ink-soft hover:text-brand-deep"
-          >
-            Sign in
-          </Link>
-          <Link
-            href="/signup"
-            className="rounded-lg bg-brand-deep px-4 py-2 font-medium text-white hover:bg-brand-700"
-          >
-            Start free
-          </Link>
-        </nav>
+        <MarketingNav />
       </div>
     </header>
   );

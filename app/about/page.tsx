@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 mx-auto max-w-3xl px-6 py-16 w-full">
+      <main id="main-content" className="flex-1 mx-auto max-w-3xl px-6 py-16 w-full">
         <h1 className="text-3xl font-bold text-brand-deep">About AMP Prep</h1>
 
         <div className="mt-8 space-y-6 text-ink-soft leading-relaxed">
