@@ -50,7 +50,6 @@ async function main() {
   try {
     console.log("[parse-pdf] Sending PDF to Gemini for topic extraction...");
     const response = await rotator.generateContent(pdfParsePrompt(), {
-      model: rotator["config"].generationModel,
       temperature: 0.2,
       responseMimeType: "application/json",
       inlineData: { mimeType: "application/pdf", data: pdfBase64 },

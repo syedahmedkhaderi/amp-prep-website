@@ -89,7 +89,6 @@ async function main() {
     try {
       const prompt = verifyPrompt(q.stem, q.options, q.final_answer);
       const resp = await rotator.generateContent(prompt, {
-        model: rotator["config"].verifyModel,
         temperature: 0.1,
         responseMimeType: "application/json",
       });
