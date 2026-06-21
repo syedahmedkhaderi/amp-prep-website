@@ -9,8 +9,8 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main id="main-content" className="flex-1">
-        <section className="border-b border-surface-border bg-white">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <section className="border-b border-surface-border bg-gradient-to-b from-surface-panel to-white">
+          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600">
                 UDST AMP practice
@@ -24,13 +24,13 @@ export default function HomePage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/signup"
-                  className="rounded-lg bg-brand-deep px-8 py-3 text-center font-medium text-white hover:bg-brand-700"
+                  className="rounded-lg bg-brand-deep px-8 py-3 text-center font-medium text-white shadow-sm transition hover:bg-brand-700 hover:shadow"
                 >
                   Start practicing free
                 </Link>
                 <Link
                   href="/pricing"
-                  className="rounded-lg border border-surface-border px-8 py-3 text-center font-medium text-ink hover:border-brand-600"
+                  className="rounded-lg border border-surface-border bg-white px-8 py-3 text-center font-medium text-ink transition hover:border-brand-600"
                 >
                   Compare plans
                 </Link>
@@ -151,7 +151,7 @@ export default function HomePage() {
               {TOPIC_LIST.map((t, i) => (
                 <div
                   key={t}
-                  className="rounded-lg border border-surface-border bg-white px-4 py-3 text-sm text-ink"
+                  className="rounded-lg border border-surface-border bg-white px-4 py-3 text-sm text-ink transition hover:border-brand-600 hover:shadow-sm"
                 >
                   <span className="mr-2 text-ink-light">{i + 1}.</span>
                   {t}
