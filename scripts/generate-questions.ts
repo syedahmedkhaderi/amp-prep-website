@@ -9,7 +9,7 @@ import type { ExamCode, Difficulty, QType, TopicsFile, GeneratedQuestion } from 
 
 const TOPICS_PATH = path.resolve(process.cwd(), "data/generated/topics.json");
 const OUT_PATH = path.resolve(process.cwd(), "data/generated/questions.json");
-const LOG_PATH = path.resolve(process.cwd(), "Final_Outputs/generation-log.md");
+const LOG_PATH = path.resolve(process.cwd(), "logs/generation-log.md");
 
 const TYPES: QType[] = ["single_mcq", "multi_mcq", "matching", "fill_blank", "numeric"];
 const DIFFS: Difficulty[] = ["easy", "medium", "hard"];

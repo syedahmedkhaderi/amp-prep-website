@@ -9,6 +9,9 @@ out/
 build/
 dist/
 
+# typescript build info
+*.tsbuildinfo
+
 # env files
 .env
 .env.local
@@ -21,6 +24,7 @@ dist/
 !/data/generated/.gitkeep
 
 # logs
+logs/
 *.log
 npm-debug.log*
 

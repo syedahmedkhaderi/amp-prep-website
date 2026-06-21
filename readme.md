@@ -47,6 +47,11 @@ lib/                 Auth, attempts, grading, database, payments, and math helpe
 scripts/             Offline question pipeline and seed scripts
 tests/               Vitest coverage
 data/                Local database, source files, and generated question data
-Final_Outputs/       Build notes and setup documentation
+supabase/            Postgres schema and row level security for production
 ```
+
+## Deployment
+
+See DEPLOYMENT.md for the full guide to running AMP Prep as a live website on
+Vercel with a Supabase Postgres database and Lemon Squeezy payments.
 
