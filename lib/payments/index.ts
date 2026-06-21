@@ -4,11 +4,15 @@
  * Both implement the same interface so switching touches one module only.
  */
 
+import crypto from "crypto";
+
 export interface PaymentProvider {
   createCheckoutSession(userId: string, plan: string): Promise<{ url: string }>;
   createPortalSession(userId: string): Promise<{ url: string }>;
-  verifyWebhook(request: Request): Promise<boolean>;
-  parseWebhookEvent(request: Request): Promise<WebhookEvent>;
+  /** Verify the raw request body against the provider signature header. */
+  verifyWebhook(rawBody: string, signature: string): boolean;
+  /** Parse an already verified raw request body into a normalized event. */
+  parseWebhookEvent(rawBody: string): WebhookEvent;
 }
 
 export interface WebhookEvent {
@@ -63,17 +67,35 @@ export class LemonSqueezyProvider implements PaymentProvider {
     return { url: "https://app.lemonsqueezy.com/billing" };
   }
 
-  async verifyWebhook(request: Request): Promise<boolean> {
-    const signature = request.headers.get("X-Signature") || "";
+  verifyWebhook(rawBody: string, signature: string): boolean {
     if (!signature || !this.webhookSecret) return false;
-    // In production: HMAC SHA256 verification
-    return true;
+    // Lemon Squeezy signs the raw payload with HMAC SHA256 using the webhook
+    // secret and sends it as a hex digest in the X-Signature header.
+    const expected = crypto
+      .createHmac("sha256", this.webhookSecret)
+      .update(rawBody, "utf8")
+      .digest("hex");
+    const expectedBuf = Buffer.from(expected, "hex");
+    let signatureBuf: Buffer;
+    try {
+      signatureBuf = Buffer.from(signature, "hex");
+    } catch {
+      return false;
+    }
+    if (expectedBuf.length !== signatureBuf.length) return false;
+    return crypto.timingSafeEqual(expectedBuf, signatureBuf);
   }
 
-  async parseWebhookEvent(request: Request): Promise<WebhookEvent> {
-    const body = await request.json();
+  parseWebhookEvent(rawBody: string): WebhookEvent {
+    const body = JSON.parse(rawBody);
+    const eventName: string = body.meta?.event_name || "";
+    let type: WebhookEvent["type"] = "subscription_updated";
+    if (eventName.includes("created")) type = "subscription_created";
+    else if (eventName.includes("cancelled") || eventName.includes("canceled")) {
+      type = "subscription_canceled";
+    }
     return {
-      type: body.meta?.event_name?.includes("created") ? "subscription_created" : "subscription_updated",
+      type,
       userId: body.meta?.custom_data?.user_id || "",
       plan: "pro",
       status: body.data?.attributes?.status || "active",
@@ -117,12 +139,25 @@ export class TapPaymentsProvider implements PaymentProvider {
     return { url: `${process.env.APP_URL}/account` };
   }
 
-  async verifyWebhook(request: Request): Promise<boolean> {
-    return true;
+  verifyWebhook(rawBody: string, signature: string): boolean {
+    if (!signature || !this.webhookSecret) return false;
+    const expected = crypto
+      .createHmac("sha256", this.webhookSecret)
+      .update(rawBody, "utf8")
+      .digest("hex");
+    const expectedBuf = Buffer.from(expected, "hex");
+    let signatureBuf: Buffer;
+    try {
+      signatureBuf = Buffer.from(signature, "hex");
+    } catch {
+      return false;
+    }
+    if (expectedBuf.length !== signatureBuf.length) return false;
+    return crypto.timingSafeEqual(expectedBuf, signatureBuf);
   }
 
-  async parseWebhookEvent(request: Request): Promise<WebhookEvent> {
-    const body = await request.json();
+  parseWebhookEvent(rawBody: string): WebhookEvent {
+    const body = JSON.parse(rawBody);
     return {
       type: "subscription_created",
       userId: body.metadata?.user_id || "",

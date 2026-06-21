@@ -15,14 +15,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Payment provider not configured" }, { status: 503 });
   }
 
-  // Verify webhook signature
-  const valid = await provider.verifyWebhook(req);
-  if (!valid) {
+  // Read the raw body exactly once so we can both verify the HMAC signature and
+  // parse the event from the identical bytes the provider signed.
+  const rawBody = await req.text();
+  const signature =
+    req.headers.get("X-Signature") || req.headers.get("x-signature") || "";
+
+  if (!provider.verifyWebhook(rawBody, signature)) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
 
   try {
-    const event = await provider.parseWebhookEvent(req);
+    const event = provider.parseWebhookEvent(rawBody);
 
     initDB();
     const db = getDB();

@@ -15,7 +15,8 @@
     "verify": "tsx scripts/verify-questions.ts",
     "seed": "tsx scripts/seed.ts",
     "assemble": "tsx scripts/assemble-papers.ts",
-    "pipeline": "tsx scripts/run-pipeline.ts"
+    "pipeline": "tsx scripts/run-pipeline.ts",
+    "grant-pro": "tsx scripts/grant-pro.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
