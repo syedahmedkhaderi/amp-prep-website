@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const LINKS = [
-  { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -39,7 +38,7 @@ export function MarketingNav() {
           href="/signup"
           className="rounded-lg bg-brand-deep px-4 py-2 font-medium text-white transition-colors hover:bg-brand-700"
         >
-          Start free
+          Start now
         </Link>
       </nav>
 
@@ -100,7 +99,7 @@ export function MarketingNav() {
               onClick={() => setOpen(false)}
               className="mt-1 rounded-lg bg-brand-deep px-4 py-2 text-center font-medium text-white transition-colors hover:bg-brand-700"
             >
-              Start free
+              Start now
             </Link>
           </nav>
         </div>

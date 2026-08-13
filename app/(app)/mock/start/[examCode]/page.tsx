@@ -2,10 +2,18 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { createAttempt } from "@/lib/attempts";
 import { getEntitlements } from "@/lib/entitlements";
+import { getPaperById } from "@/lib/db/queries";
 import type { ExamCode } from "@/lib/types";
 
-export default async function MockStartPage({ params }: { params: Promise<{ examCode: string }> }) {
+export default async function MockStartPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ examCode: string }>;
+  searchParams?: Promise<{ paper?: string }>;
+}) {
   const { examCode } = await params;
+  const query = searchParams ? await searchParams : {};
   const code = examCode.toUpperCase() as ExamCode;
   const user = await getCurrentUser();
   if (!user) redirect("/signin");
@@ -24,6 +32,18 @@ export default async function MockStartPage({ params }: { params: Promise<{ exam
     redirect("/mock?reason=weekly-limit");
   }
 
+  // A specific paper was requested: verify it belongs to this exam and that
+  // free users aren't reaching a Pro-only paper directly via the URL.
+  if (query.paper) {
+    const paper = getPaperById(query.paper);
+    if (!paper || paper.examCode !== code) {
+      redirect("/mock?reason=no-questions");
+    }
+    if (!paper.isFree && !entitlements.isPro) {
+      redirect("/pricing");
+    }
+  }
+
   let attemptId: string;
   try {
     const result = createAttempt({
@@ -31,6 +51,7 @@ export default async function MockStartPage({ params }: { params: Promise<{ exam
       examCode: code,
       mode: "mock",
       isPro: entitlements.isPro,
+      paperId: query.paper,
     });
     attemptId = result.attemptId;
   } catch {

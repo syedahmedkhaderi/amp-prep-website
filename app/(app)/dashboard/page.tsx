@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
 import { getTopics } from "@/lib/db/queries";
-import { getUserAttempts } from "@/lib/attempts";
+import { getUserAttempts, getUserProgressStats } from "@/lib/attempts";
 import { getEntitlements } from "@/lib/entitlements";
 import { getExamByCode } from "@/lib/db/queries";
+import { SemiCircleGauge } from "@/components/ui/SemiCircleGauge";
 
 export default async function DashboardPage() {
   const user = await getCurrentUser();
@@ -14,10 +15,12 @@ export default async function DashboardPage() {
   const amp1Topics = topics.filter((t) => t.examCode === "AMP1");
   const recentAttempts = getUserAttempts(user.id, 5);
   const amp1Exam = getExamByCode("AMP1");
+  const progress = getUserProgressStats(user.id);
+  const topicsPercent = progress.totalTopics > 0 ? (progress.topicsStarted / progress.totalTopics) * 100 : 0;
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-brand-deep">
             Welcome, {user.fullName || "Student"}
@@ -28,14 +31,20 @@ export default async function DashboardPage() {
               : `You have ${entitlements.dailyPracticeLimit - entitlements.dailyPracticeUsed} practice questions today and ${entitlements.weeklyMockLimit - entitlements.weeklyMocksUsed} mock this week.`}
           </p>
         </div>
-        {!entitlements.isPro && (
-          <Link
-            href="/pricing"
-            className="rounded-lg bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700"
-          >
-            Upgrade to Pro
-          </Link>
-        )}
+        <div className="flex items-center gap-6">
+          <SemiCircleGauge
+            percent={topicsPercent}
+            caption={`${progress.topicsStarted} of ${progress.totalTopics} topics started`}
+          />
+          {!entitlements.isPro && (
+            <Link
+              href="/pricing"
+              className="rounded-lg bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700"
+            >
+              Upgrade to Pro
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Quick actions */}

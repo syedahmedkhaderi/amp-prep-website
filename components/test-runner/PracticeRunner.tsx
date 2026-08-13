@@ -187,7 +187,7 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
             {currentFeedback.conceptSummary && (
               <p className="mt-2 text-sm text-ink-soft">
                 <span className="font-medium">Concept: </span>
-                {currentFeedback.conceptSummary}
+                <MathText text={currentFeedback.conceptSummary} />
               </p>
             )}
             {currentFeedback.explanationSteps?.length > 0 && (

@@ -21,6 +21,7 @@ export interface CreateAttemptInput {
   topicSlug?: string;
   questionCount?: number;
   isPro: boolean;
+  paperId?: string;
 }
 
 export interface CreatedAttempt {
@@ -56,9 +57,24 @@ export function createAttempt(input: CreateAttemptInput): CreatedAttempt {
   // Gather questions
   let questions: Question[];
   let topicId: string | null = null;
+  let paperId: string | null = null;
   let timeLimitSeconds: number | null = null;
 
-  if (input.mode === "mock") {
+  if (input.mode === "mock" && input.paperId) {
+    const paper = db.prepare("SELECT id, exam_code, is_free FROM papers WHERE id = ?").get(input.paperId) as any;
+    if (!paper || paper.exam_code !== input.examCode) {
+      throw new Error("Mock paper not found.");
+    }
+    if (!paper.is_free && !input.isPro) {
+      throw new Error("This mock paper requires a Pro subscription.");
+    }
+    paperId = paper.id;
+    timeLimitSeconds = exam.duration_minutes * 60;
+    const pqRows = db.prepare(
+      "SELECT question_id FROM paper_questions WHERE paper_id = ? ORDER BY order_index"
+    ).all(paperId) as any[];
+    questions = getQuestionsByIds(pqRows.map((r) => r.question_id));
+  } else if (input.mode === "mock") {
     const count = input.questionCount || exam.total_questions;
     timeLimitSeconds = exam.duration_minutes * 60;
     questions = getQuestions({
@@ -96,9 +112,9 @@ export function createAttempt(input: CreateAttemptInput): CreatedAttempt {
   // Create attempt
   const attemptId = "att_" + uid();
   db.prepare(
-    `INSERT INTO attempts (id, user_id, exam_id, mode, topic_id, total, time_limit_seconds)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`
-  ).run(attemptId, input.userId, exam.id, input.mode, topicId, questions.length, timeLimitSeconds);
+    `INSERT INTO attempts (id, user_id, exam_id, mode, topic_id, paper_id, total, time_limit_seconds)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+  ).run(attemptId, input.userId, exam.id, input.mode, topicId, paperId, questions.length, timeLimitSeconds);
 
   // Fix question set
   const insertAQ = db.prepare(
@@ -331,6 +347,65 @@ export function getUserAttempts(userId: string, limit = 10): Attempt[] {
     total: r.total,
     timeLimitSeconds: r.time_limit_seconds,
   }));
+}
+
+export function getUserMockAttemptsByPaper(userId: string): Record<
+  string,
+  { attemptId: string; score: number | null; submittedAt: string | null; startedAt: string }
+> {
+  initDB();
+  const db = getDB();
+  const rows = db.prepare(
+    `SELECT paper_id, id, score, submitted_at, started_at
+     FROM attempts
+     WHERE user_id = ? AND mode = 'mock' AND paper_id IS NOT NULL
+     ORDER BY started_at DESC`
+  ).all(userId) as any[];
+
+  const byPaper: Record<string, { attemptId: string; score: number | null; submittedAt: string | null; startedAt: string }> = {};
+  for (const r of rows) {
+    if (!byPaper[r.paper_id]) {
+      byPaper[r.paper_id] = {
+        attemptId: r.id,
+        score: r.score,
+        submittedAt: r.submitted_at,
+        startedAt: r.started_at,
+      };
+    }
+  }
+  return byPaper;
+}
+
+export function getUserProgressStats(userId: string): {
+  questionsAnswered: number;
+  totalQuestions: number;
+  topicsStarted: number;
+  totalTopics: number;
+} {
+  initDB();
+  const db = getDB();
+
+  const questionsAnswered = (db.prepare(
+    `SELECT COUNT(DISTINCT aa.question_id) as c
+     FROM attempt_answers aa
+     JOIN attempts a ON aa.attempt_id = a.id
+     WHERE a.user_id = ?`
+  ).get(userId) as any).c;
+
+  const topicsStarted = (db.prepare(
+    `SELECT COUNT(DISTINCT q.topic_id) as c
+     FROM attempt_answers aa
+     JOIN attempts a ON aa.attempt_id = a.id
+     JOIN questions q ON aa.question_id = q.id
+     WHERE a.user_id = ?`
+  ).get(userId) as any).c;
+
+  const totalQuestions = (db.prepare(
+    "SELECT COUNT(*) as c FROM questions WHERE status = 'published'"
+  ).get() as any).c;
+  const totalTopics = (db.prepare("SELECT COUNT(*) as c FROM topics").get() as any).c;
+
+  return { questionsAnswered, totalQuestions, topicsStarted, totalTopics };
 }
 
 export function isAttemptExpired(attemptId: string): boolean {

@@ -161,45 +161,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold text-brand-deep">
-            How it works
-          </h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-3">
-            <div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-deep text-white font-bold">
-                1
-              </div>
-              <h3 className="mt-4 font-semibold text-ink">Practice daily</h3>
-              <p className="mt-1 text-sm text-ink-soft">
-                Answer original questions on any topic. Get immediate feedback
-                with a full worked solution after each answer.
-              </p>
-            </div>
-            <div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-deep text-white font-bold">
-                2
-              </div>
-              <h3 className="mt-4 font-semibold text-ink">Take a timed mock</h3>
-              <p className="mt-1 text-sm text-ink-soft">
-                Sit a full 60 question, 120 minute mock that reproduces the
-                official quiz layout. Autosave keeps your progress safe if you
-                refresh.
-              </p>
-            </div>
-            <div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-deep text-white font-bold">
-                3
-              </div>
-              <h3 className="mt-4 font-semibold text-ink">Review and improve</h3>
-              <p className="mt-1 text-sm text-ink-soft">
-                After each attempt, see your score, a per topic breakdown, and
-                the correct answer with explanation for every question.
-              </p>
-            </div>
-          </div>
-        </section>
-
         <section className="bg-brand-deep py-16">
           <div className="mx-auto max-w-3xl px-6 text-center text-white">
             <h2 className="text-3xl font-bold">
@@ -213,7 +174,7 @@ export default function HomePage() {
               href="/signup"
               className="mt-8 inline-block rounded-lg bg-white px-8 py-3 font-medium text-brand-deep hover:bg-surface-panel"
             >
-              Start free
+              Start
             </Link>
           </div>
         </section>
