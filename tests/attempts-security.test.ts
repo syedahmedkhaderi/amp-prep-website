@@ -1,5 +1,5 @@
 import { getDB, initDB } from "@/lib/db/sqlite";
-import { saveAnswer } from "@/lib/attempts";
+import { saveAnswer, createAttempt } from "@/lib/attempts";
 
 const ids: string[] = [];
 const id = (prefix: string) => {
@@ -53,12 +53,48 @@ function seedAttempt(mode: "practice" | "mock") {
   return { attemptId, ownerId, otherUserId, questionId, optionB };
 }
 
+function seedPaper(isFree: boolean) {
+  initDB();
+  const db = getDB();
+  const examId = id("exam");
+  const topicId = id("topic");
+  const questionId = id("question");
+  const paperId = id("paper");
+  const examCode = `P${ids.length}`;
+
+  db.prepare(
+    "INSERT INTO exams (id, code, title, description, duration_minutes, total_questions) VALUES (?, ?, ?, ?, ?, ?)"
+  ).run(examId, examCode, "Test exam", "Test exam", 30, 1);
+  db.prepare(
+    "INSERT INTO topics (id, exam_id, name, slug, order_index, description) VALUES (?, ?, ?, ?, ?, ?)"
+  ).run(topicId, examId, "Test topic", `${topicId}-slug`, 1, "Test topic");
+  db.prepare(
+    `INSERT INTO questions
+      (id, exam_id, topic_id, type, stem, difficulty, points, final_answer, explanation_steps, status, is_free)
+      VALUES (?, ?, ?, 'single_mcq', 'What is $2+2$?', 'easy', 1, '4', ?, 'published', 1)`
+  ).run(questionId, examId, topicId, JSON.stringify(["Add the two numbers."]));
+  db.prepare(
+    "INSERT INTO papers (id, exam_code, name, is_free, order_index) VALUES (?, ?, ?, ?, 1)"
+  ).run(paperId, examCode, "Test paper", isFree ? 1 : 0);
+  db.prepare(
+    "INSERT INTO paper_questions (id, paper_id, question_id, order_index) VALUES (?, ?, ?, 0)"
+  ).run(id("pq"), paperId, questionId);
+
+  const userId = id("user");
+  db.prepare(
+    "INSERT INTO users (id, email, password_hash, full_name, role, plan) VALUES (?, ?, 'hash', 'User', 'student', 'free')"
+  ).run(userId, `${userId}@example.com`);
+
+  return { examCode, paperId, userId, questionId };
+}
+
 afterEach(() => {
   const db = getDB();
   for (const table of [
     "attempt_answers",
     "attempt_questions",
     "attempts",
+    "papers",
     "question_options",
     "questions",
     "topics",
@@ -98,5 +134,50 @@ describe("Attempt answer security", () => {
 
     expect(result.saved).toBe(1);
     expect(result.feedback?.isCorrect).toBe(true);
+  });
+});
+
+describe("Mock paper authorization", () => {
+  test("free user cannot start a Pro-only mock paper", () => {
+    const seeded = seedPaper(false);
+
+    expect(() =>
+      createAttempt({
+        userId: seeded.userId,
+        examCode: seeded.examCode as any,
+        mode: "mock",
+        isPro: false,
+        paperId: seeded.paperId,
+      })
+    ).toThrow("Pro subscription");
+  });
+
+  test("free user can start a free mock paper and gets its fixed question set", () => {
+    const seeded = seedPaper(true);
+
+    const result = createAttempt({
+      userId: seeded.userId,
+      examCode: seeded.examCode as any,
+      mode: "mock",
+      isPro: false,
+      paperId: seeded.paperId,
+    });
+    ids.push(result.attemptId);
+
+    expect(result.questions.map((q) => q.id)).toEqual([seeded.questionId]);
+  });
+
+  test("rejects a paper id that does not belong to the requested exam", () => {
+    const seeded = seedPaper(true);
+
+    expect(() =>
+      createAttempt({
+        userId: seeded.userId,
+        examCode: "AMP1",
+        mode: "mock",
+        isPro: true,
+        paperId: seeded.paperId,
+      })
+    ).toThrow("Mock paper not found.");
   });
 });

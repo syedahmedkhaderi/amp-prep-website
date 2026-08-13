@@ -70,6 +70,15 @@ export interface Exam {
   totalQuestions: number;
 }
 
+export interface Paper {
+  id: string;
+  examCode: ExamCode;
+  name: string;
+  isFree: boolean;
+  orderIndex: number;
+  questionCount: number;
+}
+
 export interface AttemptQuestion {
   question: Question;
   orderIndex: number;

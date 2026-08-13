@@ -140,6 +140,59 @@ export default async function AttemptReviewPage({ params }: { params: Promise<{ 
                   </div>
                 )}
 
+                {/* Matching review */}
+                {q.matches && q.matches.length > 0 && (
+                  <div className="mt-3 space-y-2">
+                    {q.matches.map((m: any) => {
+                      const userChoice = ans?.response?.answers?.[m.id];
+                      const isRowCorrect = userChoice === m.correctChoiceIndex;
+                      return (
+                        <div
+                          key={m.id}
+                          className={`flex items-center justify-between gap-3 rounded px-3 py-1.5 text-sm ${
+                            isSubmitted
+                              ? isRowCorrect
+                                ? "bg-green-100 text-green-800"
+                                : "bg-red-100 text-red-800"
+                              : "text-ink-soft"
+                          }`}
+                        >
+                          <span><MathText text={m.leftContent} /></span>
+                          <span className="whitespace-nowrap text-xs">
+                            {userChoice !== undefined ? `Your answer: ${userChoice + 1}` : "No answer"}
+                            {isSubmitted && !isRowCorrect && ` · Correct: ${m.correctChoiceIndex + 1}`}
+                          </span>
+                        </div>
+                      );
+                    })}
+                    {q.matchChoices && q.matchChoices.length > 0 && (
+                      <div className="mt-2 space-y-1 border-t border-surface-border pt-2">
+                        <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">Choices</p>
+                        {q.matchChoices.map((choice: string, idx: number) => (
+                          <div key={idx} className="flex items-start gap-2 text-xs text-ink-soft">
+                            <span className="min-w-[1.25rem] font-medium text-ink">{idx + 1}.</span>
+                            <MathText text={choice} />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Numeric review */}
+                {q.type === "numeric" && (
+                  <div className="mt-3 rounded bg-surface-panel px-3 py-2 text-sm">
+                    <p className="text-ink-soft">
+                      Your answer: <span className="font-medium text-ink">{ans?.response?.value ?? "No answer"}</span>
+                    </p>
+                    {isSubmitted && (
+                      <p className="mt-1 text-ink-soft">
+                        Correct answer: <span className="font-medium text-ink"><MathText text={q.finalAnswer} /></span>
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 {/* Explanation */}
                 {isSubmitted && q.explanationSteps && q.explanationSteps.length > 0 && (
                   <div className="mt-4 rounded-lg bg-white p-4">
@@ -155,7 +208,7 @@ export default async function AttemptReviewPage({ params }: { params: Promise<{ 
                     {q.conceptSummary && (
                       <p className="mt-3 text-sm text-ink">
                         <span className="font-medium">Concept: </span>
-                        {q.conceptSummary}
+                        <MathText text={q.conceptSummary} />
                       </p>
                     )}
                     {q.distractorRationales && Object.keys(q.distractorRationales).length > 0 && (

@@ -7,7 +7,7 @@
  */
 
 import { getDB, initDB } from "@/lib/db/sqlite";
-import type { Exam, Topic, Question, Attempt, Option, MatchItem } from "@/lib/types";
+import type { Exam, Topic, Question, Attempt, Option, MatchItem, Paper } from "@/lib/types";
 import type { QType, Difficulty, ExamCode } from "@/lib/types";
 
 const uid = () => Math.random().toString(36).slice(2, 12);
@@ -206,7 +206,43 @@ export function getTopicQuestionStats(topicId: string): {
   };
 }
 
+export function getPapers(examCode: ExamCode): Paper[] {
+  initDB();
+  const db = getDB();
+  const rows = db.prepare(
+    `SELECT p.id, p.exam_code, p.name, p.is_free, p.order_index,
+       (SELECT COUNT(*) FROM paper_questions pq WHERE pq.paper_id = p.id) as question_count
+     FROM papers p
+     WHERE p.exam_code = ?
+     ORDER BY p.is_free DESC, p.order_index`
+  ).all(examCode) as any[];
+  return rows.map(rowToPaper);
+}
+
+export function getPaperById(paperId: string): Paper | null {
+  initDB();
+  const db = getDB();
+  const row = db.prepare(
+    `SELECT p.id, p.exam_code, p.name, p.is_free, p.order_index,
+       (SELECT COUNT(*) FROM paper_questions pq WHERE pq.paper_id = p.id) as question_count
+     FROM papers p
+     WHERE p.id = ?`
+  ).get(paperId) as any;
+  return row ? rowToPaper(row) : null;
+}
+
 // ---------- Row mappers ----------
+
+function rowToPaper(row: any): Paper {
+  return {
+    id: row.id,
+    examCode: row.exam_code,
+    name: row.name,
+    isFree: !!row.is_free,
+    orderIndex: row.order_index,
+    questionCount: row.question_count,
+  };
+}
 
 function rowToExam(row: any): Exam {
   return {
