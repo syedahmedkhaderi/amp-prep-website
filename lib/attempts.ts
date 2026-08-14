@@ -403,7 +403,17 @@ export function getUserProgressStats(userId: string): {
   const totalQuestions = (db.prepare(
     "SELECT COUNT(*) as c FROM questions WHERE status = 'published'"
   ).get() as any).c;
-  const totalTopics = (db.prepare("SELECT COUNT(*) as c FROM topics").get() as any).c;
+  // Scoped to the two exams the product actually ships. An unscoped count picks
+  // up any other topic row that exists in the database -- the unit suite writes
+  // its fixtures into this same file -- and the dashboard gauge then reports
+  // progress against a denominator no student can ever reach.
+  const totalTopics = (db
+    .prepare(
+      `SELECT COUNT(*) as c FROM topics t
+       JOIN exams e ON e.id = t.exam_id
+       WHERE e.code IN ('AMP1', 'AMP2')`
+    )
+    .get() as any).c;
 
   return { questionsAnswered, totalQuestions, topicsStarted, totalTopics };
 }

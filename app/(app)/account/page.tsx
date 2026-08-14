@@ -4,6 +4,8 @@ import { signOutAction } from "@/app/auth/actions";
 import { downgradeAction } from "@/app/(app)/account/actions";
 import { UpgradeButton } from "@/components/ui/UpgradeButton";
 import { AdminGrant } from "@/components/ui/AdminGrant";
+import { ChangePassword } from "@/components/ui/ChangePassword";
+import { DeleteAccount } from "@/components/ui/DeleteAccount";
 import Link from "next/link";
 
 export default async function AccountPage() {
@@ -79,8 +81,9 @@ export default async function AccountPage() {
               </Link>
             </div>
             <p className="mt-3 text-xs text-ink-light">
-              Upgrading opens a secure checkout through Lemon Squeezy. Your plan
-              activates automatically once payment is confirmed.
+              Paid plans are not active yet, so checkout is disabled. When a
+              payment provider is connected, upgrading will open its hosted
+              checkout and your plan will activate once payment is confirmed.
             </p>
           </div>
         )}
@@ -98,6 +101,16 @@ export default async function AccountPage() {
         </section>
       )}
 
+      {/* Password */}
+      <section className="mt-6 rounded-xl border border-surface-border bg-white p-6">
+        <h2 className="font-semibold text-ink">Password</h2>
+        <p className="mt-1 text-sm text-ink-soft">
+          Changing your password signs out every other device using this
+          account.
+        </p>
+        <ChangePassword />
+      </section>
+
       {/* Sign out */}
       <section className="mt-6">
         <form action={signOutAction}>
@@ -108,6 +121,18 @@ export default async function AccountPage() {
             Sign out
           </button>
         </form>
+      </section>
+
+      {/* Delete account. Fulfils the deletion right set out in the privacy policy. */}
+      <section className="mt-6 rounded-xl border border-red-200 bg-white p-6">
+        <h2 className="font-semibold text-ink">Delete account</h2>
+        <div className="mt-3">
+          <DeleteAccount />
+        </div>
+        <p className="mt-4 text-xs text-ink-light">
+          See the <Link href="/privacy" className="underline">Privacy Policy</Link>{" "}
+          for exactly what is removed.
+        </p>
       </section>
     </div>
   );

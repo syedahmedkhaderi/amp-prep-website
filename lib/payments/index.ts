@@ -1,10 +1,17 @@
 /**
  * Payment provider abstraction. Spec Section 9.
- * Lemon Squeezy is the default. Tap Payments is the documented alternative.
- * Both implement the same interface so switching touches one module only.
+ *
+ * No provider is live. Lemon Squeezy and Tap Payments are implemented behind
+ * this interface; whichever provider is adopted implements the same four
+ * methods and nothing else in the app changes.
+ *
+ * PAYMENT_PROVIDER selects one. With no key configured getPaymentProvider()
+ * returns null and /api/checkout answers 503, which is the current state.
  */
 
 import crypto from "crypto";
+import { SITE_URL } from "@/lib/site";
+
 
 export interface PaymentProvider {
   createCheckoutSession(userId: string, plan: string): Promise<{ url: string }>;
@@ -128,7 +135,7 @@ export class TapPaymentsProvider implements PaymentProvider {
         currency: "KWD",
         customer: { metadata: { user_id: userId } },
         source: { id: "src_all" },
-        redirect: { url: `${process.env.APP_URL}/account` },
+        redirect: { url: `${SITE_URL}/account` },
       }),
     });
     const data = await res.json();
@@ -136,7 +143,7 @@ export class TapPaymentsProvider implements PaymentProvider {
   }
 
   async createPortalSession(_userId: string): Promise<{ url: string }> {
-    return { url: `${process.env.APP_URL}/account` };
+    return { url: `${SITE_URL}/account` };
   }
 
   verifyWebhook(rawBody: string, signature: string): boolean {

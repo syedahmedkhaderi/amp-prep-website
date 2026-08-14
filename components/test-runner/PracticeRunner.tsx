@@ -107,6 +107,7 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
   const currentFeedback = feedbacks[currentQuestion.id];
   const hasAnswered = !!answers[currentQuestion.id];
   const hasSaved = !!currentFeedback;
+  const isLastQuestion = currentIndex === questions.length - 1;
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-8">
@@ -241,12 +242,18 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
           >
             {saving ? "Saving..." : hasSaved ? "Saved" : "Save answer"}
           </button>
+          {/*
+            On the last question this is the only way out of the runner: it is
+            what sets `completed`, which is what shows the link to the review.
+            It was previously disabled on the last question, so goNext's
+            completion branch could never run and a finished practice set had
+            no ending at all.
+          */}
           <button
             onClick={goNext}
-            disabled={currentIndex === questions.length - 1}
             className="rounded-lg bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700 disabled:opacity-40"
           >
-            Next
+            {isLastQuestion ? "Finish" : "Next"}
           </button>
         </div>
       </div>

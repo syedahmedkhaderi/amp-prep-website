@@ -1,0 +1,11 @@
+# Security contact for AMP Prep.
+# Update Expires: below before that date passes, or this file is ignored.
+# Format: https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:syedahmedkhaderi@gmail.com
+Preferred-Languages: en
+Expires: 2027-08-14T00:00:00.000Z
+
+# Good faith reports are welcome and will not be met with legal threats.
+# Please do not access data belonging to other users while testing, and give
+# a reasonable window to fix an issue before disclosing it publicly.

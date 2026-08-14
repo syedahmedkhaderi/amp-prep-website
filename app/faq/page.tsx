@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "How much does Pro cost?",
-    a: "Pro is $10 per month, or $24 for a 3 month exam season pass (a 20% saving). You can cancel anytime. Payments are processed securely by Lemon Squeezy.",
+    a: "Pro is $10 per month, or $24 for a 3 month exam season pass (a 20% saving). Paid plans are not active yet, so nothing can be purchased today and no card details are collected. When they open you will be able to cancel anytime.",
   },
   {
     q: "Is AMP Prep affiliated with UDST?",

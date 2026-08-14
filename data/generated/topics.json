@@ -1,0 +1,828 @@
+{
+  "source": "udst_amp_study_guide-min-compressed_1_1_1_1.pdf",
+  "parsedAt": "2026-06-19T23:30:56.658Z",
+  "amp1": [
+    {
+      "index": 1,
+      "name": "Real Number System",
+      "slug": "real-number-system",
+      "exam": "AMP1",
+      "description": "This topic covers defining number sets, identifying characteristics, understanding relations between sets, using radical notation, evaluating and approximating roots, and placing numbers on a number line.",
+      "skills": [
+        {
+          "name": "Define and identify various sets of the real number system (natural, whole, integers, rational, irrational, real)",
+          "description": ""
+        },
+        {
+          "name": "Use radical notation to express roots and evaluate perfect squares and cubes",
+          "description": ""
+        },
+        {
+          "name": "Approximate square and cube roots using a calculator",
+          "description": ""
+        },
+        {
+          "name": "Place real numbers on the real number line",
+          "description": ""
+        },
+        {
+          "name": "Identify irrational numbers",
+          "description": ""
+        },
+        {
+          "name": "Apply real number properties such as the distributive property",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 10,
+        "medium": 80,
+        "hard": 10
+      }
+    },
+    {
+      "index": 2,
+      "name": "Whole Numbers and Integers",
+      "slug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "description": "This topic focuses on performing operations with whole numbers and integers, factorization, exponents, finding GCF and LCM, and applying the order of operations.",
+      "skills": [
+        {
+          "name": "Perform operations with whole numbers and integers",
+          "description": ""
+        },
+        {
+          "name": "Find factors, prime factorization, greatest common factor (GCF), and lowest common multiple (LCM)",
+          "description": ""
+        },
+        {
+          "name": "Use exponents on whole numbers",
+          "description": ""
+        },
+        {
+          "name": "Apply order of operations to perform calculations on integers",
+          "description": ""
+        },
+        {
+          "name": "Evaluate numerical expressions using absolute value",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 40,
+        "medium": 60,
+        "hard": 0
+      }
+    },
+    {
+      "index": 3,
+      "name": "Fractions",
+      "slug": "fractions",
+      "exam": "AMP1",
+      "description": "This topic covers operations on fractions and mixed numbers, defining types of fractions, conversions, simplification, reciprocals, and complex fractions.",
+      "skills": [
+        {
+          "name": "Perform addition, subtraction, multiplication, and division on proper, improper, and mixed fractions",
+          "description": ""
+        },
+        {
+          "name": "Convert between mixed numbers and improper fractions",
+          "description": ""
+        },
+        {
+          "name": "Simplify fractions and define reciprocals",
+          "description": ""
+        },
+        {
+          "name": "Perform operations on complex fractions",
+          "description": ""
+        },
+        {
+          "name": "Identify the largest and smallest numbers in a set of fractions",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 30,
+        "medium": 40,
+        "hard": 30
+      }
+    },
+    {
+      "index": 4,
+      "name": "Decimals",
+      "slug": "decimals",
+      "exam": "AMP1",
+      "description": "This topic involves converting decimals to fractions and percents, identifying base units of measure, performing metric conversions, evaluating algebraic expressions, using scientific notation, and rounding decimals.",
+      "skills": [
+        {
+          "name": "Convert decimals to fractions and percents",
+          "description": ""
+        },
+        {
+          "name": "Identify base units of measure and perform metric conversions",
+          "description": ""
+        },
+        {
+          "name": "Evaluate algebraic expressions involving decimals",
+          "description": ""
+        },
+        {
+          "name": "Write numbers in scientific notation and standard notation",
+          "description": ""
+        },
+        {
+          "name": "Round numbers to specified decimal places",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 80,
+        "medium": 20,
+        "hard": 0
+      }
+    },
+    {
+      "index": 5,
+      "name": "Percent",
+      "slug": "percent",
+      "exam": "AMP1",
+      "description": "This topic covers defining percent, converting between percent, fraction, and decimal forms, solving various percent problems, calculating percent increase and decrease, and determining weighted averages.",
+      "skills": [
+        {
+          "name": "Define percent and convert between percent, fraction, and decimal forms",
+          "description": ""
+        },
+        {
+          "name": "Solve percent problems, such as finding a percentage of a number or determining what percent one number is of another",
+          "description": ""
+        },
+        {
+          "name": "Calculate percent increase and percent decrease",
+          "description": ""
+        },
+        {
+          "name": "Calculate unweighted and weighted averages",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 10,
+        "medium": 70,
+        "hard": 20
+      }
+    },
+    {
+      "index": 6,
+      "name": "Solving Equations",
+      "slug": "solving-equations",
+      "exam": "AMP1",
+      "description": "This topic focuses on solving linear equations using various properties, including those with brackets and fractions, and solving proportions for unknown values.",
+      "skills": [
+        {
+          "name": "Determine whether a given number is a solution for an equation",
+          "description": ""
+        },
+        {
+          "name": "Solve linear equations using the addition and division properties",
+          "description": ""
+        },
+        {
+          "name": "Solve equations that contain brackets and fractions",
+          "description": ""
+        },
+        {
+          "name": "Solve a proportion for an unknown value",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 10,
+        "medium": 60,
+        "hard": 30
+      }
+    },
+    {
+      "index": 7,
+      "name": "Formula Rearrangement",
+      "slug": "formula-rearrangement",
+      "exam": "AMP1",
+      "description": "This topic involves solving equations or formulas for a specific variable, including those with linear, quadratic, and fractional forms.",
+      "skills": [
+        {
+          "name": "Rearrange linear formulas to solve for a specific variable",
+          "description": ""
+        },
+        {
+          "name": "Rearrange formulas involving squares and square roots",
+          "description": ""
+        },
+        {
+          "name": "Rearrange formulas with multiple occurrences of the target variable",
+          "description": ""
+        },
+        {
+          "name": "Rearrange formulas containing fractions",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 60,
+        "hard": 20
+      }
+    },
+    {
+      "index": 8,
+      "name": "Laws of Exponents",
+      "slug": "laws-of-exponents",
+      "exam": "AMP1",
+      "description": "This topic covers performing calculations and simplifying expressions involving zero and positive exponents using the fundamental laws of exponents.",
+      "skills": [
+        {
+          "name": "Evaluate expressions with zero and positive exponents",
+          "description": ""
+        },
+        {
+          "name": "Simplify expressions using the product, quotient, and power rules of exponents",
+          "description": ""
+        },
+        {
+          "name": "Express numbers in scientific notation",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 40,
+        "medium": 30,
+        "hard": 30
+      }
+    },
+    {
+      "index": 9,
+      "name": "Negative Exponents",
+      "slug": "negative-exponents",
+      "exam": "AMP1",
+      "description": "This topic focuses on performing calculations and simplifying expressions that involve negative exponents.",
+      "skills": [
+        {
+          "name": "Simplify expressions containing negative exponents",
+          "description": ""
+        },
+        {
+          "name": "Perform calculations involving negative exponents",
+          "description": ""
+        },
+        {
+          "name": "Apply the laws of exponents with negative powers",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 10,
+        "medium": 30,
+        "hard": 60
+      }
+    },
+    {
+      "index": 10,
+      "name": "Polynomials",
+      "slug": "polynomials",
+      "exam": "AMP1",
+      "description": "This topic covers defining polynomials, identifying their types, determining their degree, writing them in descending order, and performing basic operations such as addition, subtraction, multiplication, and division, including squaring binomials.",
+      "skills": [
+        {
+          "name": "Define polynomials and identify monomials, binomials, and trinomials",
+          "description": ""
+        },
+        {
+          "name": "Determine the degree of a polynomial with one variable",
+          "description": ""
+        },
+        {
+          "name": "Write polynomials in descending exponent form",
+          "description": ""
+        },
+        {
+          "name": "Perform addition, subtraction, multiplication, and division of polynomials",
+          "description": ""
+        },
+        {
+          "name": "Square a binomial",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 40,
+        "medium": 60,
+        "hard": 0
+      }
+    },
+    {
+      "index": 11,
+      "name": "Factoring",
+      "slug": "factoring",
+      "exam": "AMP1",
+      "description": "This topic focuses on finding the greatest common factor, factoring various types of trinomials, factoring differences of squares, factoring by grouping, and factoring sums and differences of cubes.",
+      "skills": [
+        {
+          "name": "Find the greatest common factor from a polynomial",
+          "description": ""
+        },
+        {
+          "name": "Factor trinomials of the form x^2+bx+c and ax^2+bx+c",
+          "description": ""
+        },
+        {
+          "name": "Factor a difference of squares",
+          "description": ""
+        },
+        {
+          "name": "Factor by grouping",
+          "description": ""
+        },
+        {
+          "name": "Factor a sum and a difference of cubes",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 50,
+        "hard": 30
+      }
+    },
+    {
+      "index": 12,
+      "name": "Rational Expressions",
+      "slug": "rational-expressions",
+      "exam": "AMP1",
+      "description": "This topic covers determining values for which rational expressions are defined, simplifying them, and performing operations such as addition, subtraction, multiplication, and division, as well as finding the lowest common denominator.",
+      "skills": [
+        {
+          "name": "Determine the values for which a rational algebraic expression is defined",
+          "description": ""
+        },
+        {
+          "name": "Simplify rational algebraic expressions",
+          "description": ""
+        },
+        {
+          "name": "Perform addition, subtraction, multiplication, and division of rational algebraic expressions",
+          "description": ""
+        },
+        {
+          "name": "Find the lowest common denominator of rational algebraic expressions",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 10,
+        "medium": 40,
+        "hard": 50
+      }
+    },
+    {
+      "index": 13,
+      "name": "Geometry",
+      "slug": "geometry",
+      "exam": "AMP1",
+      "description": "This topic includes understanding significant digits, classifying angles and triangles, applying angle-sum principles and the Pythagorean Theorem, calculating areas and perimeters of 2D shapes, and determining volumes and surface areas of 3D shapes, as well as working with similar triangles.",
+      "skills": [
+        {
+          "name": "Determine the number of significant digits of an approximate number",
+          "description": ""
+        },
+        {
+          "name": "Classify angles (right, acute, obtuse, straight) and triangles (scalene, equilateral, right, isosceles)",
+          "description": ""
+        },
+        {
+          "name": "Use the angle-sum principle and the Pythagorean Theorem",
+          "description": ""
+        },
+        {
+          "name": "Find the area and perimeter of squares, rectangles, triangles, and circles",
+          "description": ""
+        },
+        {
+          "name": "Find the volume and surface area of spheres, cones, cylinders, and prisms",
+          "description": ""
+        },
+        {
+          "name": "Recognize similar triangles and identify corresponding parts to find missing measures",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 30,
+        "medium": 60,
+        "hard": 10
+      }
+    },
+    {
+      "index": 14,
+      "name": "Equation of the Line",
+      "slug": "equation-of-the-line",
+      "exam": "AMP1",
+      "description": "This topic covers calculating distance and midpoint, determining slopes of lines (including parallel and perpendicular), graphing lines from various information, writing linear equations, and understanding horizontal and vertical lines.",
+      "skills": [
+        {
+          "name": "Determine distance and midpoint between two points",
+          "description": ""
+        },
+        {
+          "name": "Determine the slope of a line, including parallel and perpendicular lines",
+          "description": ""
+        },
+        {
+          "name": "Graph a line given its slope, intercepts, or two points",
+          "description": ""
+        },
+        {
+          "name": "Write the equation of a line from standard form to slope-intercept form and vice versa",
+          "description": ""
+        },
+        {
+          "name": "Graph horizontal and vertical lines from their equations",
+          "description": ""
+        },
+        {
+          "name": "Find the equation of a line given various conditions (slope, point, parallel or perpendicular line)",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 50,
+        "hard": 30
+      }
+    },
+    {
+      "index": 15,
+      "name": "Systems of Equations and Inequalities",
+      "slug": "systems-of-equations-and-inequalities",
+      "exam": "AMP1",
+      "description": "This topic focuses on determining the number of solutions for systems of equations, solving systems of linear equations using graphing, elimination, or substitution methods, and graphing linear inequalities on a number line or x-y plane.",
+      "skills": [
+        {
+          "name": "Determine the number of solutions for a system of equations",
+          "description": ""
+        },
+        {
+          "name": "Solve a system of linear equations in two variables using graphing, elimination, or substitution methods",
+          "description": ""
+        },
+        {
+          "name": "Graph linear inequalities on a number line or x-y plane",
+          "description": ""
+        },
+        {
+          "name": "Solve a system of linear inequalities in two variables by graphing",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 30,
+        "medium": 40,
+        "hard": 30
+      }
+    },
+    {
+      "index": 16,
+      "name": "Trigonometry",
+      "slug": "trigonometry",
+      "exam": "AMP1",
+      "description": "This topic covers defining primary and secondary trigonometric ratios, using a calculator to find numerical values and angles, calculating unknown side lengths and acute angles in right triangles, and converting between degrees, minutes, and seconds.",
+      "skills": [
+        {
+          "name": "Define primary trigonometric ratios (sine, cosine, tangent)",
+          "description": ""
+        },
+        {
+          "name": "Define secondary trigonometric ratios (cosecant, secant, cotangent)",
+          "description": ""
+        },
+        {
+          "name": "Use a calculator to determine numerical values of trigonometric ratios for angles between 0 and 90 degrees",
+          "description": ""
+        },
+        {
+          "name": "Use trigonometric ratios to calculate unknown side lengths in right triangles",
+          "description": ""
+        },
+        {
+          "name": "Use a calculator to determine the size of an angle from its trigonometric value",
+          "description": ""
+        },
+        {
+          "name": "Convert between degrees, minutes, and seconds",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 60,
+        "hard": 20
+      }
+    },
+    {
+      "index": 17,
+      "name": "Data Management",
+      "slug": "data-management",
+      "exam": "AMP1",
+      "description": "This topic involves interpreting data presented in various graphical forms such as circle graphs, histograms, bar charts, tables, scatterplots, and line graphs.",
+      "skills": [
+        {
+          "name": "Interpret data from line graphs to understand trends and rates of change",
+          "description": ""
+        },
+        {
+          "name": "Interpret data from scatterplots to identify relationships",
+          "description": ""
+        },
+        {
+          "name": "Interpret data from bar charts and tables to extract specific information",
+          "description": ""
+        },
+        {
+          "name": "Analyze and compare data presented in different formats",
+          "description": ""
+        },
+        {
+          "name": "Calculate averages and differences from data sets",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 40,
+        "medium": 40,
+        "hard": 20
+      }
+    },
+    {
+      "index": 18,
+      "name": "Functions",
+      "slug": "functions",
+      "exam": "AMP1",
+      "description": "This topic covers defining relations, representing them in various forms, determining domain and range, identifying functions, evaluating functions, describing and sketching graphs of transformations, and converting quadratic forms.",
+      "skills": [
+        {
+          "name": "Define relations and represent them as ordered pairs, tables, graphs, or equations",
+          "description": ""
+        },
+        {
+          "name": "Determine the domain and range of a relation",
+          "description": ""
+        },
+        {
+          "name": "Determine if a particular relation is a function",
+          "description": ""
+        },
+        {
+          "name": "Evaluate a function at a given value in its domain",
+          "description": ""
+        },
+        {
+          "name": "Identify the axis of symmetry and vertex of quadratic functions",
+          "description": ""
+        },
+        {
+          "name": "Convert quadratic equations between standard and vertex forms",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 60,
+        "medium": 30,
+        "hard": 10
+      }
+    },
+    {
+      "index": 19,
+      "name": "Logarithms",
+      "slug": "logarithms",
+      "exam": "AMP1",
+      "description": "This topic involves changing expressions between exponential and logarithmic forms, using laws of logarithms to rewrite expressions and solve equations, and finding common logarithms and antilogarithms using a calculator.",
+      "skills": [
+        {
+          "name": "Convert expressions between exponential and logarithmic forms and vice versa",
+          "description": ""
+        },
+        {
+          "name": "Use the laws of logarithms to rewrite expressions",
+          "description": ""
+        },
+        {
+          "name": "Solve literal equations involving logarithms",
+          "description": ""
+        },
+        {
+          "name": "Use a calculator to find common logarithms and antilogarithms",
+          "description": ""
+        },
+        {
+          "name": "Solve logarithmic equations",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 40,
+        "medium": 40,
+        "hard": 20
+      }
+    },
+    {
+      "index": 20,
+      "name": "Word Problems",
+      "slug": "word-problems",
+      "exam": "AMP1",
+      "description": "This topic applies skills from all other topics (1-19) to solve problems presented as English simple-sentence descriptions, with or without diagrams.",
+      "skills": [
+        {
+          "name": "Translate word problems into mathematical equations or expressions",
+          "description": ""
+        },
+        {
+          "name": "Apply problem-solving strategies from algebra, geometry, and other math topics",
+          "description": ""
+        },
+        {
+          "name": "Solve problems involving quadratic functions, such as finding maximum values",
+          "description": ""
+        },
+        {
+          "name": "Solve systems of equations derived from word problems",
+          "description": ""
+        },
+        {
+          "name": "Solve geometry-related word problems, including those involving similar triangles and volume",
+          "description": ""
+        }
+      ],
+      "difficultySpread": {
+        "easy": 10,
+        "medium": 70,
+        "hard": 20
+      }
+    }
+  ],
+  "amp2": [
+    {
+      "index": 1,
+      "name": "Advanced Algebraic Manipulation",
+      "slug": "advanced-algebra",
+      "exam": "AMP2",
+      "description": "Complex equations and algebraic identities.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 2,
+      "name": "Quadratic Functions",
+      "slug": "quadratic-functions",
+      "exam": "AMP2",
+      "description": "Quadratic formula, vertex, discriminant, and graphs.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 3,
+      "name": "Polynomial Functions",
+      "slug": "polynomial-functions",
+      "exam": "AMP2",
+      "description": "Roots, end behavior, and graphs of polynomials.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 4,
+      "name": "Rational Functions and Asymptotes",
+      "slug": "rational-functions",
+      "exam": "AMP2",
+      "description": "Vertical, horizontal, and oblique asymptotes.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 5,
+      "name": "Exponential Functions",
+      "slug": "exponential-functions",
+      "exam": "AMP2",
+      "description": "Growth, decay, and solving exponential equations.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 6,
+      "name": "Logarithmic Functions",
+      "slug": "logarithmic-functions",
+      "exam": "AMP2",
+      "description": "Properties of logarithms and logarithmic equations.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 7,
+      "name": "Composite and Inverse Functions",
+      "slug": "composite-inverse-functions",
+      "exam": "AMP2",
+      "description": "Composing functions and finding inverses.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 8,
+      "name": "Analytic Trigonometry and Identities",
+      "slug": "analytic-trigonometry",
+      "exam": "AMP2",
+      "description": "Fundamental, sum, difference, and double angle identities.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 9,
+      "name": "Trigonometric Equations",
+      "slug": "trigonometric-equations",
+      "exam": "AMP2",
+      "description": "Solving trigonometric equations over intervals.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 10,
+      "name": "Graphs of Trigonometric Functions",
+      "slug": "trig-graphs-transformations",
+      "exam": "AMP2",
+      "description": "Amplitude, period, phase shift, and transformations.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 11,
+      "name": "Sequences and Series",
+      "slug": "sequences-series",
+      "exam": "AMP2",
+      "description": "Arithmetic and geometric sequences, sigma notation, series.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    },
+    {
+      "index": 12,
+      "name": "Systems and Matrices",
+      "slug": "systems-matrices",
+      "exam": "AMP2",
+      "description": "Matrix operations and solving systems with matrices.",
+      "skills": [],
+      "difficultySpread": {
+        "easy": 20,
+        "medium": 40,
+        "hard": 40
+      }
+    }
+  ]
+}

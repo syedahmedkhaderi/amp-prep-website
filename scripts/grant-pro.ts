@@ -6,8 +6,8 @@
  *   npm run grant-pro -- student@example.com admin   # mark as admin (role)
  *
  * Use this for comped accounts or to provision the first admin. It operates on
- * the local SQLite database; for the Supabase production database run the
- * equivalent SQL from DEPLOYMENT.md.
+ * the SQLite database the site actually serves from, so on a deployed host run
+ * it there (against the mounted volume), not on a workstation copy.
  */
 
 import { getDB, initDB } from "../lib/db/sqlite";

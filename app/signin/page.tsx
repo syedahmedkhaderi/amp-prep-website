@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { SignInForm } from "@/components/ui/AuthForms";
+import { PasswordResetNotice } from "@/components/ui/PasswordResetNotice";
 
 export const metadata = { title: "Sign in" };
 
@@ -15,7 +17,18 @@ export default function SignInPage() {
           <p className="mt-1 text-sm text-ink-soft">
             Sign in to continue practicing.
           </p>
+          <Suspense fallback={null}>
+            <PasswordResetNotice />
+          </Suspense>
           <SignInForm />
+          <p className="mt-4 text-center text-sm">
+            <Link
+              href="/forgot-password"
+              className="text-ink-soft underline hover:text-brand-deep"
+            >
+              Forgot your password?
+            </Link>
+          </p>
           <p className="mt-6 text-center text-sm text-ink-soft">
             New here?{" "}
             <Link href="/signup" className="font-medium text-brand-600 hover:text-brand-deep">

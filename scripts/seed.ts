@@ -28,6 +28,23 @@ function validateQuestion(q: any): string | null {
   if (["single_mcq", "multi_mcq", "fill_blank"].includes(q.type)) {
     if (!Array.isArray(q.options) || q.options.length === 0) return "missing options";
     if (q.options.some((opt: any) => !opt?.content)) return "option content is missing";
+
+    // A question with no option flagged correct cannot be answered correctly by
+    // anyone: gradeChoice and gradeMultiChoice both return isCorrect: false
+    // unconditionally when nothing is flagged. 23 such questions were shipping
+    // (16 multi_mcq, 7 fill_blank), scoring every student zero however well they
+    // understood the material, with no signal that the question was the problem.
+    //
+    // Rejecting here makes the bank smaller and correct rather than larger and
+    // silently unfair. It also surfaces the count at every seed, so a
+    // regenerated bank cannot quietly reintroduce them.
+    const correctCount = q.options.filter((opt: any) => opt.is_correct).length;
+    if (correctCount === 0) return "no correct option flagged";
+    if (q.type !== "multi_mcq" && correctCount > 1) {
+      // gradeChoice resolves the key with .find(), so it only ever credits the
+      // first. A second flagged option marks a genuinely correct student wrong.
+      return "more than one correct option on a single-answer question";
+    }
   }
 
   if (q.type === "matching") {
@@ -50,15 +67,104 @@ function validateQuestion(q: any): string | null {
   return null;
 }
 
+/**
+ * Fraction of the raw bank the verified file must contain before it is trusted.
+ *
+ * `npm run verify` writes questions-verified.json incrementally while calling
+ * an external API for every question, so an interruption — a rate limit, a
+ * dropped connection, Ctrl-C — leaves a short but perfectly valid JSON file
+ * behind. Because seeding prefers that file, the next seed would rebuild the
+ * site from whatever fraction had been written, with no error: a run
+ * interrupted early once left a 50-question file against a 3,789-question
+ * bank, which would have published a site with 1% of its content.
+ *
+ * Refusing is the only safe response. Seeding is destructive and there is no
+ * undo, so a partial file has to stop the run rather than quietly shrink the
+ * product.
+ */
+const VERIFIED_MIN_COVERAGE = 0.9;
+
+/**
+ * Traces of the generator arguing with itself mid-explanation.
+ *
+ * The bank is model-generated and its answer keys have never been checked by a
+ * person. A 30-question blind audit put the wrong-key rate at 6.7% (95% CI
+ * 0.8-22.1%), which extrapolates to roughly 250 wrong keys across the bank —
+ * errors in the mathematics itself, which no structural check can find.
+ *
+ * The one wrong key that the audit sample happened to catch was produced this
+ * way: the model computed correctly, then overrode itself part-way through the
+ * explanation with a fabricated intermediate value. That signature is
+ * mechanically detectable, and it is the single highest-yield filter available.
+ */
+const SELF_CORRECTION =
+  /\bWait\b|\bwait,|Re-evaluating|Recalculating|Correction:|let me recheck|I made an error/i;
+
+const PLAIN_NUMBER = /^[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$/;
+
+/**
+ * Questions that are held back from publication pending human review.
+ *
+ * These are not malformed — validateQuestion passes them — so they are seeded
+ * and kept, but with a status the site does not serve. That is deliberate:
+ * deleting them would lose work, while publishing them risks teaching a student
+ * the wrong method. They can be released in bulk once reviewed, with
+ * `UPDATE questions SET status='published' WHERE status='needs_review'`.
+ */
+function heldForReview(q: any): string | null {
+  const prose = [...(q.explanation_steps || []), q.concept_summary || ""].join(" ");
+  if (SELF_CORRECTION.test(prose)) return "explanation contradicts itself mid-derivation";
+
+  // A numeric question keyed to 0 whose accepted answers are symbolic has the
+  // real answer only in the accepted list. Typing "0" scores; writing the actual
+  // answer in any form not spelled exactly as listed fails. Both halves are
+  // wrong and neither is fixable in the grader.
+  const na = q.numeric_answer;
+  if (
+    q.type === "numeric" &&
+    na &&
+    na.value === 0 &&
+    (na.accepted || []).some((a: any) => !PLAIN_NUMBER.test(String(a).trim()))
+  ) {
+    return "numeric answer keyed to 0 with a symbolic accepted form";
+  }
+
+  return null;
+}
+
 function loadVerified() {
+  const rawExists = fs.existsSync(FALLBACK_PATH);
+
   if (fs.existsSync(QUESTIONS_PATH)) {
     const data = JSON.parse(fs.readFileSync(QUESTIONS_PATH, "utf-8"));
+
+    if (rawExists) {
+      const raw = JSON.parse(fs.readFileSync(FALLBACK_PATH, "utf-8"));
+      if (data.length < raw.length * VERIFIED_MIN_COVERAGE) {
+        console.error(
+          `[seed] REFUSING TO SEED: ${QUESTIONS_PATH} holds ${data.length} questions ` +
+            `but ${FALLBACK_PATH} holds ${raw.length}.`
+        );
+        console.error(
+          "[seed] That gap means the verify pass did not finish, and seeding from it " +
+            "would replace the question bank with a fraction of itself."
+        );
+        console.error(
+          "[seed] Either re-run `npm run verify` to completion, or delete the partial " +
+            "file to seed from the raw bank instead."
+        );
+        process.exit(1);
+      }
+    }
+
     return data.filter((q: any) => q.verified !== false);
   }
-  if (fs.existsSync(FALLBACK_PATH)) {
+
+  if (rawExists) {
     console.log("[seed] Verified file not found, using raw questions.json");
     return JSON.parse(fs.readFileSync(FALLBACK_PATH, "utf-8"));
   }
+
   console.error("[seed] No questions file found. Run generate first.");
   process.exit(1);
 }
@@ -67,9 +173,17 @@ function seed() {
   initDB();
   const db = getDB();
 
-  // Load topics outline
+  // Read and validate every input BEFORE touching the database.
+  //
+  // The deletes below are destructive and there is no undo. This used to run
+  // after them, so anything that made loading fail — a partial verified file,
+  // malformed JSON, a missing topics file — emptied the question tables and
+  // then exited, leaving a site with no content and no way back except another
+  // successful seed. Loading first means a bad input costs nothing.
+  const questions = loadVerified();
   const topicsFile = JSON.parse(fs.readFileSync(TOPICS_PATH, "utf-8"));
   const allTopics = [...topicsFile.amp1, ...topicsFile.amp2];
+  console.log(`[seed] Loading ${questions.length} questions.`);
 
   // Get exam IDs
   const exams = db.prepare("SELECT id, code FROM exams").all() as any[];
@@ -97,9 +211,6 @@ function seed() {
   db.prepare("DELETE FROM numeric_answers").run();
   db.prepare("DELETE FROM questions").run();
 
-  const questions = loadVerified();
-  console.log(`[seed] Loading ${questions.length} questions.`);
-
   const insertQ = db.prepare(
     `INSERT INTO questions
      (id, exam_id, topic_id, type, stem, difficulty, points, explanation_steps,
@@ -122,6 +233,8 @@ function seed() {
   let inserted = 0;
   let freeCount = 0;
   let skipped = 0;
+  let held = 0;
+  const heldReasons: Record<string, number> = {};
 
   for (const q of questions) {
     // Find topic and exam
@@ -135,6 +248,10 @@ function seed() {
 
     const invalidReason = validateQuestion(q);
     if (invalidReason) {
+      // Name the question and the reason. A bare count hides content defects:
+      // these questions are silently absent from the site, so the only way
+      // anyone notices is if the skip tells them which ones and why.
+      console.warn(`  [seed] Skipping ${q.id} (${q.type}): ${invalidReason}`);
       skipped++;
       continue;
     }
@@ -145,6 +262,14 @@ function seed() {
 
     // Mark ~40% of AMP1 questions as free
     const isFree = isAMP1 && Math.random() < 0.4;
+
+    // Held-back questions are stored but not served: every query the site runs
+    // filters on status = 'published'.
+    const reviewReason = heldForReview(q);
+    if (reviewReason) {
+      held++;
+      heldReasons[reviewReason] = (heldReasons[reviewReason] || 0) + 1;
+    }
 
     try {
       insertQ.run(
@@ -160,8 +285,8 @@ function seed() {
         JSON.stringify(q.distractor_rationales || {}),
         q.concept_summary || "",
         "generated",
-        "published",
-        isFree ? 1 : 0
+        reviewReason ? "needs_review" : "published",
+        reviewReason ? 0 : isFree ? 1 : 0
       );
 
       // Options
@@ -202,6 +327,17 @@ function seed() {
   }
 
   console.log(`[seed] Done. Inserted ${inserted} questions (${freeCount} marked free).`);
+  if (held > 0) {
+    console.log(
+      `[seed] Held ${held} back as needs_review — stored, but not served to students:`
+    );
+    for (const [reason, count] of Object.entries(heldReasons).sort((a, b) => b[1] - a[1])) {
+      console.log(`  [seed]   ${count}  ${reason}`);
+    }
+    console.log(
+      "  [seed] Release after review with: UPDATE questions SET status='published' WHERE status='needs_review';"
+    );
+  }
   if (skipped > 0) {
     console.log(`[seed] Skipped ${skipped} malformed or incomplete questions.`);
   }

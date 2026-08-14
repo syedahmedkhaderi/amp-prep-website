@@ -3,6 +3,7 @@ import * as path from "path";
 import { GeminiKeyRotator } from "./lib/gemini-rotator";
 import { verifyPrompt } from "./lib/prompts";
 import { loadScriptsEnv } from "./lib/env";
+import { checkQuestion } from "../lib/math/render-check";
 import type { GeneratedQuestion, VerifiedQuestion } from "./lib/types";
 
 loadScriptsEnv();
@@ -21,6 +22,20 @@ loadScriptsEnv();
  * - All: stem is non empty, LaTeX passes parse check (basic).
  *
  * Output: /data/generated/questions-verified.json
+ *
+ * TWO THINGS TO KNOW BEFORE RUNNING THIS.
+ *
+ * It calls the Gemini API once per question — 3,789 of them. It is not a cheap
+ * structural check and it is not part of any test or deploy sequence. The
+ * bank-wide LaTeX gate people usually want is tests/latex-render.test.ts, which
+ * runs offline in seconds.
+ *
+ * It writes its output incrementally, so an interrupted run leaves a short but
+ * syntactically valid questions-verified.json behind — and scripts/seed.ts
+ * prefers that file over questions.json. A run stopped early once left 50
+ * questions against a 3,789-question bank. seed.ts now refuses a verified file
+ * that covers less than 90% of the raw bank, but the cleanest habit is to
+ * delete a partial file rather than rely on that guard.
  */
 
 const IN_PATH = path.resolve(process.cwd(), "data/generated/questions.json");
@@ -56,6 +71,17 @@ function structuralCheck(q: GeneratedQuestion): { ok: boolean; reason?: string }
   }
   if (!q.explanation_steps || q.explanation_steps.length < 2) {
     return { ok: false, reason: "Needs at least 2 explanation steps." };
+  }
+  // Every math segment must actually render. A question that fails here shows
+  // raw LaTeX to the student, so it is a hard structural failure rather than
+  // something to flag for review.
+  const renderFailures = checkQuestion(q);
+  if (renderFailures.length > 0) {
+    const first = renderFailures[0];
+    return {
+      ok: false,
+      reason: `LaTeX does not render (${first.path}): ${first.message}`,
+    };
   }
   return { ok: true };
 }
