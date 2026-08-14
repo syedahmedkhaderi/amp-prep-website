@@ -18,6 +18,9 @@ export async function POST(req: NextRequest) {
   // Read the raw body exactly once so we can both verify the HMAC signature and
   // parse the event from the identical bytes the provider signed.
   const rawBody = await req.text();
+  // Both implemented providers sign with X-Signature. A provider that uses a
+  // different header adds it here; verification itself stays provider-specific
+  // and lives behind verifyWebhook.
   const signature =
     req.headers.get("X-Signature") || req.headers.get("x-signature") || "";
 
@@ -31,10 +34,20 @@ export async function POST(req: NextRequest) {
     initDB();
     const db = getDB();
 
-    // Find user by the custom data in the event
-    const user = db.prepare("SELECT id FROM users WHERE id = ?").get(event.userId) as any;
+    // Find user by the custom data in the event.
+    //
+    // Answer 200 rather than 404 when there is nobody to act on. A provider
+    // treats any non-2xx as a delivery failure and retries it for days, but
+    // neither case here can succeed on a retry: an event we do not model (a
+    // provider endpoint subscribed to more event types than we handle) carries no user
+    // id at all, and a genuinely deleted account will not come back. Both are
+    // acknowledged and dropped, and the retry queue stays clear for events that
+    // really did fail.
+    const user = event.userId
+      ? (db.prepare("SELECT id FROM users WHERE id = ?").get(event.userId) as any)
+      : null;
     if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+      return NextResponse.json({ received: true, ignored: true });
     }
 
     // Update subscription state

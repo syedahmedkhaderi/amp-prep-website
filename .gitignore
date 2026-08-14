@@ -5,6 +5,9 @@ node_modules/
 
 # next.js
 .next/
+# Output of a verification build run with NEXT_DIST_DIR set, so it does not
+# disturb a dev server already using .next/
+.next-*/
 out/
 build/
 dist/
@@ -19,9 +22,15 @@ dist/
 /scripts/.env
 .env.example.local
 
-# generated data (regenerate via scripts)
-/data/generated/*.json
+# generated data
+# questions.json and topics.json ARE tracked: they are the product. The host
+# runs `npm run seed` to build the SQLite database from them at deploy time, so
+# if they are not in the repo the deployed site has no question bank. Keeping
+# them tracked also makes content repairs reviewable in a diff.
+/data/generated/*
 !/data/generated/.gitkeep
+!/data/generated/questions.json
+!/data/generated/topics.json
 
 # logs
 logs/
@@ -45,3 +54,6 @@ Thumbs.db
 
 # vercel
 .vercel
+
+# source material (not redistributed)
+/data/source/

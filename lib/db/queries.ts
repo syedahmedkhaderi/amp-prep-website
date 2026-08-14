@@ -206,6 +206,15 @@ export function getTopicQuestionStats(topicId: string): {
   };
 }
 
+/**
+ * Papers for an exam, excluding any that have no questions attached.
+ *
+ * A paper row and its paper_questions rows are written by two different steps,
+ * and re-seeding the question bank clears the second without touching the
+ * first. When that happened, /mock listed every numbered exam with a working
+ * Start link and each one bounced straight back to /mock?reason=no-questions.
+ * An honest empty list is better than a menu of exams that cannot be sat.
+ */
 export function getPapers(examCode: ExamCode): Paper[] {
   initDB();
   const db = getDB();
@@ -214,6 +223,7 @@ export function getPapers(examCode: ExamCode): Paper[] {
        (SELECT COUNT(*) FROM paper_questions pq WHERE pq.paper_id = p.id) as question_count
      FROM papers p
      WHERE p.exam_code = ?
+       AND EXISTS (SELECT 1 FROM paper_questions pq WHERE pq.paper_id = p.id)
      ORDER BY p.is_free DESC, p.order_index`
   ).all(examCode) as any[];
   return rows.map(rowToPaper);

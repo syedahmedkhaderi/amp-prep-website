@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
 import { signOutAction } from "@/app/auth/actions";
 import { AppNav } from "@/components/ui/AppNav";
+import { Logo } from "@/components/ui/Logo";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUser();
@@ -13,8 +14,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <header className="sticky top-0 z-30 border-b border-surface-border bg-white">
         <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-8">
-            <Link href="/dashboard" className="font-bold text-brand-deep">
-              AMP Prep
+            <Link href="/dashboard" className="rounded-md" aria-label="AMP Prep dashboard">
+              <Logo size={32} />
             </Link>
             <AppNav />
           </div>

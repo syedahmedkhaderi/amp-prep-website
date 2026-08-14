@@ -52,6 +52,13 @@ supabase/            Postgres schema and row level security for production
 
 ## Deployment
 
-See DEPLOYMENT.md for the full guide to running AMP Prep as a live website on
-Vercel with a Supabase Postgres database and Lemon Squeezy payments.
+See DEPLOYMENT.md for the full guide to running AMP Prep as a live website on a
+persistent-disk host (Fly.io, Railway, or a VPS) with the SQLite database on a
+mounted volume. No payment provider is connected; the site runs free for
+everyone until one is.
+
+Not Vercel: `better-sqlite3` cannot persist a file between serverless
+invocations, so signups and attempts would be silently lost. The Postgres
+schema in `supabase/` is the documented path if the project ever outgrows a
+single instance.
 

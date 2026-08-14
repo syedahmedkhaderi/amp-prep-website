@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
+import { rateLimitResponse } from "@/lib/rate-limit";
 import { submitUserAttempt, isAttemptExpired } from "@/lib/attempts";
 
 export async function POST(
@@ -9,6 +10,9 @@ export async function POST(
   const { id: attemptId } = await params;
   const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const limited = rateLimitResponse("submit", user.id);
+  if (limited) return limited;
 
   try {
     // Check if time expired (auto submit)

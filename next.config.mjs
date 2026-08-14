@@ -34,6 +34,10 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Lets a verification build write somewhere other than .next, so it can run
+  // without pulling the output out from under a dev server using the same
+  // directory. Unset everywhere else, which is the normal ".next".
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   async headers() {
     return [
       {

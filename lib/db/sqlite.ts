@@ -1,8 +1,11 @@
 /**
  * Database layer using SQLite (better-sqlite3) for local, self-contained
- * operation. The schema mirrors the Postgres model in the spec so migration
- * to Supabase is straightforward. The live site uses Supabase in production;
- * this SQLite layer powers local development and the offline pipeline seed.
+ * operation.
+ *
+ * This is the production data layer, not only a development one: the site runs
+ * on a single instance with the database on a persistent volume. The Postgres
+ * schema in supabase/migrations mirrors it and is the documented scale-out
+ * path, but no application code reads it today. See DEPLOYMENT.md.
  */
 
 import Database from "better-sqlite3";
@@ -10,7 +13,22 @@ import type { Database as DBType } from "better-sqlite3";
 import * as fs from "fs";
 import * as path from "path";
 
-const DB_PATH = path.resolve(process.cwd(), "data/amp-prep.db");
+/**
+ * Where the database file lives.
+ *
+ * AMP_DB_PATH exists so a process can be pointed at a different file. The unit
+ * suite uses it: without it, running `npm test` writes its fixtures into the
+ * real database, and it had done exactly that — the development database had
+ * accumulated 105 orphan topic rows from test runs, enough that a dashboard
+ * gauge reported progress against a denominator no student could reach.
+ *
+ * The default stays relative to the working directory, so a host that starts
+ * the process from somewhere other than the project root gets a different, and
+ * empty, database. See DEPLOYMENT.md.
+ */
+const DB_PATH = process.env.AMP_DB_PATH
+  ? path.resolve(process.env.AMP_DB_PATH)
+  : path.resolve(process.cwd(), "data/amp-prep.db");
 
 let dbInstance: DBType | null = null;
 
@@ -152,6 +170,20 @@ export function initDB(): void {
       saved_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
+    -- Password reset tokens.
+    --
+    -- token_hash, never the token: a leaked database must not hand over working
+    -- reset links for every account, which is the same reason password_hash
+    -- exists rather than a password column.
+    CREATE TABLE IF NOT EXISTS password_reset_tokens (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      token_hash TEXT NOT NULL UNIQUE,
+      expires_at TEXT NOT NULL,
+      used_at TEXT,
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
     CREATE TABLE IF NOT EXISTS question_reports (
       id TEXT PRIMARY KEY,
       user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -175,7 +207,11 @@ export function initDB(): void {
     CREATE INDEX IF NOT EXISTS idx_attempt_questions_attempt_question ON attempt_questions(attempt_id, question_id);
     CREATE INDEX IF NOT EXISTS idx_attempt_answers_attempt ON attempt_answers(attempt_id);
     CREATE INDEX IF NOT EXISTS idx_attempt_answers_attempt_question ON attempt_answers(attempt_id, question_id);
+    CREATE INDEX IF NOT EXISTS idx_reset_tokens_user ON password_reset_tokens(user_id);
+    CREATE INDEX IF NOT EXISTS idx_reset_tokens_expiry ON password_reset_tokens(expires_at);
   `);
+
+  runColumnMigrations(db);
 
   // Seed exams if empty
   const count = db.prepare("SELECT COUNT(*) as c FROM exams").get() as { c: number };
@@ -188,6 +224,27 @@ export function initDB(): void {
       "INSERT INTO exams (id, code, title, description, duration_minutes, total_questions) VALUES (?, ?, ?, ?, ?, ?)"
     ).run(id(), "AMP2", "AMP 2: Advanced Mathematics Placement", "Advanced algebra, functions, and precalculus. 40 questions in 90 minutes.", 90, 40);
   }
+}
+
+/**
+ * Add columns to tables that already exist.
+ *
+ * The schema above is all `CREATE TABLE IF NOT EXISTS`, which does nothing to a
+ * database that was created before a column was introduced. Any new column on
+ * an existing table has to be added here, or it will exist on fresh installs
+ * and be silently missing everywhere else.
+ */
+function runColumnMigrations(db: DBType): void {
+  const addColumn = (table: string, column: string, definition: string): void => {
+    const columns = db.pragma(`table_info(${table})`) as { name: string }[];
+    if (columns.some((c) => c.name === column)) return;
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+  };
+
+  // Bumped whenever a user's credentials change, and carried in the session
+  // token. A token minted before the bump no longer matches and is rejected,
+  // which is what makes "change your password" actually end other sessions.
+  addColumn("users", "token_version", "INTEGER NOT NULL DEFAULT 0");
 }
 
 export function closeDB(): void {

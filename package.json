@@ -18,9 +18,12 @@
     "verify": "tsx scripts/verify-questions.ts",
     "seed": "tsx scripts/seed.ts",
     "assemble": "tsx scripts/assemble-papers.ts",
-    "grant-pro": "tsx scripts/grant-pro.ts"
+    "grant-pro": "tsx scripts/grant-pro.ts",
+    "repair:latex": "tsx scripts/repair-latex.ts",
+    "repair:content": "tsx scripts/repair-content.ts"
   },
   "dependencies": {
+    "@types/nodemailer": "^8.0.1",
     "bcryptjs": "^3.0.2",
     "better-sqlite3": "^12.4.1",
     "cookie": "^1.0.2",
@@ -28,6 +31,7 @@
     "jsonwebtoken": "^9.0.2",
     "katex": "0.16.22",
     "next": "^16.2.9",
+    "nodemailer": "^9.0.5",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "rehype-katex": "7.0.1",

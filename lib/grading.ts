@@ -93,6 +93,26 @@ function gradeMatching(q: Question, response: any): GradeResult {
   };
 }
 
+/**
+ * A number and nothing else: optional sign, digits, optional decimal part,
+ * optional exponent. Deliberately stricter than parseFloat, which stops at the
+ * first character it cannot use and reports success on the prefix.
+ */
+const FULL_NUMBER = /^[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$/;
+
+/**
+ * Shared normalisation for comparing a typed answer against an accepted form.
+ * Drops whitespace, lowercases, and strips the `$` math delimiters and `\left`
+ * `\right` sizing prefixes that appear in accepted forms lifted out of LaTeX,
+ * so a student is not failed for not typing the delimiters.
+ */
+function normalizeAnswer(value: string): string {
+  return String(value)
+    .replace(/\\left|\\right/g, "")
+    .replace(/[$\s]/g, "")
+    .toLowerCase();
+}
+
 function gradeNumeric(q: Question, response: any): GradeResult {
   if (!q.numericAnswer) return { isCorrect: false, pointsAwarded: 0, correctAnswerText: "" };
 
@@ -102,9 +122,37 @@ function gradeNumeric(q: Question, response: any): GradeResult {
   const target = q.numericAnswer.correctValue;
   const tol = q.numericAnswer.tolerance;
 
-  // Try numeric comparison
-  const parsed = parseFloat(rawInput);
-  if (!isNaN(parsed)) {
+  const correct = (): GradeResult => ({
+    isCorrect: true,
+    pointsAwarded: q.points,
+    correctAnswerText: String(target),
+  });
+
+  // Accepted forms are checked FIRST, and the numeric path only accepts an
+  // input that is a number in its entirety.
+  //
+  // This used to be the other way round: parseFloat ran first and returned
+  // unconditionally whenever it produced a number. parseFloat parses a *prefix*,
+  // so parseFloat("1/2") is 1 and parseFloat("200*pi") is 200. That single fact
+  // broke grading in both directions at once:
+  //
+  //   false negative - a question keyed value 0.5 with accepted ["1/2"] marked a
+  //     student typing "1/2" wrong, because the prefix parsed to 1 and the
+  //     accepted list below was unreachable dead code. 119 questions in the bank
+  //     carry an accepted form that no student could ever get credit for.
+  //   false positive - a question keyed value 1 also marked "1/2" *correct*, for
+  //     exactly the same reason.
+  //
+  // Marking a correct student wrong on a paid exam-prep site is the worse of the
+  // two, but both are fixed by the same change, so neither is left standing.
+  const normalized = normalizeAnswer(rawInput);
+  const accepted = q.numericAnswer.acceptedExpressions.map(normalizeAnswer);
+  if (normalized && accepted.includes(normalized)) return correct();
+
+  // Whole-string number only. A partial match falls through to the forms below
+  // rather than silently deciding the question.
+  if (FULL_NUMBER.test(rawInput)) {
+    const parsed = Number(rawInput);
     const isCorrect = Math.abs(parsed - target) <= tol + 1e-9;
     return {
       isCorrect,
@@ -113,15 +161,17 @@ function gradeNumeric(q: Question, response: any): GradeResult {
     };
   }
 
-  // Check accepted expressions (normalized)
-  const normalized = rawInput.replace(/\s/g, "").toLowerCase();
-  const accepted = q.numericAnswer.acceptedExpressions.map((e) => e.replace(/\s/g, "").toLowerCase());
-  if (accepted.includes(normalized)) {
-    return {
-      isCorrect: true,
-      pointsAwarded: q.points,
-      correctAnswerText: String(target),
-    };
+  // A plain fraction is the one non-decimal form students type often enough to
+  // be worth evaluating, and it is unambiguous. Anything richer than this is a
+  // symbolic-algebra problem and deliberately out of scope: it belongs in the
+  // accepted list, not in a hand-rolled expression parser.
+  const fraction = rawInput.match(/^([+-]?\d+(?:\.\d+)?)\s*\/\s*([+-]?\d+(?:\.\d+)?)$/);
+  if (fraction) {
+    const denominator = Number(fraction[2]);
+    if (denominator !== 0) {
+      const value = Number(fraction[1]) / denominator;
+      if (Math.abs(value - target) <= tol + 1e-9) return correct();
+    }
   }
 
   return { isCorrect: false, pointsAwarded: 0, correctAnswerText: String(target) };

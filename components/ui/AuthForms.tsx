@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { signUpAction, signInAction } from "@/app/auth/actions";
+import { MIN_PASSWORD_LENGTH } from "@/lib/password";
 
 function EyeIcon({ open }: { open: boolean }) {
   return open ? (
@@ -69,8 +70,17 @@ export function SignUpForm() {
 
   return (
     <form action={formAction} className="mt-6 space-y-4">
-      {state?.error && (
-        <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-2 text-sm text-red-700">
+      {/*
+        role="alert" so the failure is announced. Without it a screen reader
+        user submits, hears nothing, and has no way to tell a rejected password
+        from a form that did not submit. Every other error surface in the app
+        (UpgradeButton, ChangePassword, DeleteAccount) already does this.
+      */}
+      {state && "error" in state && (
+        <div
+          role="alert"
+          className="rounded-lg bg-red-50 border border-red-200 px-4 py-2 text-sm text-red-700"
+        >
           {state.error}
         </div>
       )}
@@ -98,7 +108,12 @@ export function SignUpForm() {
           className="mt-1 w-full rounded-lg border border-surface-border px-3 py-2 text-ink focus:border-brand-600"
         />
       </div>
-      <PasswordField id="password" label="Password" minLength={6} helperText="At least 6 characters." />
+      <PasswordField
+        id="password"
+        label="Password"
+        minLength={MIN_PASSWORD_LENGTH}
+        helperText={`At least ${MIN_PASSWORD_LENGTH} characters. A short sentence you will remember works well.`}
+      />
       <button
         type="submit"
         disabled={pending}
@@ -121,8 +136,17 @@ export function SignInForm() {
 
   return (
     <form action={formAction} className="mt-6 space-y-4">
-      {state?.error && (
-        <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-2 text-sm text-red-700">
+      {/*
+        role="alert" so the failure is announced. Without it a screen reader
+        user submits, hears nothing, and has no way to tell a rejected password
+        from a form that did not submit. Every other error surface in the app
+        (UpgradeButton, ChangePassword, DeleteAccount) already does this.
+      */}
+      {state && "error" in state && (
+        <div
+          role="alert"
+          className="rounded-lg bg-red-50 border border-red-200 px-4 py-2 text-sm text-red-700"
+        >
           {state.error}
         </div>
       )}

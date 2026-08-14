@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
+import { rateLimitResponse } from "@/lib/rate-limit";
 import { saveAnswer } from "@/lib/attempts";
 
 export async function POST(
@@ -9,6 +10,9 @@ export async function POST(
   const { id: attemptId } = await params;
   const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const limited = rateLimitResponse("answer", user.id);
+  if (limited) return limited;
 
   const body = await req.json();
   const { questionId, response } = body;

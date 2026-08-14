@@ -79,7 +79,7 @@ export default function PricingPage() {
 
         <p className="mt-8 text-center text-xs text-ink-light">
           All prices in USD. About 36 QAR per month at current rates. Cancel
-          anytime. Payments processed securely by Lemon Squeezy.
+          anytime. Paid plans are not active yet.
         </p>
       </main>
       <SiteFooter />

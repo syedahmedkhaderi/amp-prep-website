@@ -2,6 +2,15 @@
 
 import { useState } from "react";
 
+/**
+ * Starts a hosted checkout for the Pro plan.
+ *
+ * The plan is decided on the server, not sent from here: the client never names
+ * a price, so a tampered request cannot buy Pro at a price of its choosing.
+ *
+ * No payment provider is configured, so today this reliably surfaces the
+ * server's 503 message rather than navigating anywhere.
+ */
 export function UpgradeButton() {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);

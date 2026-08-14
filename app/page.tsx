@@ -1,13 +1,93 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { SiteHeader, SiteFooter } from "@/components/ui/SiteChrome";
-import { getQuestionCount } from "@/lib/db/queries";
+import { AccountDeletedNotice } from "@/components/ui/AccountDeletedNotice";
+import { SampleQuestions } from "@/components/ui/SampleQuestions";
+import {
+  getQuestionCount,
+  getQuestions,
+  getTopicBySlug,
+  getTopicQuestionStats,
+  getTopics,
+} from "@/lib/db/queries";
+import { toClientSafe } from "@/lib/types";
+
+/**
+ * A few free, published single-answer questions to show on the marketing page.
+ *
+ * Picked at build time rather than per request so the page stays static, and
+ * passed through toClientSafe so the answer key never reaches the browser. The
+ * correct option index is sent separately and only drives the "Show answer"
+ * toggle for these three questions.
+ */
+function getSampleQuestions() {
+  // Spread across arithmetic, algebra and trigonometry so the range of the bank
+  // is visible. Slugs are verified against data/generated/topics.json; a slug
+  // that stops existing drops its sample rather than breaking the page.
+  const wanted = ["fractions", "factoring", "trigonometry", "logarithms"];
+  const samples: {
+    question: ReturnType<typeof toClientSafe>;
+    correctIndex: number;
+    topic: string;
+  }[] = [];
+
+  for (const slug of wanted) {
+    const topic = getTopicBySlug(slug);
+    if (!topic) continue;
+
+    const candidate = getQuestions({
+      topicId: topic.id,
+      isFree: true,
+      type: "single_mcq",
+      limit: 12,
+    }).find((q) => {
+      const correct = q.options?.findIndex((o) => o.isCorrect) ?? -1;
+      // Keep it short enough to read at a glance on a marketing page.
+      return correct >= 0 && q.stem.length < 180 && (q.options?.length ?? 0) === 4;
+    });
+
+    if (!candidate) continue;
+    samples.push({
+      question: toClientSafe(candidate),
+      correctIndex: candidate.options!.findIndex((o) => o.isCorrect),
+      topic: topic.name,
+    });
+  }
+
+  return samples;
+}
+
+/**
+ * Per-topic question counts, read from the bank at build time.
+ *
+ * The topic list used to be a hardcoded array of names, which drifts from what
+ * is actually in the database and quietly becomes a claim rather than a fact.
+ * Topics with nothing published in them are dropped: listing an empty topic is
+ * the thing that makes a count look invented.
+ */
+function getTopicStats() {
+  return getTopics()
+    .map((topic) => ({
+      slug: topic.slug,
+      name: topic.name,
+      total: getTopicQuestionStats(topic.id).total,
+    }))
+    .filter((t) => t.total > 0)
+    .sort((a, b) => b.total - a.total);
+}
 
 export default function HomePage() {
   const stats = getQuestionCount();
+  const samples = getSampleQuestions();
+  const topicStats = getTopicStats();
+  const totalQuestions = topicStats.reduce((sum, t) => sum + t.total, 0);
 
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
+      <Suspense fallback={null}>
+        <AccountDeletedNotice />
+      </Suspense>
       <main id="main-content" className="flex-1">
         <section className="border-b border-surface-border bg-gradient-to-b from-surface-panel to-white">
           <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -138,26 +218,77 @@ export default function HomePage() {
           </div>
         </section>
 
+        {samples.length > 0 && (
+          <section className="border-y border-surface-border bg-white py-16">
+            <div className="mx-auto max-w-3xl px-6">
+              <h2 className="text-2xl font-bold text-brand-deep">
+                See a real question
+              </h2>
+              <p className="mt-2 text-ink-soft">
+                These are taken straight from the bank, typeset the same way you
+                will see them in practice and in mock exams.
+              </p>
+              <div className="mt-8">
+                <SampleQuestions samples={samples} />
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className="mx-auto max-w-5xl px-6 py-16">
+          <h2 className="text-2xl font-bold text-brand-deep">How it works</h2>
+          <ol className="mt-8 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Practise a topic",
+                body: "Pick any topic and work through questions one at a time. You get the answer and a full worked solution immediately, so a mistake becomes something you learn from rather than a number at the end.",
+              },
+              {
+                title: "Sit a timed mock",
+                body: "When topics feel solid, take a full mock under the real time limit, in an interface built to match the test. Pacing is what most people lose marks to, and it is only trainable under a clock.",
+              },
+              {
+                title: "See what to fix",
+                body: "Every attempt is scored and broken down by topic, so your next session starts with the weakest area instead of whatever you feel like revising.",
+              },
+            ].map((step, i) => (
+              <li key={step.title}>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-deep text-sm font-semibold text-white">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 font-semibold text-ink">{step.title}</h3>
+                <p className="mt-2 text-sm text-ink-soft">{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
         <section className="bg-surface-panel py-16">
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="text-2xl font-bold text-brand-deep">
-              Every topic on the AMP 1 syllabus
+              Every topic, with what is actually in it
             </h2>
             <p className="mt-2 text-ink-soft">
-              Practice any topic independently. Each question comes with a step
-              by step worked solution.
+              Real counts from the question bank, not a promise. Each question
+              comes with a step by step worked solution.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {TOPIC_LIST.map((t, i) => (
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {topicStats.map((t) => (
                 <div
-                  key={t}
-                  className="rounded-lg border border-surface-border bg-white px-4 py-3 text-sm text-ink transition hover:border-brand-600 hover:shadow-sm"
+                  key={t.slug}
+                  className="flex items-baseline justify-between gap-3 rounded-lg border border-surface-border bg-white px-4 py-3 transition hover:border-brand-600 hover:shadow-sm"
                 >
-                  <span className="mr-2 text-ink-light">{i + 1}.</span>
-                  {t}
+                  <span className="text-sm text-ink">{t.name}</span>
+                  <span className="shrink-0 text-xs font-medium text-ink-light">
+                    {t.total.toLocaleString()}
+                  </span>
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-sm text-ink-light">
+              {totalQuestions.toLocaleString()} questions across{" "}
+              {topicStats.length} topics, and growing.
+            </p>
           </div>
         </section>
 
@@ -183,26 +314,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-const TOPIC_LIST = [
-  "Real Number System",
-  "Fractions",
-  "Decimals",
-  "Percent",
-  "Ratios and Proportions",
-  "Exponents",
-  "Radicals",
-  "Scientific Notation",
-  "Algebraic Expressions",
-  "Linear Equations",
-  "Linear Inequalities",
-  "Systems of Equations",
-  "Polynomials",
-  "Factoring",
-  "Rational Expressions",
-  "Coordinate Geometry",
-  "Functions",
-  "Measurement Geometry",
-  "Right Triangle Trigonometry",
-  "Statistics and Probability",
-];

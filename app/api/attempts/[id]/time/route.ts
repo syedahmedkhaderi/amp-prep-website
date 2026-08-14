@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
+import { rateLimitResponse } from "@/lib/rate-limit";
 import { getDB, initDB } from "@/lib/db/sqlite";
 
 export async function GET(
@@ -9,6 +10,9 @@ export async function GET(
   const { id: attemptId } = await params;
   const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const limited = rateLimitResponse("time", user.id);
+  if (limited) return limited;
 
   initDB();
   const db = getDB();
