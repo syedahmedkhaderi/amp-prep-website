@@ -26,7 +26,7 @@ export default async function AttemptReviewPage({ params }: { params: Promise<{ 
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8">
+    <div className="mx-auto max-w-6xl px-6 py-8">
       <Link href="/dashboard" className="text-sm text-brand-600 hover:text-brand-deep">
         Back to dashboard
       </Link>
