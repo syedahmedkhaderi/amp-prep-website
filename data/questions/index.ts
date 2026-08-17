@@ -15,6 +15,7 @@ import { amp1Batch6 } from "./amp1-batch6";
 import { amp2Batch7 } from "./amp2-batch7";
 import { amp1Batch7 } from "./amp1-batch7";
 import { amp2Batch8 } from "./amp2-batch8";
+import { amp2Batch9 } from "./amp2-batch9";
 
 /**
  * Hand-authored questions, merged into the generated bank by
@@ -41,6 +42,7 @@ export const authoredQuestions: AuthoredQuestion[] = [
   ...amp2Batch7,
   ...amp1Batch7,
   ...amp2Batch8,
+  ...amp2Batch9,
 ];
 
 export type { AuthoredQuestion };
