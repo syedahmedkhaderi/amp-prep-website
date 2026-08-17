@@ -1,0 +1,46 @@
+# Fly.io configuration for AMP Prep.
+#
+# TWO VALUES TO FILL IN BEFORE DEPLOYING:
+#   app            — must be globally unique across Fly
+#   primary_region — a region code near your users; `fly platform regions` lists
+#                    them. The volume in Step 2 must be created in this same
+#                    region or the machine will not start.
+
+app            = "amp-prep-CHANGE-ME"
+primary_region = "CHANGE-ME"
+
+[build]
+  dockerfile = "Dockerfile"
+
+# The SQLite database, its -wal, and its -shm all live here. Mount the
+# directory, never the single .db file — committed data sits in -wal until it
+# is checkpointed, and separating them corrupts the database.
+[mounts]
+  source      = "amp_data"
+  destination = "/app/data"
+
+[http_service]
+  internal_port = 3000
+  force_https   = true
+
+  # Both of these exist to guarantee exactly one instance. better-sqlite3 opens
+  # a local file: two machines are two diverging databases, and the sign-in
+  # rate limiter lives in that same file, so N machines multiply the throttle
+  # by N. Do not raise these, and do not `fly scale count` above 1.
+  auto_stop_machines   = false
+  auto_start_machines  = false
+  min_machines_running = 1
+
+  # Confirms the process is listening and that the volume is actually mounted
+  # with a seeded database behind it. `/` alone would not — it is prerendered
+  # at build time and returns 200 over a completely unmounted volume.
+  [[http_service.http_checks]]
+    interval     = "30s"
+    timeout      = "5s"
+    grace_period = "20s"
+    method       = "get"
+    path         = "/api/health"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

@@ -28,5 +28,20 @@ export default defineConfig({
     env: {
       AMP_DB_PATH: testDbPath,
     },
+    /**
+     * Run the suites in one process, one after another.
+     *
+     * AMP_DB_PATH above is resolved once, in this config, so every worker
+     * inherits the same filename. With file-level parallelism the suites that
+     * write through the real data layer then share one SQLite file:
+     * account-deletion drops users while another suite is mid-transaction, and
+     * the run fails intermittently on a foreign key that is fine in isolation.
+     *
+     * Giving each worker its own file would need the path resolved at runtime
+     * rather than here. Serialising is the smaller change and costs about a
+     * second on a suite this size, which is worth paying for a deterministic
+     * result.
+     */
+    fileParallelism: false,
   },
 });

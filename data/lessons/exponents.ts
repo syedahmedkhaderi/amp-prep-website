@@ -1,0 +1,253 @@
+import type { LessonSource } from "./types";
+
+/** Laws of Exponents and Negative Exponents. */
+export const exponentsLessons: LessonSource[] = [
+  {
+    skillSlug: "laws-of-exponents-multiply-powers-with-the-same-base-by",
+    title: "Multiplying powers with the same base",
+    summary: "Add the exponents, and see why that works.",
+    estMinutes: 6,
+    blocks: [
+      { type: "prose", text: "When two powers share a base and you multiply them, you add the exponents." },
+      { type: "prose", text: "Writing it out shows why. $x^{2} \\cdot x^{3}$ means $(x \\cdot x)(x \\cdot x \\cdot x)$, which is five copies of $x$, so $x^{5}$." },
+      { type: "definition", term: "The rule", meaning: "$x^{a} \\cdot x^{b} = x^{a+b}$. It only works when the bases are the same." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $3x^{4} \\cdot 5x^{2}$.",
+        steps: [
+          { action: "Deal with the plain numbers.", math: "3 \\cdot 5 = 15", why: "Numbers in front multiply normally. The exponent rule does not apply to them." },
+          { action: "Add the exponents on $x$.", math: "x^{4} \\cdot x^{2} = x^{6}", why: "Same base, so the exponents add." },
+          { action: "Put them together.", math: "15x^{6}", why: "The number and the power sit side by side." },
+        ],
+        answer: "$15x^{6}$",
+      },
+      { type: "callout", kind: "common-mistake", text: "Multiplying the exponents to get $x^{8}$. Multiplying powers adds the exponents. Multiplying the exponents belongs to a different rule." },
+      { type: "callout", kind: "watch-out", text: "The bases must match. $x^{2} \\cdot y^{3}$ cannot be simplified, because $x$ and $y$ are different letters." },
+      { type: "checkpoint", questionIds: ["q_022twkkk1dts"] },
+    ],
+  },
+  {
+    skillSlug: "laws-of-exponents-divide-powers-with-the-same-base-by",
+    title: "Dividing powers with the same base",
+    summary: "Subtract the exponents.",
+    estMinutes: 6,
+    blocks: [
+      { type: "prose", text: "Dividing does the opposite of multiplying. So you subtract the exponents." },
+      { type: "prose", text: "Think of $\\frac{x^{5}}{x^{2}}$ as five copies of $x$ over two copies. Two cancel from each side. Three are left." },
+      { type: "definition", term: "The rule", meaning: "$\\frac{x^{a}}{x^{b}} = x^{a-b}$, when $x$ is not zero." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $\\frac{12x^{7}}{4x^{3}}$.",
+        steps: [
+          { action: "Divide the numbers.", math: "12 \\div 4 = 3", why: "The plain numbers divide normally." },
+          { action: "Subtract the exponents.", math: "x^{7-3} = x^{4}", why: "Take the top one away from the bottom one." },
+          { action: "Combine.", math: "3x^{4}", why: "Number in front, power after." },
+        ],
+        answer: "$3x^{4}$",
+      },
+      { type: "callout", kind: "watch-out", text: "The order matters. Top minus bottom, every time. So $\\frac{x^{2}}{x^{5}} = x^{-3}$, not $x^{3}$." },
+      { type: "checkpoint", questionIds: ["q_1skhunqdxblz"] },
+    ],
+  },
+  {
+    skillSlug: "laws-of-exponents-raise-a-power-to-a-power-by",
+    title: "Raising a power to another power",
+    summary: "Multiply the exponents.",
+    estMinutes: 5,
+    blocks: [
+      { type: "prose", text: "This is the rule where the exponents multiply. It applies when a power is raised to another power." },
+      { type: "prose", text: "$(x^{2})^{3}$ means $x^{2} \\cdot x^{2} \\cdot x^{2}$. Adding those exponents gives $6$, which is the same as $2 \\times 3$." },
+      { type: "definition", term: "The rule", meaning: "$(x^{a})^{b} = x^{ab}$." },
+      { type: "callout", kind: "tip", text: "Two rules are easy to mix up. Multiplying powers adds: $x^{2} \\cdot x^{3} = x^{5}$. Raising a power to a power multiplies: $(x^{2})^{3} = x^{6}$. Look at whether there is a bracket." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $(2x^{3})^{4}$.",
+        steps: [
+          { action: "The outside exponent applies to everything in the bracket.", math: "2^{4} \\cdot (x^{3})^{4}", why: "Both the $2$ and the $x^{3}$ are inside, so both get raised to the fourth." },
+          { action: "Work out the number part.", math: "2^{4} = 16", why: "Four copies of $2$ multiplied." },
+          { action: "Multiply the exponents on $x$.", math: "(x^{3})^{4} = x^{12}", why: "Power to a power, so $3 \\times 4$." },
+        ],
+        answer: "$16x^{12}$",
+      },
+      { type: "callout", kind: "common-mistake", text: "Forgetting to raise the number. $(2x^{3})^{4}$ is not $2x^{12}$. The $2$ is inside the bracket and becomes $16$." },
+      { type: "checkpoint", questionIds: ["q_2ztxpskza970"] },
+    ],
+  },
+  {
+    skillSlug: "laws-of-exponents-apply-an-exponent-to-a-product-or",
+    title: "An exponent over a product or a fraction",
+    summary: "Share the exponent out across everything inside the bracket.",
+    estMinutes: 6,
+    blocks: [
+      { type: "definition", term: "Over a product", meaning: "$(xy)^{n} = x^{n}y^{n}$. Every factor inside gets the exponent." },
+      { type: "definition", term: "Over a fraction", meaning: "$\\left(\\frac{x}{y}\\right)^{n} = \\frac{x^{n}}{y^{n}}$. Both the top and the bottom get it." },
+      { type: "callout", kind: "watch-out", text: "This works for products and fractions only, never for sums. $(x + y)^{2}$ is not $x^{2} + y^{2}$. Test it with numbers: $(3+4)^{2} = 49$, but $9 + 16 = 25$." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $\\left(\\frac{3x^{2}}{y}\\right)^{3}$.",
+        steps: [
+          { action: "Apply the exponent to the top and the bottom.", math: "\\frac{(3x^{2})^{3}}{y^{3}}", why: "A fraction raised to a power raises both parts." },
+          { action: "Expand the top.", math: "3^{3} \\cdot (x^{2})^{3} = 27x^{6}", why: "$3^{3} = 27$, and power to a power multiplies $2 \\times 3$." },
+          { action: "Write the result.", math: "\\frac{27x^{6}}{y^{3}}", why: "Nothing cancels, so this is finished." },
+        ],
+        answer: "$\\frac{27x^{6}}{y^{3}}$",
+      },
+      { type: "checkpoint", questionIds: ["q_55rhxhrn6ig4"] },
+    ],
+  },
+  {
+    skillSlug: "laws-of-exponents-simplify-expressions-involving-zero-and-positive-exponents",
+    title: "The zero exponent",
+    summary: "Understand why anything to the power zero is one.",
+    estMinutes: 5,
+    blocks: [
+      { type: "definition", term: "The zero exponent", meaning: "$x^{0} = 1$ for any $x$ that is not zero." },
+      { type: "prose", text: "This looks like a made-up rule, but it follows from the division rule." },
+      { type: "prose", text: "Consider $\\frac{x^{3}}{x^{3}}$. Anything divided by itself is $1$. But the division rule says subtract the exponents, giving $x^{0}$. Both are correct, so $x^{0} = 1$." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $5x^{0} + (3y)^{0}$.",
+        steps: [
+          { action: "Look carefully at the first term.", math: "5x^{0} = 5 \\cdot 1 = 5", why: "The exponent attaches only to $x$, not to the $5$. So $x^{0}$ becomes $1$ and the $5$ stays." },
+          { action: "Now the second term.", math: "(3y)^{0} = 1", why: "Here the bracket puts everything under the exponent, so the whole thing is $1$." },
+          { action: "Add.", math: "5 + 1 = 6", why: "Both terms are now plain numbers." },
+        ],
+        answer: "$6$",
+      },
+      { type: "callout", kind: "watch-out", text: "The bracket changes everything. $5x^{0}$ is $5$, but $(5x)^{0}$ is $1$. Check what the exponent is actually attached to." },
+      { type: "checkpoint", questionIds: ["q_5yfjz7975d19"] },
+    ],
+  },
+  {
+    skillSlug: "laws-of-exponents-perform-calculations-with-exponents",
+    title: "Using several exponent rules together",
+    summary: "Work through an expression that needs more than one rule.",
+    estMinutes: 7,
+    blocks: [
+      { type: "prose", text: "Most test questions combine the rules. Take them one at a time, and deal with brackets first." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $\\frac{(2x^{3}y^{2})^{2}}{4x^{4}y}$.",
+        steps: [
+          { action: "Expand the bracket on top.", math: "2^{2} \\cdot x^{6} \\cdot y^{4} = 4x^{6}y^{4}", why: "The exponent $2$ applies to every factor, and power to a power multiplies exponents." },
+          { action: "Rewrite the whole expression.", math: "\\frac{4x^{6}y^{4}}{4x^{4}y}", why: "Now it is a straight division." },
+          { action: "Divide the numbers.", math: "4 \\div 4 = 1", why: "They cancel." },
+          { action: "Subtract exponents for each letter.", math: "x^{6-4} = x^{2}, \\quad y^{4-1} = y^{3}", why: "The division rule, applied to each base separately. Remember $y$ on the bottom means $y^{1}$." },
+        ],
+        answer: "$x^{2}y^{3}$",
+      },
+      { type: "callout", kind: "tip", text: "A letter with no visible exponent has an exponent of $1$. Forgetting this is a common source of errors in the subtraction step." },
+      { type: "checkpoint", questionIds: ["q_6frqzg5vphx2"] },
+    ],
+  },
+  {
+    skillSlug: "negative-exponents-rewrite-a-negative-exponent-as-a-reciprocal",
+    title: "What a negative exponent means",
+    summary: "Turn a negative exponent into a fraction.",
+    estMinutes: 6,
+    blocks: [
+      { type: "definition", term: "Negative exponent", meaning: "$x^{-n} = \\frac{1}{x^{n}}$. A negative exponent means one over that power. It does not make the number negative." },
+      { type: "prose", text: "So $2^{-3} = \\frac{1}{2^{3}} = \\frac{1}{8}$. The answer is a positive fraction." },
+      { type: "callout", kind: "common-mistake", text: "Thinking $2^{-3} = -8$. The minus sign in the exponent means take the reciprocal, not change the sign. $2^{-3}$ is $\\frac{1}{8}$, which is positive." },
+      { type: "prose", text: "The rule works both ways. A negative exponent on the bottom moves to the top and becomes positive: $\\frac{1}{x^{-2}} = x^{2}$." },
+      {
+        type: "worked_example",
+        prompt: "Write $3^{-2} + 2^{-1}$ as a single fraction.",
+        steps: [
+          { action: "Rewrite each term.", math: "3^{-2} = \\frac{1}{9}, \\quad 2^{-1} = \\frac{1}{2}", why: "Each negative exponent becomes one over the positive power." },
+          { action: "Find a common denominator.", math: "18", why: "$9$ and $2$ both divide into $18$." },
+          { action: "Rewrite and add.", math: "\\frac{2}{18} + \\frac{9}{18} = \\frac{11}{18}", why: "Once the bottoms match, add the tops." },
+        ],
+        answer: "$\\frac{11}{18}$",
+      },
+      { type: "checkpoint", questionIds: ["q_05x5flsipgy5"] },
+    ],
+  },
+  {
+    skillSlug: "negative-exponents-simplify-a-fraction-containing-negative-exponents-in",
+    title: "Negative exponents in a fraction",
+    summary: "Move powers between the top and bottom to clear the negatives.",
+    estMinutes: 7,
+    blocks: [
+      { type: "prose", text: "A negative exponent is an instruction to move. A factor with a negative exponent crosses the fraction bar and its exponent turns positive." },
+      { type: "definition", term: "The moving rule", meaning: "$\\frac{x^{-a}}{y^{-b}} = \\frac{y^{b}}{x^{a}}$. Factors with negative exponents swap sides." },
+      { type: "callout", kind: "watch-out", text: "Only factors move, never terms that are added. In $\\frac{x^{-1} + y}{2}$ the $x^{-1}$ cannot cross the bar, because it is added to something rather than multiplying the whole top." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $\\frac{3x^{-2}}{y^{-3}}$ so no exponent is negative.",
+        steps: [
+          { action: "Move $x^{-2}$ to the bottom.", math: "\\frac{3}{x^{2}y^{-3}}", why: "It has a negative exponent, so it crosses the bar and becomes positive." },
+          { action: "Move $y^{-3}$ to the top.", math: "\\frac{3y^{3}}{x^{2}}", why: "Same rule in the other direction." },
+          { action: "Check the $3$.", why: "The $3$ has no negative exponent, so it stays where it is." },
+        ],
+        answer: "$\\frac{3y^{3}}{x^{2}}$",
+      },
+      { type: "checkpoint", questionIds: ["q_06v1auuc8gzv"] },
+    ],
+  },
+  {
+    skillSlug: "negative-exponents-combine-the-exponent-laws-with-negative-exponents",
+    title: "All the exponent rules together",
+    summary: "Simplify an expression using several rules including negatives.",
+    estMinutes: 8,
+    blocks: [
+      { type: "prose", text: "Hard exponent questions mix every rule. A reliable order keeps them manageable." },
+      { type: "definition", term: "A safe order", meaning: "Expand brackets first, using power to a power. Then combine like bases by adding or subtracting exponents. Then clear any negative exponents at the very end." },
+      {
+        type: "worked_example",
+        prompt: "Simplify $\\frac{(x^{-2}y)^{3}}{(x^{2}y^{-3})^{-2}}$.",
+        steps: [
+          { action: "Expand the top bracket.", math: "(x^{-2}y)^{3} = x^{-6}y^{3}", why: "Multiply each exponent by $3$: $-2 \\times 3 = -6$ and $1 \\times 3 = 3$." },
+          { action: "Expand the bottom bracket.", math: "(x^{2}y^{-3})^{-2} = x^{-4}y^{6}", why: "Multiply by $-2$: $2 \\times -2 = -4$ and $-3 \\times -2 = 6$." },
+          { action: "Now divide, subtracting exponents.", math: "x^{-6-(-4)}y^{3-6} = x^{-2}y^{-3}", why: "Top minus bottom for each base. Note $-6 - (-4) = -2$." },
+          { action: "Clear the negatives.", math: "\\frac{1}{x^{2}y^{3}}", why: "Both factors have negative exponents, so both move to the bottom." },
+        ],
+        answer: "$\\frac{1}{x^{2}y^{3}}$",
+      },
+      { type: "callout", kind: "tip", text: "Subtracting a negative is the step people get wrong. Write it out: $-6 - (-4)$ becomes $-6 + 4 = -2$." },
+      { type: "checkpoint", questionIds: ["q_0m00myn08np4"] },
+    ],
+  },
+  {
+    skillSlug: "negative-exponents-perform-calculations-with-negative-exponents",
+    title: "Working out numbers with negative exponents",
+    summary: "Evaluate powers with negative exponents on a calculator and by hand.",
+    estMinutes: 5,
+    blocks: [
+      { type: "prose", text: "To evaluate a negative exponent by hand, work out the positive power first, then take one over it." },
+      {
+        type: "worked_example",
+        prompt: "Work out $5^{-2}$.",
+        steps: [
+          { action: "Ignore the minus sign for a moment.", math: "5^{2} = 25", why: "Find the positive power first, which is the easy part." },
+          { action: "Take the reciprocal.", math: "\\frac{1}{25}", why: "The negative exponent means one over the result." },
+          { action: "As a decimal if needed.", math: "0.04", why: "$1 \\div 25 = 0.04$." },
+        ],
+        answer: "$\\frac{1}{25}$ or $0.04$",
+      },
+      { type: "callout", kind: "tip", text: "A negative exponent on a number bigger than $1$ always gives an answer between $0$ and $1$. If your calculator gives something large, check what you typed." },
+      { type: "prose", text: "A fraction raised to a negative power flips. $\\left(\\frac{2}{3}\\right)^{-1} = \\frac{3}{2}$, and $\\left(\\frac{2}{3}\\right)^{-2} = \\frac{9}{4}$." },
+      { type: "checkpoint", questionIds: ["q_0tk37oduavdt"] },
+    ],
+  },
+  {
+    skillSlug: "negative-exponents-simplify-expressions-involving-negative-exponents",
+    title: "Expressions with negative exponents",
+    summary: "Write an algebraic expression with only positive exponents.",
+    estMinutes: 6,
+    blocks: [
+      { type: "prose", text: "Questions often ask for an answer with no negative exponents. That means every power must end up on the side of the fraction bar that makes its exponent positive." },
+      {
+        type: "worked_example",
+        prompt: "Write $4x^{-3}y^{2}$ with only positive exponents.",
+        steps: [
+          { action: "Find the negative exponents.", math: "x^{-3}", why: "Only $x$ has one. The $4$ and the $y^{2}$ are already fine." },
+          { action: "Move $x$ to the bottom.", math: "\\frac{4y^{2}}{x^{3}}", why: "Crossing the bar turns $-3$ into $3$." },
+        ],
+        answer: "$\\frac{4y^{2}}{x^{3}}$",
+      },
+      { type: "callout", kind: "common-mistake", text: "Moving the $4$ down as well. Only the factor carrying the negative exponent moves. The $4$ has no exponent showing, so it stays on top." },
+      { type: "checkpoint", questionIds: ["q_19qkbcpspwaw"] },
+    ],
+  },
+];

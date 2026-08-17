@@ -1,0 +1,233 @@
+import type { LessonSource } from "./types";
+
+/** Geometry: angles, triangles, mensuration, similarity. */
+export const geometryLessons: LessonSource[] = [
+  {
+    skillSlug: "geometry-classify-angles-as-right-acute-obtuse-or",
+    title: "Naming angles by size",
+    summary: "Sort angles into acute, right, obtuse and straight.",
+    estMinutes: 5,
+    blocks: [
+      { type: "prose", text: "Angles are measured in degrees. A full turn is $360^{\\circ}$, and a quarter turn is $90^{\\circ}$." },
+      { type: "definition", term: "Acute angle", meaning: "Less than $90^{\\circ}$. A sharp corner." },
+      { type: "definition", term: "Right angle", meaning: "Exactly $90^{\\circ}$. A square corner, usually marked with a small square." },
+      { type: "definition", term: "Obtuse angle", meaning: "More than $90^{\\circ}$ but less than $180^{\\circ}$. A wide, open corner." },
+      { type: "definition", term: "Straight angle", meaning: "Exactly $180^{\\circ}$. A straight line." },
+      { type: "callout", kind: "tip", text: "Acute sounds like a small, sharp word, and an acute angle is the small one. That is enough to remember which is which." },
+      {
+        type: "worked_example",
+        prompt: "Classify angles of $45^{\\circ}$, $90^{\\circ}$, $120^{\\circ}$ and $180^{\\circ}$.",
+        steps: [
+          { action: "Compare each with $90$.", why: "$45$ is under $90$, so it is acute." },
+          { action: "Next.", why: "$90$ is exactly a right angle." },
+          { action: "Next.", why: "$120$ is between $90$ and $180$, so it is obtuse." },
+          { action: "Last.", why: "$180$ is a straight angle." },
+        ],
+        answer: "Acute, right, obtuse, straight.",
+      },
+      { type: "checkpoint", questionIds: ["q_067ii4cto5ns"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-identify-pairs-of-complementary-angles-and-pairs",
+    title: "Complementary and supplementary angles",
+    summary: "Find a missing angle from a pair that adds to 90 or 180 degrees.",
+    estMinutes: 5,
+    blocks: [
+      { type: "definition", term: "Complementary angles", meaning: "Two angles that add to $90^{\\circ}$." },
+      { type: "definition", term: "Supplementary angles", meaning: "Two angles that add to $180^{\\circ}$." },
+      { type: "callout", kind: "tip", text: "C comes before S in the alphabet, and $90$ comes before $180$. Complementary is the smaller pair." },
+      {
+        type: "worked_example",
+        prompt: "An angle measures $35^{\\circ}$. Find its complement and its supplement.",
+        steps: [
+          { action: "For the complement, subtract from $90$.", math: "90 - 35 = 55", why: "Complementary angles add to $90^{\\circ}$." },
+          { action: "For the supplement, subtract from $180$.", math: "180 - 35 = 145", why: "Supplementary angles add to $180^{\\circ}$." },
+        ],
+        answer: "Complement $55^{\\circ}$, supplement $145^{\\circ}$.",
+      },
+      { type: "callout", kind: "watch-out", text: "An obtuse angle has no complement. Subtracting $120$ from $90$ gives a negative, and angles in these problems cannot be negative." },
+      { type: "checkpoint", questionIds: ["q_0ph3wnnsjqp5"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-classify-triangles-as-scalene-equilateral-right-or",
+    title: "Types of triangle",
+    summary: "Name a triangle from its sides or its angles.",
+    estMinutes: 6,
+    blocks: [
+      { type: "prose", text: "Triangles are named two ways: by their sides, or by their angles." },
+      { type: "definition", term: "By sides", meaning: "Equilateral has three equal sides. Isosceles has two equal sides. Scalene has no equal sides." },
+      { type: "definition", term: "By angles", meaning: "A right triangle has one $90^{\\circ}$ angle. An acute triangle has all angles under $90^{\\circ}$. An obtuse triangle has one angle over $90^{\\circ}$." },
+      {
+        type: "diagram",
+        spec: { kind: "triangle", sides: ["equal", "equal", "equal"], angles: ["60", "60", "60"], description: "An equilateral triangle with all three sides equal and all three angles sixty degrees." },
+        caption: "In an equilateral triangle every angle is $60^{\\circ}$.",
+      },
+      { type: "prose", text: "The two naming systems combine. A triangle can be both isosceles and right at the same time." },
+      {
+        type: "worked_example",
+        prompt: "A triangle has angles $90^{\\circ}$, $45^{\\circ}$ and $45^{\\circ}$. Name it both ways.",
+        steps: [
+          { action: "Look at the angles.", why: "One angle is $90^{\\circ}$, so it is a right triangle." },
+          { action: "Think about the sides.", why: "Two angles are equal, and equal angles sit opposite equal sides. So two sides are equal, making it isosceles." },
+        ],
+        answer: "A right isosceles triangle.",
+      },
+      { type: "checkpoint", questionIds: ["q_1nuyfjm8luri"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-use-the-angle-sum-principle-to-calculate",
+    title: "Angles in a triangle add to 180",
+    summary: "Find a missing angle in any triangle.",
+    estMinutes: 5,
+    blocks: [
+      { type: "definition", term: "The angle sum", meaning: "The three angles inside any triangle always add to $180^{\\circ}$, whatever its shape or size." },
+      {
+        type: "diagram",
+        spec: { kind: "triangle", angles: ["50", "60", "?"], description: "A triangle with two known angles of fifty and sixty degrees and one unknown angle." },
+        caption: "Two angles are known, so the third can be found.",
+      },
+      {
+        type: "worked_example",
+        prompt: "Two angles of a triangle are $50^{\\circ}$ and $60^{\\circ}$. Find the third.",
+        steps: [
+          { action: "Add the two you know.", math: "50 + 60 = 110", why: "This is how much of the $180^{\\circ}$ is used up." },
+          { action: "Subtract from $180$.", math: "180 - 110 = 70", why: "The three angles must total $180^{\\circ}$." },
+        ],
+        answer: "$70^{\\circ}$",
+      },
+      { type: "callout", kind: "tip", text: "In an isosceles triangle, the two angles opposite the equal sides are equal. If the top angle is $40^{\\circ}$, the other two share $140^{\\circ}$, giving $70^{\\circ}$ each." },
+      { type: "checkpoint", questionIds: ["q_0ts4qeb5oiwr"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-find-the-area-and-perimeter-of-a",
+    title: "Area and perimeter",
+    summary: "Use the formulas for squares, rectangles, triangles and circles.",
+    estMinutes: 8,
+    blocks: [
+      { type: "definition", term: "Perimeter", meaning: "The distance all the way around the outside. Measured in ordinary units such as cm." },
+      { type: "definition", term: "Area", meaning: "The amount of surface inside. Measured in square units such as $\\text{cm}^{2}$." },
+      { type: "prose", text: "Rectangle: area is $l \\times w$, perimeter is $2l + 2w$." },
+      { type: "prose", text: "Triangle: area is $\\frac{1}{2} \\times \\text{base} \\times \\text{height}$. The height must be the straight-up distance, not a slanted side." },
+      { type: "prose", text: "Circle: area is $\\pi r^{2}$, and the distance around, called the circumference, is $2\\pi r$." },
+      {
+        type: "diagram",
+        spec: { kind: "circle", radius: "r", description: "A circle with its radius drawn from the centre to the edge." },
+        caption: "The radius $r$ runs from the centre to the edge. The diameter is twice that.",
+      },
+      { type: "callout", kind: "common-mistake", text: "Using the diameter where the formula wants the radius. If a circle is $10$ cm across, then $r = 5$, and the area is $\\pi(5)^{2} = 25\\pi$, not $100\\pi$." },
+      {
+        type: "worked_example",
+        prompt: "A rectangle is $8$ cm long and $5$ cm wide. Find its area and perimeter.",
+        steps: [
+          { action: "Area is length times width.", math: "8 \\times 5 = 40", why: "Area counts the squares inside, and the units are squared." },
+          { action: "Perimeter adds all four sides.", math: "2(8) + 2(5) = 26", why: "There are two lengths and two widths." },
+        ],
+        answer: "Area $40 \\text{ cm}^{2}$, perimeter $26$ cm.",
+      },
+      { type: "callout", kind: "tip", text: "Check your units. Area answers end in squared units and perimeter answers do not. That alone catches a lot of mixed-up formulas." },
+      { type: "checkpoint", questionIds: ["q_2hkqp63mjlcj"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-find-the-volume-and-surface-area-of",
+    title: "Volume and surface area",
+    summary: "Use the formulas for prisms, cylinders, cones and spheres.",
+    estMinutes: 9,
+    blocks: [
+      { type: "definition", term: "Volume", meaning: "The space inside a solid, measured in cubic units such as $\\text{cm}^{3}$." },
+      { type: "definition", term: "Surface area", meaning: "The total area of all the outside faces, measured in square units." },
+      { type: "prose", text: "For any prism or cylinder, volume is the area of the flat end multiplied by the height." },
+      {
+        type: "diagram",
+        spec: { kind: "cylinder", radius: "r", height: "h", description: "A cylinder with its radius marked across the top circle and its height marked down the side." },
+        caption: "Volume $= \\pi r^{2} h$: the circle's area times the height.",
+      },
+      { type: "prose", text: "Cylinder: volume is $\\pi r^{2} h$. Cone: volume is $\\frac{1}{3}\\pi r^{2} h$, exactly a third of the cylinder with the same base and height." },
+      { type: "prose", text: "Sphere: volume is $\\frac{4}{3}\\pi r^{3}$, and surface area is $4\\pi r^{2}$." },
+      {
+        type: "worked_example",
+        prompt: "A cylinder has radius $4$ cm and height $10$ cm. Find its volume, to two decimal places.",
+        steps: [
+          { action: "Write the formula.", math: "V = \\pi r^{2} h", why: "Volume of a cylinder is the circular base area times the height." },
+          { action: "Substitute.", math: "V = \\pi (4)^{2}(10)", why: "$r = 4$ and $h = 10$." },
+          { action: "Square the radius first.", math: "\\pi (16)(10) = 160\\pi", why: "Order of operations puts the power before the multiplication." },
+          { action: "Work out the decimal.", math: "160 \\times 3.14159 \\approx 502.65", why: "Use the calculator's $\\pi$ key rather than a rounded value." },
+        ],
+        answer: "About $502.65 \\text{ cm}^{3}$",
+      },
+      { type: "callout", kind: "watch-out", text: "Square the radius before multiplying by anything else. Doing $(\\pi \\times 4)^{2}$ instead of $\\pi \\times 4^{2}$ gives a completely different answer." },
+      { type: "checkpoint", questionIds: ["q_3a4us279zj0d"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-recognize-similar-triangles-and-identify-the-corresponding",
+    title: "Similar triangles",
+    summary: "Recognise when two triangles are the same shape at different sizes.",
+    estMinutes: 6,
+    blocks: [
+      { type: "definition", term: "Similar triangles", meaning: "Two triangles with the same three angles. They are the same shape but may be different sizes. One is a scaled copy of the other." },
+      { type: "prose", text: "In similar triangles, matching sides are in the same ratio. If one triangle is twice as big, every side is twice as long." },
+      { type: "definition", term: "Corresponding sides", meaning: "Sides in matching positions. The side opposite the $30^{\\circ}$ angle in one triangle corresponds to the side opposite the $30^{\\circ}$ angle in the other." },
+      { type: "callout", kind: "tip", text: "Two triangles are similar if just two pairs of angles match. The third pair must match too, because all three add to $180^{\\circ}$." },
+      {
+        type: "worked_example",
+        prompt: "Triangle A has angles $40^{\\circ}$ and $60^{\\circ}$. Triangle B has angles $60^{\\circ}$ and $80^{\\circ}$. Are they similar?",
+        steps: [
+          { action: "Find the third angle of A.", math: "180 - 40 - 60 = 80", why: "The angles must total $180^{\\circ}$." },
+          { action: "Find the third angle of B.", math: "180 - 60 - 80 = 40", why: "Same rule." },
+          { action: "Compare the full sets.", math: "\\{40, 60, 80\\} \\text{ and } \\{40, 60, 80\\}", why: "The same three angles appear in both, so the triangles are similar." },
+        ],
+        answer: "Yes, both have angles $40^{\\circ}$, $60^{\\circ}$ and $80^{\\circ}$.",
+      },
+      { type: "checkpoint", questionIds: ["q_4ogvljzdk3zi"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-find-the-missing-measures-in-similar-triangles",
+    title: "Finding a missing side in similar triangles",
+    summary: "Set up a proportion between matching sides.",
+    estMinutes: 7,
+    blocks: [
+      { type: "prose", text: "Because similar triangles are scaled copies, matching sides form equal ratios. That gives a proportion you can solve." },
+      {
+        type: "worked_example",
+        prompt: "Two similar triangles have matching sides. The first has sides $6$ and $9$. The second has the matching sides $4$ and $x$. Find $x$.",
+        steps: [
+          { action: "Write the matching sides as a proportion.", math: "\\frac{6}{4} = \\frac{9}{x}", why: "Sides in matching positions have the same ratio. Keep the first triangle on top in both fractions." },
+          { action: "Cross multiply.", math: "6x = 36", why: "$6 \\times x$ and $4 \\times 9$." },
+          { action: "Divide.", math: "x = 6", why: "Undo the multiplication." },
+        ],
+        answer: "$x = 6$",
+      },
+      { type: "callout", kind: "watch-out", text: "Keep the triangles in a consistent order. If the small triangle's side is on top in the first fraction, it must be on top in the second as well." },
+      { type: "checkpoint", questionIds: ["q_4pomtlkrgjjv"] },
+    ],
+  },
+  {
+    skillSlug: "geometry-determine-the-number-of-significant-digits-of",
+    title: "Significant digits",
+    summary: "Count the digits in a measurement that actually carry information.",
+    estMinutes: 6,
+    blocks: [
+      { type: "definition", term: "Significant digits", meaning: "The digits in a measurement that carry real information about how precisely it was measured." },
+      { type: "prose", text: "The rules are short. Every non-zero digit counts. Zeros between non-zero digits count. Leading zeros never count. Trailing zeros count only when there is a decimal point." },
+      { type: "prose", text: "So $0.00340$ has three significant digits: the $3$, the $4$, and the trailing $0$ after the decimal point. The leading zeros only show where the point sits." },
+      {
+        type: "worked_example",
+        prompt: "How many significant digits are in $1050$ and in $10.50$?",
+        steps: [
+          { action: "Look at $1050$.", why: "The $1$ and $5$ count. The middle $0$ counts because it sits between them. The final $0$ does not count, because there is no decimal point." },
+          { action: "State it.", math: "3", why: "Three significant digits." },
+          { action: "Now $10.50$.", why: "All four count here. The middle zero is between digits, and the trailing zero counts because a decimal point is present." },
+        ],
+        answer: "$1050$ has three, $10.50$ has four.",
+      },
+      { type: "callout", kind: "tip", text: "A trailing zero after a decimal point is written deliberately. Nobody writes $10.50$ unless they measured to that precision, which is why it counts." },
+      { type: "checkpoint", questionIds: ["q_4x8o19u9tmgc"] },
+    ],
+  },
+];

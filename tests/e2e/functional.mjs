@@ -174,11 +174,22 @@ try {
           headers: { "Content-Type": "application/json" },
           body: method === "GET" || method === "HEAD" ? undefined : "{}",
         });
-        // 401/403 is the expected refusal. The payment webhook is authenticated
-        // by HMAC signature rather than by session, and with no provider
-        // configured it can only answer 503 -- still a refusal, still not a 200
-        // and not a crash.
-        const allowed = path === "/api/webhooks/payments" ? [401, 403, 503] : [401, 403];
+        // 401/403 is the expected refusal. Two routes are deliberately not
+        // session-authenticated and are listed here rather than exempted
+        // silently, so that adding a third requires saying why.
+        //
+        //   /api/webhooks/payments -- authenticated by HMAC signature, not by
+        //     session. With no provider configured it can only answer 503:
+        //     still a refusal, still not a 200 and not a crash.
+        //   /api/health -- the host's health check runs unauthenticated, before
+        //     any user exists. It answers 200 when the database is seeded and
+        //     503 when it is not, and returns two aggregate counts and no user
+        //     data of any kind.
+        const openRoutes = {
+          "/api/webhooks/payments": [401, 403, 503],
+          "/api/health": [200, 503],
+        };
+        const allowed = openRoutes[path] ?? [401, 403];
         if (!allowed.includes(res.status)) badApi.push(`${method} ${path} -> ${res.status}`);
       }
     }
