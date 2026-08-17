@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 import { AnswerArea } from "@/components/test-runner/AnswerArea";
 import type { ClientSafeQuestion } from "@/lib/types";
 
@@ -196,7 +197,7 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
                 Question {currentIndex + 1} ({currentQuestion.points} {currentQuestion.points === 1 ? "point" : "points"})
               </h2>
               <div className="mt-3 text-base leading-relaxed text-ink">
-                <MathText text={currentQuestion.stem} />
+                <RichText text={currentQuestion.stem} />
               </div>
 
               <AnswerArea

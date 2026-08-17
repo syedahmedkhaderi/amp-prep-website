@@ -1,6 +1,6 @@
 import type { LessonBlock } from "@/lib/types";
 import type { AnyPlotSpec, DiagramSpec } from "@/lib/math/plot";
-import { MathText } from "@/components/ui/Katex";
+import { MathText, MathLine } from "@/components/ui/Katex";
 import { Plot } from "@/components/lesson/Plot";
 import { Diagram } from "@/components/lesson/Diagram";
 import { PlotWithSliders, type InteractivePlotSpec } from "@/components/lesson/PlotWithSliders";
@@ -72,8 +72,8 @@ export function LessonBody({
                           <MathText text={step.action} />
                         </div>
                         {step.math && (
-                          <div className="mt-1 overflow-x-auto">
-                            <MathText text={step.math} />
+                          <div className="mt-1">
+                            <MathLine text={step.math} />
                           </div>
                         )}
                         {/* The reason the step is allowed. This is the part

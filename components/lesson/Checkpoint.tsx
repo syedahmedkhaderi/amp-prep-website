@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ClientSafeQuestion } from "@/lib/types";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 import { gradeCheckpointAction } from "@/app/(app)/learn/[topicSlug]/[lessonSlug]/actions";
 
 /**
@@ -54,7 +55,7 @@ export function Checkpoint({ question }: { question: ClientSafeQuestion }) {
   return (
     <div className="rounded-lg border border-surface-border bg-white p-4">
       <div className="text-ink">
-        <MathText text={question.stem} />
+        <RichText text={question.stem} />
       </div>
 
       {isNumeric ? (
