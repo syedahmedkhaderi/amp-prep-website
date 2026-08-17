@@ -166860,5 +166860,1925 @@
     },
     "concept_summary": "Multiplying or dividing by a negative flips the inequality.",
     "source": "authored"
+  },
+  {
+    "id": "qa_b5aa01",
+    "exam": "AMP2",
+    "topic_slug": "advanced-algebra",
+    "skill_slug": "advanced-algebra-manipulate-expressions-with-fractional-and-negative-rational",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Write $\\sqrt[3]{x^{5}}$ using a fractional exponent.",
+    "options": [
+      {
+        "content": "$x^{\\frac{5}{3}}$",
+        "is_correct": true
+      },
+      {
+        "content": "$x^{\\frac{3}{5}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{15}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x^{\\frac{5}{3}}$",
+    "explanation_steps": [
+      "The root index becomes the denominator of the exponent.",
+      "The power inside becomes the numerator.",
+      "A cube root of $x^{5}$ is therefore $x^{\\frac{5}{3}}$."
+    ],
+    "distractor_rationales": {
+      "1": "This swaps the root and the power.",
+      "2": "$x^{15}$ multiplies them instead of forming a fraction.",
+      "3": "$x^{2}$ divides and discards the remainder."
+    },
+    "concept_summary": "Root index on the bottom, inner power on top.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5aa02",
+    "exam": "AMP2",
+    "topic_slug": "advanced-algebra",
+    "skill_slug": "advanced-algebra-solve-absolute-value-equations-and-inequalities",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Solve $|2x - 1| = 7$.",
+    "options": [
+      {
+        "content": "$x = 4$ or $x = -3$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 4$ only",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 3$ or $x = -4$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 8$ or $x = -6$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 4$ or $x = -3$",
+    "explanation_steps": [
+      "An absolute value equals $7$ when the inside is $7$ or $-7$.",
+      "First case: $2x - 1 = 7$ gives $2x = 8$ and $x = 4$.",
+      "Second case: $2x - 1 = -7$ gives $2x = -6$ and $x = -3$."
+    ],
+    "distractor_rationales": {
+      "1": "This keeps only the positive case and misses half the answer.",
+      "2": "These come from mishandling the $-1$.",
+      "3": "These forget to divide by the $2$."
+    },
+    "concept_summary": "Split into a positive and a negative case.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5aa03",
+    "exam": "AMP2",
+    "topic_slug": "advanced-algebra",
+    "skill_slug": "advanced-algebra-rationalize-denominators-containing-radicals-or-binomial-surds",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Rationalise $\\frac{4}{\\sqrt{8}}$.",
+    "options": [
+      {
+        "content": "$\\sqrt{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$2\\sqrt{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{4\\sqrt{8}}{8}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\sqrt{2}$",
+    "explanation_steps": [
+      "Simplify the root first: $\\sqrt{8} = 2\\sqrt{2}$, so the fraction is $\\frac{4}{2\\sqrt{2}} = \\frac{2}{\\sqrt{2}}$.",
+      "Multiply top and bottom by $\\sqrt{2}$: $\\frac{2\\sqrt{2}}{2}$.",
+      "The twos cancel, leaving $\\sqrt{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$2\\sqrt{2}$ misses the final cancellation.",
+      "2": "This is a valid step but not simplified.",
+      "3": "$\\frac{1}{2}$ drops the root entirely."
+    },
+    "concept_summary": "Simplify the radical before rationalising.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5aa04",
+    "exam": "AMP2",
+    "topic_slug": "advanced-algebra",
+    "skill_slug": "advanced-algebra-solve-radical-equations-and-identify-extraneous-solutions",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "How many real solutions does $\\sqrt{x} = -2$ have?",
+    "options": [
+      {
+        "content": "None",
+        "is_correct": true
+      },
+      {
+        "content": "One, $x = 4$",
+        "is_correct": false
+      },
+      {
+        "content": "Two, $x = \\pm 4$",
+        "is_correct": false
+      },
+      {
+        "content": "One, $x = -4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "None",
+    "explanation_steps": [
+      "The square root symbol always returns the non-negative root.",
+      "So $\\sqrt{x}$ can never be negative.",
+      "Squaring gives $x = 4$, but $\\sqrt{4} = 2$, not $-2$, so that is extraneous."
+    ],
+    "distractor_rationales": {
+      "1": "$x = 4$ is exactly the extraneous solution squaring creates.",
+      "2": "$\\sqrt{-4}$ is not real either.",
+      "3": "A square root of a negative number is not real."
+    },
+    "concept_summary": "The radical sign means the non-negative root only.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5qf01",
+    "exam": "AMP2",
+    "topic_slug": "quadratic-functions",
+    "skill_slug": "quadratic-functions-use-the-discriminant-to-determine-the-number",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "How many real roots does $4x^{2} - 12x + 9 = 0$ have?",
+    "options": [
+      {
+        "content": "One repeated root",
+        "is_correct": true
+      },
+      {
+        "content": "Two distinct roots",
+        "is_correct": false
+      },
+      {
+        "content": "No real roots",
+        "is_correct": false
+      },
+      {
+        "content": "Three roots",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "One repeated root",
+    "explanation_steps": [
+      "The discriminant is $b^{2} - 4ac = 144 - 4(4)(9)$.",
+      "$4 \\times 4 \\times 9 = 144$, so the discriminant is $0$.",
+      "A zero discriminant means one repeated root. Indeed $4x^{2} - 12x + 9 = (2x - 3)^{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "Two distinct roots need a positive discriminant.",
+      "2": "No real roots needs a negative discriminant.",
+      "3": "A quadratic never has three roots."
+    },
+    "concept_summary": "A zero discriminant means the parabola just touches the axis.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5qf02",
+    "exam": "AMP2",
+    "topic_slug": "quadratic-functions",
+    "skill_slug": "quadratic-functions-solve-quadratic-equations-by-factoring-completing-the",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Solve $x^{2} = 6x$.",
+    "options": [
+      {
+        "content": "$x = 0$ or $x = 6$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 6$ only",
+        "is_correct": false
+      },
+      {
+        "content": "$x = \\sqrt{6}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = -6$ or $x = 0$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 0$ or $x = 6$",
+    "explanation_steps": [
+      "Move everything to one side: $x^{2} - 6x = 0$.",
+      "Factor out $x$: $x(x - 6) = 0$.",
+      "So $x = 0$ or $x = 6$. Dividing both sides by $x$ at the start would have lost the root at zero."
+    ],
+    "distractor_rationales": {
+      "1": "This is what dividing by $x$ gives, which throws away a valid solution.",
+      "2": "$\\sqrt{6}$ solves $x^{2} = 6$, a different equation.",
+      "3": "The sign is wrong: $(-6)^{2} = 36$ but $6(-6) = -36$."
+    },
+    "concept_summary": "Never divide by a variable; factor instead, or you lose a root.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5qf03",
+    "exam": "AMP2",
+    "topic_slug": "quadratic-functions",
+    "skill_slug": "quadratic-functions-identify-the-vertex-axis-of-symmetry-intercepts",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which way does the parabola $y = -3x^{2} + x - 1$ open?",
+    "options": [
+      {
+        "content": "Downward",
+        "is_correct": true
+      },
+      {
+        "content": "Upward",
+        "is_correct": false
+      },
+      {
+        "content": "To the left",
+        "is_correct": false
+      },
+      {
+        "content": "To the right",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Downward",
+    "explanation_steps": [
+      "The direction is set by the sign of the coefficient on $x^{2}$.",
+      "Here that coefficient is $-3$, which is negative.",
+      "A negative leading coefficient makes the parabola open downward."
+    ],
+    "distractor_rationales": {
+      "1": "Upward needs a positive coefficient on $x^{2}$.",
+      "2": "Sideways parabolas come from equations solved for $x$, not $y$.",
+      "3": "Same reason: this equation gives $y$ in terms of $x$."
+    },
+    "concept_summary": "The sign on $x^{2}$ decides which way the parabola opens.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5qf04",
+    "exam": "AMP2",
+    "topic_slug": "quadratic-functions",
+    "skill_slug": "quadratic-functions-convert-between-standard-vertex-and-factored-form",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "What is the sum of the roots of $x^{2} - 9x + 20 = 0$?",
+    "options": [
+      {
+        "content": "$9$",
+        "is_correct": true
+      },
+      {
+        "content": "$-9$",
+        "is_correct": false
+      },
+      {
+        "content": "$20$",
+        "is_correct": false
+      },
+      {
+        "content": "$1$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$9$",
+    "explanation_steps": [
+      "For $ax^{2} + bx + c = 0$ the roots add to $-\\frac{b}{a}$.",
+      "Here $a = 1$ and $b = -9$, so the sum is $9$.",
+      "Check by factoring: $(x - 4)(x - 5)$, and $4 + 5 = 9$."
+    ],
+    "distractor_rationales": {
+      "1": "The formula has a minus in front of $b$, so the double negative gives $+9$.",
+      "2": "$20$ is the product of the roots, not the sum.",
+      "3": "$1$ is the difference between the roots."
+    },
+    "concept_summary": "Roots sum to $-\\frac{b}{a}$ and multiply to $\\frac{c}{a}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5pf01",
+    "exam": "AMP2",
+    "topic_slug": "polynomial-functions",
+    "skill_slug": "polynomial-functions-divide-polynomials-using-long-division-and-synthetic",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "When dividing a degree-5 polynomial by a degree-2 polynomial, what is the degree of the quotient?",
+    "options": [
+      {
+        "content": "$3$",
+        "is_correct": true
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      },
+      {
+        "content": "$5$",
+        "is_correct": false
+      },
+      {
+        "content": "$7$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$3$",
+    "explanation_steps": [
+      "Division subtracts degrees, just as it subtracts exponents.",
+      "$5 - 2 = 3$.",
+      "The remainder, if any, has degree less than $2$."
+    ],
+    "distractor_rationales": {
+      "1": "$2$ is the divisor's degree.",
+      "2": "$5$ is the original degree, before dividing.",
+      "3": "$7$ adds the degrees, which is what multiplication does."
+    },
+    "concept_summary": "Dividing polynomials subtracts their degrees.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5pf02",
+    "exam": "AMP2",
+    "topic_slug": "polynomial-functions",
+    "skill_slug": "polynomial-functions-apply-the-factor-theorem-and-remainder-theorem",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the remainder when $P(x) = x^{4} - 2x + 1$ is divided by $x + 1$?",
+    "options": [
+      {
+        "content": "$4$",
+        "is_correct": true
+      },
+      {
+        "content": "$0$",
+        "is_correct": false
+      },
+      {
+        "content": "$-2$",
+        "is_correct": false
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$4$",
+    "explanation_steps": [
+      "The divisor $x + 1$ is zero at $x = -1$, so substitute that.",
+      "$(-1)^{4} - 2(-1) + 1 = 1 + 2 + 1$.",
+      "The remainder is $4$."
+    ],
+    "distractor_rationales": {
+      "1": "$0$ would mean $x + 1$ divides evenly, which it does not.",
+      "2": "$-2$ uses $x = 1$ instead of $x = -1$.",
+      "3": "$2$ mishandles the sign on the middle term."
+    },
+    "concept_summary": "Substitute the value that makes the divisor zero.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5pf03",
+    "exam": "AMP2",
+    "topic_slug": "polynomial-functions",
+    "skill_slug": "polynomial-functions-find-all-real-and-complex-zeros-of",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A polynomial with real coefficients has $2 + 3i$ as a root. What else must be a root?",
+    "options": [
+      {
+        "content": "$2 - 3i$",
+        "is_correct": true
+      },
+      {
+        "content": "$-2 + 3i$",
+        "is_correct": false
+      },
+      {
+        "content": "$-2 - 3i$",
+        "is_correct": false
+      },
+      {
+        "content": "$3 + 2i$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2 - 3i$",
+    "explanation_steps": [
+      "Complex roots of a real polynomial always come in conjugate pairs.",
+      "The conjugate keeps the real part and flips the sign of the imaginary part.",
+      "So $2 - 3i$ must also be a root."
+    ],
+    "distractor_rationales": {
+      "1": "This flips the real part instead of the imaginary part.",
+      "2": "This flips both parts, which is the negative rather than the conjugate.",
+      "3": "This swaps the two parts entirely."
+    },
+    "concept_summary": "Complex roots pair with their conjugates.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5pf04",
+    "exam": "AMP2",
+    "topic_slug": "polynomial-functions",
+    "skill_slug": "polynomial-functions-sketch-a-polynomial-from-its-zeros-multiplicities",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the $y$ intercept of $y = (x - 1)(x + 2)(x - 3)$?",
+    "options": [
+      {
+        "content": "$6$",
+        "is_correct": true
+      },
+      {
+        "content": "$-6$",
+        "is_correct": false
+      },
+      {
+        "content": "$0$",
+        "is_correct": false
+      },
+      {
+        "content": "$-4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$6$",
+    "explanation_steps": [
+      "The $y$ intercept is the value at $x = 0$.",
+      "Substitute: $(0 - 1)(0 + 2)(0 - 3) = (-1)(2)(-3)$.",
+      "Two negatives make a positive: $6$."
+    ],
+    "distractor_rationales": {
+      "1": "$-6$ counts an odd number of negatives.",
+      "2": "$0$ would need one of the factors to vanish at $x = 0$.",
+      "3": "$-4$ adds the constants instead of multiplying them."
+    },
+    "concept_summary": "Set $x = 0$ and multiply the constants.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5rf01",
+    "exam": "AMP2",
+    "topic_slug": "rational-functions",
+    "skill_slug": "rational-functions-determine-the-domain-of-a-rational-function",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the domain of $y = \\frac{x}{x^{2} + 1}$?",
+    "options": [
+      {
+        "content": "All real numbers",
+        "is_correct": true
+      },
+      {
+        "content": "$x \\ne 0$",
+        "is_correct": false
+      },
+      {
+        "content": "$x \\ne \\pm 1$",
+        "is_correct": false
+      },
+      {
+        "content": "$x > 0$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "All real numbers",
+    "explanation_steps": [
+      "The domain excludes only values that make the bottom zero.",
+      "Solve $x^{2} + 1 = 0$, which gives $x^{2} = -1$.",
+      "No real number squares to a negative, so nothing is excluded."
+    ],
+    "distractor_rationales": {
+      "1": "At $x = 0$ the value is simply $0$, which is fine.",
+      "2": "At $x = 1$ the bottom is $2$, not zero.",
+      "3": "Negative inputs work perfectly well."
+    },
+    "concept_summary": "Only real zeros of the denominator restrict the domain.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5rf02",
+    "exam": "AMP2",
+    "topic_slug": "rational-functions",
+    "skill_slug": "rational-functions-find-vertical-asymptotes-from-the-denominator-s",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Which function has a vertical asymptote at $x = 2$ and a hole at $x = -1$?",
+    "options": [
+      {
+        "content": "$y = \\frac{x + 1}{(x - 2)(x + 1)}$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = \\frac{x - 2}{(x - 2)(x + 1)}$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = \\frac{1}{(x - 2)(x + 1)}$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = \\frac{(x - 2)(x + 1)}{1}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = \\frac{x + 1}{(x - 2)(x + 1)}$",
+    "explanation_steps": [
+      "A hole needs a factor that cancels; an asymptote needs one that does not.",
+      "Here $(x + 1)$ appears top and bottom, so it cancels and leaves a hole at $x = -1$.",
+      "$(x - 2)$ survives in the bottom, giving a vertical asymptote at $x = 2$."
+    ],
+    "distractor_rationales": {
+      "1": "This cancels $(x - 2)$ instead, swapping the hole and the asymptote.",
+      "2": "Nothing cancels, so both are asymptotes and there is no hole.",
+      "3": "This is a polynomial and has no asymptotes at all."
+    },
+    "concept_summary": "A cancelling factor gives a hole; a surviving one gives an asymptote.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5rf03",
+    "exam": "AMP2",
+    "topic_slug": "rational-functions",
+    "skill_slug": "rational-functions-find-the-intercepts-of-a-rational-function",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the $y$ intercept of $y = \\frac{2x + 6}{x - 3}$?",
+    "options": [
+      {
+        "content": "$-2$",
+        "is_correct": true
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      },
+      {
+        "content": "$-3$",
+        "is_correct": false
+      },
+      {
+        "content": "$6$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$-2$",
+    "explanation_steps": [
+      "Set $x = 0$.",
+      "The top becomes $6$ and the bottom becomes $-3$.",
+      "$\\frac{6}{-3} = -2$."
+    ],
+    "distractor_rationales": {
+      "1": "$2$ misses the negative on the bottom.",
+      "2": "$-3$ is the bottom's value, not the fraction's.",
+      "3": "$6$ is the top only."
+    },
+    "concept_summary": "Substitute zero and divide.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5rf04",
+    "exam": "AMP2",
+    "topic_slug": "rational-functions",
+    "skill_slug": "rational-functions-sketch-a-rational-function-from-its-asymptotes",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Can the graph of a rational function cross its horizontal asymptote?",
+    "options": [
+      {
+        "content": "Yes, though never its vertical asymptote",
+        "is_correct": true
+      },
+      {
+        "content": "No, asymptotes are never crossed",
+        "is_correct": false
+      },
+      {
+        "content": "Only if the degree is even",
+        "is_correct": false
+      },
+      {
+        "content": "Yes, and it can cross a vertical asymptote too",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Yes, though never its vertical asymptote",
+    "explanation_steps": [
+      "A horizontal asymptote describes behaviour far out to the sides, not near the middle.",
+      "In the middle the curve is free to cross it, and many do.",
+      "A vertical asymptote is a value excluded from the domain, so the curve cannot exist there at all."
+    ],
+    "distractor_rationales": {
+      "1": "This is a common misreading. Only vertical asymptotes are uncrossable.",
+      "2": "Degree does not decide this.",
+      "3": "The function is undefined at a vertical asymptote, so no point exists to cross with."
+    },
+    "concept_summary": "Horizontal asymptotes describe the far ends, so the middle can cross them.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ef01",
+    "exam": "AMP2",
+    "topic_slug": "exponential-functions",
+    "skill_slug": "exponential-functions-apply-exponential-models-to-growth-decay-and",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A sample halves every $5$ years. What fraction remains after $15$ years?",
+    "options": [
+      {
+        "content": "$\\frac{1}{8}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{1}{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{15}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{16}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{1}{8}$",
+    "explanation_steps": [
+      "Count the halvings: $15 \\div 5 = 3$.",
+      "Each halving multiplies by $\\frac{1}{2}$.",
+      "Three halvings give $\\left(\\frac{1}{2}\\right)^{3} = \\frac{1}{8}$."
+    ],
+    "distractor_rationales": {
+      "1": "$\\frac{1}{3}$ divides by the number of halvings instead of halving repeatedly.",
+      "2": "$\\frac{1}{15}$ uses the years directly.",
+      "3": "$\\frac{1}{16}$ counts four halvings."
+    },
+    "concept_summary": "Count the periods, then raise the factor to that power.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ef02",
+    "exam": "AMP2",
+    "topic_slug": "exponential-functions",
+    "skill_slug": "exponential-functions-evaluate-and-graph-exponential-functions-with-base",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which function decays as $x$ increases?",
+    "options": [
+      {
+        "content": "$y = \\left(\\frac{1}{3}\\right)^{x}$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = 3^{x}$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = x^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = 3x$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = \\left(\\frac{1}{3}\\right)^{x}$",
+    "explanation_steps": [
+      "An exponential decays when its base is between $0$ and $1$.",
+      "$\\frac{1}{3}$ is in that range, so each step multiplies by less than one.",
+      "The others all grow."
+    ],
+    "distractor_rationales": {
+      "1": "Base $3$ is above one, so it grows.",
+      "2": "This is a cubic, not an exponential, and it grows.",
+      "3": "This is a straight line and grows steadily."
+    },
+    "concept_summary": "A base between $0$ and $1$ decays.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ef03",
+    "exam": "AMP2",
+    "topic_slug": "exponential-functions",
+    "skill_slug": "exponential-functions-solve-exponential-equations-by-matching-bases",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $5^{x+1} = 125$.",
+    "options": [
+      {
+        "content": "$x = 2$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 24$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 2$",
+    "explanation_steps": [
+      "Write $125$ as a power of $5$: $125 = 5^{3}$.",
+      "Match exponents: $x + 1 = 3$.",
+      "So $x = 2$."
+    ],
+    "distractor_rationales": {
+      "1": "$3$ is the exponent on the right, before subtracting the $1$.",
+      "2": "$24$ comes from $125 - 1$ divided oddly.",
+      "3": "$4$ adds rather than subtracts the $1$."
+    },
+    "concept_summary": "Match the bases, equate the exponents, then solve.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ef04",
+    "exam": "AMP2",
+    "topic_slug": "exponential-functions",
+    "skill_slug": "exponential-functions-describe-transformations-of-an-exponential-graph",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the horizontal asymptote of $y = 5^{x} + 2$?",
+    "options": [
+      {
+        "content": "$y = 2$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = 0$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = 5$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = -2$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = 2$",
+    "explanation_steps": [
+      "For very negative $x$, $5^{x}$ shrinks toward zero.",
+      "The $+2$ lifts everything by two.",
+      "So the graph levels out at $y = 2$."
+    ],
+    "distractor_rationales": {
+      "1": "$y = 0$ is the asymptote before the shift.",
+      "2": "$5$ is the base and does not set the asymptote.",
+      "3": "The shift is upward, so the sign is positive."
+    },
+    "concept_summary": "A vertical shift moves the asymptote by the same amount.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5lf01",
+    "exam": "AMP2",
+    "topic_slug": "logarithmic-functions",
+    "skill_slug": "logarithmic-functions-convert-between-exponential-and-logarithmic-form",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is $\\log_{9}(3)$?",
+    "options": [
+      {
+        "content": "$\\frac{1}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      },
+      {
+        "content": "$3$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{3}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{1}{2}$",
+    "explanation_steps": [
+      "The question asks what power of $9$ gives $3$.",
+      "$3$ is the square root of $9$.",
+      "A square root is the power $\\frac{1}{2}$, so the answer is $\\frac{1}{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$2$ answers $\\log_{3}(9)$, the reverse.",
+      "2": "$3$ repeats the argument.",
+      "3": "$\\frac{1}{3}$ would be the cube root relationship."
+    },
+    "concept_summary": "A logarithm smaller than one means the argument is below the base.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5lf02",
+    "exam": "AMP2",
+    "topic_slug": "logarithmic-functions",
+    "skill_slug": "logarithmic-functions-apply-the-product-quotient-and-power-laws",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Simplify $\\log_{4}(8) + \\log_{4}(2)$.",
+    "options": [
+      {
+        "content": "$2$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\log_{4}(10)$",
+        "is_correct": false
+      },
+      {
+        "content": "$16$",
+        "is_correct": false
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2$",
+    "explanation_steps": [
+      "Adding logs with the same base multiplies the insides: $\\log_{4}(16)$.",
+      "Now ask what power of $4$ gives $16$.",
+      "$4^{2} = 16$, so the answer is $2$."
+    ],
+    "distractor_rationales": {
+      "1": "This adds the insides, but adding logs multiplies them.",
+      "2": "$16$ is the product inside the log, not the log itself.",
+      "3": "$4$ is the base."
+    },
+    "concept_summary": "Combine first, then evaluate.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5lf03",
+    "exam": "AMP2",
+    "topic_slug": "logarithmic-functions",
+    "skill_slug": "logarithmic-functions-determine-the-domain-range-and-vertical-asymptote",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the range of $y = \\log(x)$?",
+    "options": [
+      {
+        "content": "All real numbers",
+        "is_correct": true
+      },
+      {
+        "content": "$y > 0$",
+        "is_correct": false
+      },
+      {
+        "content": "$y \\ge 0$",
+        "is_correct": false
+      },
+      {
+        "content": "$y > 1$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "All real numbers",
+    "explanation_steps": [
+      "For inputs between $0$ and $1$ the log is negative.",
+      "At $x = 1$ it is exactly zero, and above that it is positive.",
+      "It rises without limit and falls without limit, so every real number is reached."
+    ],
+    "distractor_rationales": {
+      "1": "Negative outputs occur for inputs below $1$.",
+      "2": "$\\log(0.1) = -1$, which is below zero.",
+      "3": "$\\log(1) = 0$, which is below one."
+    },
+    "concept_summary": "A logarithm's domain is positive but its range is everything.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5lf04",
+    "exam": "AMP2",
+    "topic_slug": "logarithmic-functions",
+    "skill_slug": "logarithmic-functions-use-the-change-of-base-formula",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $3^{x} = 20$, to two decimal places.",
+    "options": [
+      {
+        "content": "$x \\approx 2.73$",
+        "is_correct": true
+      },
+      {
+        "content": "$x \\approx 6.67$",
+        "is_correct": false
+      },
+      {
+        "content": "$x \\approx 1.30$",
+        "is_correct": false
+      },
+      {
+        "content": "$x \\approx 60$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x \\approx 2.73$",
+    "explanation_steps": [
+      "Take logs of both sides: $x\\log 3 = \\log 20$.",
+      "So $x = \\frac{\\log 20}{\\log 3}$.",
+      "That is about $\\frac{1.301}{0.477} \\approx 2.73$. Check: $3^{2.73} \\approx 20$."
+    ],
+    "distractor_rationales": {
+      "1": "$6.67$ divides $20$ by $3$.",
+      "2": "$1.30$ is $\\log 20$ alone, without dividing.",
+      "3": "$60$ multiplies instead."
+    },
+    "concept_summary": "Take logs of both sides to bring the exponent down.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ci01",
+    "exam": "AMP2",
+    "topic_slug": "composite-inverse-functions",
+    "skill_slug": "composite-inverse-functions-form-and-evaluate-the-composition-of-two",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "If $f(x) = \\frac{1}{x}$ and $g(x) = x + 4$, what is $g(f(2))$?",
+    "options": [
+      {
+        "content": "$4.5$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{1}{6}$",
+        "is_correct": false
+      },
+      {
+        "content": "$6$",
+        "is_correct": false
+      },
+      {
+        "content": "$0.5$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$4.5$",
+    "explanation_steps": [
+      "Work inside out: $f(2) = \\frac{1}{2} = 0.5$.",
+      "Then $g(0.5) = 0.5 + 4$.",
+      "That is $4.5$."
+    ],
+    "distractor_rationales": {
+      "1": "$\\frac{1}{6}$ is $f(g(2))$, the other order.",
+      "2": "$6$ applies $g$ twice.",
+      "3": "$0.5$ stops after $f$ and never applies $g$."
+    },
+    "concept_summary": "Evaluate the inner function first.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ci02",
+    "exam": "AMP2",
+    "topic_slug": "composite-inverse-functions",
+    "skill_slug": "composite-inverse-functions-verify-that-two-functions-are-inverses-by",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "If $f(3) = 8$ and $f$ has an inverse, what is $f^{-1}(8)$?",
+    "options": [
+      {
+        "content": "$3$",
+        "is_correct": true
+      },
+      {
+        "content": "$8$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{8}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{8}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$3$",
+    "explanation_steps": [
+      "An inverse reverses each input-output pair.",
+      "$f$ sends $3$ to $8$, so $f^{-1}$ sends $8$ back to $3$.",
+      "Therefore $f^{-1}(8) = 3$."
+    ],
+    "distractor_rationales": {
+      "1": "$8$ is the input to the inverse, not its output.",
+      "2": "The $-1$ marks an inverse function, not a reciprocal.",
+      "3": "This divides the pair rather than reversing it."
+    },
+    "concept_summary": "An inverse swaps each input with its output.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ci03",
+    "exam": "AMP2",
+    "topic_slug": "composite-inverse-functions",
+    "skill_slug": "composite-inverse-functions-determine-the-domain-of-a-composite-function",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "If $f(x) = \\frac{1}{x}$ and $g(x) = x - 5$, what value must be excluded from $f(g(x))$?",
+    "options": [
+      {
+        "content": "$x = 5$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 0$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = -5$",
+        "is_correct": false
+      },
+      {
+        "content": "Nothing is excluded.",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 5$",
+    "explanation_steps": [
+      "The composite is $f(g(x)) = \\frac{1}{x - 5}$.",
+      "This is undefined where the bottom is zero.",
+      "$x - 5 = 0$ gives $x = 5$."
+    ],
+    "distractor_rationales": {
+      "1": "$x = 0$ is excluded from $f$ itself, but the shift moves the problem to $5$.",
+      "2": "The sign flips when solving $x - 5 = 0$.",
+      "3": "Division by zero does occur, at $x = 5$."
+    },
+    "concept_summary": "Build the composite, then find where it breaks.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ci04",
+    "exam": "AMP2",
+    "topic_slug": "composite-inverse-functions",
+    "skill_slug": "composite-inverse-functions-find-the-inverse-of-a-function-algebraically",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "What is the inverse of $f(x) = x^{2}$ when the domain is restricted to $x \\ge 0$?",
+    "options": [
+      {
+        "content": "$f^{-1}(x) = \\sqrt{x}$",
+        "is_correct": true
+      },
+      {
+        "content": "$f^{-1}(x) = \\pm\\sqrt{x}$",
+        "is_correct": false
+      },
+      {
+        "content": "$f^{-1}(x) = -\\sqrt{x}$",
+        "is_correct": false
+      },
+      {
+        "content": "$f^{-1}(x) = \\frac{1}{x^{2}}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$f^{-1}(x) = \\sqrt{x}$",
+    "explanation_steps": [
+      "Restricting to $x \\ge 0$ makes the function one to one, so an inverse exists.",
+      "Swapping and solving $x = y^{2}$ gives $y = \\pm\\sqrt{x}$.",
+      "The original outputs came from non-negative inputs, so only the positive root belongs."
+    ],
+    "distractor_rationales": {
+      "1": "The plus-or-minus version is not a function, since one input gives two outputs.",
+      "2": "The negative root matches the restriction $x \\le 0$ instead.",
+      "3": "This is the reciprocal, not the inverse."
+    },
+    "concept_summary": "Restricting the domain makes a square one to one and picks one root.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ss01",
+    "exam": "AMP2",
+    "topic_slug": "sequences-series",
+    "skill_slug": "sequences-series-identify-arithmetic-and-geometric-sequences-and-find",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the 6th term of the geometric sequence starting at $2$ with ratio $3$?",
+    "options": [
+      {
+        "content": "$486$",
+        "is_correct": true
+      },
+      {
+        "content": "$1458$",
+        "is_correct": false
+      },
+      {
+        "content": "$162$",
+        "is_correct": false
+      },
+      {
+        "content": "$36$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$486$",
+    "explanation_steps": [
+      "The $n$th term is $ar^{n-1}$, so the 6th uses five multiplications.",
+      "$3^{5} = 243$.",
+      "$2 \\times 243 = 486$."
+    ],
+    "distractor_rationales": {
+      "1": "$1458$ uses $3^{6}$, one multiplication too many.",
+      "2": "$162$ uses $3^{4}$, one too few.",
+      "3": "$36$ treats it as arithmetic with a common difference."
+    },
+    "concept_summary": "The $n$th term needs $n - 1$ multiplications.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ss02",
+    "exam": "AMP2",
+    "topic_slug": "sequences-series",
+    "skill_slug": "sequences-series-compute-the-sum-of-a-finite-arithmetic",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "What is the sum of the first $20$ positive integers?",
+    "options": [
+      {
+        "content": "$210$",
+        "is_correct": true
+      },
+      {
+        "content": "$200$",
+        "is_correct": false
+      },
+      {
+        "content": "$400$",
+        "is_correct": false
+      },
+      {
+        "content": "$190$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$210$",
+    "explanation_steps": [
+      "Pair the first with the last: $1 + 20 = 21$.",
+      "There are $20$ numbers, making $10$ such pairs, each totalling $21$.",
+      "$10 \\times 21 = 210$."
+    ],
+    "distractor_rationales": {
+      "1": "$200$ uses $20 \\times 10$, taking the average as $10$ rather than $10.5$.",
+      "2": "$400$ is $20$ squared.",
+      "3": "$190$ is the sum of the first $19$."
+    },
+    "concept_summary": "Pair the ends: count times the average of first and last.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ss03",
+    "exam": "AMP2",
+    "topic_slug": "sequences-series",
+    "skill_slug": "sequences-series-determine-whether-an-infinite-geometric-series-converges",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What does the infinite series $9 + 3 + 1 + \\frac{1}{3} + \\dots$ add up to?",
+    "options": [
+      {
+        "content": "$13.5$",
+        "is_correct": true
+      },
+      {
+        "content": "$13$",
+        "is_correct": false
+      },
+      {
+        "content": "$18$",
+        "is_correct": false
+      },
+      {
+        "content": "It grows without limit.",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$13.5$",
+    "explanation_steps": [
+      "The ratio is $\\frac{3}{9} = \\frac{1}{3}$, which is inside $-1$ to $1$, so the series settles.",
+      "Use $\\frac{a}{1 - r}$ with $a = 9$ and $r = \\frac{1}{3}$.",
+      "$\\frac{9}{\\frac{2}{3}} = 9 \\times \\frac{3}{2} = 13.5$."
+    ],
+    "distractor_rationales": {
+      "1": "$13$ is the sum of the first four terms only.",
+      "2": "$18$ divides by $\\frac{1}{2}$ rather than $\\frac{2}{3}$.",
+      "3": "The terms shrink fast, so the total is finite."
+    },
+    "concept_summary": "Sum to infinity is $\\frac{a}{1 - r}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5ss04",
+    "exam": "AMP2",
+    "topic_slug": "sequences-series",
+    "skill_slug": "sequences-series-find-the-general-term-of-an-arithmetic",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "In an arithmetic sequence the 3rd term is $10$ and the 7th is $26$. What is the common difference?",
+    "options": [
+      {
+        "content": "$4$",
+        "is_correct": true
+      },
+      {
+        "content": "$16$",
+        "is_correct": false
+      },
+      {
+        "content": "$5.2$",
+        "is_correct": false
+      },
+      {
+        "content": "$3$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$4$",
+    "explanation_steps": [
+      "Going from the 3rd to the 7th term is four steps.",
+      "The total change is $26 - 10 = 16$.",
+      "So each step is $\\frac{16}{4} = 4$."
+    ],
+    "distractor_rationales": {
+      "1": "$16$ is the total change across all four steps.",
+      "2": "$5.2$ divides by $\\frac{16}{3.07}$, mis-counting the steps.",
+      "3": "$3$ divides by three steps rather than four."
+    },
+    "concept_summary": "Count the steps between the two terms, then divide.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5sm01",
+    "exam": "AMP2",
+    "topic_slug": "systems-matrices",
+    "skill_slug": "systems-matrices-compute-the-determinant-of-a-2x2-and",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the determinant of the matrix with first row $5, 2$ and second row $10, 4$?",
+    "options": [
+      {
+        "content": "$0$",
+        "is_correct": true
+      },
+      {
+        "content": "$40$",
+        "is_correct": false
+      },
+      {
+        "content": "$20$",
+        "is_correct": false
+      },
+      {
+        "content": "$-20$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$0$",
+    "explanation_steps": [
+      "Determinant is the main diagonal product minus the other: $5 \\times 4 - 2 \\times 10$.",
+      "That is $20 - 20$.",
+      "The result is $0$, which happens because the second row is twice the first."
+    ],
+    "distractor_rationales": {
+      "1": "$40$ adds the two products.",
+      "2": "$20$ uses only the main diagonal.",
+      "3": "$-20$ uses only the other diagonal."
+    },
+    "concept_summary": "A row that is a multiple of another gives a zero determinant.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5sm02",
+    "exam": "AMP2",
+    "topic_slug": "systems-matrices",
+    "skill_slug": "systems-matrices-perform-matrix-addition-subtraction-and-multiplication",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "For matrices $A$ and $B$, is $AB$ always the same as $BA$?",
+    "options": [
+      {
+        "content": "No, order matters for matrices",
+        "is_correct": true
+      },
+      {
+        "content": "Yes, always",
+        "is_correct": false
+      },
+      {
+        "content": "Yes, if both are square",
+        "is_correct": false
+      },
+      {
+        "content": "Only if both are the identity",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "No, order matters for matrices",
+    "explanation_steps": [
+      "Swapping the order can change the shape of the result, or make it undefined.",
+      "Even for square matrices of the same size the entries usually differ.",
+      "So matrix multiplication is not commutative."
+    ],
+    "distractor_rationales": {
+      "1": "This holds for ordinary numbers but not for matrices.",
+      "2": "Square matrices of the same size still generally fail to commute.",
+      "3": "Identity matrices do commute, but so do some others, and the general answer is still no."
+    },
+    "concept_summary": "Matrix multiplication is not commutative.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5sm03",
+    "exam": "AMP2",
+    "topic_slug": "systems-matrices",
+    "skill_slug": "systems-matrices-solve-non-linear-systems-of-equations",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "How many points can a line and a circle share at most?",
+    "options": [
+      {
+        "content": "Two",
+        "is_correct": true
+      },
+      {
+        "content": "One",
+        "is_correct": false
+      },
+      {
+        "content": "Three",
+        "is_correct": false
+      },
+      {
+        "content": "Four",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Two",
+    "explanation_steps": [
+      "Substituting the line into the circle gives a quadratic equation.",
+      "A quadratic has at most two real solutions.",
+      "So the line can cut the circle twice, touch it once, or miss it entirely."
+    ],
+    "distractor_rationales": {
+      "1": "One happens only when the line is a tangent.",
+      "2": "Three would need a cubic, which this substitution never produces.",
+      "3": "Four is the maximum for two conic sections, not a line and a circle."
+    },
+    "concept_summary": "Substitution turns it into a quadratic, so at most two solutions.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5sm04",
+    "exam": "AMP2",
+    "topic_slug": "systems-matrices",
+    "skill_slug": "systems-matrices-solve-a-linear-system-using-an-inverse",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What does multiplying a matrix by the identity matrix do?",
+    "options": [
+      {
+        "content": "Leaves it unchanged",
+        "is_correct": true
+      },
+      {
+        "content": "Makes every entry $1$",
+        "is_correct": false
+      },
+      {
+        "content": "Gives the zero matrix",
+        "is_correct": false
+      },
+      {
+        "content": "Gives its inverse",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Leaves it unchanged",
+    "explanation_steps": [
+      "The identity matrix has ones down the main diagonal and zeros elsewhere.",
+      "It plays the same role for matrices that $1$ plays for numbers.",
+      "So $AI = IA = A$."
+    ],
+    "distractor_rationales": {
+      "1": "The identity has ones only on its diagonal, and multiplying does not copy them across.",
+      "2": "That is what multiplying by the zero matrix does.",
+      "3": "The inverse is what you multiply by to get the identity, not the other way round."
+    },
+    "concept_summary": "The identity matrix is the matrix version of the number one.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5at01",
+    "exam": "AMP2",
+    "topic_slug": "analytic-trigonometry",
+    "skill_slug": "analytic-trigonometry-apply-double-angle-and-half-angle-identities",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Which is a correct form of $\\cos 2\\theta$?",
+    "options": [
+      {
+        "content": "$2\\cos^{2}\\theta - 1$",
+        "is_correct": true
+      },
+      {
+        "content": "$2\\cos\\theta$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\cos^{2}\\theta + \\sin^{2}\\theta$",
+        "is_correct": false
+      },
+      {
+        "content": "$2\\sin\\theta\\cos\\theta$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2\\cos^{2}\\theta - 1$",
+    "explanation_steps": [
+      "Start from $\\cos 2\\theta = \\cos^{2}\\theta - \\sin^{2}\\theta$.",
+      "Replace $\\sin^{2}\\theta$ with $1 - \\cos^{2}\\theta$.",
+      "That gives $\\cos^{2}\\theta - 1 + \\cos^{2}\\theta = 2\\cos^{2}\\theta - 1$."
+    ],
+    "distractor_rationales": {
+      "1": "Doubling the angle is not doubling the ratio.",
+      "2": "That expression equals $1$ for every angle.",
+      "3": "That is $\\sin 2\\theta$."
+    },
+    "concept_summary": "The cosine double angle has three equivalent forms.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5at02",
+    "exam": "AMP2",
+    "topic_slug": "analytic-trigonometry",
+    "skill_slug": "analytic-trigonometry-apply-the-pythagorean-reciprocal-and-quotient-identities",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Simplify $\\csc\\theta \\cdot \\sin\\theta$.",
+    "options": [
+      {
+        "content": "$1$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\sin^{2}\\theta$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\cos\\theta$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\tan\\theta$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$1$",
+    "explanation_steps": [
+      "$\\csc\\theta$ is defined as $\\frac{1}{\\sin\\theta}$.",
+      "So the product is $\\frac{1}{\\sin\\theta} \\times \\sin\\theta$.",
+      "The sines cancel, leaving $1$."
+    ],
+    "distractor_rationales": {
+      "1": "That would be $\\sin\\theta$ times itself.",
+      "2": "Cosine is unrelated to this product.",
+      "3": "Tangent involves both sine and cosine."
+    },
+    "concept_summary": "A ratio times its reciprocal is $1$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5at03",
+    "exam": "AMP2",
+    "topic_slug": "analytic-trigonometry",
+    "skill_slug": "analytic-trigonometry-use-sum-and-difference-identities-to-evaluate",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Using $75^{\\circ} = 45^{\\circ} + 30^{\\circ}$, which expression gives $\\cos 75^{\\circ}$?",
+    "options": [
+      {
+        "content": "$\\cos 45^{\\circ}\\cos 30^{\\circ} - \\sin 45^{\\circ}\\sin 30^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\cos 45^{\\circ}\\cos 30^{\\circ} + \\sin 45^{\\circ}\\sin 30^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\cos 45^{\\circ} + \\cos 30^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sin 45^{\\circ}\\cos 30^{\\circ} + \\cos 45^{\\circ}\\sin 30^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\cos 45^{\\circ}\\cos 30^{\\circ} - \\sin 45^{\\circ}\\sin 30^{\\circ}$",
+    "explanation_steps": [
+      "The cosine sum identity is $\\cos(A + B) = \\cos A \\cos B - \\sin A \\sin B$.",
+      "The sign flips: a plus inside gives a minus in the expansion.",
+      "Substituting the two angles gives the first option."
+    ],
+    "distractor_rationales": {
+      "1": "That is $\\cos(A - B)$, which would give $\\cos 15^{\\circ}$.",
+      "2": "Cosine does not distribute over addition.",
+      "3": "That is $\\sin(A + B)$."
+    },
+    "concept_summary": "Cosine sum flips the sign; sine sum keeps it.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5at04",
+    "exam": "AMP2",
+    "topic_slug": "analytic-trigonometry",
+    "skill_slug": "analytic-trigonometry-simplify-trigonometric-expressions-to-a-single-function",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Simplify $\\frac{\\cos\\theta}{\\sin\\theta} \\cdot \\tan\\theta$.",
+    "options": [
+      {
+        "content": "$1$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\tan^{2}\\theta$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\cot^{2}\\theta$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sin\\theta$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$1$",
+    "explanation_steps": [
+      "$\\frac{\\cos\\theta}{\\sin\\theta}$ is $\\cot\\theta$.",
+      "Cotangent and tangent are reciprocals of each other.",
+      "Multiplying reciprocals gives $1$."
+    ],
+    "distractor_rationales": {
+      "1": "That would be tangent multiplied by itself.",
+      "2": "That would be cotangent multiplied by itself.",
+      "3": "The sines and cosines all cancel, leaving no ratio behind."
+    },
+    "concept_summary": "Cotangent times tangent is $1$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5tg01",
+    "exam": "AMP2",
+    "topic_slug": "trig-graphs-transformations",
+    "skill_slug": "trig-graphs-transformations-graph-transformations-of-sine-and-cosine-functions",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the range of $y = 3\\sin x + 1$?",
+    "options": [
+      {
+        "content": "$-2 \\le y \\le 4$",
+        "is_correct": true
+      },
+      {
+        "content": "$-3 \\le y \\le 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$-1 \\le y \\le 1$",
+        "is_correct": false
+      },
+      {
+        "content": "$0 \\le y \\le 4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$-2 \\le y \\le 4$",
+    "explanation_steps": [
+      "Sine runs from $-1$ to $1$, so $3\\sin x$ runs from $-3$ to $3$.",
+      "Adding $1$ shifts the whole band up by one.",
+      "The range becomes $-2$ to $4$."
+    ],
+    "distractor_rationales": {
+      "1": "This forgets the vertical shift.",
+      "2": "This is the range of plain $\\sin x$.",
+      "3": "The bottom is $-3 + 1 = -2$, not $0$."
+    },
+    "concept_summary": "Amplitude sets the width; the shift moves the whole band.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5tg02",
+    "exam": "AMP2",
+    "topic_slug": "trig-graphs-transformations",
+    "skill_slug": "trig-graphs-transformations-write-the-equation-of-a-sinusoid-from",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A sine wave has period $4\\pi$. What coefficient multiplies $x$?",
+    "options": [
+      {
+        "content": "$\\frac{1}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{4}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{1}{2}$",
+    "explanation_steps": [
+      "Period is $\\frac{2\\pi}{b}$ where $b$ multiplies $x$.",
+      "Set $\\frac{2\\pi}{b} = 4\\pi$.",
+      "Solving gives $b = \\frac{2\\pi}{4\\pi} = \\frac{1}{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$2$ would halve the period to $\\pi$, stretching the wrong way.",
+      "2": "$4$ gives a period of $\\frac{\\pi}{2}$.",
+      "3": "$\\frac{1}{4}$ gives a period of $8\\pi$."
+    },
+    "concept_summary": "A coefficient below one stretches the wave out.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5tg03",
+    "exam": "AMP2",
+    "topic_slug": "trig-graphs-transformations",
+    "skill_slug": "trig-graphs-transformations-convert-between-degree-and-radian-measure",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "How many radians are in a full circle?",
+    "options": [
+      {
+        "content": "$2\\pi$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\pi$",
+        "is_correct": false
+      },
+      {
+        "content": "$360$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{\\pi}{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2\\pi$",
+    "explanation_steps": [
+      "A radian is the angle where the arc length equals the radius.",
+      "The circumference is $2\\pi r$, which is $2\\pi$ radius-lengths.",
+      "So a full turn is $2\\pi$ radians."
+    ],
+    "distractor_rationales": {
+      "1": "$\\pi$ is half a turn, or $180^{\\circ}$.",
+      "2": "$360$ is the count in degrees, not radians.",
+      "3": "$\\frac{\\pi}{2}$ is a quarter turn."
+    },
+    "concept_summary": "A full turn is $2\\pi$ radians.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5tg04",
+    "exam": "AMP2",
+    "topic_slug": "trig-graphs-transformations",
+    "skill_slug": "trig-graphs-transformations-graph-transformations-of-sine-and-cosine-functions",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Where does $y = \\cos x$ reach its first minimum for $x \\ge 0$?",
+    "options": [
+      {
+        "content": "$x = \\pi$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 0$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = \\frac{\\pi}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 2\\pi$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = \\pi$",
+    "explanation_steps": [
+      "Cosine starts at its maximum of $1$ when $x = 0$.",
+      "It falls through zero at $\\frac{\\pi}{2}$.",
+      "It bottoms out at $-1$ when $x = \\pi$."
+    ],
+    "distractor_rationales": {
+      "1": "At $x = 0$ cosine is at its maximum.",
+      "2": "At $\\frac{\\pi}{2}$ cosine is zero, halfway down.",
+      "3": "At $2\\pi$ it is back at its maximum."
+    },
+    "concept_summary": "Cosine starts high, bottoms at $\\pi$, returns at $2\\pi$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5te01",
+    "exam": "AMP2",
+    "topic_slug": "trigonometric-equations",
+    "skill_slug": "trigonometric-equations-solve-basic-trigonometric-equations-over-a-given",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Solve $\\cos\\theta = \\frac{1}{2}$ for $0^{\\circ} \\le \\theta < 360^{\\circ}$.",
+    "options": [
+      {
+        "content": "$\\theta = 60^{\\circ}$ and $300^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\theta = 60^{\\circ}$ and $120^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\theta = 30^{\\circ}$ and $330^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\theta = 60^{\\circ}$ only",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\theta = 60^{\\circ}$ and $300^{\\circ}$",
+    "explanation_steps": [
+      "The calculator gives $\\cos^{-1}(0.5) = 60^{\\circ}$.",
+      "Cosine is positive in the first and fourth quadrants.",
+      "The fourth-quadrant partner is $360 - 60 = 300^{\\circ}$."
+    ],
+    "distractor_rationales": {
+      "1": "$120^{\\circ}$ is in the second quadrant, where cosine is negative.",
+      "2": "$30^{\\circ}$ has cosine $\\frac{\\sqrt{3}}{2}$, not $\\frac{1}{2}$.",
+      "3": "There are two solutions in a full turn, not one."
+    },
+    "concept_summary": "Cosine is positive in quadrants one and four.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5te02",
+    "exam": "AMP2",
+    "topic_slug": "trigonometric-equations",
+    "skill_slug": "trigonometric-equations-solve-trigonometric-equations-requiring-factoring-or-an",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $2\\sin^{2}\\theta - \\sin\\theta = 0$ for $\\sin\\theta$.",
+    "options": [
+      {
+        "content": "$\\sin\\theta = 0$ or $\\sin\\theta = \\frac{1}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\sin\\theta = \\frac{1}{2}$ only",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sin\\theta = 0$ or $\\sin\\theta = 2$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sin\\theta = -\\frac{1}{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\sin\\theta = 0$ or $\\sin\\theta = \\frac{1}{2}$",
+    "explanation_steps": [
+      "Factor out the common $\\sin\\theta$: $\\sin\\theta(2\\sin\\theta - 1) = 0$.",
+      "The first factor gives $\\sin\\theta = 0$.",
+      "The second gives $2\\sin\\theta = 1$, so $\\sin\\theta = \\frac{1}{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "Dividing by $\\sin\\theta$ at the start loses the zero solution.",
+      "2": "$\\sin\\theta = 2$ is impossible; the factor gives $\\frac{1}{2}$.",
+      "3": "The sign is wrong: $2\\sin\\theta - 1 = 0$ gives a positive half."
+    },
+    "concept_summary": "Factor rather than divide, or you lose solutions.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5te03",
+    "exam": "AMP2",
+    "topic_slug": "trigonometric-equations",
+    "skill_slug": "trigonometric-equations-solve-basic-trigonometric-equations-over-a-given",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "In which quadrants is $\\tan\\theta$ positive?",
+    "options": [
+      {
+        "content": "First and third",
+        "is_correct": true
+      },
+      {
+        "content": "First and second",
+        "is_correct": false
+      },
+      {
+        "content": "First and fourth",
+        "is_correct": false
+      },
+      {
+        "content": "Second and fourth",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "First and third",
+    "explanation_steps": [
+      "Tangent is sine over cosine, so it is positive when both have the same sign.",
+      "In the first quadrant both are positive.",
+      "In the third both are negative, and a negative divided by a negative is positive."
+    ],
+    "distractor_rationales": {
+      "1": "Those are the quadrants where sine is positive.",
+      "2": "Those are where cosine is positive.",
+      "3": "In both of those, sine and cosine have opposite signs, so tangent is negative."
+    },
+    "concept_summary": "Tangent is positive where sine and cosine share a sign.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_b5te04",
+    "exam": "AMP2",
+    "topic_slug": "trigonometric-equations",
+    "skill_slug": "trigonometric-equations-solve-trigonometric-equations-requiring-factoring-or-an",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $\\sin\\theta = \\cos\\theta$ for $0^{\\circ} \\le \\theta < 360^{\\circ}$.",
+    "options": [
+      {
+        "content": "$\\theta = 45^{\\circ}$ and $225^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\theta = 45^{\\circ}$ only",
+        "is_correct": false
+      },
+      {
+        "content": "$\\theta = 45^{\\circ}$ and $135^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\theta = 0^{\\circ}$ and $180^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\theta = 45^{\\circ}$ and $225^{\\circ}$",
+    "explanation_steps": [
+      "Divide both sides by $\\cos\\theta$ to get $\\tan\\theta = 1$.",
+      "The first solution is $45^{\\circ}$.",
+      "Tangent repeats every $180^{\\circ}$, so the next is $225^{\\circ}$."
+    ],
+    "distractor_rationales": {
+      "1": "Tangent has two solutions per full turn, not one.",
+      "2": "At $135^{\\circ}$ sine is positive and cosine negative, so they differ.",
+      "3": "At $0^{\\circ}$ sine is $0$ and cosine is $1$."
+    },
+    "concept_summary": "Divide through to turn it into a tangent equation.",
+    "source": "authored"
   }
 ]
