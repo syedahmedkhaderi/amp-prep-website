@@ -173148,37 +173148,37 @@
     "skill_slug": "rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the horizontal asymptote of $y = \\frac{5}{x^{2} + 3}$?",
+    "stem": "As $x$ grows very large, what happens to $f(x) = \\frac{5}{x^{2} + 3}$?",
     "options": [
       {
-        "content": "$y = 0$",
+        "content": "It shrinks toward $0$ from above",
         "is_correct": true
       },
       {
-        "content": "$y = 5$",
+        "content": "It shrinks toward $0$ from below",
         "is_correct": false
       },
       {
-        "content": "$y = \\frac{5}{3}$",
+        "content": "It settles at $\\frac{5}{3}$",
         "is_correct": false
       },
       {
-        "content": "There is none.",
+        "content": "It grows without bound",
         "is_correct": false
       }
     ],
-    "final_answer": "$y = 0$",
+    "final_answer": "It shrinks toward $0$ from above",
     "explanation_steps": [
-      "The top has degree $0$ and the bottom degree $2$.",
-      "The bottom grows much faster, so the fraction shrinks.",
-      "The curve flattens toward $y = 0$."
+      "The numerator stays fixed at $5$ while the denominator grows without limit.",
+      "A fixed amount divided by an ever-larger number heads toward zero.",
+      "Both parts stay positive, so the values approach $0$ from the positive side."
     ],
     "distractor_rationales": {
-      "1": "$5$ would need matching degrees.",
-      "2": "$\\frac{5}{3}$ is the value at $x = 0$, not the asymptote.",
-      "3": "A larger bottom degree always gives $y = 0$."
+      "1": "$x^{2} + 3$ is positive for every real $x$, so the output never goes negative.",
+      "2": "$\\frac{5}{3}$ is the value at $x = 0$, not the long-run behaviour.",
+      "3": "Growing without bound needs a heavier numerator, and here it is constant."
     },
-    "concept_summary": "A bigger denominator degree drives the value to zero.",
+    "concept_summary": "A constant over a growing denominator approaches zero.",
     "source": "authored"
   },
   {
@@ -185748,37 +185748,37 @@
     "skill_slug": "polynomials-find-the-degree-of-a-polynomial-that",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the degree of $4x^{2}y^{3} + 2xy$?",
+    "stem": "Which of these polynomials has the highest degree?",
     "options": [
       {
-        "content": "$5$",
+        "content": "$x^{3}y^{4} - 2xy$",
         "is_correct": true
       },
       {
-        "content": "$3$",
+        "content": "$x^{6} + x^{2}$",
         "is_correct": false
       },
       {
-        "content": "$2$",
+        "content": "$5x^{2}y^{2} + y^{3}$",
         "is_correct": false
       },
       {
-        "content": "$7$",
+        "content": "$8x^{4}y - 3$",
         "is_correct": false
       }
     ],
-    "final_answer": "$5$",
+    "final_answer": "$x^{3}y^{4} - 2xy$",
     "explanation_steps": [
       "For a term with several variables, add the exponents in that term.",
-      "$4x^{2}y^{3}$ has degree $2 + 3 = 5$; $2xy$ has degree $1 + 1 = 2$.",
-      "The polynomial's degree is the largest of these, which is $5$."
+      "The degrees are $3 + 4 = 7$, then $6$, then $2 + 2 = 4$, then $4 + 1 = 5$.",
+      "The largest is $7$, from $x^{3}y^{4}$."
     ],
     "distractor_rationales": {
-      "1": "$3$ takes only the exponent on $y$.",
-      "2": "$2$ takes only the exponent on $x$.",
-      "3": "$7$ adds the degrees of both terms together."
+      "1": "$x^{6}$ has degree $6$, one short of $7$.",
+      "2": "Its highest term $5x^{2}y^{2}$ has degree $4$.",
+      "3": "$8x^{4}y$ has degree $5$."
     },
-    "concept_summary": "A term's degree adds the exponents of all its variables.",
+    "concept_summary": "Compare polynomials by the degree of their single highest term.",
     "source": "authored"
   },
   {
@@ -186668,37 +186668,37 @@
     "skill_slug": "logarithms-use-the-calculator-to-find-common-logarithms",
     "type": "single_mcq",
     "difficulty": "easy",
-    "stem": "What is $\\log 1000$, where $\\log$ means base $10$?",
+    "stem": "A calculator gives $\\log 6 \\approx 0.778$. Without using it again, what is $\\log 600$?",
     "options": [
       {
-        "content": "$3$",
+        "content": "$2.778$",
         "is_correct": true
       },
       {
-        "content": "$100$",
+        "content": "$77.8$",
         "is_correct": false
       },
       {
-        "content": "$10$",
+        "content": "$0.778$",
         "is_correct": false
       },
       {
-        "content": "$1000$",
+        "content": "$1.778$",
         "is_correct": false
       }
     ],
-    "final_answer": "$3$",
+    "final_answer": "$2.778$",
     "explanation_steps": [
-      "A common logarithm asks what power of $10$ gives the number.",
-      "$10^{3} = 1000$.",
-      "So $\\log 1000 = 3$."
+      "$600 = 6 \\times 100$, and a product inside a logarithm becomes a sum outside.",
+      "$\\log 600 = \\log 6 + \\log 100$.",
+      "$\\log 100 = 2$, so the total is $0.778 + 2 = 2.778$."
     ],
     "distractor_rationales": {
-      "1": "$100$ is $10^{2}$, not the exponent itself.",
-      "2": "$10$ is the base.",
-      "3": "$1000$ is the number inside the logarithm."
+      "1": "$77.8$ multiplies the logarithm by $100$ instead of adding $\\log 100$.",
+      "2": "$0.778$ is $\\log 6$, unchanged.",
+      "3": "$1.778$ adds only $1$, which would be $\\log 60$."
     },
-    "concept_summary": "A common logarithm counts powers of $10$.",
+    "concept_summary": "Multiplying by $100$ adds $2$ to a common logarithm.",
     "source": "authored"
   },
   {
@@ -186948,37 +186948,37 @@
     "skill_slug": "logarithms-use-the-calculator-to-find-antilogarithms",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "If $\\log x = 2$, what is $x$?",
+    "stem": "The loudness of a sound satisfies $\\log I = 3.5$. Which is closest to $I$?",
     "options": [
       {
-        "content": "$100$",
+        "content": "$3160$",
         "is_correct": true
       },
       {
-        "content": "$20$",
+        "content": "$35$",
         "is_correct": false
       },
       {
-        "content": "$2$",
+        "content": "$350$",
         "is_correct": false
       },
       {
-        "content": "$0.01$",
+        "content": "$31{,}600$",
         "is_correct": false
       }
     ],
-    "final_answer": "$100$",
+    "final_answer": "$3160$",
     "explanation_steps": [
-      "The common logarithm has base $10$.",
-      "So the statement means $10^{2} = x$.",
-      "$x = 100$."
+      "The antilogarithm raises $10$ to the given power: $I = 10^{3.5}$.",
+      "$10^{3.5} = 10^{3} \\times 10^{0.5} = 1000 \\times \\sqrt{10}$.",
+      "$\\sqrt{10} \\approx 3.16$, so $I \\approx 3160$."
     ],
     "distractor_rationales": {
-      "1": "$20$ multiplies the base by the exponent.",
-      "2": "$2$ is the logarithm itself, not the number.",
-      "3": "$0.01$ is $10^{-2}$, which would give $\\log x = -2$."
+      "1": "$35$ multiplies the logarithm by $10$.",
+      "2": "$350$ multiplies it by $100$.",
+      "3": "$31{,}600$ is $10^{4.5}$, one power too many."
     },
-    "concept_summary": "An antilogarithm raises the base to the given power.",
+    "concept_summary": "A half in the exponent contributes a factor of $\\sqrt{10}$.",
     "source": "authored"
   },
   {
@@ -187868,37 +187868,37 @@
     "skill_slug": "percent-calculate-unweighted-and-weighted-averages",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "A student scores $80$, $75$ and $91$ on three equally weighted tests. What is the average?",
+    "stem": "Five readings average $14$. If one reading of $22$ is removed, what do the remaining four average?",
     "options": [
       {
-        "content": "$82$",
+        "content": "$12$",
         "is_correct": true
       },
       {
-        "content": "$80$",
+        "content": "$14$",
         "is_correct": false
       },
       {
-        "content": "$246$",
+        "content": "$11.5$",
         "is_correct": false
       },
       {
-        "content": "$83.5$",
+        "content": "$48$",
         "is_correct": false
       }
     ],
-    "final_answer": "$82$",
+    "final_answer": "$12$",
     "explanation_steps": [
-      "Add the three scores: $80 + 75 + 91 = 246$.",
-      "Divide by the number of tests.",
-      "$246 \\div 3 = 82$."
+      "Five readings averaging $14$ total $5 \\times 14 = 70$.",
+      "Removing $22$ leaves $70 - 22 = 48$ across four readings.",
+      "$48 \\div 4 = 12$."
     ],
     "distractor_rationales": {
-      "1": "$80$ is the first score, which happens to look typical.",
-      "2": "$246$ is the total before dividing.",
-      "3": "$83.5$ averages only the highest and lowest scores."
+      "1": "$14$ assumes removing a value cannot move the average, but $22$ was above it.",
+      "2": "$11.5$ divides by $\\text{five}$ minus one incorrectly, using $46$ as the total.",
+      "3": "$48$ is the remaining total, not the average."
     },
-    "concept_summary": "An unweighted average adds the values and divides by how many there are.",
+    "concept_summary": "Work with the running total when values are added or removed.",
     "source": "authored"
   },
   {
@@ -190428,37 +190428,37 @@
     "skill_slug": "systems-of-equations-and-inequalities-determine-the-number-of-solutions-for-a",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "How many solutions does the system $y = 4x - 3$ and $y = 4x + 1$ have?",
+    "stem": "Solving a system by elimination leaves the statement $0 = 7$. What does that tell you?",
     "options": [
       {
-        "content": "None",
+        "content": "The system has no solution",
         "is_correct": true
       },
       {
-        "content": "Exactly one",
+        "content": "The system has exactly one solution, $x = 7$",
         "is_correct": false
       },
       {
-        "content": "Infinitely many",
+        "content": "The system has infinitely many solutions",
         "is_correct": false
       },
       {
-        "content": "Exactly two",
+        "content": "A mistake was made, since $0 = 7$ cannot appear",
         "is_correct": false
       }
     ],
-    "final_answer": "None",
+    "final_answer": "The system has no solution",
     "explanation_steps": [
-      "Both lines have slope $4$, so they are parallel.",
-      "Their intercepts differ, $-3$ against $1$, so they are not the same line.",
-      "Parallel distinct lines never meet, so there is no solution."
+      "Elimination removed both variables, leaving only numbers.",
+      "$0 = 7$ is false no matter what $x$ and $y$ are.",
+      "No pair of values can satisfy both equations, so the lines are parallel and distinct."
     ],
     "distractor_rationales": {
-      "1": "One solution needs the lines to cross, which parallel lines never do.",
-      "2": "Infinitely many would need the two equations to describe one line.",
-      "3": "Two straight lines can never cross twice."
+      "1": "The $7$ is left over from the arithmetic, not a value of $x$.",
+      "2": "Infinitely many solutions would leave a true statement such as $0 = 0$.",
+      "3": "A false statement is a legitimate and informative outcome of elimination."
     },
-    "concept_summary": "Same slope with different intercepts means no solution.",
+    "concept_summary": "Variables cancelling into a false statement means the system has no solution.",
     "source": "authored"
   },
   {
@@ -193068,37 +193068,37 @@
     "skill_slug": "whole-numbers-and-integers-find-the-greatest-common-factor-gcf-for",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the greatest common factor of $48$ and $60$?",
+    "stem": "A florist has $84$ roses and $126$ tulips, and wants identical bunches using every flower. What is the largest number of bunches possible?",
     "options": [
       {
-        "content": "$12$",
+        "content": "$42$",
         "is_correct": true
       },
       {
-        "content": "$6$",
+        "content": "$21$",
         "is_correct": false
       },
       {
-        "content": "$240$",
+        "content": "$252$",
         "is_correct": false
       },
       {
-        "content": "$24$",
+        "content": "$14$",
         "is_correct": false
       }
     ],
-    "final_answer": "$12$",
+    "final_answer": "$42$",
     "explanation_steps": [
-      "$48 = 2^{4} \\times 3$ and $60 = 2^{2} \\times 3 \\times 5$.",
-      "Take the shared primes at their lowest powers: $2^{2}$ and $3$.",
-      "$4 \\times 3 = 12$."
+      "Identical bunches using every flower means the bunch count must divide both totals.",
+      "$84 = 2^{2} \\times 3 \\times 7$ and $126 = 2 \\times 3^{2} \\times 7$, so the shared part is $2 \\times 3 \\times 7$.",
+      "$2 \\times 3 \\times 7 = 42$ bunches, each with $2$ roses and $3$ tulips."
     ],
     "distractor_rationales": {
-      "1": "$6$ divides both but $12$ is larger and still divides both.",
-      "2": "$240$ is the lowest common multiple, not the greatest common factor.",
-      "3": "$24$ does not divide $60$."
+      "1": "$21$ divides both but is not the largest such number.",
+      "2": "$252$ is the lowest common multiple, far more bunches than there are flowers.",
+      "3": "$14$ divides both but leaves a larger option unused."
     },
-    "concept_summary": "Take shared prime factors at their lowest powers.",
+    "concept_summary": "Splitting two totals into equal groups asks for their greatest common factor.",
     "source": "authored"
   },
   {
@@ -194108,37 +194108,37 @@
     "skill_slug": "trig-graphs-transformations-determine-the-amplitude-period-phase-shift-and",
     "type": "single_mcq",
     "difficulty": "easy",
-    "stem": "What is the amplitude of $y = -4\\sin(3x)$?",
+    "stem": "A sine curve oscillates between a high of $11$ and a low of $-1$. What is its amplitude?",
     "options": [
       {
-        "content": "$4$",
+        "content": "$6$",
         "is_correct": true
-      },
-      {
-        "content": "$-4$",
-        "is_correct": false
-      },
-      {
-        "content": "$3$",
-        "is_correct": false
       },
       {
         "content": "$12$",
         "is_correct": false
+      },
+      {
+        "content": "$5$",
+        "is_correct": false
+      },
+      {
+        "content": "$11$",
+        "is_correct": false
       }
     ],
-    "final_answer": "$4$",
+    "final_answer": "$6$",
     "explanation_steps": [
-      "Amplitude is how far the curve reaches from its middle line.",
-      "It is the size of the coefficient in front of the sine, ignoring the sign.",
-      "$|-4| = 4$."
+      "Amplitude is the distance from the middle line to a peak.",
+      "The full swing is $11 - (-1) = 12$.",
+      "Half of that is $6$."
     ],
     "distractor_rationales": {
-      "1": "The minus sign flips the graph but does not make the amplitude negative.",
-      "2": "$3$ sets the period, not the height.",
-      "3": "$12$ multiplies the two coefficients."
+      "1": "$12$ is the full swing from low to high, which is twice the amplitude.",
+      "2": "$5$ is the height of the middle line, not the reach from it.",
+      "3": "$11$ is the maximum value, measured from zero rather than from the middle line."
     },
-    "concept_summary": "Amplitude is the absolute value of the coefficient in front.",
+    "concept_summary": "Amplitude is half the distance between the maximum and the minimum.",
     "source": "authored"
   },
   {
@@ -194148,37 +194148,37 @@
     "skill_slug": "trig-graphs-transformations-determine-the-amplitude-period-phase-shift-and",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the period of $y = \\cos(4x)$?",
+    "stem": "A sine wave completes one full cycle every $6$ units. Which equation could describe it?",
     "options": [
       {
-        "content": "$\\frac{\\pi}{2}$",
+        "content": "$y = \\sin\\left(\\frac{\\pi x}{3}\\right)$",
         "is_correct": true
       },
       {
-        "content": "$2\\pi$",
+        "content": "$y = \\sin(6x)$",
         "is_correct": false
       },
       {
-        "content": "$8\\pi$",
+        "content": "$y = \\sin\\left(\\frac{x}{6}\\right)$",
         "is_correct": false
       },
       {
-        "content": "$4$",
+        "content": "$y = 6\\sin x$",
         "is_correct": false
       }
     ],
-    "final_answer": "$\\frac{\\pi}{2}$",
+    "final_answer": "$y = \\sin\\left(\\frac{\\pi x}{3}\\right)$",
     "explanation_steps": [
-      "Cosine normally repeats every $2\\pi$.",
-      "A coefficient $b$ inside compresses that to $\\frac{2\\pi}{b}$.",
-      "$\\frac{2\\pi}{4} = \\frac{\\pi}{2}$."
+      "The period of $\\sin(bx)$ is $\\frac{2\\pi}{b}$, and here it must equal $6$.",
+      "$\\frac{2\\pi}{b} = 6$ gives $b = \\frac{2\\pi}{6} = \\frac{\\pi}{3}$.",
+      "So the equation is $y = \\sin\\left(\\frac{\\pi x}{3}\\right)$."
     ],
     "distractor_rationales": {
-      "1": "$2\\pi$ is the period only when the coefficient is $1$.",
-      "2": "$8\\pi$ multiplies by $4$ instead of dividing.",
-      "3": "$4$ is the coefficient itself."
+      "1": "$y = \\sin(6x)$ has period $\\frac{2\\pi}{6} = \\frac{\\pi}{3}$, not $6$.",
+      "2": "$y = \\sin\\left(\\frac{x}{6}\\right)$ has period $12\\pi$.",
+      "3": "$y = 6\\sin x$ changes the amplitude and leaves the period at $2\\pi$."
     },
-    "concept_summary": "Period is $\\frac{2\\pi}{b}$ for sine and cosine.",
+    "concept_summary": "Solve $\\frac{2\\pi}{b} = \\text{period}$ for the coefficient inside.",
     "source": "authored"
   },
   {
@@ -195508,37 +195508,37 @@
     "skill_slug": "rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the horizontal asymptote of $f(x) = \\frac{4x^{2} + 1}{2x^{2} - 5}$?",
+    "stem": "A rational function has a horizontal asymptote at $y = \\frac{3}{2}$. What does that say about its top and bottom?",
     "options": [
       {
-        "content": "$y = 2$",
+        "content": "They have equal degree, with leading coefficients in the ratio $3$ to $2$",
         "is_correct": true
       },
       {
-        "content": "$y = 0$",
+        "content": "The top has the higher degree",
         "is_correct": false
       },
       {
-        "content": "$y = \\frac{1}{5}$",
+        "content": "The bottom has the higher degree",
         "is_correct": false
       },
       {
-        "content": "There is none",
+        "content": "The function crosses the $y$-axis at $\\frac{3}{2}$",
         "is_correct": false
       }
     ],
-    "final_answer": "$y = 2$",
+    "final_answer": "They have equal degree, with leading coefficients in the ratio $3$ to $2$",
     "explanation_steps": [
-      "Compare the degrees: both top and bottom are degree $2$.",
-      "When the degrees match, the asymptote is the ratio of the leading coefficients.",
-      "$\\frac{4}{2} = 2$, so $y = 2$."
+      "A non-zero horizontal asymptote appears only when the two degrees match.",
+      "When they match, the asymptote is the ratio of the leading coefficients.",
+      "So that ratio must be $\\frac{3}{2}$, as in $\\frac{3x^{2} + \\ldots}{2x^{2} + \\ldots}$."
     ],
     "distractor_rationales": {
-      "1": "$y = 0$ applies when the bottom has the higher degree.",
-      "2": "$\\frac{1}{5}$ uses the constants rather than the leading coefficients.",
-      "3": "Equal degrees always give a horizontal asymptote."
+      "1": "A heavier top gives an oblique asymptote or none at all, never a flat one.",
+      "2": "A heavier bottom always gives $y = 0$.",
+      "3": "The $y$-intercept is the value at $x = 0$, unrelated to behaviour far out."
     },
-    "concept_summary": "Equal degrees: divide the leading coefficients.",
+    "concept_summary": "A non-zero horizontal asymptote means matching degrees.",
     "source": "authored"
   },
   {
@@ -195548,37 +195548,37 @@
     "skill_slug": "rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the horizontal asymptote of $f(x) = \\frac{2x + 3}{x^{2} - 1}$?",
+    "stem": "Which of these functions does *not* flatten toward $y = 0$ far from the origin?",
     "options": [
       {
-        "content": "$y = 0$",
+        "content": "$f(x) = \\frac{x^{3}}{x^{2} + 1}$",
         "is_correct": true
       },
       {
-        "content": "$y = 2$",
+        "content": "$f(x) = \\frac{7}{x - 4}$",
         "is_correct": false
       },
       {
-        "content": "$y = -3$",
+        "content": "$f(x) = \\frac{x}{x^{2} + 9}$",
         "is_correct": false
       },
       {
-        "content": "There is none",
+        "content": "$f(x) = \\frac{2x + 1}{x^{3}}$",
         "is_correct": false
       }
     ],
-    "final_answer": "$y = 0$",
+    "final_answer": "$f(x) = \\frac{x^{3}}{x^{2} + 1}$",
     "explanation_steps": [
-      "The top has degree $1$ and the bottom has degree $2$.",
-      "When the bottom wins, the fraction shrinks toward zero for large $|x|$.",
-      "So the horizontal asymptote is $y = 0$."
+      "A rational function flattens to $y = 0$ only when the bottom has the higher degree.",
+      "The last three all have a heavier bottom, so each one shrinks toward zero.",
+      "In the first, the top is degree $3$ against a degree-$2$ bottom, so the values grow without bound."
     ],
     "distractor_rationales": {
-      "1": "$y = 2$ would apply if the degrees matched.",
-      "2": "$y = -3$ takes a value from the numerator with no basis.",
-      "3": "A higher-degree denominator always produces $y = 0$."
+      "1": "Degree $0$ over degree $1$ shrinks to zero.",
+      "2": "Degree $1$ over degree $2$ shrinks to zero.",
+      "3": "Degree $1$ over degree $3$ shrinks to zero fastest of all."
     },
-    "concept_summary": "Bottom-heavy rational functions flatten to $y = 0$.",
+    "concept_summary": "Only a heavier denominator drives a rational function toward $y = 0$.",
     "source": "authored"
   },
   {
@@ -195828,10 +195828,10 @@
     "skill_slug": "logarithmic-functions-solve-logarithmic-equations-and-check-for-extraneous",
     "type": "single_mcq",
     "difficulty": "hard",
-    "stem": "Solve $\\log_{2}(x) + \\log_{2}(x - 2) = 3$.",
+    "stem": "Solve $\\log_{5}(x + 3) - \\log_{5}(x - 1) = 1$.",
     "options": [
       {
-        "content": "$x = 4$",
+        "content": "$x = 2$",
         "is_correct": true
       },
       {
@@ -195839,26 +195839,26 @@
         "is_correct": false
       },
       {
-        "content": "$x = 4$ and $x = -2$",
+        "content": "$x = 4$",
         "is_correct": false
       },
       {
-        "content": "$x = 8$",
+        "content": "There is no solution",
         "is_correct": false
       }
     ],
-    "final_answer": "$x = 4$",
+    "final_answer": "$x = 2$",
     "explanation_steps": [
-      "Combine the sum into one logarithm: $\\log_{2}\\big(x(x - 2)\\big) = 3$.",
-      "Rewrite exponentially: $x^{2} - 2x = 8$, so $x^{2} - 2x - 8 = 0$ and $(x - 4)(x + 2) = 0$.",
-      "$x = -2$ would make both logarithms undefined, so only $x = 4$ survives."
+      "A difference of logarithms becomes a quotient: $\\log_{5}\\frac{x + 3}{x - 1} = 1$.",
+      "Rewrite exponentially: $\\frac{x + 3}{x - 1} = 5$, so $x + 3 = 5x - 5$.",
+      "$8 = 4x$, giving $x = 2$, and both $x + 3 = 5$ and $x - 1 = 1$ are positive, so it holds."
     ],
     "distractor_rationales": {
-      "1": "$x = -2$ puts a negative inside a logarithm.",
-      "2": "Keeping both accepts an extraneous root.",
-      "3": "$x = 8$ gives $\\log_{2} 8 + \\log_{2} 6$, which is more than $3$."
+      "1": "$x = -2$ makes $x - 1$ negative, so the second logarithm is undefined.",
+      "2": "$x = 4$ gives $\\frac{7}{3}$, whose base-$5$ logarithm is not $1$.",
+      "3": "$x = 2$ passes every check, so a solution does exist."
     },
-    "concept_summary": "Always test solutions of a logarithmic equation back in the original.",
+    "concept_summary": "Collapse the difference into one logarithm, then check the argument stays positive.",
     "source": "authored"
   },
   {
@@ -195868,37 +195868,37 @@
     "skill_slug": "logarithmic-functions-determine-the-domain-range-and-vertical-asymptote",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "What is the range of $f(x) = \\log_{3} x$?",
+    "stem": "Where is the vertical asymptote of $f(x) = \\log_{2}(x + 4)$?",
     "options": [
       {
-        "content": "All real numbers",
+        "content": "$x = -4$",
         "is_correct": true
       },
       {
-        "content": "$y > 0$",
+        "content": "$x = 4$",
         "is_correct": false
       },
       {
-        "content": "$y \\geq 0$",
+        "content": "$x = 0$",
         "is_correct": false
       },
       {
-        "content": "$y > 3$",
+        "content": "$y = -4$",
         "is_correct": false
       }
     ],
-    "final_answer": "All real numbers",
+    "final_answer": "$x = -4$",
     "explanation_steps": [
-      "As $x$ grows large the logarithm grows without bound.",
-      "As $x$ approaches zero from above, the logarithm falls without bound.",
-      "Every real value is reached somewhere, so the range is all reals."
+      "A logarithm dives without bound as its argument approaches zero from above.",
+      "The argument here is $x + 4$, which reaches zero at $x = -4$.",
+      "So the vertical asymptote is the line $x = -4$."
     ],
     "distractor_rationales": {
-      "1": "$\\log_{3} 0.1$ is negative, so outputs go below zero.",
-      "2": "$\\log_{3} \\frac{1}{3} = -1$.",
-      "3": "$\\log_{3} 3 = 1$, well below $3$."
+      "1": "$x = 4$ gives an argument of $8$, an ordinary value.",
+      "2": "$x = 0$ is the asymptote of $\\log_{2} x$, before the shift.",
+      "3": "A logarithm has no horizontal asymptote, and this names a horizontal line."
     },
-    "concept_summary": "A logarithm's domain is positive numbers; its range is every real number.",
+    "concept_summary": "The vertical asymptote sits where the logarithm's argument hits zero.",
     "source": "authored"
   },
   {
@@ -196348,37 +196348,37 @@
     "skill_slug": "analytic-trigonometry-apply-double-angle-and-half-angle-identities",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "If $\\sin\\theta = 0.6$ and $\\cos\\theta = 0.8$, what is $\\sin(2\\theta)$?",
+    "stem": "Which expression is *not* equal to $\\cos(2\\theta)$?",
     "options": [
       {
-        "content": "$0.96$",
+        "content": "$2\\cos\\theta$",
         "is_correct": true
       },
       {
-        "content": "$1.2$",
+        "content": "$\\cos^{2}\\theta - \\sin^{2}\\theta$",
         "is_correct": false
       },
       {
-        "content": "$0.48$",
+        "content": "$2\\cos^{2}\\theta - 1$",
         "is_correct": false
       },
       {
-        "content": "$1.4$",
+        "content": "$1 - 2\\sin^{2}\\theta$",
         "is_correct": false
       }
     ],
-    "final_answer": "$0.96$",
+    "final_answer": "$2\\cos\\theta$",
     "explanation_steps": [
-      "The double-angle identity is $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$.",
-      "$2 \\times 0.6 \\times 0.8$.",
-      "$= 0.96$."
+      "The double-angle identity has three equivalent forms, all built from squares.",
+      "Testing $\\theta = 0$: $\\cos 0 = 1$, so $\\cos(2\\theta) = \\cos 0 = 1$.",
+      "The three square forms all give $1$, while $2\\cos 0 = 2$, so that one fails."
     ],
     "distractor_rationales": {
-      "1": "$1.2$ doubles the sine and ignores the cosine.",
-      "2": "$0.48$ omits the factor of $2$.",
-      "3": "$1.4$ adds the two values."
+      "1": "This is the base form of the identity.",
+      "2": "Substituting $\\sin^{2}\\theta = 1 - \\cos^{2}\\theta$ into the base form gives this.",
+      "3": "Substituting $\\cos^{2}\\theta = 1 - \\sin^{2}\\theta$ instead gives this."
     },
-    "concept_summary": "$\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, never $2\\sin\\theta$.",
+    "concept_summary": "Doubling the angle is not the same as doubling the function value.",
     "source": "authored"
   },
   {
@@ -196508,37 +196508,37 @@
     "skill_slug": "quadratic-functions-use-the-discriminant-to-determine-the-number",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "How many real roots does $2x^{2} + 3x + 5 = 0$ have?",
+    "stem": "For which value of $k$ does $x^{2} + kx + 9 = 0$ have exactly one real root?",
     "options": [
       {
-        "content": "None",
+        "content": "$k = 6$",
         "is_correct": true
       },
       {
-        "content": "One",
+        "content": "$k = 3$",
         "is_correct": false
       },
       {
-        "content": "Two",
+        "content": "$k = 9$",
         "is_correct": false
       },
       {
-        "content": "Three",
+        "content": "$k = 0$",
         "is_correct": false
       }
     ],
-    "final_answer": "None",
+    "final_answer": "$k = 6$",
     "explanation_steps": [
-      "The discriminant is $b^{2} - 4ac = 9 - 4(2)(5)$.",
-      "$9 - 40 = -31$, which is negative.",
-      "A negative discriminant means no real roots."
+      "Exactly one real root means the discriminant is zero: $k^{2} - 4(1)(9) = 0$.",
+      "$k^{2} = 36$.",
+      "Taking the positive root, $k = 6$, which makes the quadratic $(x + 3)^{2}$."
     ],
     "distractor_rationales": {
-      "1": "One real root needs a discriminant of exactly zero.",
-      "2": "Two real roots need a positive discriminant.",
-      "3": "A quadratic never has three roots."
+      "1": "$k = 3$ gives a discriminant of $9 - 36 = -27$, so no real roots.",
+      "2": "$k = 9$ gives $81 - 36 = 45$, so two real roots.",
+      "3": "$k = 0$ gives $-36$, so no real roots."
     },
-    "concept_summary": "The sign of $b^{2} - 4ac$ decides how many real roots there are.",
+    "concept_summary": "One repeated root means the discriminant is exactly zero.",
     "source": "authored"
   },
   {
