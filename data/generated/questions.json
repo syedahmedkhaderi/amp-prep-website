@@ -168780,5 +168780,885 @@
     },
     "concept_summary": "Divide through to turn it into a tangent equation.",
     "source": "authored"
+  },
+  {
+    "id": "qa_a1fn01",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-determine-if-a-particular-relation-is-a",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Which set of ordered pairs is a function?",
+    "options": [
+      {
+        "content": "$\\{(1, 4), (2, 4), (3, 5)\\}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\{(1, 4), (1, 5), (2, 6)\\}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\{(2, 1), (2, 3), (2, 5)\\}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\{(0, 1), (0, 2), (1, 3)\\}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\{(1, 4), (2, 4), (3, 5)\\}$",
+    "explanation_steps": [
+      "A function gives each input exactly one output.",
+      "In the first set the inputs $1$, $2$ and $3$ each appear once.",
+      "Two inputs sharing an output is fine; one input with two outputs is not."
+    ],
+    "distractor_rationales": {
+      "1": "The input $1$ appears twice with different outputs.",
+      "2": "The input $2$ appears three times with three different outputs.",
+      "3": "The input $0$ appears twice with different outputs."
+    },
+    "concept_summary": "Each input may have only one output.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn02",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-evaluate-a-function-at-a-value-in",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "If $f(x) = 2x^{2} - 3$, what is $f(-2)$?",
+    "options": [
+      {
+        "content": "$5$",
+        "is_correct": true
+      },
+      {
+        "content": "$-11$",
+        "is_correct": false
+      },
+      {
+        "content": "$11$",
+        "is_correct": false
+      },
+      {
+        "content": "$-5$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$",
+    "explanation_steps": [
+      "Substitute $-2$ for $x$: $2(-2)^{2} - 3$.",
+      "Square first: $(-2)^{2} = 4$, since a negative times a negative is positive.",
+      "Then $2 \\times 4 - 3 = 8 - 3 = 5$."
+    ],
+    "distractor_rationales": {
+      "1": "$-11$ squares after multiplying, treating it as $-(2 \\times 2)^{2}$.",
+      "2": "$11$ adds the $3$ instead of subtracting.",
+      "3": "$-5$ makes the square negative, but squaring always gives a positive."
+    },
+    "concept_summary": "Square before multiplying, and a squared negative is positive.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn03",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-determine-the-domain-and-range-of-a",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the domain of $f(x) = \\sqrt{x - 2}$?",
+    "options": [
+      {
+        "content": "$x \\ge 2$",
+        "is_correct": true
+      },
+      {
+        "content": "$x > 2$",
+        "is_correct": false
+      },
+      {
+        "content": "$x \\ge 0$",
+        "is_correct": false
+      },
+      {
+        "content": "all real numbers",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x \\ge 2$",
+    "explanation_steps": [
+      "A square root needs a value that is zero or greater.",
+      "So $x - 2 \\ge 0$.",
+      "Adding $2$ gives $x \\ge 2$, and the endpoint counts because $\\sqrt{0} = 0$."
+    ],
+    "distractor_rationales": {
+      "1": "At $x = 2$ the value is $0$, which is perfectly defined, so the endpoint is included.",
+      "2": "$x \\ge 0$ ignores the shift of $2$.",
+      "3": "Values below $2$ put a negative inside the root."
+    },
+    "concept_summary": "Set the inside of a square root to be zero or more.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn04",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-given-determine-the-coordinates-of-its-vertex",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "What is the vertex of $y = x^{2} + 6x + 5$?",
+    "options": [
+      {
+        "content": "$(-3, -4)$",
+        "is_correct": true
+      },
+      {
+        "content": "$(3, 32)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(-3, 4)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(-6, 5)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$(-3, -4)$",
+    "explanation_steps": [
+      "The vertex sits at $x = -\\frac{b}{2a} = -\\frac{6}{2} = -3$.",
+      "Substitute back: $y = 9 - 18 + 5$.",
+      "That gives $y = -4$, so the vertex is $(-3, -4)$."
+    ],
+    "distractor_rationales": {
+      "1": "The sign of $x$ is wrong; the formula has a minus in front.",
+      "2": "The $y$ value comes out negative here, not positive.",
+      "3": "$-6$ is $b$ itself, without dividing by $2a$."
+    },
+    "concept_summary": "Vertex at $-\\frac{b}{2a}$, then substitute for the height.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn05",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-describe-and-sketch-graphs-of-the-functions",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What shape is the graph of $y = |x|$?",
+    "options": [
+      {
+        "content": "A V shape with its point at the origin",
+        "is_correct": true
+      },
+      {
+        "content": "A straight line through the origin",
+        "is_correct": false
+      },
+      {
+        "content": "A parabola opening upward",
+        "is_correct": false
+      },
+      {
+        "content": "Two separate horizontal lines",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A V shape with its point at the origin",
+    "explanation_steps": [
+      "For $x \\ge 0$ the graph is $y = x$, a line rising to the right.",
+      "For $x < 0$ the absolute value flips the sign, giving $y = -x$, a line rising to the left.",
+      "The two halves meet at the origin, forming a V."
+    ],
+    "distractor_rationales": {
+      "1": "A single straight line would go below the axis for negative $x$.",
+      "2": "A parabola curves; the V has straight sides and a sharp corner.",
+      "3": "The value changes with $x$, so it is not horizontal."
+    },
+    "concept_summary": "Absolute value reflects the negative half upward, making a V.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn06",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-change-to-the-form",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Write $y = x^{2} - 10x$ in the form $y = (x - h)^{2} + k$.",
+    "options": [
+      {
+        "content": "$y = (x - 5)^{2} - 25$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = (x - 5)^{2} + 25$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = (x - 10)^{2} - 100$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = (x + 5)^{2} - 25$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = (x - 5)^{2} - 25$",
+    "explanation_steps": [
+      "Halve the middle coefficient: $\\frac{-10}{2} = -5$, so the bracket is $(x - 5)$.",
+      "Squaring that bracket produces an extra $25$ that was not in the original.",
+      "Subtract it back: $y = (x - 5)^{2} - 25$."
+    ],
+    "distractor_rationales": {
+      "1": "The $25$ must be subtracted, since squaring added it.",
+      "2": "This uses the whole coefficient instead of half of it.",
+      "3": "The sign inside flips: $-10x$ needs $(x - 5)$."
+    },
+    "concept_summary": "Half the middle coefficient goes inside; subtract its square outside.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn07",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-represent-relations-as-a-set-of-ordered",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "In the ordered pair $(3, 7)$, which number is the output?",
+    "options": [
+      {
+        "content": "$7$",
+        "is_correct": true
+      },
+      {
+        "content": "$3$",
+        "is_correct": false
+      },
+      {
+        "content": "Both",
+        "is_correct": false
+      },
+      {
+        "content": "Neither; it depends on the function",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$7$",
+    "explanation_steps": [
+      "An ordered pair is written as input first, output second.",
+      "So $3$ goes in and $7$ comes out.",
+      "The order is what makes the pair \"ordered\"."
+    ],
+    "distractor_rationales": {
+      "1": "$3$ is the input, the first coordinate.",
+      "2": "Each position has one fixed role.",
+      "3": "The convention is fixed regardless of the function."
+    },
+    "concept_summary": "Ordered pairs run input first, output second.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fn08",
+    "exam": "AMP1",
+    "topic_slug": "functions",
+    "skill_slug": "functions-define-relations",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which graph could not represent a function?",
+    "options": [
+      {
+        "content": "A circle",
+        "is_correct": true
+      },
+      {
+        "content": "A straight line with slope $2$",
+        "is_correct": false
+      },
+      {
+        "content": "A parabola opening upward",
+        "is_correct": false
+      },
+      {
+        "content": "A horizontal line",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A circle",
+    "explanation_steps": [
+      "Use the vertical line test: a function is crossed at most once by any vertical line.",
+      "A vertical line through the middle of a circle hits it twice.",
+      "So a circle fails the test and is not a function."
+    ],
+    "distractor_rationales": {
+      "1": "A sloped line passes the vertical line test.",
+      "2": "An upward parabola is crossed once by every vertical line.",
+      "3": "A horizontal line gives every input the same output, which is allowed."
+    },
+    "concept_summary": "Vertical line test: at most one crossing.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn01",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-define-the-various-sets-of-the-real",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Which set does $-7$ belong to but $\\sqrt{2}$ does not?",
+    "options": [
+      {
+        "content": "The integers",
+        "is_correct": true
+      },
+      {
+        "content": "The real numbers",
+        "is_correct": false
+      },
+      {
+        "content": "The irrational numbers",
+        "is_correct": false
+      },
+      {
+        "content": "The natural numbers",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "The integers",
+    "explanation_steps": [
+      "$-7$ is a whole number with a negative sign, which makes it an integer.",
+      "$\\sqrt{2}$ is not a whole number and cannot be written as a fraction, so it is irrational.",
+      "Both are real, but only $-7$ is an integer."
+    ],
+    "distractor_rationales": {
+      "1": "Both numbers are real.",
+      "2": "$-7$ is rational, not irrational.",
+      "3": "Natural numbers start at $1$ and are positive, so $-7$ is not one."
+    },
+    "concept_summary": "Integers are whole numbers including negatives.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn02",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-identify-the-characteristics-of-various-number-sets",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which number is irrational?",
+    "options": [
+      {
+        "content": "$\\pi$",
+        "is_correct": true
+      },
+      {
+        "content": "$0.\\overline{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sqrt{16}$",
+        "is_correct": false
+      },
+      {
+        "content": "$-\\frac{5}{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\pi$",
+    "explanation_steps": [
+      "An irrational number cannot be written as one whole number over another.",
+      "Its decimal never ends and never repeats.",
+      "$\\pi$ has exactly that behaviour, so it is irrational."
+    ],
+    "distractor_rationales": {
+      "1": "A repeating decimal is rational; $0.\\overline{3} = \\frac{1}{3}$.",
+      "2": "$\\sqrt{16} = 4$, a whole number.",
+      "3": "This is already written as a fraction, so it is rational."
+    },
+    "concept_summary": "Irrational decimals never end and never repeat.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn03",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-evaluate-roots-of-perfect-squares-and-cubes",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is $\\sqrt[3]{125}$?",
+    "options": [
+      {
+        "content": "$5$",
+        "is_correct": true
+      },
+      {
+        "content": "$25$",
+        "is_correct": false
+      },
+      {
+        "content": "$41.67$",
+        "is_correct": false
+      },
+      {
+        "content": "$15$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$",
+    "explanation_steps": [
+      "A cube root asks which number multiplied by itself three times gives $125$.",
+      "$5 \\times 5 = 25$, and $25 \\times 5 = 125$.",
+      "So the cube root is $5$."
+    ],
+    "distractor_rationales": {
+      "1": "$25$ is the square root squared, or $5^{2}$.",
+      "2": "This divides by three instead of taking a root.",
+      "3": "$15$ would cube to $3375$."
+    },
+    "concept_summary": "A cube root undoes multiplying a number by itself three times.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn04",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-approximate-square-roots-and-cube-roots-using",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Between which two whole numbers does $\\sqrt{60}$ lie?",
+    "options": [
+      {
+        "content": "$7$ and $8$",
+        "is_correct": true
+      },
+      {
+        "content": "$6$ and $7$",
+        "is_correct": false
+      },
+      {
+        "content": "$8$ and $9$",
+        "is_correct": false
+      },
+      {
+        "content": "$29$ and $31$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$7$ and $8$",
+    "explanation_steps": [
+      "Find the nearest perfect squares: $49 = 7^{2}$ and $64 = 8^{2}$.",
+      "$60$ falls between $49$ and $64$.",
+      "So its square root falls between $7$ and $8$, closer to $8$."
+    ],
+    "distractor_rationales": {
+      "1": "$7^{2} = 49$, which is already below $60$.",
+      "2": "$8^{2} = 64$, which is above $60$, so the root is below $8$.",
+      "3": "This halves $60$ rather than taking its root."
+    },
+    "concept_summary": "Bracket the number between perfect squares.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn05",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-use-radical-notation-to-express-roots",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "In $\\sqrt[4]{81}$, what does the $4$ tell you?",
+    "options": [
+      {
+        "content": "How many times a number is multiplied by itself",
+        "is_correct": true
+      },
+      {
+        "content": "The number to divide $81$ by",
+        "is_correct": false
+      },
+      {
+        "content": "The answer",
+        "is_correct": false
+      },
+      {
+        "content": "The number to subtract",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "How many times a number is multiplied by itself",
+    "explanation_steps": [
+      "The small number above the radical sign is the index.",
+      "It says which root is being taken: fourth root here.",
+      "So the answer is the number that, multiplied by itself four times, gives $81$. That is $3$."
+    ],
+    "distractor_rationales": {
+      "1": "The index is not a divisor.",
+      "2": "The answer here is $3$, not $4$.",
+      "3": "Nothing is subtracted in a radical."
+    },
+    "concept_summary": "The index says which root to take.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn06",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-place-real-numbers-on-the-real-number",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which number sits furthest right on a number line?",
+    "options": [
+      {
+        "content": "$-0.5$",
+        "is_correct": true
+      },
+      {
+        "content": "$-1$",
+        "is_correct": false
+      },
+      {
+        "content": "$-2.5$",
+        "is_correct": false
+      },
+      {
+        "content": "$-3$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$-0.5$",
+    "explanation_steps": [
+      "On a number line, further right means larger.",
+      "Among negatives, the one closest to zero is the largest.",
+      "$-0.5$ is nearest zero, so it is furthest right."
+    ],
+    "distractor_rationales": {
+      "1": "$-1$ is further from zero than $-0.5$.",
+      "2": "$-2.5$ is further left still.",
+      "3": "$-3$ is the smallest and furthest left."
+    },
+    "concept_summary": "For negatives, closer to zero means larger.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1rn07",
+    "exam": "AMP1",
+    "topic_slug": "real-number-system",
+    "skill_slug": "real-number-system-show-the-relations-between-the-natural-whole",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Every integer is also which of these?",
+    "options": [
+      {
+        "content": "A rational number",
+        "is_correct": true
+      },
+      {
+        "content": "A natural number",
+        "is_correct": false
+      },
+      {
+        "content": "An irrational number",
+        "is_correct": false
+      },
+      {
+        "content": "A whole number",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A rational number",
+    "explanation_steps": [
+      "A rational number is anything writable as one whole number over another.",
+      "Any integer $n$ can be written as $\\frac{n}{1}$.",
+      "So every integer is rational."
+    ],
+    "distractor_rationales": {
+      "1": "Natural numbers exclude negatives, and $-4$ is an integer.",
+      "2": "Rational and irrational are opposites; an integer cannot be irrational.",
+      "3": "Whole numbers exclude negatives too."
+    },
+    "concept_summary": "Any integer over $1$ is a fraction, so integers are rational.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se01",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-solve-equations-that-contain-brackets",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Solve $3(x - 4) = 18$.",
+    "options": [
+      {
+        "content": "$x = 10$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 6$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 22$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 2$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 10$",
+    "explanation_steps": [
+      "Divide both sides by $3$: $x - 4 = 6$.",
+      "Add $4$ to both sides.",
+      "That gives $x = 10$. Check: $3(10 - 4) = 18$."
+    ],
+    "distractor_rationales": {
+      "1": "$6$ stops after dividing and forgets the $-4$.",
+      "2": "$22$ adds $4$ before dividing, so the $4$ is not scaled correctly.",
+      "3": "$2$ subtracts $4$ instead of adding it."
+    },
+    "concept_summary": "Divide out the bracket's coefficient first, then undo the inside.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se02",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-solve-equations-that-contain-fractions",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $\\frac{x}{3} + \\frac{x}{4} = 7$.",
+    "options": [
+      {
+        "content": "$x = 12$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 7$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 84$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 6$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 12$",
+    "explanation_steps": [
+      "Multiply every term by $12$, the lowest common denominator: $4x + 3x = 84$.",
+      "Combine: $7x = 84$.",
+      "Divide: $x = 12$. Check: $4 + 3 = 7$."
+    ],
+    "distractor_rationales": {
+      "1": "$7$ is the right-hand side, not the solution.",
+      "2": "$84$ forgets to divide by the $7$.",
+      "3": "$6$ would give $2 + 1.5 = 3.5$."
+    },
+    "concept_summary": "Clear fractions by multiplying every term by the common denominator.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se03",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-solve-a-proportion-for-an-unknown-value",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Solve the proportion $\\frac{5}{8} = \\frac{x}{24}$.",
+    "options": [
+      {
+        "content": "$x = 15$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 21$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 40$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 15$",
+    "explanation_steps": [
+      "Notice $24$ is $8 \\times 3$, so the bottom was multiplied by $3$.",
+      "The top must be multiplied by $3$ as well.",
+      "$5 \\times 3 = 15$. Cross-multiplying gives the same: $8x = 120$."
+    ],
+    "distractor_rationales": {
+      "1": "$21$ adds $16$ to the top instead of scaling it.",
+      "2": "$3$ is the scale factor, not the answer.",
+      "3": "$40$ multiplies $5$ by $8$."
+    },
+    "concept_summary": "Scale the top by the same factor as the bottom.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se04",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-determine-whether-a-given-number-is-a",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Is $x = 4$ a solution of $2x - 3 = 5$?",
+    "options": [
+      {
+        "content": "Yes",
+        "is_correct": true
+      },
+      {
+        "content": "No, the solution is $x = 2$",
+        "is_correct": false
+      },
+      {
+        "content": "No, the solution is $x = 8$",
+        "is_correct": false
+      },
+      {
+        "content": "No, there is no solution",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Yes",
+    "explanation_steps": [
+      "Substitute $4$ into the left side: $2(4) - 3$.",
+      "That is $8 - 3 = 5$.",
+      "The two sides match, so $4$ is a solution."
+    ],
+    "distractor_rationales": {
+      "1": "$x = 2$ gives $1$, not $5$.",
+      "2": "$x = 8$ gives $13$.",
+      "3": "A linear equation with a non-zero coefficient always has exactly one solution."
+    },
+    "concept_summary": "Substitute and check whether both sides agree.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se05",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-combine-the-addition-and-division-properties-to",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $5x - 2 = 3x + 8$.",
+    "options": [
+      {
+        "content": "$x = 5$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 1.25$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 10$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 5$",
+    "explanation_steps": [
+      "Collect the letters on one side: subtract $3x$ to get $2x - 2 = 8$.",
+      "Add $2$ to both sides: $2x = 10$.",
+      "Divide by $2$: $x = 5$. Check: $23 = 23$."
+    ],
+    "distractor_rationales": {
+      "1": "$3$ would give $13$ on the left and $17$ on the right.",
+      "2": "$1.25$ divides before collecting the letter terms.",
+      "3": "$10$ forgets the final division by $2$."
+    },
+    "concept_summary": "Letters to one side, numbers to the other, then divide.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se06",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-use-the-division-property-to-solve-an",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Solve $-4x = 20$.",
+    "options": [
+      {
+        "content": "$x = -5$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 5$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = -80$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 16$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = -5$",
+    "explanation_steps": [
+      "Divide both sides by $-4$.",
+      "$\\frac{20}{-4} = -5$.",
+      "Check: $-4 \\times -5 = 20$."
+    ],
+    "distractor_rationales": {
+      "1": "$5$ ignores the negative sign on the coefficient.",
+      "2": "$-80$ multiplies instead of dividing.",
+      "3": "$16$ adds $4$ to $20$ rather than dividing."
+    },
+    "concept_summary": "Divide by the coefficient, keeping its sign.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1se07",
+    "exam": "AMP1",
+    "topic_slug": "solving-equations",
+    "skill_slug": "solving-equations-use-the-addition-property-to-solve-an",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Solve $x - 12 = -5$.",
+    "options": [
+      {
+        "content": "$x = 7$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = -17$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 17$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = -7$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 7$",
+    "explanation_steps": [
+      "Add $12$ to both sides to undo the subtraction.",
+      "$-5 + 12 = 7$.",
+      "Check: $7 - 12 = -5$."
+    ],
+    "distractor_rationales": {
+      "1": "$-17$ subtracts $12$ instead of adding it.",
+      "2": "$17$ adds $12$ to $5$ and loses the minus sign.",
+      "3": "$-7$ has the right size but the wrong sign."
+    },
+    "concept_summary": "Undo a subtraction by adding the same amount to both sides.",
+    "source": "authored"
   }
 ]
