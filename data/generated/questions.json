@@ -165580,5 +165580,1285 @@
     },
     "concept_summary": "Square both sides, solve, then check against the original.",
     "source": "authored"
+  },
+  {
+    "id": "qa_a1wn01",
+    "exam": "AMP1",
+    "topic_slug": "whole-numbers-and-integers",
+    "skill_slug": "whole-numbers-and-integers-use-order-of-operations-to-perform-calculations",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Evaluate $12 - 3 \\times 2 + 4$.",
+    "options": [
+      {
+        "content": "$10$",
+        "is_correct": true
+      },
+      {
+        "content": "$22$",
+        "is_correct": false
+      },
+      {
+        "content": "$14$",
+        "is_correct": false
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$10$",
+    "explanation_steps": [
+      "Multiplication comes before addition and subtraction: $3 \\times 2 = 6$.",
+      "The expression is now $12 - 6 + 4$.",
+      "Work left to right: $12 - 6 = 6$, then $6 + 4 = 10$."
+    ],
+    "distractor_rationales": {
+      "1": "$22$ works strictly left to right and does the subtraction first.",
+      "2": "$14$ adds before subtracting, which is not allowed at the same level.",
+      "3": "$2$ subtracts the $4$ as well, treating $6 + 4$ as one block."
+    },
+    "concept_summary": "Multiply and divide before adding and subtracting.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wn02",
+    "exam": "AMP1",
+    "topic_slug": "whole-numbers-and-integers",
+    "skill_slug": "whole-numbers-and-integers-find-the-greatest-common-factor-gcf-for",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the greatest common factor of $36$ and $48$?",
+    "options": [
+      {
+        "content": "$12$",
+        "is_correct": true
+      },
+      {
+        "content": "$6$",
+        "is_correct": false
+      },
+      {
+        "content": "$144$",
+        "is_correct": false
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$12$",
+    "explanation_steps": [
+      "Break each into primes: $36 = 2^{2} \\times 3^{2}$ and $48 = 2^{4} \\times 3$.",
+      "For a common factor take the lower power of each shared prime: $2^{2}$ and $3^{1}$.",
+      "$4 \\times 3 = 12$."
+    ],
+    "distractor_rationales": {
+      "1": "$6$ divides both but is not the largest that does.",
+      "2": "$144$ is the lowest common multiple, not the greatest common factor.",
+      "3": "$4$ uses only the power of two and drops the shared $3$."
+    },
+    "concept_summary": "Take the lowest power of each shared prime.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wn03",
+    "exam": "AMP1",
+    "topic_slug": "whole-numbers-and-integers",
+    "skill_slug": "whole-numbers-and-integers-find-the-lowest-common-multiple-lcm-for",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the lowest common multiple of $8$ and $12$?",
+    "options": [
+      {
+        "content": "$24$",
+        "is_correct": true
+      },
+      {
+        "content": "$96$",
+        "is_correct": false
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      },
+      {
+        "content": "$48$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$24$",
+    "explanation_steps": [
+      "In primes, $8 = 2^{3}$ and $12 = 2^{2} \\times 3$.",
+      "For a common multiple take the highest power of each prime: $2^{3}$ and $3$.",
+      "$8 \\times 3 = 24$."
+    ],
+    "distractor_rationales": {
+      "1": "$96$ multiplies the two numbers together, which is a common multiple but not the lowest.",
+      "2": "$4$ is the greatest common factor.",
+      "3": "$48$ is a common multiple but $24$ is smaller and still works."
+    },
+    "concept_summary": "Take the highest power of every prime that appears.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wn04",
+    "exam": "AMP1",
+    "topic_slug": "whole-numbers-and-integers",
+    "skill_slug": "whole-numbers-and-integers-determine-whether-a-whole-number-is-prime",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Which of these is a prime number?",
+    "options": [
+      {
+        "content": "$29$",
+        "is_correct": true
+      },
+      {
+        "content": "$27$",
+        "is_correct": false
+      },
+      {
+        "content": "$1$",
+        "is_correct": false
+      },
+      {
+        "content": "$51$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$29$",
+    "explanation_steps": [
+      "A prime has exactly two factors: one and itself.",
+      "Test $29$ against primes up to its square root, which is about $5.4$: it is not divisible by $2$, $3$ or $5$.",
+      "So $29$ is prime."
+    ],
+    "distractor_rationales": {
+      "1": "$27 = 3 \\times 9$, so it has more than two factors.",
+      "2": "$1$ has only one factor, so by definition it is not prime.",
+      "3": "$51 = 3 \\times 17$."
+    },
+    "concept_summary": "Test divisibility by primes up to the square root.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wn05",
+    "exam": "AMP1",
+    "topic_slug": "whole-numbers-and-integers",
+    "skill_slug": "whole-numbers-and-integers-evaluate-numerical-expressions-using-absolute-value",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Evaluate $|{-8}| - |3 - 7|$.",
+    "options": [
+      {
+        "content": "$4$",
+        "is_correct": true
+      },
+      {
+        "content": "$12$",
+        "is_correct": false
+      },
+      {
+        "content": "$-4$",
+        "is_correct": false
+      },
+      {
+        "content": "$-12$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$4$",
+    "explanation_steps": [
+      "$|{-8}| = 8$, since absolute value measures distance from zero.",
+      "Inside the second bars, $3 - 7 = -4$, and $|{-4}| = 4$.",
+      "So the expression is $8 - 4 = 4$."
+    ],
+    "distractor_rationales": {
+      "1": "$12$ adds the two values instead of subtracting.",
+      "2": "$-4$ keeps the first value negative.",
+      "3": "$-12$ makes both negative and then adds."
+    },
+    "concept_summary": "Work inside the bars first, then take the distance.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wn06",
+    "exam": "AMP1",
+    "topic_slug": "whole-numbers-and-integers",
+    "skill_slug": "whole-numbers-and-integers-find-the-prime-factorization-of-a-number",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the prime factorisation of $84$?",
+    "options": [
+      {
+        "content": "$2^{2} \\times 3 \\times 7$",
+        "is_correct": true
+      },
+      {
+        "content": "$2 \\times 42$",
+        "is_correct": false
+      },
+      {
+        "content": "$4 \\times 21$",
+        "is_correct": false
+      },
+      {
+        "content": "$2^{3} \\times 3 \\times 7$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2^{2} \\times 3 \\times 7$",
+    "explanation_steps": [
+      "Divide by $2$ repeatedly: $84 \\div 2 = 42$, and $42 \\div 2 = 21$.",
+      "$21$ is odd, so move to the next prime: $21 = 3 \\times 7$.",
+      "Collecting the factors gives $2 \\times 2 \\times 3 \\times 7 = 2^{2} \\times 3 \\times 7$."
+    ],
+    "distractor_rationales": {
+      "1": "$42$ is not prime, so this is not finished.",
+      "2": "Neither $4$ nor $21$ is prime.",
+      "3": "$2^{3}$ would give $168$, twice too big."
+    },
+    "concept_summary": "Keep dividing by primes until only primes are left.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1le01",
+    "exam": "AMP1",
+    "topic_slug": "laws-of-exponents",
+    "skill_slug": "laws-of-exponents-multiply-powers-with-the-same-base-by",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Simplify $x^{4} \\cdot x^{5}$.",
+    "options": [
+      {
+        "content": "$x^{9}$",
+        "is_correct": true
+      },
+      {
+        "content": "$x^{20}$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{9}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x^{9}$",
+    "explanation_steps": [
+      "Multiplying powers of the same base adds the exponents.",
+      "$4 + 5 = 9$.",
+      "So the answer is $x^{9}$."
+    ],
+    "distractor_rationales": {
+      "1": "$x^{20}$ multiplies the exponents, which is the rule for a power of a power.",
+      "2": "The bases multiply into one $x$, so no coefficient appears.",
+      "3": "$x$ subtracts the exponents, which is the division rule."
+    },
+    "concept_summary": "Same base multiplied means add the exponents.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1le02",
+    "exam": "AMP1",
+    "topic_slug": "laws-of-exponents",
+    "skill_slug": "laws-of-exponents-raise-a-power-to-a-power-by",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Simplify $(2x^{3})^{4}$.",
+    "options": [
+      {
+        "content": "$16x^{12}$",
+        "is_correct": true
+      },
+      {
+        "content": "$2x^{12}$",
+        "is_correct": false
+      },
+      {
+        "content": "$8x^{12}$",
+        "is_correct": false
+      },
+      {
+        "content": "$16x^{7}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$16x^{12}$",
+    "explanation_steps": [
+      "The outside exponent applies to every factor inside, including the $2$.",
+      "$2^{4} = 16$.",
+      "For the letter, multiply the exponents: $3 \\times 4 = 12$, giving $16x^{12}$."
+    ],
+    "distractor_rationales": {
+      "1": "This leaves the $2$ untouched, but it is inside the bracket too.",
+      "2": "$8$ is $2^{3}$, using the inner exponent instead of the outer one.",
+      "3": "$x^{7}$ adds the exponents rather than multiplying them."
+    },
+    "concept_summary": "An outside exponent hits every factor and multiplies inner exponents.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1le03",
+    "exam": "AMP1",
+    "topic_slug": "laws-of-exponents",
+    "skill_slug": "laws-of-exponents-divide-powers-with-the-same-base-by",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Simplify $\\frac{y^{7}}{y^{7}}$.",
+    "options": [
+      {
+        "content": "$1$",
+        "is_correct": true
+      },
+      {
+        "content": "$0$",
+        "is_correct": false
+      },
+      {
+        "content": "$y$",
+        "is_correct": false
+      },
+      {
+        "content": "$y^{14}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$1$",
+    "explanation_steps": [
+      "Dividing powers of the same base subtracts the exponents: $7 - 7 = 0$.",
+      "So the result is $y^{0}$.",
+      "Anything except zero raised to the power zero is $1$, which also matches the fact that any number divided by itself is $1$."
+    ],
+    "distractor_rationales": {
+      "1": "$0$ confuses the exponent with the value.",
+      "2": "$y$ would need the exponents to differ by one.",
+      "3": "$y^{14}$ adds the exponents, which is the multiplication rule."
+    },
+    "concept_summary": "Equal exponents cancel to give a power of zero, which is $1$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1le04",
+    "exam": "AMP1",
+    "topic_slug": "laws-of-exponents",
+    "skill_slug": "laws-of-exponents-apply-an-exponent-to-a-product-or",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Simplify $\\left(\\frac{x^{2}}{y^{3}}\\right)^{3}$.",
+    "options": [
+      {
+        "content": "$\\frac{x^{6}}{y^{9}}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x^{5}}{y^{6}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x^{6}}{y^{3}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3x^{2}}{3y^{3}}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{x^{6}}{y^{9}}$",
+    "explanation_steps": [
+      "The exponent applies to the top and the bottom separately.",
+      "Top: $(x^{2})^{3} = x^{6}$.",
+      "Bottom: $(y^{3})^{3} = y^{9}$."
+    ],
+    "distractor_rationales": {
+      "1": "This adds the exponents instead of multiplying them.",
+      "2": "The bottom needs the outside exponent too.",
+      "3": "The exponent is not a multiplier."
+    },
+    "concept_summary": "A power of a fraction raises both parts.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1le05",
+    "exam": "AMP1",
+    "topic_slug": "laws-of-exponents",
+    "skill_slug": "laws-of-exponents-simplify-expressions-involving-zero-and-positive-exponents",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is $(5x)^{0}$, assuming $x$ is not zero?",
+    "options": [
+      {
+        "content": "$1$",
+        "is_correct": true
+      },
+      {
+        "content": "$0$",
+        "is_correct": false
+      },
+      {
+        "content": "$5$",
+        "is_correct": false
+      },
+      {
+        "content": "$5x$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$1$",
+    "explanation_steps": [
+      "The zero exponent applies to the whole bracket.",
+      "Anything other than zero raised to the power zero is $1$.",
+      "So the whole expression is $1$, no matter what $x$ is."
+    ],
+    "distractor_rationales": {
+      "1": "$0$ is the exponent, not the value.",
+      "2": "$5$ would be the answer if only $x$ carried the exponent.",
+      "3": "$5x$ ignores the exponent entirely."
+    },
+    "concept_summary": "A zero exponent on a whole bracket gives $1$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ne01",
+    "exam": "AMP1",
+    "topic_slug": "negative-exponents",
+    "skill_slug": "negative-exponents-rewrite-a-negative-exponent-as-a-reciprocal",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Rewrite $x^{-4}$ without a negative exponent.",
+    "options": [
+      {
+        "content": "$\\frac{1}{x^{4}}$",
+        "is_correct": true
+      },
+      {
+        "content": "$-x^{4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$-\\frac{1}{x^{4}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{4}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{1}{x^{4}}$",
+    "explanation_steps": [
+      "A negative exponent means take the reciprocal.",
+      "Move the power to the bottom of a fraction and drop the minus sign.",
+      "That gives $\\frac{1}{x^{4}}$."
+    ],
+    "distractor_rationales": {
+      "1": "The minus belongs to the exponent, not to the whole expression.",
+      "2": "Only one change is needed: flip it, do not also negate it.",
+      "3": "This drops the minus without flipping."
+    },
+    "concept_summary": "A negative exponent flips the base into a fraction.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ne02",
+    "exam": "AMP1",
+    "topic_slug": "negative-exponents",
+    "skill_slug": "negative-exponents-simplify-a-fraction-containing-negative-exponents-in",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Simplify $\\frac{1}{x^{-3}}$.",
+    "options": [
+      {
+        "content": "$x^{3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{1}{x^{3}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$-x^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{-3}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x^{3}$",
+    "explanation_steps": [
+      "A negative exponent on the bottom moves up to the top.",
+      "As it crosses the line the sign of the exponent changes.",
+      "So $\\frac{1}{x^{-3}} = x^{3}$."
+    ],
+    "distractor_rationales": {
+      "1": "This is what $x^{-3}$ equals, not its reciprocal.",
+      "2": "Crossing the fraction line changes the exponent's sign, not the term's.",
+      "3": "This repeats the denominator instead of simplifying."
+    },
+    "concept_summary": "A factor crossing the fraction line flips the sign of its exponent.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ne03",
+    "exam": "AMP1",
+    "topic_slug": "negative-exponents",
+    "skill_slug": "negative-exponents-combine-the-exponent-laws-with-negative-exponents",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Simplify $\\frac{x^{2}}{x^{-3}}$.",
+    "options": [
+      {
+        "content": "$x^{5}$",
+        "is_correct": true
+      },
+      {
+        "content": "$x^{-1}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{-6}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{6}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x^{5}$",
+    "explanation_steps": [
+      "Division subtracts the exponents: $2 - (-3)$.",
+      "Subtracting a negative adds, so this is $2 + 3$.",
+      "The result is $x^{5}$."
+    ],
+    "distractor_rationales": {
+      "1": "$x^{-1}$ adds the exponents as if they were $2 + (-3)$.",
+      "2": "$x^{-6}$ multiplies them.",
+      "3": "$x^{6}$ also multiplies, just without the sign."
+    },
+    "concept_summary": "Subtracting a negative exponent adds it.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ne04",
+    "exam": "AMP1",
+    "topic_slug": "negative-exponents",
+    "skill_slug": "negative-exponents-perform-calculations-with-negative-exponents",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is $\\left(\\frac{2}{3}\\right)^{-2}$?",
+    "options": [
+      {
+        "content": "$\\frac{9}{4}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{4}{9}$",
+        "is_correct": false
+      },
+      {
+        "content": "$-\\frac{4}{9}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{9}{4}$",
+    "explanation_steps": [
+      "A negative exponent on a fraction turns it upside down: $\\left(\\frac{3}{2}\\right)^{2}$.",
+      "Now square both parts.",
+      "$\\frac{3^{2}}{2^{2}} = \\frac{9}{4}$."
+    ],
+    "distractor_rationales": {
+      "1": "This squares without flipping.",
+      "2": "The negative exponent does not make the answer negative.",
+      "3": "This flips but forgets to square."
+    },
+    "concept_summary": "A negative exponent flips a fraction, then the power applies.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fr01",
+    "exam": "AMP1",
+    "topic_slug": "fractions",
+    "skill_slug": "fractions-convert-mixed-numbers-to-improper-fractions-and",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Write $3\\frac{2}{5}$ as an improper fraction.",
+    "options": [
+      {
+        "content": "$\\frac{17}{5}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{11}{5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{6}{5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{32}{5}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{17}{5}$",
+    "explanation_steps": [
+      "Multiply the whole number by the denominator: $3 \\times 5 = 15$.",
+      "Add the numerator: $15 + 2 = 17$.",
+      "Keep the same denominator, giving $\\frac{17}{5}$."
+    ],
+    "distractor_rationales": {
+      "1": "$11$ comes from $3 \\times 3 + 2$, using the wrong number.",
+      "2": "$\\frac{6}{5}$ multiplies the whole number by the numerator.",
+      "3": "$\\frac{32}{5}$ writes the digits side by side rather than calculating."
+    },
+    "concept_summary": "Whole times bottom, plus top, over the same bottom.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fr02",
+    "exam": "AMP1",
+    "topic_slug": "fractions",
+    "skill_slug": "fractions-define-reciprocal",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is the reciprocal of $\\frac{3}{8}$?",
+    "options": [
+      {
+        "content": "$\\frac{8}{3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$-\\frac{3}{8}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{8}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{24}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{8}{3}$",
+    "explanation_steps": [
+      "A reciprocal is what you multiply by to get $1$.",
+      "For a fraction, that means turning it upside down.",
+      "Check: $\\frac{3}{8} \\times \\frac{8}{3} = \\frac{24}{24} = 1$."
+    ],
+    "distractor_rationales": {
+      "1": "That is the negative, which gives $-1$ when multiplied.",
+      "2": "A fraction is its own reciprocal only when it equals $1$ or $-1$.",
+      "3": "$\\frac{1}{24}$ multiplies the two parts together."
+    },
+    "concept_summary": "The reciprocal turns a fraction upside down.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fr03",
+    "exam": "AMP1",
+    "topic_slug": "fractions",
+    "skill_slug": "fractions-multiply-and-divide-proper-fractions-improper-fractions",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Calculate $\\frac{3}{4} \\div \\frac{9}{8}$.",
+    "options": [
+      {
+        "content": "$\\frac{2}{3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{27}{32}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{12}{9}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{2}{3}$",
+    "explanation_steps": [
+      "Dividing by a fraction means multiplying by its reciprocal: $\\frac{3}{4} \\times \\frac{8}{9}$.",
+      "Multiply across: $\\frac{24}{36}$.",
+      "Simplify by dividing both by $12$: $\\frac{2}{3}$."
+    ],
+    "distractor_rationales": {
+      "1": "$\\frac{27}{32}$ multiplies without flipping the second fraction.",
+      "2": "$\\frac{3}{2}$ flips the first fraction instead of the second.",
+      "3": "$\\frac{12}{9}$ divides the tops and the bottoms separately."
+    },
+    "concept_summary": "To divide, flip the second fraction and multiply.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fr04",
+    "exam": "AMP1",
+    "topic_slug": "fractions",
+    "skill_slug": "fractions-perform-operations-on-complex-fractions",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Simplify $\\frac{\\frac{1}{2}}{\\frac{3}{4}}$.",
+    "options": [
+      {
+        "content": "$\\frac{2}{3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{3}{8}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{6}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{2}{3}$",
+    "explanation_steps": [
+      "A fraction over a fraction is a division: $\\frac{1}{2} \\div \\frac{3}{4}$.",
+      "Flip the bottom one and multiply: $\\frac{1}{2} \\times \\frac{4}{3}$.",
+      "That is $\\frac{4}{6}$, which simplifies to $\\frac{2}{3}$."
+    ],
+    "distractor_rationales": {
+      "1": "$\\frac{3}{8}$ multiplies the two fractions instead of dividing.",
+      "2": "$\\frac{3}{2}$ inverts the answer.",
+      "3": "$\\frac{1}{6}$ multiplies the tops and the bottoms in the wrong pairing."
+    },
+    "concept_summary": "A stacked fraction is division; flip the bottom one.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fr05",
+    "exam": "AMP1",
+    "topic_slug": "fractions",
+    "skill_slug": "fractions-add-and-subtract-proper-fractions-improper-fractions",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Calculate $\\frac{5}{6} - \\frac{1}{4}$.",
+    "options": [
+      {
+        "content": "$\\frac{7}{12}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{4}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{4}{12}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{7}{12}$",
+    "explanation_steps": [
+      "The lowest common denominator of $6$ and $4$ is $12$.",
+      "Rewrite both: $\\frac{10}{12} - \\frac{3}{12}$.",
+      "Subtract the tops: $\\frac{7}{12}$."
+    ],
+    "distractor_rationales": {
+      "1": "This subtracts tops and bottoms separately, which fractions never allow.",
+      "2": "$\\frac{1}{3}$ would be the answer to a different subtraction.",
+      "3": "$\\frac{4}{12}$ subtracts before converting to a common denominator."
+    },
+    "concept_summary": "Match the denominators, then subtract only the tops.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1de01",
+    "exam": "AMP1",
+    "topic_slug": "decimals",
+    "skill_slug": "decimals-write-a-decimal-number-in-scientific-notation",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Write $0.00062$ in scientific notation.",
+    "options": [
+      {
+        "content": "$6.2 \\times 10^{-4}$",
+        "is_correct": true
+      },
+      {
+        "content": "$6.2 \\times 10^{4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$62 \\times 10^{-5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$6.2 \\times 10^{-3}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$6.2 \\times 10^{-4}$",
+    "explanation_steps": [
+      "Scientific notation needs one non-zero digit before the point, so write $6.2$.",
+      "Count how far the point moved: from $0.00062$ to $6.2$ is four places right.",
+      "Moving right means a negative exponent, so it is $6.2 \\times 10^{-4}$."
+    ],
+    "distractor_rationales": {
+      "1": "A positive exponent would make the number large, not small.",
+      "2": "$62$ has two digits before the point, which the format does not allow.",
+      "3": "$10^{-3}$ is one place short and gives $0.0062$."
+    },
+    "concept_summary": "One digit before the point; a small number takes a negative exponent.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1de02",
+    "exam": "AMP1",
+    "topic_slug": "decimals",
+    "skill_slug": "decimals-convert-from-one-unit-of-metric-measure",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Convert $2.5$ kilometres to metres.",
+    "options": [
+      {
+        "content": "$2500$ m",
+        "is_correct": true
+      },
+      {
+        "content": "$250$ m",
+        "is_correct": false
+      },
+      {
+        "content": "$25000$ m",
+        "is_correct": false
+      },
+      {
+        "content": "$0.0025$ m",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2500$ m",
+    "explanation_steps": [
+      "One kilometre is $1000$ metres.",
+      "Going to a smaller unit means the number gets bigger, so multiply.",
+      "$2.5 \\times 1000 = 2500$ m."
+    ],
+    "distractor_rationales": {
+      "1": "$250$ multiplies by $100$, which is the centimetre relationship.",
+      "2": "$25000$ multiplies by $10\\,000$.",
+      "3": "This divides, which would convert metres to kilometres."
+    },
+    "concept_summary": "Smaller unit, bigger number: multiply.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1de03",
+    "exam": "AMP1",
+    "topic_slug": "decimals",
+    "skill_slug": "decimals-round-numbers-to-one-or-two-decimal",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Round $7.4851$ to two decimal places.",
+    "options": [
+      {
+        "content": "$7.49$",
+        "is_correct": true
+      },
+      {
+        "content": "$7.48$",
+        "is_correct": false
+      },
+      {
+        "content": "$7.50$",
+        "is_correct": false
+      },
+      {
+        "content": "$7.485$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$7.49$",
+    "explanation_steps": [
+      "Two decimal places means keeping the $4$ and the $8$.",
+      "Look at the next digit, which is $5$.",
+      "Five or more rounds up, so the $8$ becomes $9$, giving $7.49$."
+    ],
+    "distractor_rationales": {
+      "1": "$7.48$ rounds down, but a $5$ rounds up.",
+      "2": "$7.50$ rounds twice, carrying past the hundredths place.",
+      "3": "$7.485$ has three decimal places, not two."
+    },
+    "concept_summary": "Look at one digit past the place you are keeping.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1de04",
+    "exam": "AMP1",
+    "topic_slug": "decimals",
+    "skill_slug": "decimals-change-a-decimal-to-a-fraction",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Write $0.35$ as a fraction in lowest terms.",
+    "options": [
+      {
+        "content": "$\\frac{7}{20}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{35}{100}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{7}{10}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{7}{20}$",
+    "explanation_steps": [
+      "Two decimal places means hundredths: $\\frac{35}{100}$.",
+      "Both parts divide by $5$.",
+      "$\\frac{35 \\div 5}{100 \\div 5} = \\frac{7}{20}$."
+    ],
+    "distractor_rationales": {
+      "1": "Correct so far, but not yet in lowest terms.",
+      "2": "$\\frac{3}{5}$ is $0.6$.",
+      "3": "$\\frac{7}{10}$ is $0.7$, twice too big."
+    },
+    "concept_summary": "Decimal places set the denominator, then simplify.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1de05",
+    "exam": "AMP1",
+    "topic_slug": "decimals",
+    "skill_slug": "decimals-evaluate-algebraic-expressions",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Evaluate $2a - b$ when $a = 1.5$ and $b = 0.8$.",
+    "options": [
+      {
+        "content": "$2.2$",
+        "is_correct": true
+      },
+      {
+        "content": "$0.7$",
+        "is_correct": false
+      },
+      {
+        "content": "$3.8$",
+        "is_correct": false
+      },
+      {
+        "content": "$1.4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2.2$",
+    "explanation_steps": [
+      "Substitute the values: $2(1.5) - 0.8$.",
+      "Multiply first: $2 \\times 1.5 = 3$.",
+      "Then subtract: $3 - 0.8 = 2.2$."
+    ],
+    "distractor_rationales": {
+      "1": "$0.7$ subtracts before multiplying.",
+      "2": "$3.8$ adds instead of subtracting.",
+      "3": "$1.4$ doubles the difference rather than doubling $a$ first."
+    },
+    "concept_summary": "Substitute, then follow the order of operations.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fo01",
+    "exam": "AMP1",
+    "topic_slug": "formula-rearrangement",
+    "skill_slug": "formula-rearrangement-isolate-a-variable-that-appears-only-once",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Make $r$ the subject of $C = 2\\pi r$.",
+    "options": [
+      {
+        "content": "$r = \\frac{C}{2\\pi}$",
+        "is_correct": true
+      },
+      {
+        "content": "$r = 2\\pi C$",
+        "is_correct": false
+      },
+      {
+        "content": "$r = C - 2\\pi$",
+        "is_correct": false
+      },
+      {
+        "content": "$r = \\frac{2\\pi}{C}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$r = \\frac{C}{2\\pi}$",
+    "explanation_steps": [
+      "$r$ is multiplied by $2\\pi$.",
+      "To undo a multiplication, divide both sides by it.",
+      "That leaves $r = \\frac{C}{2\\pi}$."
+    ],
+    "distractor_rationales": {
+      "1": "This multiplies again rather than undoing.",
+      "2": "Subtraction undoes addition, not multiplication.",
+      "3": "This is upside down."
+    },
+    "concept_summary": "Undo a multiplication by dividing both sides.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fo02",
+    "exam": "AMP1",
+    "topic_slug": "formula-rearrangement",
+    "skill_slug": "formula-rearrangement-rearrange-a-formula-involving-a-power-or",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Make $r$ the subject of $A = \\pi r^{2}$, taking $r$ as positive.",
+    "options": [
+      {
+        "content": "$r = \\sqrt{\\frac{A}{\\pi}}$",
+        "is_correct": true
+      },
+      {
+        "content": "$r = \\frac{\\sqrt{A}}{\\pi}$",
+        "is_correct": false
+      },
+      {
+        "content": "$r = \\frac{A}{\\pi^{2}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$r = \\frac{A^{2}}{\\pi}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$r = \\sqrt{\\frac{A}{\\pi}}$",
+    "explanation_steps": [
+      "First divide both sides by $\\pi$: $\\frac{A}{\\pi} = r^{2}$.",
+      "Then undo the square by taking the square root of both sides.",
+      "That gives $r = \\sqrt{\\frac{A}{\\pi}}$."
+    ],
+    "distractor_rationales": {
+      "1": "The root must cover the whole fraction, since the division happened before the square was undone.",
+      "2": "This squares $\\pi$ instead of taking a root.",
+      "3": "This squares $A$ rather than rooting it."
+    },
+    "concept_summary": "Undo operations in reverse order: divide first, then take the root.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fo03",
+    "exam": "AMP1",
+    "topic_slug": "formula-rearrangement",
+    "skill_slug": "formula-rearrangement-rearrange-a-formula-where-the-target-variable",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Make $x$ the subject of $y = \\frac{x + 3}{4}$.",
+    "options": [
+      {
+        "content": "$x = 4y - 3$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 4y + 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = \\frac{y}{4} - 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 4(y - 3)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 4y - 3$",
+    "explanation_steps": [
+      "Multiply both sides by $4$ to clear the fraction: $4y = x + 3$.",
+      "Subtract $3$ from both sides.",
+      "That gives $x = 4y - 3$."
+    ],
+    "distractor_rationales": {
+      "1": "The $3$ was added, so it must be subtracted to undo it.",
+      "2": "This divides by $4$ rather than multiplying.",
+      "3": "This subtracts before multiplying, so the $3$ gets multiplied too."
+    },
+    "concept_summary": "Clear the fraction first, then undo the addition.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1sy01",
+    "exam": "AMP1",
+    "topic_slug": "systems-of-equations-and-inequalities",
+    "skill_slug": "systems-of-equations-and-inequalities-graph-linear-inequalities-on-a-number-line",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "On a number line, how is $x > 3$ shown?",
+    "options": [
+      {
+        "content": "A hollow circle at $3$, shaded to the right",
+        "is_correct": true
+      },
+      {
+        "content": "A filled circle at $3$, shaded to the right",
+        "is_correct": false
+      },
+      {
+        "content": "A hollow circle at $3$, shaded to the left",
+        "is_correct": false
+      },
+      {
+        "content": "A filled circle at $3$ only",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A hollow circle at $3$, shaded to the right",
+    "explanation_steps": [
+      "The symbol is strictly greater than, so $3$ itself is not included.",
+      "An excluded endpoint is drawn as a hollow circle.",
+      "Greater means larger values, which lie to the right."
+    ],
+    "distractor_rationales": {
+      "1": "A filled circle would mean $x \\ge 3$.",
+      "2": "Shading left would show $x < 3$.",
+      "3": "A single point would mean $x = 3$."
+    },
+    "concept_summary": "Hollow excludes the endpoint; shading points toward the allowed values.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1sy02",
+    "exam": "AMP1",
+    "topic_slug": "systems-of-equations-and-inequalities",
+    "skill_slug": "systems-of-equations-and-inequalities-solve-a-system-of-linear-equations-in",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Solve the system $x + y = 10$ and $x - y = 4$.",
+    "options": [
+      {
+        "content": "$x = 7$, $y = 3$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 3$, $y = 7$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 6$, $y = 4$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 5$, $y = 5$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 7$, $y = 3$",
+    "explanation_steps": [
+      "Add the two equations. The $y$ terms cancel: $2x = 14$.",
+      "So $x = 7$.",
+      "Substitute back into the first: $7 + y = 10$, giving $y = 3$."
+    ],
+    "distractor_rationales": {
+      "1": "These satisfy the first equation but give $-4$ in the second.",
+      "2": "$6 - 4 = 2$, not $4$.",
+      "3": "$5 - 5 = 0$, not $4$."
+    },
+    "concept_summary": "Add the equations when one variable's signs are opposite.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1sy03",
+    "exam": "AMP1",
+    "topic_slug": "systems-of-equations-and-inequalities",
+    "skill_slug": "systems-of-equations-and-inequalities-determine-the-number-of-solutions-for-a",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "How many solutions does the system $y = 2x + 1$ and $y = 2x + 5$ have?",
+    "options": [
+      {
+        "content": "None",
+        "is_correct": true
+      },
+      {
+        "content": "One",
+        "is_correct": false
+      },
+      {
+        "content": "Two",
+        "is_correct": false
+      },
+      {
+        "content": "Infinitely many",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "None",
+    "explanation_steps": [
+      "Both lines have slope $2$, so they are parallel.",
+      "Their intercepts differ, $1$ against $5$, so they are not the same line.",
+      "Parallel lines that are not identical never meet, so there is no solution."
+    ],
+    "distractor_rationales": {
+      "1": "One solution needs different slopes.",
+      "2": "Two straight lines can never cross twice.",
+      "3": "Infinitely many would need the two equations to describe the same line."
+    },
+    "concept_summary": "Same slope, different intercept means parallel and no solution.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1sy04",
+    "exam": "AMP1",
+    "topic_slug": "systems-of-equations-and-inequalities",
+    "skill_slug": "systems-of-equations-and-inequalities-solve-a-system-of-linear-inequalities-in",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $-2x > 6$.",
+    "options": [
+      {
+        "content": "$x < -3$",
+        "is_correct": true
+      },
+      {
+        "content": "$x > -3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x > 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$x < 3$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x < -3$",
+    "explanation_steps": [
+      "Divide both sides by $-2$.",
+      "Dividing an inequality by a negative number reverses the direction of the sign.",
+      "So $x < -3$. Check with $x = -4$: $-2(-4) = 8$, which is indeed greater than $6$."
+    ],
+    "distractor_rationales": {
+      "1": "This divides correctly but forgets to flip the inequality.",
+      "2": "The sign of $-3$ is lost as well as the flip.",
+      "3": "This flips the inequality but not the sign of the number."
+    },
+    "concept_summary": "Multiplying or dividing by a negative flips the inequality.",
+    "source": "authored"
   }
 ]
