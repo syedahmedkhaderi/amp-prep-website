@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { getTopicBySlug, getTopicQuestionStats } from "@/lib/db/queries";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 
 export default async function TopicDetailPage({
   params,
@@ -97,7 +98,7 @@ export default async function TopicDetailPage({
                   {questionStats.sample.difficulty} | {questionStats.sample.type.replace(/_/g, " ")}
                 </p>
                 <p className="mt-2 text-ink">
-                  <MathText text={questionStats.sample.stem} />
+                  <RichText text={questionStats.sample.stem} />
                 </p>
               </div>
             </div>

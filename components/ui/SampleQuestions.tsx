@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 import type { ClientSafeQuestion } from "@/lib/types";
 
 /**
@@ -55,7 +56,7 @@ export function SampleQuestions({
         </p>
 
         <div className="mt-3 text-ink">
-          <MathText text={current.question.stem} />
+          <RichText text={current.question.stem} />
         </div>
 
         <ol className="mt-5 space-y-2">

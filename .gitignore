@@ -64,3 +64,4 @@ Thumbs.db
 
 # source material (not redistributed)
 /data/source/
+data/generated/questions.pre-latex.json

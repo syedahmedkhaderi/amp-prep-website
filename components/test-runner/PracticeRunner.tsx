@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 import { AnswerArea } from "@/components/test-runner/AnswerArea";
 import type { ClientSafeQuestion } from "@/lib/types";
 
@@ -159,7 +160,7 @@ export function PracticeRunner({ attemptId, questions, topicName }: PracticeRunn
           </span>
         </div>
         <div className="text-base text-ink leading-relaxed">
-          <MathText text={currentQuestion.stem} />
+          <RichText text={currentQuestion.stem} />
         </div>
 
         <AnswerArea

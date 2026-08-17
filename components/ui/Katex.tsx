@@ -44,6 +44,27 @@ export function Katex({ math, displayMode = false }: KatexProps) {
 }
 
 /**
+ * Render a field that is entirely math, whether or not it is delimited.
+ *
+ * A worked example's `math` field holds one line of working — it is math by
+ * definition, so the authoring format never wrapped it in $...$. Passing it to
+ * MathText therefore printed the LaTeX source: readers saw `2^{2} \cdot x^{6}`
+ * and `1, \ -4, \ 1` instead of typeset maths.
+ *
+ * Undelimited strings render as display math. A string that does carry
+ * delimiters is mixed content after all, so it falls through to MathText.
+ */
+export function MathLine({ text, className }: { text: string; className?: string }) {
+  if (text.includes("$")) return <MathText text={text} className={className} />;
+
+  return (
+    <span className={`block overflow-x-auto ${className ?? ""}`}>
+      <Katex math={text} displayMode />
+    </span>
+  );
+}
+
+/**
  * Render mixed text and math. Splits on $...$ (inline) and $$...$$ (display).
  * This is the main content renderer for stems, options, and explanations.
  */
