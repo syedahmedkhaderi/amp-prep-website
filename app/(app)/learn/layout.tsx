@@ -21,6 +21,7 @@ export default async function LearnLayout({ children }: { children: React.ReactN
 
   const sidebarTopics: SidebarTopic[] = topics.map((topic) => {
     const topicLessons = lessons.filter((l) => l.topicSlug === topic.slug);
+    const locked = topic.examCode === "AMP2" && !isPro;
     return {
       slug: topic.slug,
       name: topic.name,
@@ -29,7 +30,16 @@ export default async function LearnLayout({ children }: { children: React.ReactN
       completedCount: topicLessons.filter((l) => completed.has(l.id)).length,
       // AMP 2 is the paid tier. The rail still lists these so a free student can
       // see what Pro contains; the link goes to pricing rather than the lesson.
-      locked: topic.examCode === "AMP2" && !isPro,
+      locked,
+      // Lesson titles ship for every unlocked topic, but the rail only expands
+      // the one being read, so this is not 200 links in the DOM.
+      lessons: locked
+        ? []
+        : topicLessons.map((l) => ({
+            slug: l.slug,
+            title: l.title,
+            completed: completed.has(l.id),
+          })),
     };
   });
 

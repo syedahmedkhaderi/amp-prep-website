@@ -494,11 +494,26 @@ try {
     const total = Number((await page.locator("main").innerText()).match(/Question 1 of (\d+)/)?.[1] ?? 0);
     check("practice runner loads a question set", total > 0, `${total} questions`);
 
-    const answerable = 'label input[type="radio"], label input[type="checkbox"], input[type="text"]';
+    // All five question types have to be answerable here. Matching questions
+    // render <select> per row, which an earlier version of this selector missed,
+    // so the stage failed whenever a reseed happened to put one first.
+    const answerable =
+      'label input[type="radio"], label input[type="checkbox"], input[type="text"], select';
     const first = page.locator(answerable).first();
     await first.waitFor({ timeout: 10000 });
-    if ((await first.getAttribute("type")) === "text") await first.fill("42");
-    else await first.check();
+    const tag = await first.evaluate((el) => el.tagName.toLowerCase());
+    if (tag === "select") {
+      // Pick the first real choice on every row, not just this one: a matching
+      // question is not submittable until each row has an answer.
+      const rows = page.locator("select");
+      for (let i = 0; i < (await rows.count()); i++) {
+        await rows.nth(i).selectOption({ index: 1 });
+      }
+    } else if ((await first.getAttribute("type")) === "text") {
+      await first.fill("42");
+    } else {
+      await first.check();
+    }
 
     const save = page.getByRole("button", { name: /^Save answer$/ });
     check("save button enables once an answer is chosen", await save.isEnabled());
@@ -794,8 +809,10 @@ try {
     check("sign in with the same credentials works", page.url().includes("/dashboard"), page.url());
 
     const text = await page.locator("main").innerText();
-    check("dashboard lists the completed work in recent activity", /Recent activity/i.test(text));
-    check("recent activity shows a score", /\d+%/.test(text), text.match(/\d+%/)?.[0]);
+    // The dashboard no longer lists recent attempts; it leads with the learning
+    // path and summarises progress instead.
+    check("dashboard leads with the learning path", /Continue learning|Learn the topics/.test(text));
+    check("dashboard reports lesson progress", /\d+ of \d+ lessons read/.test(text));
     check("the gauge now reports started topics", !/^0 of/.test(text.match(/\d+ of \d+ topics started/)?.[0] ?? "0 of"), text.match(/\d+ of \d+ topics started/)?.[0]);
   });
 
