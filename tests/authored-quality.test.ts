@@ -109,12 +109,14 @@ describe("authored question quality", () => {
     expect([...seen].filter(([, n]) => n > 1).map(([id]) => id)).toEqual([]);
   });
 
-  it("never repeats an exact stem", () => {
+  it("never repeats a stem, ignoring cosmetic differences", () => {
     // Re-skinning one question with new numbers is the failure the generated
-    // bank had 143 times over. An identical stem is the clearest form of it.
+    // bank had 143 times over. Comparing raw stems only catches the exact case:
+    // three pairs slipped through on punctuation alone, differing by nothing
+    // more than $\\log(1000)$ against $\\log 1000$. Normalising first closes that.
     const seen = new Map<string, string[]>();
     for (const q of authoredQuestions) {
-      const key = q.stem.trim().toLowerCase();
+      const key = collapse(q.stem).replace(/\((\w+)\)/g, "$1");
       seen.set(key, [...(seen.get(key) ?? []), q.id]);
     }
     expect([...seen.values()].filter((ids) => ids.length > 1)).toEqual([]);
