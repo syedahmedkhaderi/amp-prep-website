@@ -12,7 +12,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-30 border-b border-surface-border bg-white">
-        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-8">
             <Link href="/dashboard" className="rounded-md" aria-label="AMP Prep dashboard">
               <Logo size={32} />

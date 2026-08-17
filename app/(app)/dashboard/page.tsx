@@ -19,7 +19,7 @@ export default async function DashboardPage() {
   const topicsPercent = progress.totalTopics > 0 ? (progress.topicsStarted / progress.totalTopics) * 100 : 0;
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8">
+    <div className="mx-auto max-w-7xl px-6 py-8">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-brand-deep">

@@ -19,8 +19,20 @@
     "seed": "tsx scripts/seed.ts",
     "assemble": "tsx scripts/assemble-papers.ts",
     "grant-pro": "tsx scripts/grant-pro.ts",
+    "backup": "tsx scripts/backup.ts",
     "repair:latex": "tsx scripts/repair-latex.ts",
-    "repair:content": "tsx scripts/repair-content.ts"
+    "repair:content": "tsx scripts/repair-content.ts",
+    "repair:tolerances": "tsx scripts/repair-tolerances.ts",
+    "audit": "tsx scripts/audit-bank.ts",
+    "seed:skills": "tsx scripts/seed-skills.ts",
+    "build:skills": "tsx scripts/build-skills.ts",
+    "seed:lessons": "tsx scripts/seed-lessons.ts",
+    "verify:lessons": "tsx scripts/verify-lessons.ts",
+    "relabel:mcq": "tsx scripts/relabel-fill-blank.ts",
+    "audit:content": "tsx scripts/audit-content.ts",
+    "repair:notation": "tsx scripts/repair-notation.ts",
+    "verify:batch": "tsx scripts/export-verify-batch.ts",
+    "brief": "tsx scripts/build-content-brief.ts"
   },
   "dependencies": {
     "@types/nodemailer": "^8.0.1",

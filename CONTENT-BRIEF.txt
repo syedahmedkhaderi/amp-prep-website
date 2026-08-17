@@ -1,0 +1,2566 @@
+==============================================================================
+AMP PREP - CONTENT BRIEF
+Generated 2026-08-17T05:23:42.158Z by scripts/build-content-brief.ts
+==============================================================================
+
+Everything needed to write the remaining lessons and questions outside
+this repository. Hand a section to an AI, paste the JSON it returns into
+the file named in that section, and run the verifier.
+
+WHAT IS ALREADY DONE (do not redo):
+  - 197 skills defined. 6 have lessons, 191 do not.
+  - Numeric answer tolerances repaired; the bank is gradable.
+  - 748 fill_blank retyped as single_mcq. Mock papers are MCQ only.
+  - AMP 2 corrected to 60 questions / 120 minutes.
+
+==============================================================================
+PART 0 - RULES THAT APPLY TO EVERYTHING
+==============================================================================
+
+0.1 LATEX ESCAPING - READ THIS FIRST, IT HAS BROKEN THE BANK BEFORE
+
+  Math is written in LaTeX inside $...$ (inline) or $$...$$ (display).
+  When LaTeX goes inside JSON, every backslash must be DOUBLED.
+
+    WRONG:   "stem": "Simplify $\frac{1}{2}$"
+    RIGHT:   "stem": "Simplify $\\frac{1}{2}$"
+
+  Why this matters more than it looks: in a JSON string \f is the form
+  feed character. A single backslash turns \frac into an invisible
+  control character, the JSON still parses, nothing throws, and the
+  student is shown broken output. 297 questions once shipped that way.
+  The same trap applies to \t (\times, \text), \b (\begin) and \r
+  (\right).
+
+  If you are writing a .ts file rather than raw JSON, the same rule
+  applies inside the string literals.
+
+0.2 LATEX THAT IS ALLOWED
+
+  Use only what KaTeX renders: \frac \sqrt \cdot \times \div \pm
+  \le \ge \ne \approx \pi \theta \sin \cos \tan \log \ln
+  \underline \text \circ \infty ^{ } _{ } \left( \right)
+
+  Never use: tabular, itemize, align, \begin{array} unless certain,
+  \(...\) delimiters, raw carets outside math, * for multiplication,
+  -> for arrows, or Unicode math glyphs. Write \pi not the pi symbol,
+  \sqrt{2} not the root symbol, x^{2} not a superscript two.
+
+0.3 WRITING STYLE - THE WHOLE POINT OF THIS PROJECT
+
+  The reader is a student who found school maths hard and is preparing
+  for a placement test that decides which course they can take. Write
+  for them, not for a mathematician.
+
+    - Eighth grade reading level.
+    - Define every symbol in words before using it.
+    - Show each rule with a concrete number FIRST, then the general form.
+    - One idea per paragraph. Short sentences. Under 25 words each.
+    - Say why a step is allowed, not just what changed.
+
+  BANNED WORDS AND PHRASES (the verifier rejects these):
+    hence, thus, it follows that, observe that, clearly, obviously,
+    trivially, denote, arbitrary, straightforward, simply note,
+    as we know, recall that
+
+  No em-dashes as sentence connectors. No emoji. Plain full stops.
+
+==============================================================================
+PART 1 - LESSONS
+==============================================================================
+
+191 skills still need a lesson. Work one topic at a time.
+
+OUTPUT FORMAT: a TypeScript file per topic at data/lessons/<topic>.ts,
+exporting an array of LessonSource. Copy the shape of the existing
+data/lessons/fractions.ts exactly.
+
+  import type { LessonSource } from "./types";
+  export const <camelCaseTopic>Lessons: LessonSource[] = [ ... ];
+
+Then add it to data/lessons/index.ts.
+
+EACH LESSON OBJECT:
+
+  {
+    skillSlug: "<exact slug from the list below - do not invent one>",
+    title: "<short, plain, what the student will be able to do>",
+    summary: "<one sentence>",
+    estMinutes: <5 to 10>,
+    blocks: [ ... ]
+  }
+
+BLOCK TYPES - use them in a sensible teaching order:
+
+  { type: "prose", text: "..." }
+      A paragraph. Math inline with $...$.
+
+  { type: "definition", term: "...", meaning: "..." }
+      Name a thing and say what it means in ordinary words.
+
+  { type: "worked_example",
+    prompt: "...",
+    steps: [ { action: "...", math: "...", why: "..." } ],
+    answer: "..." }
+      `math` is optional. `why` is REQUIRED and is the teaching: it says
+      why the step is legal. Without it the example is just a transcript.
+
+  { type: "callout", kind: "tip" | "watch-out" | "common-mistake",
+    text: "..." }
+
+  { type: "checkpoint", questionIds: ["q_..."] }
+      1 or 2 ids, taken ONLY from the candidate list for that topic below.
+
+  { type: "graph", spec: { ... }, caption: "..." }
+  { type: "diagram", spec: { ... }, caption: "..." }
+      See Part 1B. Every spec needs a `description` for screen readers.
+
+HARD REQUIREMENTS - the verifier fails the lesson otherwise:
+  - at least one worked_example
+  - exactly one checkpoint, with ids from the candidate list
+  - a non-empty title and summary
+  - no banned phrase, no sentence over 25 words
+  - every graph and diagram spec has a description
+
+------------------------------------------------------------------------------
+PART 1B - GRAPH AND DIAGRAM SPECS
+------------------------------------------------------------------------------
+
+Use a graph where the shape IS the idea: slope, parabolas, asymptotes,
+transformations, inequalities on a number line, the unit circle. Do not
+decorate a lesson with a graph that adds nothing.
+
+  Cartesian:
+    { kind: "cartesian",
+      description: "<what a sighted reader would see>",
+      viewport: { xMin: -10, xMax: 10, yMin: -10, yMax: 10 },
+      curves: [ { fn: "x^2-3", label: "y = x^2-3",
+                  color: "primary"|"accent"|"muted", dashed: false } ],
+      points: [ { x: 1, y: 2, label: "(1, 2)", open: false } ],
+      segments: [ { from: {x:1,y:2}, to: {x:4,y:2}, dashed: true } ],
+      regions: [ { fn: "2x+1", side: "above"|"below" } ] }
+
+    `fn` is NOT LaTeX. It is a plain expression: + - * / ^ ( ),
+    x, sin cos tan asin acos atan log ln sqrt abs exp, pi, e.
+    log is base 10, ln is natural. Implicit multiplication (2x) is fine.
+    Named parameters are allowed via params: { a: 2, h: 1, k: -3 }.
+
+  Number line:
+    { kind: "number-line", min: -5, max: 5, description: "...",
+      marks: [ { at: 3, open: true } ],
+      intervals: [ { from: 3, to: 5, openFrom: true } ] }
+
+  Unit circle:
+    { kind: "unit-circle", description: "...",
+      angles: [0,30,45,60,90], highlight: 30 }
+
+  Diagrams (geometry figures, labels carry the measurements):
+    { kind: "triangle", sides: ["3","4","5"], angles: [...],
+      rightAngleAt: 0, description: "..." }
+    also: rectangle {width,height}, square {side},
+          circle {radius|diameter}, trapezoid {top,bottom,height},
+          cylinder {radius,height}, cone {radius,height,slant},
+          sphere {radius}, prism {width,height,depth}
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Real Number System   [real-number-system]
+------------------------------------------------------------------------------
+Write to: data/lessons/real-number-system.ts
+Topic description: This topic covers defining number sets, identifying characteristics, understanding relations between sets, using radical notation, evaluating and approximating roots, and placing numbers on a number line.
+Lessons needed: 8
+
+SKILLS (use these slugs exactly):
+  slug:      real-number-system-define-the-various-sets-of-the-real
+  objective: Define the various sets of the real number system
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-give-examples-that-require-the-use-of
+  objective: Give examples that require the use of different number systems
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-identify-the-characteristics-of-various-number-sets
+  objective: Identify the characteristics of various number sets
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-show-the-relations-between-the-natural-whole
+  objective: Show the relations between the natural, whole, rational, irrational, and real numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-use-radical-notation-to-express-roots
+  objective: Use radical notation to express roots
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-evaluate-roots-of-perfect-squares-and-cubes
+  objective: Evaluate roots of perfect squares and cubes
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-approximate-square-roots-and-cube-roots-using
+  objective: Approximate square roots and cube roots using a calculator
+  source:    official exam objective, wording is authoritative
+
+  slug:      real-number-system-place-real-numbers-on-the-real-number
+  objective: Place real numbers on the real number line
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_3fxo7oq7z1j2  [single_mcq, easy]  Between which two consecutive integers on the real number line does the number $-\sqrt{29}
+  q_5k1mb90numcn  [single_mcq, easy]  The number $\sqrt{17}$ is an example of which type of real number? Type your answer in the
+  q_5xh5oj8my0l0  [single_mcq, easy]  Between which two consecutive integers on a number line does the value of $-\sqrt{18}$ lie
+  q_83b993sockw9  [single_mcq, easy]  Which of the following numbers is an irrational number?
+  q_894ohr5xrtnc  [numeric, easy]  What is the value of $\sqrt{10}$ rounded to the nearest tenth?
+  q_8kf4bfk1i5lj  [numeric, easy]  What is the integer closest to $\sqrt{15}$?
+  q_acqm8xhdzbeu  [numeric, easy]  Evaluate the expression: $\sqrt{121} - \sqrt[3]{8}$
+  q_azrxgb1zcetq  [single_mcq, easy]  The number $\frac{12}{4}$ can be classified as a member of all the following sets EXCEPT t
+  q_c13b4yvtq8k3  [single_mcq, easy]  The number $\sqrt{17}$ is an example of which type of real number? It is a number that can
+  q_c83zad4fxsm5  [single_mcq, easy]  The number $\sqrt{18}$ lies between the consecutive integers $4$ and \underline{\quad} on 
+  q_fc9ro25qk6e3  [numeric, easy]  Evaluate the following expression: $\sqrt{49} - \sqrt[3]{8}$.
+  q_g874xy02d1rj  [single_mcq, easy]  The number $\sqrt{5}$ is a(n) \underline{\quad} number.
+  q_hm7adl18jl9p  [numeric, easy]  What is the integer closest to $\sqrt{50}$?
+  q_hrfprhchpe9e  [numeric, easy]  Evaluate the expression: $\sqrt{64} - \sqrt[3]{-27} + 2^3$
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Whole Numbers and Integers   [whole-numbers-and-integers]
+------------------------------------------------------------------------------
+Write to: data/lessons/whole-numbers-and-integers.ts
+Topic description: This topic focuses on performing operations with whole numbers and integers, factorization, exponents, finding GCF and LCM, and applying the order of operations.
+Lessons needed: 9
+
+SKILLS (use these slugs exactly):
+  slug:      whole-numbers-and-integers-perform-operations-with-whole-numbers
+  objective: Perform operations with whole numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-find-the-factors-of-a-whole-number
+  objective: Find the factors of a whole number
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-determine-whether-a-whole-number-is-prime
+  objective: Determine whether a whole number is prime, composite, or neither
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-find-the-prime-factorization-of-a-number
+  objective: Find the prime factorization of a number
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-use-exponents-on-whole-numbers
+  objective: Use exponents on whole numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-find-the-greatest-common-factor-gcf-for
+  objective: Find the greatest common factor (GCF) for two or more numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-find-the-lowest-common-multiple-lcm-for
+  objective: Find the lowest common multiple (LCM) for two or more numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-use-order-of-operations-to-perform-calculations
+  objective: Use order of operations to perform calculations on integers
+  source:    official exam objective, wording is authoritative
+
+  slug:      whole-numbers-and-integers-evaluate-numerical-expressions-using-absolute-value
+  objective: Evaluate numerical expressions using absolute value
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0w2zryu9wsqy  [numeric, easy]  Calculate the value of $7 \times (-3) + 15 \div (-5) - (-4)$.
+  q_1c60j4xh3v7h  [single_mcq, easy]  Evaluate the expression: $$15 - | -3 \cdot 4 + 2 |$$ The value of the expression is \und
+  q_2jdddjmgqv9f  [single_mcq, easy]  Evaluate the expression: $$-3 \cdot |5 - 8| - (-2)^3$$
+  q_7cqpoy9qpod4  [single_mcq, easy]  What is the value of the expression $18 - 3 \times (5 + 2) \div 3$?
+  q_7goudilaraqt  [numeric, easy]  Calculate the value of $18 - 4 \cdot (5 + 3) \div 2$.
+  q_7xpk82ujp4oo  [single_mcq, easy]  Evaluate the expression: $15 - 3 \cdot | -4 + 2 | = \underline{\quad}$
+  q_aylsq10xh67m  [single_mcq, easy]  Evaluate the numerical expression: $$|-12 + 4 \cdot (-2)| - 5$$
+  q_bspan37fl0zr  [numeric, easy]  Evaluate the following expression: $$25 - 3 \cdot | 4 - 9 |$$
+  q_csp8hc9hk8l5  [single_mcq, easy]  Calculate the value of $3 \times (15 - 8) - 4^2 \div 2$.
+  q_dld5sac4g7fi  [numeric, easy]  Evaluate the expression: $5 + (3 \times 4 - 6)^2 \div 2 - 10$
+  q_dz9335qujlfx  [single_mcq, easy]  Calculate the value of $5 \times (12 - 3) - 2^3$.
+  q_e45qxt9sbzko  [single_mcq, easy]  Evaluate the following expression: $$15 - 3 \cdot |4 - 2^{3}| = \underline{\hspace{2em}}$
+  q_ed23sk1d4fen  [single_mcq, easy]  Evaluate the expression: $$-8 + | -5 \cdot 3 + 6 | = \underline{\quad}$$
+  q_jn4sr58chjll  [numeric, easy]  Calculate the value of $10 - 3 \times (5 - 2)^{2} + 8 \div 4$.
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Fractions   [fractions]
+------------------------------------------------------------------------------
+Write to: data/lessons/fractions.ts
+Topic description: This topic covers operations on fractions and mixed numbers, defining types of fractions, conversions, simplification, reciprocals, and complex fractions.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      fractions-perform-operations-on-fractions-and-mixed-numbers
+  objective: Perform operations on fractions and mixed numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      fractions-convert-mixed-numbers-to-improper-fractions-and
+  objective: Convert mixed numbers to improper fractions and vice versa
+  source:    official exam objective, wording is authoritative
+
+  slug:      fractions-define-reciprocal
+  objective: Define reciprocal
+  source:    official exam objective, wording is authoritative
+
+  slug:      fractions-multiply-and-divide-proper-fractions-improper-fractions
+  objective: Multiply and divide proper fractions, improper fractions, and mixed numbers
+  source:    official exam objective, wording is authoritative
+
+  slug:      fractions-perform-operations-on-complex-fractions
+  objective: Perform operations on complex fractions
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0mhx8cd9u7g8  [single_mcq, easy]  Evaluate the following expression: $$2\frac{1}{3} - 1\frac{3}{4}$$
+  q_0th00ytc1uzh  [numeric, easy]  Calculate the value of $\frac{\frac{1}{2} + \frac{1}{3}}{\frac{1}{4}}$ and express your an
+  q_1h5bz6jcrg00  [single_mcq, easy]  Simplify the complex fraction: $$\frac{\frac{3}{4}}{\frac{9}{8}} = \underline{\quad}$$
+  q_2aub6zva4s3l  [numeric, easy]  Evaluate the following expression and express the result as an improper fraction in simple
+  q_8057mcvmzs6l  [numeric, easy]  Evaluate the following expression and simplify your answer completely: $$2 \frac{1}{4} \d
+  q_88vqgpc062xn  [single_mcq, easy]  Simplify the following expression: $\frac{3}{4} \cdot \frac{2}{9}$. The result is \underli
+  q_99cju1lq8dcc  [numeric, easy]  Evaluate the following expression and express the result as an improper fraction in simple
+  q_9eikoxr32gch  [single_mcq, easy]  The sum of $1 \frac{3}{5}$ and $\frac{7}{10}$, written as an improper fraction in simplest
+  q_aa3pd6hfapy2  [single_mcq, easy]  What is the sum of $\frac{3}{5}$ and $\frac{1}{4}$? Express your answer as a simplified fr
+  q_bw21t3o1te3k  [numeric, easy]  Evaluate the following expression: $$3\frac{1}{2} \div 1\frac{3}{4}$$
+  q_ddbfrdf035jb  [single_mcq, easy]  What is the product of $\frac{3}{5}$ and $\frac{10}{9}$ expressed in simplest form?
+  q_eqbpeuplw3g1  [single_mcq, easy]  Simplify the following expression: $\frac{1}{4} + \frac{3}{8} = \underline{\quad}$
+  q_gtktz2wbty1h  [single_mcq, easy]  Simplify the complex fraction: $\frac{\frac{1}{2} + \frac{1}{3}}{\frac{1}{4} - \frac{1}{6}
+  q_hnhwxe4wrz57  [numeric, easy]  Evaluate the product of the following mixed numbers: $$1 \frac{2}{3} \cdot 2 \frac{2}{5}$$
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Decimals   [decimals]
+------------------------------------------------------------------------------
+Write to: data/lessons/decimals.ts
+Topic description: This topic involves converting decimals to fractions and percents, identifying base units of measure, performing metric conversions, evaluating algebraic expressions, using scientific notation, and rounding decimals.
+Lessons needed: 7
+
+SKILLS (use these slugs exactly):
+  slug:      decimals-change-a-decimal-to-a-fraction
+  objective: Change a decimal to a fraction
+  source:    official exam objective, wording is authoritative
+
+  slug:      decimals-change-a-decimal-to-a-percent
+  objective: Change a decimal to a percent
+  source:    official exam objective, wording is authoritative
+
+  slug:      decimals-identify-the-base-units-of-measure-for
+  objective: Identify the base units of measure for mass, volume, and length
+  source:    official exam objective, wording is authoritative
+
+  slug:      decimals-convert-from-one-unit-of-metric-measure
+  objective: Convert from one unit of metric measure to another (kilo- to milli-range)
+  source:    official exam objective, wording is authoritative
+
+  slug:      decimals-evaluate-algebraic-expressions
+  objective: Evaluate algebraic expressions
+  source:    official exam objective, wording is authoritative
+
+  slug:      decimals-write-a-decimal-number-in-scientific-notation
+  objective: Write a decimal number in scientific notation, and vice versa
+  source:    official exam objective, wording is authoritative
+
+  slug:      decimals-round-numbers-to-one-or-two-decimal
+  objective: Round numbers to one or two decimal places
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0lmz48oboec4  [numeric, easy]  Evaluate the algebraic expression $4.2x - 1.8$ when $x = 0.5$.
+  q_1z9goes6o0l3  [single_mcq, easy]  A recipe calls for $2.5$ cups of flour. If you only want to make half of the recipe, how m
+  q_3pfibm7rijlw  [numeric, easy]  A recipe calls for $2.5$ cups of flour. If you only have a $\frac{1}{3}$ cup measuring sco
+  q_5mcnlgpbrg31  [single_mcq, easy]  What is the decimal $0.45$ expressed as a fraction in its simplest form?
+  q_6433k02rky46  [numeric, easy]  Evaluate the expression $3.42 + 0.8 \cdot 1.5$. Express your answer as a decimal.
+  q_6kp34mtchieu  [numeric, easy]  A recipe calls for $1.75$ cups of flour. If you only have a measuring cup marked in eighth
+  q_6n2zaq4gi71j  [single_mcq, easy]  Convert the decimal $0.065$ to a percentage.
+  q_6pi2p0egwxm0  [numeric, easy]  A marathon runner completed a $42.195$ kilometer race. How many meters did the runner cove
+  q_7e6l1y6cwa82  [single_mcq, easy]  A recipe calls for $0.75$ kilograms of flour. How many grams of flour are needed?
+  q_7jucujnujs3c  [numeric, easy]  A small package weighs $3.75$ kilograms. How many grams does the package weigh?
+  q_7z6flsxtk3xy  [single_mcq, easy]  A container holds $0.85$ liters of water. To express this volume in milliliters, we conver
+  q_a76xd97uum7d  [single_mcq, easy]  A baker uses $0.375$ kilograms of flour for a recipe. How many grams of flour is this?
+  q_agh2guuavgt1  [single_mcq, easy]  Evaluate the algebraic expression $3.5x - 2.4$ when $x = 0.8$.
+  q_b74z7b7wqjrs  [single_mcq, easy]  What is the decimal $0.04582$ rounded to the nearest thousandth?
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Percent   [percent]
+------------------------------------------------------------------------------
+Write to: data/lessons/percent.ts
+Topic description: This topic covers defining percent, converting between percent, fraction, and decimal forms, solving various percent problems, calculating percent increase and decrease, and determining weighted averages.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      percent-define-percent
+  objective: Define percent
+  source:    official exam objective, wording is authoritative
+
+  slug:      percent-change-a-percent-to-a-fraction-or
+  objective: Change a percent to a fraction or decimal
+  source:    official exam objective, wording is authoritative
+
+  slug:      percent-change-a-fraction-or-decimal-to-a
+  objective: Change a fraction or decimal to a percent
+  source:    official exam objective, wording is authoritative
+
+  slug:      percent-perform-calculations-using-the-three-types-of
+  objective: Perform calculations using the three types of percent problems
+  source:    official exam objective, wording is authoritative
+
+  slug:      percent-calculate-percent-increase-and-percent-decrease
+  objective: Calculate percent increase and percent decrease
+  source:    official exam objective, wording is authoritative
+
+  slug:      percent-calculate-unweighted-and-weighted-averages
+  objective: Calculate unweighted and weighted averages
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_00rr8bp7qgsr  [numeric, easy]  A store is having a sale where all items are marked down by $15\%$. If a jacket is origina
+  q_4gzdgl6ni2v3  [numeric, easy]  A pair of sneakers originally costs $60. During a sale, the price is reduced by 15%. What 
+  q_4uzhc40lbdo6  [single_mcq, easy]  A store is having a 25% off sale. If a jacket originally costs $80, what is the sale price
+  q_52wviptl99wh  [numeric, easy]  A store is having a sale where all items are 25% off. If a shirt originally costs $48, wha
+  q_71zh47bel386  [single_mcq, easy]  A store increases the price of an item that originally cost $40.00 by 15%. What is the new
+  q_7tt2bmiwabse  [single_mcq, easy]  A store reduces the price of a jacket from $80$ to $68$. The percent decrease in the price
+  q_9ihyevenidn3  [single_mcq, easy]  A jacket originally priced at $80$ is on sale for $15\%$ off. The discount amount is $\und
+  q_c6hbjjktv55w  [numeric, easy]  A high school drama club has $60$ members. If $40\%$ of the members are seniors, how many 
+  q_cglqqmi5t45n  [numeric, easy]  A store is offering a 20\% discount on all items. If a shirt originally costs $35, what is
+  q_cs2vfehvjuxz  [single_mcq, easy]  A student scored $15\%$ on a quiz that was worth a total of $80$ points. How many points d
+  q_e7vwwn7yq0f9  [numeric, easy]  A school library has $120$ science books, which represent $15\%$ of the total number of bo
+  q_emikioqnoool  [single_mcq, easy]  A jacket originally priced at $80$ dollars is on sale for $68$ dollars. What is the percen
+  q_g05uyzd5krvw  [numeric, easy]  A pair of shoes originally costs $60$ dollars. During a clearance sale, the price is reduc
+  q_h2vn0uyrttua  [single_mcq, easy]  A jacket originally priced at $80$ dollars is on sale for $15\%$ off. The discount amount 
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Solving Equations   [solving-equations]
+------------------------------------------------------------------------------
+Write to: data/lessons/solving-equations.ts
+Topic description: This topic focuses on solving linear equations using various properties, including those with brackets and fractions, and solving proportions for unknown values.
+Lessons needed: 7
+
+SKILLS (use these slugs exactly):
+  slug:      solving-equations-determine-whether-a-given-number-is-a
+  objective: Determine whether a given number is a solution for an equation
+  source:    official exam objective, wording is authoritative
+
+  slug:      solving-equations-use-the-addition-property-to-solve-an
+  objective: Use the addition property to solve an equation
+  source:    official exam objective, wording is authoritative
+
+  slug:      solving-equations-use-the-division-property-to-solve-an
+  objective: Use the division property to solve an equation
+  source:    official exam objective, wording is authoritative
+
+  slug:      solving-equations-combine-the-addition-and-division-properties-to
+  objective: Combine the addition and division properties to solve an equation
+  source:    official exam objective, wording is authoritative
+
+  slug:      solving-equations-solve-equations-that-contain-brackets
+  objective: Solve equations that contain brackets
+  source:    official exam objective, wording is authoritative
+
+  slug:      solving-equations-solve-equations-that-contain-fractions
+  objective: Solve equations that contain fractions
+  source:    official exam objective, wording is authoritative
+
+  slug:      solving-equations-solve-a-proportion-for-an-unknown-value
+  objective: Solve a proportion for an unknown value
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_12rj5x5xibtr  [single_mcq, easy]  Solve the following equation for $x$: $$3(x - 4) = 12$$
+  q_2dtx6kiqlvkz  [numeric, easy]  Solve for $x$ in the following linear equation: $4(x - 3) + 2 = 18$.
+  q_2w8l34idl2uj  [numeric, easy]  Solve the following equation for $x$: $3(x - 2) + 5 = 14$
+  q_4m0yu3d0t7j7  [single_mcq, easy]  Solve the following equation for $x$: $2(x + 5) = 18$.
+  q_529p2kqom8p5  [single_mcq, easy]  Solve the following equation for $x$: $5(x - 3) + 2 = 17$
+  q_7lybx9jlvewf  [single_mcq, easy]  Solve the following linear equation for $x$: $3(x - 4) = 15$. The value of $x$ is \underli
+  q_8mp3eokdngwi  [single_mcq, easy]  Solve the following equation for $x$: $5x - 7 = 18$
+  q_9ceco186p5aq  [single_mcq, easy]  Solve for $x$ in the equation: $$\frac{x + 6}{2} = 10$$ The value of $x$ is \underline{\qu
+  q_bu0l2ot9sk6s  [single_mcq, easy]  Solve for $x$: $5(x - 3) + 2 = 12$
+  q_cq5u4f0nqyu1  [single_mcq, easy]  Solve the following equation for $x$: $4(x + 3) = 28$. The value of $x$ is \underline{\qua
+  q_evb4foslix6b  [single_mcq, easy]  Solve the following linear equation for $x$: $3(x - 4) = 15$.
+  q_fbak355gtdb6  [numeric, easy]  Solve the equation for $x$: $5x - 8 = 12$.
+  q_fompsfc3tw50  [numeric, easy]  Solve the following equation for $x$: $$2(x + 3) - 5 = 11$$
+  q_h6taht9rwcsr  [single_mcq, easy]  Solve the equation for $x$: $$4(x - 2) = 3x + 5$$
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Formula Rearrangement   [formula-rearrangement]
+------------------------------------------------------------------------------
+Write to: data/lessons/formula-rearrangement.ts
+Topic description: This topic involves solving equations or formulas for a specific variable, including those with linear, quadratic, and fractional forms.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      formula-rearrangement-solve-an-equation-or-formula-for-a
+  objective: Solve an equation or formula for a given variable
+  source:    official exam objective, wording is authoritative
+
+  slug:      formula-rearrangement-isolate-a-variable-that-appears-only-once
+  objective: Isolate a variable that appears only once, using inverse operations
+  source:    derived, may be reworded
+
+  slug:      formula-rearrangement-rearrange-a-formula-where-the-target-variable
+  objective: Rearrange a formula where the target variable is inside a bracket
+  source:    derived, may be reworded
+
+  slug:      formula-rearrangement-rearrange-a-formula-where-the-target-variable-2
+  objective: Rearrange a formula where the target variable is in a denominator
+  source:    derived, may be reworded
+
+  slug:      formula-rearrangement-rearrange-a-formula-involving-a-power-or
+  objective: Rearrange a formula involving a power or a root
+  source:    derived, may be reworded
+
+  slug:      formula-rearrangement-rearrange-a-formula-where-the-target-variable-3
+  objective: Rearrange a formula where the target variable appears on both sides
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_13s6zb0uyo3p  [numeric, easy]  The formula for the area of a triangle is $A = \frac{1}{2}bh$, where $b$ is the base and $
+  q_27xg36540l6t  [numeric, easy]  The formula for the area of a trapezoid is given by $A = \frac{1}{2}(b_1 + b_2)h$. If the 
+  q_2s0diva7vp7b  [single_mcq, easy]  Given the formula for the surface area of a cylinder $A = 2\pi rh + 2\pi r^{2}$, which of 
+  q_30j61rcx5963  [single_mcq, easy]  The formula for the area of a trapezoid is $A = \frac{1}{2}(b_1 + b_2)h$. If the area $A$ 
+  q_5gvphn3o57rt  [single_mcq, easy]  Given the linear equation $y = mx + b$, where $m \neq 0$, solve for $x$. $x = \underline{\
+  q_756yxlwx3nxf  [single_mcq, easy]  Given the formula for the volume of a pyramid, $V = \frac{1}{3}Ah$, rearrange the equation
+  q_7ogbg6dk4u98  [single_mcq, easy]  Solve the equation $y = mx + b$ for $x$ in terms of $y, m,$ and $b$.
+  q_8k1mgu5i1p6j  [numeric, easy]  Given the formula $y = \frac{x - 4}{5}$, if $y = 3$, what is the value of $x$?
+  q_8vlx2i2h017l  [single_mcq, easy]  The formula for the volume of a pyramid is $V = \frac{1}{3}Bh$, where $V$ is the volume, $
+  q_awea7xbv88kd  [single_mcq, easy]  The perimeter $P$ of a rectangle with length $l$ and width $w$ is given by the formula $P 
+  q_cf8j4v5t0c0u  [single_mcq, easy]  Solve the formula $P = 2l + 2w$ for $l$.
+  q_g3wonlpiwww4  [single_mcq, easy]  The perimeter of a rectangle is given by the formula $P = 2a + 2b$, where $a$ and $b$ are 
+  q_id41eiijvng5  [single_mcq, easy]  The formula for the area of a triangle is $A = \frac{1}{2}bh$, where $A$ is the area, $b$ 
+  q_kwck07sn4pev  [single_mcq, easy]  The formula for the area of a trapezoid is $A = \frac{1}{2}(b_1 + b_2)h$. Solve this formu
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Laws of Exponents   [laws-of-exponents]
+------------------------------------------------------------------------------
+Write to: data/lessons/laws-of-exponents.ts
+Topic description: This topic covers performing calculations and simplifying expressions involving zero and positive exponents using the fundamental laws of exponents.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      laws-of-exponents-perform-calculations-with-exponents
+  objective: Perform calculations with exponents
+  source:    official exam objective, wording is authoritative
+
+  slug:      laws-of-exponents-simplify-expressions-involving-zero-and-positive-exponents
+  objective: Simplify expressions involving zero and positive exponents
+  source:    official exam objective, wording is authoritative
+
+  slug:      laws-of-exponents-multiply-powers-with-the-same-base-by
+  objective: Multiply powers with the same base by adding exponents
+  source:    derived, may be reworded
+
+  slug:      laws-of-exponents-divide-powers-with-the-same-base-by
+  objective: Divide powers with the same base by subtracting exponents
+  source:    derived, may be reworded
+
+  slug:      laws-of-exponents-raise-a-power-to-a-power-by
+  objective: Raise a power to a power by multiplying exponents
+  source:    derived, may be reworded
+
+  slug:      laws-of-exponents-apply-an-exponent-to-a-product-or
+  objective: Apply an exponent to a product or a quotient
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_55rhxhrn6ig4  [single_mcq, easy]  Simplify the expression $\frac{x^{5} \cdot x^{3}}{x^{2}}$ for $x \neq 0$.
+  q_5yfjz7975d19  [numeric, easy]  Simplify the expression $\frac{x^{5} \cdot x^{3}}{x^{2}}$ and evaluate the result for $x =
+  q_6mxmtfnj8gqk  [single_mcq, easy]  Simplify the expression completely, assuming $x \neq 0$: $$\frac{(3x^2)^3 \cdot x^0}{9x^4
+  q_82aav7skcmy8  [single_mcq, easy]  Simplify the expression $\frac{(x^2)^4}{x^3}$ for $x \neq 0$.
+  q_bjxkmap27fa2  [single_mcq, easy]  Simplify the following expression: $\frac{x^{5} \cdot x^{3}}{x^{2}}$
+  q_cawknb5neqbn  [single_mcq, easy]  Simplify the expression $x^{3} \cdot (x^{2})^{4}$.
+  q_cj1piyv1d277  [numeric, easy]  Evaluate the expression: $(3^2 \cdot 3^4)^0 \cdot 3^3$.
+  q_cmx1pix798bw  [single_mcq, easy]  Simplify the expression $(2x^3)^2 \cdot x^0$.
+  q_d364wikfigdv  [single_mcq, easy]  Simplify the expression: $\frac{10x^7}{2x^3 \cdot x^0}$. The simplified form is \underline
+  q_d6o5h5nz72f6  [single_mcq, easy]  Simplify the expression $\frac{x^{5} \cdot x^{3}}{x^{2}}$ and select the correct result fr
+  q_f0g31wuqgzmw  [numeric, easy]  Simplify the expression $\frac{x^{5} \cdot x^{3}}{x^{2}}$ and evaluate the result when $x 
+  q_h7a5zqfi4zuy  [single_mcq, easy]  Simplify the expression $\frac{(x^3)^2 \cdot x^4}{x^5}$.
+  q_hpczp8kxjr5l  [single_mcq, easy]  Simplify the expression $(3x^{2}y^{3})^{2}$ and identify the equivalent form from the choi
+  q_i404gonxblcp  [single_mcq, easy]  Evaluate the expression $3^0 + 3^1 + 3^2$. The value is \underline{\quad}.
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Negative Exponents   [negative-exponents]
+------------------------------------------------------------------------------
+Write to: data/lessons/negative-exponents.ts
+Topic description: This topic focuses on performing calculations and simplifying expressions that involve negative exponents.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      negative-exponents-perform-calculations-with-negative-exponents
+  objective: Perform calculations with negative exponents
+  source:    official exam objective, wording is authoritative
+
+  slug:      negative-exponents-simplify-expressions-involving-negative-exponents
+  objective: Simplify expressions involving negative exponents
+  source:    official exam objective, wording is authoritative
+
+  slug:      negative-exponents-rewrite-a-negative-exponent-as-a-reciprocal
+  objective: Rewrite a negative exponent as a reciprocal
+  source:    derived, may be reworded
+
+  slug:      negative-exponents-simplify-a-fraction-containing-negative-exponents-in
+  objective: Simplify a fraction containing negative exponents in the numerator and denominator
+  source:    derived, may be reworded
+
+  slug:      negative-exponents-combine-the-exponent-laws-with-negative-exponents
+  objective: Combine the exponent laws with negative exponents in a single expression
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_06v1auuc8gzv  [single_mcq, easy]  Simplify the expression $4x^{-2}$ and select the equivalent form: \underline{\quad}
+  q_0m00myn08np4  [single_mcq, easy]  Simplify the expression $4x^{-3}$ and write it with positive exponents.
+  q_0tk37oduavdt  [numeric, easy]  Simplify the expression $3^{-2} + 2^{-1}$ and express the result as a decimal.
+  q_2kc3nwmjxvi3  [single_mcq, easy]  Simplify the expression $3^{-2} \cdot 3^{4}$ and write the result as an integer in the bla
+  q_4c49mhjc8tc3  [single_mcq, easy]  Simplify the expression $3x^{-2}$ and select the equivalent form: \underline{\quad}
+  q_4zqyg3udzugu  [single_mcq, easy]  Simplify the expression $3x^{-2}$ and select the equivalent form: $3x^{-2} = \underline
+  q_68k3u1cbxgpz  [numeric, easy]  Simplify the expression $3^{-2} + 2^{-1}$ and express the result as a fraction in simplest
+  q_8diu600p618e  [single_mcq, easy]  Simplify the expression $4^{-2} \cdot 4^{3}$ and write your answer as a single integer.
+  q_8oa3zzq99iu1  [numeric, easy]  Simplify the following expression: $4^{-2} \cdot 4^5$
+  q_9hmfr3c00not  [single_mcq, easy]  Evaluate the expression $5^{-2}$ and write your answer as a simplified fraction. The value
+  q_bouvykwny5mb  [single_mcq, easy]  Simplify the following expression and express it with positive exponents: $x^{-3} \cdot x^
+  q_d71m8pz4yd3t  [numeric, easy]  Simplify the expression $3^{-2} + 2^{-1}$ and express the result as a fraction in simplest
+  q_dj8f44cm6y20  [single_mcq, easy]  Simplify the expression $4x^{-3}y^{2}$ and write it using only positive exponents.
+  q_en6wgc0ifrji  [single_mcq, easy]  Simplify the expression: $5x^{-2} y^3$.
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Polynomials   [polynomials]
+------------------------------------------------------------------------------
+Write to: data/lessons/polynomials.ts
+Topic description: This topic covers defining polynomials, identifying their types, determining their degree, writing them in descending order, and performing basic operations such as addition, subtraction, multiplication, and division, including squaring binomials.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      polynomials-define-polynomials
+  objective: Define polynomials
+  source:    official exam objective, wording is authoritative
+
+  slug:      polynomials-identify-monomials-binomials-and-trinomials
+  objective: Identify monomials, binomials, and trinomials
+  source:    official exam objective, wording is authoritative
+
+  slug:      polynomials-find-the-degree-of-a-polynomial-that
+  objective: Find the degree of a polynomial that has one variable
+  source:    official exam objective, wording is authoritative
+
+  slug:      polynomials-write-a-polynomial-in-descending-exponent-form
+  objective: Write a polynomial in descending-exponent form
+  source:    official exam objective, wording is authoritative
+
+  slug:      polynomials-add-subtract-multiply-and-divide-polynomials
+  objective: Add, subtract, multiply and divide polynomials
+  source:    official exam objective, wording is authoritative
+
+  slug:      polynomials-square-a-binomial
+  objective: Square a binomial
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_2q4ww948samn  [numeric, easy]  Simplify the expression by performing the indicated operation: $(3x^{2} - 5x + 2) + (4x^{2
+  q_39ki8y5mw8ez  [single_mcq, easy]  Simplify the following expression by combining like terms: $(3x^{2} - 5x + 2) - (x^{2} - 2
+  q_5dxjlgvko1gt  [single_mcq, easy]  Simplify the expression $(3x^2 - 4x + 2) - (x^2 - 5x - 7)$ by combining like terms.
+  q_7yj7au5cpqyq  [single_mcq, easy]  Simplify the expression $(3x^2 - 4x + 2) - (x^2 - 5x - 7)$ by writing the result in descen
+  q_89m8yz0iulva  [single_mcq, easy]  Simplify the expression by performing the indicated subtraction: $(5x^{2} - 3x + 7) - (2x^
+  q_a43a7j99vzye  [single_mcq, easy]  When the polynomial $(3x^{2} - 5x + 2) - (x^{2} + 4x - 7)$ is simplified and written in de
+  q_a4bn66suydou  [numeric, easy]  Find the result of the polynomial subtraction $(5x^{2} - 3x + 4) - (2x^{2} - 5x - 7)$. Wri
+  q_b8js7y3drvni  [numeric, easy]  Simplify the expression by performing the subtraction: $(5x^{2} - 3x + 4) - (2x^{2} - 7x -
+  q_bmgs4193y7ti  [numeric, easy]  Simplify the expression $3x^{2} - (2x^{2} - 5x + 4) + (x^{2} - 3x)$ and write the result i
+  q_dnkc6eulmgks  [numeric, easy]  Simplify the expression by performing the indicated operation: $(4x^{2} - 3x + 5) - (2x^{2
+  q_heklpporuoy7  [single_mcq, easy]  Simplify the expression by performing the indicated subtraction: $(5x^{2} - 3x + 4) - (2x^
+  q_i4e2e35jnr47  [single_mcq, easy]  Simplify the following expression by combining like terms: $(4x^2 - 3x + 5) + (2x^2 + 7x -
+  q_iigdvhjftn6k  [numeric, easy]  Simplify the expression by performing the indicated subtraction: $(5x^{2} - 3x + 7) - (2x^
+  q_j7aj8ev5m5n2  [numeric, easy]  Simplify the following expression by combining like terms and writing the result in descen
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Factoring   [factoring]
+------------------------------------------------------------------------------
+Write to: data/lessons/factoring.ts
+Topic description: This topic focuses on finding the greatest common factor, factoring various types of trinomials, factoring differences of squares, factoring by grouping, and factoring sums and differences of cubes.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      factoring-find-the-greatest-common-factor-from-a
+  objective: Find the greatest common factor from a polynomial
+  source:    official exam objective, wording is authoritative
+
+  slug:      factoring-factor-trinomials-of-the-form
+  objective: Factor trinomials of the form $x^{2} + bx + c$
+  source:    official exam objective, wording is authoritative
+
+  slug:      factoring-factor-trinomials-of-the-form-2
+  objective: Factor trinomials of the form $ax^{2} + bx + c$
+  source:    official exam objective, wording is authoritative
+
+  slug:      factoring-factor-a-difference-of-squares
+  objective: Factor a difference of squares
+  source:    official exam objective, wording is authoritative
+
+  slug:      factoring-factor-by-grouping
+  objective: Factor by grouping
+  source:    official exam objective, wording is authoritative
+
+  slug:      factoring-factor-a-sum-and-a-difference-of
+  objective: Factor a sum and a difference of cubes
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_1gezzk2tqiom  [single_mcq, easy]  Factor the polynomial completely: $x^{2} - 9x + 20$.
+  q_35scbjt1x2cb  [single_mcq, easy]  Factor the polynomial completely: $x^{2} - 11x + 28$.
+  q_49q8j94upar6  [numeric, easy]  Factor the expression completely: $x^2 - 11x + 28$. If the factored form is $(x - a)(x - b
+  q_51ojxwg0vp2s  [numeric, easy]  Factor the expression completely: $x^2 - 11x + 28$. If the factored form is $(x - a)(x - b
+  q_5ch9cqeeuqv5  [numeric, easy]  Factor the expression completely: $x^{2} - 12x + 35$. The factored form is $(x - a)(x - b)
+  q_5qj6u41pueyl  [numeric, easy]  Factor the quadratic expression completely: $x^{2} - 7x + 10$. If the expression is writte
+  q_6ysz0satoojy  [single_mcq, easy]  Factor the trinomial completely: $x^2 + 7x + 10$
+  q_77mfj0mk57ld  [numeric, easy]  Factor the quadratic expression completely: $x^{2} - 7x + 10$. If the factors are $(x - a)
+  q_dmy9a0gyt5dm  [numeric, easy]  Factor the expression completely: $x^{2} - 8x + 12$. Express your answer as the product of
+  q_ez6yd29tox8r  [numeric, easy]  Factor the quadratic expression completely: $x^{2} - 7x + 10$. If the factored form is $(x
+  q_fas6gyizodtb  [single_mcq, easy]  Factor the polynomial completely: $x^{2} - 7x + 10$.
+  q_gh1la7v721tg  [numeric, easy]  Factor the quadratic expression completely: $x^{2} - 7x + 10$. If the expression is writte
+  q_gm8pwlkgzfdp  [single_mcq, easy]  Factor the following expression completely: $x^{2} - 11x + 28$.
+  q_gw8nmvdkyi4v  [numeric, easy]  Factor the polynomial completely: $x^{2} - 9x + 20$. If the factored form is $(x - a)(x - 
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Rational Expressions   [rational-expressions]
+------------------------------------------------------------------------------
+Write to: data/lessons/rational-expressions.ts
+Topic description: This topic covers determining values for which rational expressions are defined, simplifying them, and performing operations such as addition, subtraction, multiplication, and division, as well as finding the lowest common denominator.
+Lessons needed: 4
+
+SKILLS (use these slugs exactly):
+  slug:      rational-expressions-determine-the-values-for-which-a-rational
+  objective: Determine the values for which a rational algebraic expression is defined
+  source:    official exam objective, wording is authoritative
+
+  slug:      rational-expressions-simplify-rational-algebraic-expressions
+  objective: Simplify rational algebraic expressions
+  source:    official exam objective, wording is authoritative
+
+  slug:      rational-expressions-add-subtract-multiply-and-divide-rational-algebraic
+  objective: Add, subtract, multiply and divide rational algebraic expressions
+  source:    official exam objective, wording is authoritative
+
+  slug:      rational-expressions-find-lowest-common-denominator-of-rational-algebraic
+  objective: Find lowest common denominator of rational algebraic expressions
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_3m5cpf0dgs7o  [single_mcq, easy]  For the expression $\frac{x - 3}{x^{2} - 9}$, determine the value(s) for which the express
+  q_3ugm37bvbd3v  [single_mcq, easy]  Simplify the rational expression $\frac{x^{2} - 9}{x + 3}$ for all $x$ where the expressio
+  q_53bw296efaw4  [numeric, easy]  For what value of $x$ is the rational expression $\frac{2x + 5}{3x - 12}$ undefined?
+  q_6zzrn18aavjm  [single_mcq, easy]  For what value of $x$ is the expression $\frac{x - 5}{x + 3}$ undefined?
+  q_7ztfhd07m2nw  [single_mcq, easy]  For which value of $x$ is the expression $\frac{x - 3}{x + 5}$ undefined?
+  q_8d3ke5gufm5i  [single_mcq, easy]  Simplify the rational expression for all values of $x$ where it is defined: $$\frac{x^2 - 
+  q_98jxotn9l19s  [single_mcq, easy]  Simplify the rational expression $\frac{x^{2} - 9}{x^{2} + 4x + 3}$. For what value of $x$
+  q_advog11hjl1t  [single_mcq, easy]  The rational expression $\frac{x-5}{2x-8}$ is undefined when $x = \underline{\quad}$.
+  q_c7foxz7hayzr  [numeric, easy]  Simplify the rational expression $\frac{x^{2} - 9}{x + 3}$ and determine its value when $x
+  q_fcts6v5li4h9  [numeric, easy]  Evaluate the rational expression $\frac{x^2 - 49}{x - 7}$ for $x = 5$.
+  q_hatwzd3aif9z  [single_mcq, easy]  Simplify the following rational expression for $x \neq 0$: $\frac{6x^2}{2x}$. Select the c
+  q_iip6mbncdn5e  [single_mcq, easy]  For which value(s) of $x$ is the expression $\frac{x - 3}{x + 5}$ undefined?
+  q_iyut0am0gwqm  [single_mcq, easy]  Simplify the following rational expression: $\frac{x^2 - 4}{x^2 - 5x + 6}$
+  q_ku2vma5yetop  [single_mcq, easy]  For which value of $x$ is the rational expression $\frac{x + 2}{3x - 12}$ undefined?
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Geometry   [geometry]
+------------------------------------------------------------------------------
+Write to: data/lessons/geometry.ts
+Topic description: This topic includes understanding significant digits, classifying angles and triangles, applying angle-sum principles and the Pythagorean Theorem, calculating areas and perimeters of 2D shapes, and determining volumes and surface areas of 3D shapes, as well as working with similar triangles.
+Lessons needed: 9
+
+SKILLS (use these slugs exactly):
+  slug:      geometry-determine-the-number-of-significant-digits-of
+  objective: Determine the number of significant digits of an approximate number
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-identify-pairs-of-complementary-angles-and-pairs
+  objective: Identify pairs of complementary angles and pairs of supplementary angles
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-classify-angles-as-right-acute-obtuse-or
+  objective: Classify angles as right, acute, obtuse, or straight
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-classify-triangles-as-scalene-equilateral-right-or
+  objective: Classify triangles as scalene, equilateral, right, or isosceles
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-use-the-angle-sum-principle-to-calculate
+  objective: Use the angle-sum principle to calculate unknown angles in triangles
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-find-the-area-and-perimeter-of-a
+  objective: Find the area and perimeter of a square, rectangle, triangle, and circle
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-find-the-volume-and-surface-area-of
+  objective: Find the volume and surface area of a sphere, cone, cylinder, and prisms
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-recognize-similar-triangles-and-identify-the-corresponding
+  objective: Recognize similar triangles and identify the corresponding parts
+  source:    official exam objective, wording is authoritative
+
+  slug:      geometry-find-the-missing-measures-in-similar-triangles
+  objective: Find the missing measures in similar triangles
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_1nuyfjm8luri  [single_mcq, easy]  A right triangle has legs of length $6\text{ cm}$ and $8\text{ cm}$. What is the length of
+  q_3a4us279zj0d  [single_mcq, easy]  A right triangle has legs of length $6$ cm and $8$ cm. The length of the hypotenuse is ___
+  q_52druf23mnlt  [single_mcq, easy]  A right triangle has legs with lengths of $6\text{ cm}$ and $8\text{ cm}$. The length of t
+  q_53a3jrxe3vr1  [numeric, easy]  A right triangle has legs of lengths $6 \text{ cm}$ and $8 \text{ cm}$. Calculate the leng
+  q_6m3m5u0qlt5f  [single_mcq, easy]  A right triangle has legs measuring $6$ cm and $8$ cm. What is the length of the hypotenus
+  q_7a7gttj3apdz  [numeric, easy]  A rectangular garden has a length of $15.5$ meters and a width of $8.2$ meters. What is th
+  q_7wv68j5vnl6g  [numeric, easy]  A right triangle has legs of length $5$ cm and $12$ cm. What is the length of the hypotenu
+  q_8segema2xn5d  [single_mcq, easy]  A right triangle has two legs measuring $6\text{ cm}$ and $8\text{ cm}$. The length of the
+  q_8tync278z4rd  [single_mcq, easy]  A rectangle has a length of $12$ cm and a width of $5$ cm. What is the perimeter of the re
+  q_bnutzo7yxx8t  [single_mcq, easy]  A right triangle has legs of lengths $6 \text{ cm}$ and $8 \text{ cm}$. What is the length
+  q_bvccl2ikz1qx  [single_mcq, easy]  A triangle has two interior angles measuring $40^{\circ}$ and $75^{\circ}$. The measure of
+  q_hu06ws23ou38  [single_mcq, easy]  A right triangle has two legs of lengths $6 \text{ cm}$ and $8 \text{ cm}$. Calculate the 
+  q_i4f8hkyvm5w8  [numeric, easy]  A rectangular garden has a length of $8$ meters and a width of $5$ meters. What is the are
+  q_ihrynrbjil6k  [numeric, easy]  A right triangle has legs of length $6$ cm and $8$ cm. What is the length of the hypotenus
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Equation of the Line   [equation-of-the-line]
+------------------------------------------------------------------------------
+Write to: data/lessons/equation-of-the-line.ts
+Topic description: This topic covers calculating distance and midpoint, determining slopes of lines (including parallel and perpendicular), graphing lines from various information, writing linear equations, and understanding horizontal and vertical lines.
+Lessons needed: 8
+
+SKILLS (use these slugs exactly):
+  slug:      equation-of-the-line-determine-distance-between-two-points
+  objective: Determine distance between two points
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-determine-midpoint-of-a-line-segment
+  objective: Determine midpoint of a line segment
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-given-a-line-find-steepness-and-direction
+  objective: Given a line, find steepness and direction of slope
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-graph-a-line-given-its-slope-and
+  objective: Graph a line given its slope and y-intercept, its slope and any point, or any two points on the line
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-write-equation-of-a-line-from-standard
+  objective: Write equation of a line from standard form to slope-intercept form and vice versa
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-graph-a-linear-equation-using-its-slope
+  objective: Graph a linear equation using its slope and y-intercept, its two intercepts, or a point on the line and the equation of a parallel or perpendicular line
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-graph-horizontal-and-vertical-lines-from-their
+  objective: Graph horizontal and vertical lines from their equations
+  source:    official exam objective, wording is authoritative
+
+  slug:      equation-of-the-line-find-the-equation-of-a-line-given
+  objective: Find the equation of a line given slope and y-intercept, slope and a point, two points, a point and a parallel or perpendicular line, or the graph of a line
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_110m3pdax47m  [numeric, easy]  What is the slope of the line that passes through the points $(2, 5)$ and $(6, 13)$?
+  q_29ec0nqp9af4  [single_mcq, easy]  What is the equation of the line that passes through the point $(3, -2)$ and has a slope o
+  q_6sukr8w9rdbm  [single_mcq, easy]  What is the slope of a line that passes through the points $(2, 3)$ and $(4, 7)$?
+  q_8rqfbp6i1ivs  [single_mcq, easy]  What is the slope of a line that passes through the points $(2, 5)$ and $(4, 9)$?
+  q_a8hn0p73ilqh  [single_mcq, easy]  What is the slope of the line that passes through the points $(2, 3)$ and $(4, 7)$?
+  q_aty6454q098s  [single_mcq, easy]  What is the slope of a line that is perpendicular to the line given by the equation $y = -
+  q_b28cov53zekp  [single_mcq, easy]  What is the slope of a line that is perpendicular to the line given by the equation $y = 3
+  q_cmogkd3tscvd  [single_mcq, easy]  What is the slope of the line that passes through the points $(2, 3)$ and $(5, 9)$?
+  q_f6juaiyxhge9  [numeric, easy]  Find the slope of the line that passes through the points $(2, 5)$ and $(6, 13)$.
+  q_haaqd2z4msid  [single_mcq, easy]  What is the equation of the line that passes through the point $(0, 5)$ and has a slope of
+  q_hai29cdu0i7i  [single_mcq, easy]  What is the equation of the line in slope-intercept form that passes through the point $(2
+  q_hx4srvokt0a2  [numeric, easy]  Find the slope of a line that passes through the points $(2, 5)$ and $(4, 9)$.
+  q_kvl7iazn4l6g  [single_mcq, easy]  What is the slope of a line that is perpendicular to the line given by the equation $y = 2
+  q_l8mirrhdmlr2  [single_mcq, easy]  What is the slope of the line that passes through the points $(2, 5)$ and $(4, 9)$? The sl
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Systems of Equations and Inequalities   [systems-of-equations-and-inequalities]
+------------------------------------------------------------------------------
+Write to: data/lessons/systems-of-equations-and-inequalities.ts
+Topic description: This topic focuses on determining the number of solutions for systems of equations, solving systems of linear equations using graphing, elimination, or substitution methods, and graphing linear inequalities on a number line or x-y plane.
+Lessons needed: 4
+
+SKILLS (use these slugs exactly):
+  slug:      systems-of-equations-and-inequalities-determine-the-number-of-solutions-for-a
+  objective: Determine the number of solutions for a system of equations
+  source:    official exam objective, wording is authoritative
+
+  slug:      systems-of-equations-and-inequalities-solve-a-system-of-linear-equations-in
+  objective: Solve a system of linear equations in two variables by graphing, elimination, or substitution
+  source:    official exam objective, wording is authoritative
+
+  slug:      systems-of-equations-and-inequalities-solve-a-system-of-linear-inequalities-in
+  objective: Solve a system of linear inequalities in two variables by graphing
+  source:    official exam objective, wording is authoritative
+
+  slug:      systems-of-equations-and-inequalities-graph-linear-inequalities-on-a-number-line
+  objective: Graph linear inequalities on a number line or x-y plane
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0jeszhawigx8  [single_mcq, easy]  What is the solution to the following system of equations: $2x + y = 5$ $x - y = 1$
+  q_26y4rd97g5qh  [single_mcq, easy]  Solve the following system of equations for $y$: $$x = 2y - 1$$ $$3x + 2y = 13$$ The valu
+  q_3q2y8vkeddvd  [single_mcq, easy]  Consider the system of linear equations: $$\begin{cases} x + y = 10 \\ x - y = 4 \end{case
+  q_40jjbac0hswp  [single_mcq, easy]  Solve the following system of linear equations for $x$ and $y$: $$\begin{cases} x + y = 1
+  q_5n8v03p48xzq  [single_mcq, easy]  Consider the following system of linear equations: $$x + y = 10$$ $$x - y = 4$$ What is th
+  q_6hvhfit3bxgz  [single_mcq, easy]  Consider the following system of linear equations: $$2x + y = 7$$ $$x - y = 2$$ What is 
+  q_6wxsfjph7l6y  [single_mcq, easy]  Consider the system of linear equations: $$2x + y = 7$$ $$x - y = 2$$ What is the value of
+  q_7edteczgi0zs  [single_mcq, easy]  Solve the following system of equations for $x$ and $y$: $$\begin{cases} x + y = 6 \\ x - 
+  q_7jnie3cskp1h  [single_mcq, easy]  Solve the following system of linear equations for the value of $y$: $$2x + y = 10$$ $$x 
+  q_83ohzw1eie8l  [single_mcq, easy]  Consider the system of equations: $y = 2x - 3$ and $x + y = 9$. The value of $y$ that sati
+  q_8jwtwrbuhb13  [numeric, easy]  Solve the system of linear equations for the value of $y$: $$\begin{aligned} 3x + y &= 11
+  q_8vqc21nahyf1  [single_mcq, easy]  Consider the following system of equations: $$x + y = 5$$ $$x - y = 3$$ What is the value
+  q_9ut01kr5l2x6  [single_mcq, easy]  Consider the following system of linear equations: $$2x + y = 7$$ $$x - y = 2$$ What is t
+  q_aq8l1mr686nq  [numeric, easy]  Solve the following system of linear equations for the value of $x$: $$x + y = 7$$ $$x - 
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Trigonometry   [trigonometry]
+------------------------------------------------------------------------------
+Write to: data/lessons/trigonometry.ts
+Topic description: This topic covers defining primary and secondary trigonometric ratios, using a calculator to find numerical values and angles, calculating unknown side lengths and acute angles in right triangles, and converting between degrees, minutes, and seconds.
+Lessons needed: 8
+
+SKILLS (use these slugs exactly):
+  slug:      trigonometry-define-the-primary-trigonometric-ratios-sine-cosine
+  objective: Define the primary trigonometric ratios - sine, cosine, and tangent
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-use-a-calculator-to-determine-the-numerical
+  objective: Use a calculator to determine the numerical values of the sine, cosine and tangent of angles between 0 and 90 degrees
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-use-a-primary-trigonometric-ratio-to-calculate
+  objective: Use a primary trigonometric ratio to calculate the unknown length of one side of a right triangle
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-use-the-calculator-to-determine-the-size
+  objective: Use the calculator to determine the size of an angle when the numerical value of its sine, cosine, or tangent is given
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-use-a-trigonometric-ratio-to-calculate-an
+  objective: Use a trigonometric ratio to calculate an unknown acute angle of a right triangle
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-define-the-secondary-trigonometric-ratios-cosecant-secant
+  objective: Define the secondary trigonometric ratios - cosecant, secant and cotangent
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-use-the-calculator-to-determine-the-numerical
+  objective: Use the calculator to determine the numerical values of the cosecant, secant, and cotangent of angles between 0 and 90 degrees
+  source:    official exam objective, wording is authoritative
+
+  slug:      trigonometry-define-minutes-and-seconds-as-subdivisions-of
+  objective: Define minutes and seconds as subdivisions of a degree, and convert between them and degrees
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0enn5co6s7wy  [single_mcq, easy]  In a right-angled triangle, the angle $\theta$ is $35^{\circ}$. If the side adjacent to $\
+  q_1bcjynh5oayp  [numeric, easy]  In a right-angled triangle $ABC$, the angle $\angle B = 90^{\circ}$, the side length $BC =
+  q_4cogqlv6mb7i  [numeric, easy]  In a right triangle $ABC$ where $\angle C = 90^{\circ}$, the length of the hypotenuse $c$ 
+  q_4rkhgbuimn8v  [numeric, easy]  In a right-angled triangle $ABC$, the angle $\angle C = 90^{\circ}$. If the side length $B
+  q_56n58954gori  [numeric, easy]  In a right triangle $ABC$, the angle $\angle B = 90^{\circ}$, the side $AC$ (hypotenuse) h
+  q_5i0f7ehcie99  [numeric, easy]  In a right-angled triangle $ABC$ where the right angle is at $C$, the side length $AC = 12
+  q_75ogmpwyhwa9  [single_mcq, easy]  In a right-angled triangle, the side opposite to angle $\theta$ is $5$ cm and the hypotenu
+  q_7v0v85e4k9fp  [single_mcq, easy]  In a right-angled triangle, the angle $\theta$ has a $\sin(\theta) = 0.6$. What is the app
+  q_9b37iegsslzz  [numeric, easy]  In a right-angled triangle $ABC$ where $\angle C = 90^{\circ}$, the length of the side opp
+  q_ddw5jqprj4pb  [single_mcq, easy]  In a right-angled triangle, the angle $\theta$ has a measure of $35^{\circ}$. If the side 
+  q_ec51x764mwh7  [single_mcq, easy]  In a right triangle, the side opposite to an acute angle $\theta$ has a length of $7$ cm, 
+  q_f4rwuk6eq99c  [numeric, easy]  In a right-angled triangle, the angle $\theta$ is $35^{\circ}$. The side adjacent to $\the
+  q_hskn9xqrfjkg  [single_mcq, easy]  In a right-angled triangle, the side opposite to angle $\theta$ has a length of $5$ cm and
+  q_jbcm34jeh3qf  [single_mcq, easy]  In a right triangle, let $\theta$ be an acute angle such that $\sin(\theta) = 0.6$. What i
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Data Management   [data-management]
+------------------------------------------------------------------------------
+Write to: data/lessons/data-management.ts
+Topic description: This topic involves interpreting data presented in various graphical forms such as circle graphs, histograms, bar charts, tables, scatterplots, and line graphs.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      data-management-interpret-data-from-circle-graphs-histograms-bar
+  objective: Interpret data from circle graphs, histograms, bar charts, tables, scatterplots, and line graphs
+  source:    official exam objective, wording is authoritative
+
+  slug:      data-management-read-a-value-from-a-bar-chart
+  objective: Read a value from a bar chart, line graph, or table
+  source:    derived, may be reworded
+
+  slug:      data-management-interpret-a-circle-graph-and-convert-between
+  objective: Interpret a circle graph and convert between percentages and quantities
+  source:    derived, may be reworded
+
+  slug:      data-management-read-and-interpret-a-histogram-including-class
+  objective: Read and interpret a histogram, including class intervals
+  source:    derived, may be reworded
+
+  slug:      data-management-describe-the-relationship-shown-by-a-scatterplot
+  objective: Describe the relationship shown by a scatterplot
+  source:    derived, may be reworded
+
+  slug:      data-management-calculate-the-mean-median-mode-and-range
+  objective: Calculate the mean, median, mode, and range of a data set
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_02pznr16urs4  [numeric, easy]  The table below shows the number of new books added to a library collection over five mont
+  q_0kymkq75t4ka  [single_mcq, easy]  The following table shows the number of students enrolled in four different language cours
+  q_10egq83tvhz4  [numeric, easy]  The table below shows the number of books read by a student over four months. Calculate th
+  q_1sm5frw3ucdn  [numeric, easy]  A local coffee shop records the number of cups of coffee sold each day over one work week:
+  q_20vws6hxm3ne  [numeric, easy]  The following table shows the number of students who visited the school library over five 
+  q_235qxc1kttoi  [numeric, easy]  A local coffee shop tracked the number of iced lattes sold over a five day period: Monday 
+  q_3fofuf9ar67d  [numeric, easy]  The following table shows the number of new books added to a library collection over four 
+  q_3pzngbf2smpy  [numeric, easy]  The following table shows the number of students who visited the school library over five 
+  q_41mvtkizldm3  [numeric, easy]  A local coffee shop tracked the number of iced lattes sold each day over one week. The dai
+  q_4dgwlrauloim  [single_mcq, easy]  The following table shows the number of students enrolled in the school choir over a four 
+  q_6cyvk50mmn01  [single_mcq, easy]  The table below shows the number of books read by four students during a summer reading pr
+  q_6kvrvr2rl6n9  [single_mcq, easy]  The following table shows the number of students who visited the school library during the
+  q_6o39ltd1n1yu  [numeric, easy]  The following table shows the number of students who joined the school chess club each mon
+  q_96eddowpln2n  [single_mcq, easy]  The following table shows the number of library books borrowed over four days. Based on th
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Functions   [functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/functions.ts
+Topic description: This topic covers defining relations, representing them in various forms, determining domain and range, identifying functions, evaluating functions, describing and sketching graphs of transformations, and converting quadratic forms.
+Lessons needed: 7
+
+SKILLS (use these slugs exactly):
+  slug:      functions-define-relations
+  objective: Define relations
+  source:    official exam objective, wording is authoritative
+
+  slug:      functions-represent-relations-as-a-set-of-ordered
+  objective: Represent relations as a set of ordered pairs, as a table of values, as a graph, or as an equation
+  source:    official exam objective, wording is authoritative
+
+  slug:      functions-determine-the-domain-and-range-of-a
+  objective: Determine the domain and range of a relation
+  source:    official exam objective, wording is authoritative
+
+  slug:      functions-determine-if-a-particular-relation-is-a
+  objective: Determine if a particular relation is a function
+  source:    official exam objective, wording is authoritative
+
+  slug:      functions-evaluate-a-function-at-a-value-in
+  objective: Evaluate a function at a value in its domain
+  source:    official exam objective, wording is authoritative
+
+  slug:      functions-describe-and-sketch-graphs-of-the-functions
+  objective: Describe and sketch graphs of the functions given horizontal translations, vertical translations, and vertical stretch
+  source:    official exam objective, wording is authoritative
+
+  slug:      functions-change-to-the-form
+  objective: Change $y = ax^{2} + bx + c$ to the form $y = a(x-h)^{2} + k$
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_067fxn700ck7  [single_mcq, easy]  Given the function $f(x) = 3x^{2} - 12x + 5$, evaluate $f(2)$ to find the value of the bla
+  q_2d1qwjon2q29  [numeric, easy]  Given the function $f(x) = 2x^{2} - 8x + 5$, evaluate $f(3)$.
+  q_2rzfwzjuwiwv  [single_mcq, easy]  Given the function $f(x) = 2x^{2} - 8x + 5$, what is the vertex of the function's graph?
+  q_32qoiyh8r0ba  [single_mcq, easy]  Given the function $f(x) = 3x^{2} - 6x + 5$, what is the value of $f(-2)$?
+  q_3v3ruh7oravn  [numeric, easy]  Given the function $f(x) = 3x^{2} - 12x + 5$, find the value of $f(2)$.
+  q_4e7m74lqqyvr  [single_mcq, easy]  Given the function $f(x) = 3x^{2} - 6x + 5$, evaluate $f(2)$. The result is ___.
+  q_4xdjj7sb6tq6  [single_mcq, easy]  Given the function $f(x) = 3x^{2} - 6x + 5$, what is the vertex of the parabola?
+  q_64vgg82evjj6  [single_mcq, easy]  If $f(x) = 3x^2 - 5x + 2$, what is the value of $f(-2)$? ___
+  q_7onzp4bou4ny  [single_mcq, easy]  Given the function $f(x) = 3x^{2} - 6x + 5$, what is the vertex of the graph of this quadr
+  q_83lrduk2xo85  [numeric, easy]  Given the function $f(x) = 3x - 5$, what is the value of $f(4)$?
+  q_8plybed39a4k  [numeric, easy]  Given the function $f(x) = x^2 - 3x + 2$, evaluate $f(-1)$.
+  q_8tcmg9q55b42  [single_mcq, easy]  Given the function $f(x) = 2x^{2} - 8x + 5$, what is the vertex form of the equation?
+  q_co4qht6h0k8x  [single_mcq, easy]  Given the function $f(x) = 3x^2 - 12x + 5$, what is the vertex of its graph?
+  q_frjw8p4g2jzu  [numeric, easy]  Given the quadratic function $f(x) = x^{2} - 6x + 11$, find the $y$-coordinate of the vert
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Logarithms   [logarithms]
+------------------------------------------------------------------------------
+Write to: data/lessons/logarithms.ts
+Topic description: This topic involves changing expressions between exponential and logarithmic forms, using laws of logarithms to rewrite expressions and solve equations, and finding common logarithms and antilogarithms using a calculator.
+Lessons needed: 6
+
+SKILLS (use these slugs exactly):
+  slug:      logarithms-change-expressions-from-exponential-to-logarithmic-form
+  objective: Change expressions from exponential to logarithmic form and vice versa
+  source:    official exam objective, wording is authoritative
+
+  slug:      logarithms-use-the-laws-of-logarithms-to-rewrite
+  objective: Use the laws of logarithms to rewrite expressions
+  source:    official exam objective, wording is authoritative
+
+  slug:      logarithms-use-the-calculator-to-find-common-logarithms
+  objective: Use the calculator to find common logarithms
+  source:    official exam objective, wording is authoritative
+
+  slug:      logarithms-use-the-laws-of-logarithms-to-solve
+  objective: Use the laws of logarithms to solve literal equations
+  source:    official exam objective, wording is authoritative
+
+  slug:      logarithms-change-the-form-of-logarithmic-and-exponential
+  objective: Change the form of logarithmic and exponential equations
+  source:    official exam objective, wording is authoritative
+
+  slug:      logarithms-use-the-calculator-to-find-antilogarithms
+  objective: Use the calculator to find antilogarithms
+  source:    official exam objective, wording is authoritative
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0fju3agbubwh  [numeric, easy]  Solve the equation for $x$: $\log_{3}(x) = 4$.
+  q_0jcylatjhcbg  [single_mcq, easy]  Rewrite the logarithmic equation $\log_{3}(81) = 4$ in its equivalent exponential form. Th
+  q_1aiickalvl2d  [single_mcq, easy]  Which of the following is equivalent to the logarithmic equation $\log_{3}(27) = 3$?
+  q_3d540zbspbu6  [single_mcq, easy]  Which of the following is equivalent to the logarithmic equation $\log_{3}(x) = 4$?
+  q_3z25tm3xvqa0  [numeric, easy]  Solve the following equation for $x$: $$\log_{3}(x) = 4$$
+  q_ad3rhsm71ou2  [single_mcq, easy]  Which of the following is the logarithmic form of the equation $3^4 = 81$?
+  q_cb45rpyxjyqf  [numeric, easy]  Solve for $x$ in the following logarithmic equation: $\log_{2}(x - 7) = 4$.
+  q_cqeoq2vthnj1  [numeric, easy]  Solve for $x$ in the equation $\log_{3}(x) = 4$.
+  q_e62rhawjp6sm  [single_mcq, easy]  Rewrite the logarithmic equation $\log_{3}(81) = 4$ in its equivalent exponential form. Th
+  q_efj4t42hpjuf  [single_mcq, easy]  What is the value of $x$ in the equation $\log_{3}(x) = 4$?
+  q_gzjrwrhgxdi1  [single_mcq, easy]  What is the equivalent exponential form of the logarithmic equation $\log_{3}(27) = 3$?
+  q_hq3p1ahyzs2b  [single_mcq, easy]  Rewrite the logarithmic equation $\log_{3}(x) = 4$ in its equivalent exponential form. The
+  q_j5r6130zpijl  [single_mcq, easy]  Rewrite the logarithmic equation $\log_{3}(81) = 4$ in its equivalent exponential form. Th
+  q_k9eymch1ww04  [single_mcq, easy]  Rewrite the logarithmic equation $\log_{3}(x) = 4$ in its equivalent exponential form. The
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP1 / Word Problems   [word-problems]
+------------------------------------------------------------------------------
+Write to: data/lessons/word-problems.ts
+Topic description: This topic applies skills from all other topics (1-19) to solve problems presented as English simple-sentence descriptions, with or without diagrams.
+Lessons needed: 8
+
+SKILLS (use these slugs exactly):
+  slug:      word-problems-answer-questions-based-on-english-simple-sentence
+  objective: Answer questions based on English simple-sentence descriptions, with or without a diagram, using the skills from all other topics
+  source:    official exam objective, wording is authoritative
+
+  slug:      word-problems-translate-an-english-sentence-into-an-algebraic
+  objective: Translate an English sentence into an algebraic equation
+  source:    derived, may be reworded
+
+  slug:      word-problems-solve-distance-rate-and-time-problems
+  objective: Solve distance, rate, and time problems
+  source:    derived, may be reworded
+
+  slug:      word-problems-solve-mixture-and-concentration-problems
+  objective: Solve mixture and concentration problems
+  source:    derived, may be reworded
+
+  slug:      word-problems-solve-work-rate-problems
+  objective: Solve work-rate problems
+  source:    derived, may be reworded
+
+  slug:      word-problems-solve-problems-about-consecutive-integers-and-ages
+  objective: Solve problems about consecutive integers and ages
+  source:    derived, may be reworded
+
+  slug:      word-problems-solve-money-discount-and-interest-problems
+  objective: Solve money, discount, and interest problems
+  source:    derived, may be reworded
+
+  slug:      word-problems-solve-geometry-word-problems-involving-perimeter-area
+  objective: Solve geometry word problems involving perimeter, area, and volume
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_8lwenzzorfbz  [single_mcq, easy]  A rectangular garden has a perimeter of $40$ meters. If the length of the garden is $4$ me
+  q_bhqtbyjm6nlb  [numeric, easy]  A rectangular garden has a length that is 4 meters longer than its width. If the perimeter
+  q_boeptjm1qq7h  [single_mcq, easy]  A rectangular garden has a perimeter of $60$ meters. If the length of the garden is $4$ me
+  q_cdhrbjqhq98z  [single_mcq, easy]  A rectangular garden has a length that is 3 feet more than its width. If the perimeter of 
+  q_etx1vy45zl3v  [numeric, easy]  A rectangular garden has a length that is $3$ meters more than twice its width. If the per
+  q_gxoswoabs659  [numeric, easy]  A rectangular garden has a perimeter of $44$ meters. If the length of the garden is $4$ me
+  q_gyf7ukijptoj  [single_mcq, easy]  A rectangular garden has a perimeter of $40$ meters. If the length of the garden is $4$ me
+  q_i338i2j7lk96  [single_mcq, easy]  A rectangular garden has a perimeter of $40$ meters. The length of the garden is $4$ meter
+  q_i4jupm6s1afo  [numeric, easy]  A rectangular garden has a perimeter of $60$ meters. If the length of the garden is $4$ me
+  q_j8a7qrhdmdj8  [numeric, easy]  A rectangular garden has a length that is twice its width. If the perimeter of the garden 
+  q_kc4hlrl0845y  [single_mcq, easy]  A rectangular garden has a perimeter of $40$ meters. The length of the garden is $4$ meter
+  q_o3i7s1asrnir  [single_mcq, easy]  A rectangular garden has a length that is $4$ meters more than its width. If the perimeter
+  q_of8r7g2v29e8  [numeric, easy]  A rectangular garden has a perimeter of $60$ meters. If the length of the garden is $4$ me
+  q_pjwbltbvea0z  [numeric, easy]  A rectangular garden has a perimeter of $60$ meters. If the length of the garden is $4$ me
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Advanced Algebraic Manipulation   [advanced-algebra]
+------------------------------------------------------------------------------
+Write to: data/lessons/advanced-algebra.ts
+Topic description: Complex equations and algebraic identities.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      advanced-algebra-simplify-complex-algebraic-expressions-involving-nested-radical
+  objective: Simplify complex algebraic expressions involving nested radicals and rational exponents
+  source:    derived, may be reworded
+
+  slug:      advanced-algebra-solve-absolute-value-equations-and-inequalities
+  objective: Solve absolute value equations and inequalities
+  source:    derived, may be reworded
+
+  slug:      advanced-algebra-solve-radical-equations-and-identify-extraneous-solutions
+  objective: Solve radical equations and identify extraneous solutions
+  source:    derived, may be reworded
+
+  slug:      advanced-algebra-rationalize-denominators-containing-radicals-or-binomial-surds
+  objective: Rationalize denominators containing radicals or binomial surds
+  source:    derived, may be reworded
+
+  slug:      advanced-algebra-manipulate-expressions-with-fractional-and-negative-rational
+  objective: Manipulate expressions with fractional and negative rational exponents
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_4044q85q57ye  [single_mcq, easy]  If $x + \frac{1}{x} = 6$, what is the value of $x^2 + \frac{1}{x^2}$?
+  q_6blv1ccf38rn  [single_mcq, easy]  Simplify the expression $\frac{x^2 - 9}{x^2 + 5x + 6}$ by factoring the numerator and the 
+  q_72z8rzvf2l6y  [single_mcq, easy]  Simplify the expression $\frac{x^2 - 9}{x^2 + 5x + 6}$ to its simplest form. The simplifie
+  q_817sjr6m2qzn  [single_mcq, easy]  Simplify the expression $\frac{x^{2} - 9}{x^{2} + 4x + 3}$ by factoring and canceling comm
+  q_a2v111om41da  [numeric, easy]  Find the value of $x$ that satisfies the equation $\frac{x^{2} - 16}{x - 4} = 15$.
+  q_a4ktxhul1mdk  [numeric, easy]  If $x + y = 7$ and $xy = 10$, find the value of $x^{2} + y^{2}$.
+  q_d6059rnd4kwf  [single_mcq, easy]  Simplify the expression: $(x+2y)^2 - (x-2y)^2 = \underline{\quad}$
+  q_lkjsj8om27li  [numeric, easy]  Simplify the expression $\frac{x^{2} - 9}{x + 3} + 5$ and evaluate it at $x = 4$.
+  q_lzmpm4cd7u50  [single_mcq, easy]  If $x$ is a real number such that $x^2 - 6x + 8 = 0$, what is the value of $(x - 3)^2$?
+  q_r6qdxo1y7vqu  [single_mcq, easy]  Simplify the expression $\frac{x^{2} - 9}{x^{2} + 4x + 3}$ for $x \neq -3, -1$.
+  q_v020xejm3gcp  [single_mcq, easy]  Simplify the following expression completely: $$\frac{x^{2} - 9}{x^{2} + 4x + 3}$$
+  q_wabf4kua7kos  [numeric, easy]  If $x + y = 7$ and $xy = 10$, evaluate the expression $x^{2} + y^{2}$.
+  q_9wxols0493t4  [single_mcq, medium]  Simplify the expression $\frac{x^3 - 8}{x^2 - 4} \div \frac{x^2 + 2x + 4}{x + 2}$ for $x \
+  q_ailc7j38gbf9  [numeric, medium]  Given that $x + \frac{1}{x} = 5$, determine the exact value of $x^{3} + \frac{1}{x^{3}}$.
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Quadratic Functions   [quadratic-functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/quadratic-functions.ts
+Topic description: Quadratic formula, vertex, discriminant, and graphs.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      quadratic-functions-solve-quadratic-equations-by-factoring-completing-the
+  objective: Solve quadratic equations by factoring, completing the square, and the quadratic formula
+  source:    derived, may be reworded
+
+  slug:      quadratic-functions-use-the-discriminant-to-determine-the-number
+  objective: Use the discriminant to determine the number and nature of the roots
+  source:    derived, may be reworded
+
+  slug:      quadratic-functions-convert-between-standard-vertex-and-factored-form
+  objective: Convert between standard, vertex, and factored form of a quadratic
+  source:    derived, may be reworded
+
+  slug:      quadratic-functions-identify-the-vertex-axis-of-symmetry-intercepts
+  objective: Identify the vertex, axis of symmetry, intercepts, and range from a quadratic
+  source:    derived, may be reworded
+
+  slug:      quadratic-functions-solve-quadratic-inequalities-and-express-the-solution
+  objective: Solve quadratic inequalities and express the solution in interval notation
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_1c37016kzbzo  [single_mcq, easy]  Consider the quadratic function $f(x) = x^2 - 6x + 5$. The $x$-coordinate of the vertex of
+  q_5zom14drp87n  [single_mcq, easy]  The quadratic function $f(x) = x^{2} - 6x + 13$ can be written in vertex form as $f(x) = (
+  q_8w8plqeovcmq  [single_mcq, easy]  The y-coordinate of the vertex of the parabola defined by the function $f(x) = x^2 - 4x + 
+  q_8yibxpc4qlo6  [numeric, easy]  Find the x-coordinate of the vertex of the parabola defined by the function $f(x) = 2x^{2}
+  q_afpus6lpqh8x  [single_mcq, easy]  What are the coordinates of the vertex of the quadratic function $f(x) = x^{2} - 6x + 10$?
+  q_c4l57d9qs08m  [single_mcq, easy]  The quadratic function $f(x) = x^{2} - 6x + 11$ can be written in vertex form as $f(x) = (
+  q_c7tf3q0wp9pn  [single_mcq, easy]  What are the coordinates of the vertex of the quadratic function $f(x) = (x - 3)^{2} + 5$?
+  q_f12nfqzorupk  [numeric, easy]  Find the x-coordinate of the vertex of the parabola defined by the function $f(x) = 2x^{2}
+  q_hc0fxs6ar3tx  [single_mcq, easy]  The quadratic function is given by $f(x) = x^{2} - 6x + 10$. The $x$-coordinate of the ver
+  q_jazsarv5xjtr  [numeric, easy]  Find the $y$-coordinate of the vertex of the parabola defined by the function $f(x) = x^{2
+  q_o2625uh7ptjm  [single_mcq, easy]  What is the $y$-coordinate of the vertex of the parabola defined by the function $f(x) = x
+  q_ozxkm8kepe3o  [single_mcq, easy]  Consider the quadratic function $f(x) = x^{2} - 6x + 10$. The vertex of the parabola repre
+  q_qstih195wj8q  [single_mcq, easy]  What are the coordinates of the vertex of the parabola defined by the function $f(x) = x^{
+  q_x7jsbze6rapz  [single_mcq, easy]  What are the coordinates of the vertex of the quadratic function given by $f(x) = x^{2} - 
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Polynomial Functions   [polynomial-functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/polynomial-functions.ts
+Topic description: Roots, end behavior, and graphs of polynomials.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      polynomial-functions-determine-end-behaviour-of-a-polynomial-from
+  objective: Determine end behaviour of a polynomial from its degree and leading coefficient
+  source:    derived, may be reworded
+
+  slug:      polynomial-functions-apply-the-factor-theorem-and-remainder-theorem
+  objective: Apply the factor theorem and remainder theorem to find roots
+  source:    derived, may be reworded
+
+  slug:      polynomial-functions-divide-polynomials-using-long-division-and-synthetic
+  objective: Divide polynomials using long division and synthetic division
+  source:    derived, may be reworded
+
+  slug:      polynomial-functions-find-all-real-and-complex-zeros-of
+  objective: Find all real and complex zeros of a polynomial and state their multiplicity
+  source:    derived, may be reworded
+
+  slug:      polynomial-functions-sketch-a-polynomial-from-its-zeros-multiplicities
+  objective: Sketch a polynomial from its zeros, multiplicities, and end behaviour
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0swx84yxm3uu  [numeric, easy]  Consider the polynomial function $f(x) = (x - 3)(x + 2)^{2}(x - 5)$. What is the sum of th
+  q_1rtvcyx6n7a6  [numeric, easy]  Consider the polynomial function $f(x) = (x - 3)(x + 2)^{2}(x - 5)$. What is the sum of al
+  q_7w7i4utjlqwc  [single_mcq, easy]  Consider the polynomial function $f(x) = -2(x - 3)^{2}(x + 1)$. Which of the following des
+  q_k9lfcezps0ed  [single_mcq, easy]  Which of the following describes the end behavior of the polynomial function $f(x) = -3x^{
+  q_k9m334rdrahc  [single_mcq, easy]  Consider the polynomial function $f(x) = -2x^{3} + 5x^{2} - 7$. What is the end behavior o
+  q_lr8rblskqlcw  [single_mcq, easy]  Which of the following describes the end behavior of the polynomial function $f(x) = -2x^3
+  q_nkryu0rcsxza  [single_mcq, easy]  Consider the polynomial function $f(x) = -3x^{4} + 5x^{2} - 2x + 7$. Which of the followin
+  q_o726i8lhnwkg  [numeric, easy]  Consider the polynomial function $f(x) = (x - 3)(x + 2)^{2}$. What is the $y$-intercept of
+  q_q7cw0k9yopkc  [numeric, easy]  Consider the polynomial function $f(x) = (x - 3)(x + 2)^{2}(x - 5)$. What is the y-coordin
+  q_qclp5ssdlmvb  [single_mcq, easy]  Consider the polynomial function $f(x) = -2(x - 3)^{2}(x + 1)$. As $x \to \infty$, the beh
+  q_ry553z2xpyfy  [single_mcq, easy]  Consider the polynomial function $f(x) = -2(x - 3)^{2}(x + 1)$. As $x \to \infty$, the beh
+  q_yfdkoftisonl  [single_mcq, easy]  Consider the polynomial function $f(x) = -2(x - 3)^{2}(x + 1)$. As $x \to \infty$, the end
+  q_3inab61rv8p1  [single_mcq, medium]  Consider the polynomial function $f(x) = -2(x - 3)^{2}(x + 1)$. Which of the following sta
+  q_6nnqwpmz0y23  [single_mcq, medium]  A polynomial $P(x)$ of degree 3 has a double root at $x = -1$ and a single root at $x = 2$
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Rational Functions and Asymptotes   [rational-functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/rational-functions.ts
+Topic description: Vertical, horizontal, and oblique asymptotes.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      rational-functions-determine-the-domain-of-a-rational-function
+  objective: Determine the domain of a rational function and identify holes
+  source:    derived, may be reworded
+
+  slug:      rational-functions-find-vertical-asymptotes-from-the-denominator-s
+  objective: Find vertical asymptotes from the denominator's zeros
+  source:    derived, may be reworded
+
+  slug:      rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing
+  objective: Determine horizontal or oblique asymptotes by comparing degrees
+  source:    derived, may be reworded
+
+  slug:      rational-functions-find-the-intercepts-of-a-rational-function
+  objective: Find the intercepts of a rational function
+  source:    derived, may be reworded
+
+  slug:      rational-functions-sketch-a-rational-function-from-its-asymptotes
+  objective: Sketch a rational function from its asymptotes and intercepts
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0914o8w7f4xs  [numeric, easy]  Determine the value of the horizontal asymptote $y = c$ for the rational function $f(x) = 
+  q_0ndvv89bg9mm  [numeric, easy]  Find the equation of the horizontal asymptote for the rational function defined by $$f(x) 
+  q_32wy6mf7iu2n  [single_mcq, easy]  What is the equation of the horizontal asymptote of the function $f(x) = \frac{4x^2 - 5}{2
+  q_72gmcuiift71  [single_mcq, easy]  What is the equation of the horizontal asymptote of the function $f(x) = \frac{3x^2 - 5x +
+  q_bkc2zr4lgyfu  [numeric, easy]  Determine the value of the horizontal asymptote of the rational function $f(x) = \frac{6x^
+  q_gaq79vsgfoul  [single_mcq, easy]  Consider the rational function $f(x) = \frac{3x^2 + 5}{x^2 - 4}$. What is the equation of 
+  q_jdkml6kphzpo  [single_mcq, easy]  What is the equation of the vertical asymptote for the function $f(x) = \frac{3x - 5}{x + 
+  q_lna1eq0aef9d  [single_mcq, easy]  Consider the rational function $f(x) = \frac{3x^2 + 5}{x^2 - 4}$. What is the equation of 
+  q_pb0tl8beemos  [single_mcq, easy]  What is the equation of the horizontal asymptote of the rational function $f(x) = \frac{4x
+  q_qcckeysmihco  [numeric, easy]  What is the $y$-value of the horizontal asymptote for the function $f(x) = \frac{4x^2 - 7x
+  q_upqy33m3iqwv  [single_mcq, easy]  Consider the rational function $f(x) = \frac{3x^{2} - 5x + 1}{x^{2} + 4}$. The equation of
+  q_xoj4wk51hj51  [numeric, easy]  Determine the value of the horizontal asymptote for the function $f(x) = \frac{4x^{2} - 3x
+  q_zlekmdd1hvjn  [single_mcq, easy]  Consider the rational function $f(x) = \frac{3x^2 - 5x + 2}{x^2 - 4}$. What is the equatio
+  q_0i8aphdjj7fe  [single_mcq, medium]  Consider the rational function $f(x) = \frac{2x^2 + 5x - 3}{x^2 - 4}$. What is the equatio
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Exponential Functions   [exponential-functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/exponential-functions.ts
+Topic description: Growth, decay, and solving exponential equations.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      exponential-functions-evaluate-and-graph-exponential-functions-with-base
+  objective: Evaluate and graph exponential functions with base $e$ and other bases
+  source:    derived, may be reworded
+
+  slug:      exponential-functions-determine-the-domain-range-and-horizontal-asymptote
+  objective: Determine the domain, range, and horizontal asymptote of an exponential function
+  source:    derived, may be reworded
+
+  slug:      exponential-functions-solve-exponential-equations-by-matching-bases
+  objective: Solve exponential equations by matching bases
+  source:    derived, may be reworded
+
+  slug:      exponential-functions-apply-exponential-models-to-growth-decay-and
+  objective: Apply exponential models to growth, decay, and compound interest problems
+  source:    derived, may be reworded
+
+  slug:      exponential-functions-describe-transformations-of-an-exponential-graph
+  objective: Describe transformations of an exponential graph
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_02k5i933wlf2  [single_mcq, easy]  A population of bacteria doubles every hour. If the initial population is 500, what will t
+  q_23243z99x17x  [single_mcq, easy]  A bacteria population grows according to the function $P(t) = 500(1.2)^{t}$, where $t$ is 
+  q_2ovgisxn181u  [single_mcq, easy]  The population of a colony of bacteria follows the exponential growth model $P(t) = 500(2)
+  q_570xdclzw9n9  [numeric, easy]  The population of a small town follows the exponential growth model $P(t) = 400 \cdot e^{0
+  q_5rhtm1eouxiz  [single_mcq, easy]  The population of a small town is modeled by the function $P(t) = 500(1.04)^{t}$, where $t
+  q_deyuco0cw6hl  [single_mcq, easy]  A bacteria population triples every hour. If the initial population is $500$ bacteria, whi
+  q_dh29ppray7qu  [single_mcq, easy]  The population of a colony of bacteria doubles every hour. If the initial population is $5
+  q_e8uxzzl509x2  [single_mcq, easy]  A population of bacteria grows according to the function $P(t) = 500(2)^{0.5t}$, where $t$
+  q_gulnkte2urll  [single_mcq, easy]  The population of a small town is modeled by the function $P(t) = 4500(1.03)^{t}$, where $
+  q_n6kufzsow4nz  [single_mcq, easy]  A population of bacteria grows according to the function $P(t) = 500(2)^{t}$, where $t$ is
+  q_oeqtl1jczuzj  [numeric, easy]  The population of a small town is modeled by the function $P(t) = 4000 \cdot e^{0.04t}$, w
+  q_syfh3g6t1feg  [single_mcq, easy]  Solve the equation $2^{3x - 1} = 16$ for $x$.
+  q_xh68qbv605c6  [single_mcq, easy]  The population of a small town is modeled by the function $P(t) = 500(1.04)^{t}$, where $t
+  q_36d110i54wm2  [single_mcq, medium]  The sum of all real solutions to the equation $4^{x+1} - 9 \cdot 2^x + 2 = 0$ is \underlin
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Logarithmic Functions   [logarithmic-functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/logarithmic-functions.ts
+Topic description: Properties of logarithms and logarithmic equations.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      logarithmic-functions-convert-between-exponential-and-logarithmic-form
+  objective: Convert between exponential and logarithmic form
+  source:    derived, may be reworded
+
+  slug:      logarithmic-functions-apply-the-product-quotient-and-power-laws
+  objective: Apply the product, quotient, and power laws of logarithms
+  source:    derived, may be reworded
+
+  slug:      logarithmic-functions-use-the-change-of-base-formula
+  objective: Use the change of base formula
+  source:    derived, may be reworded
+
+  slug:      logarithmic-functions-solve-logarithmic-equations-and-check-for-extraneous
+  objective: Solve logarithmic equations and check for extraneous solutions
+  source:    derived, may be reworded
+
+  slug:      logarithmic-functions-determine-the-domain-range-and-vertical-asymptote
+  objective: Determine the domain, range, and vertical asymptote of a logarithmic function
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_7rxpipigrib1  [numeric, easy]  Solve for $x$ in the equation $\log_5(x) + \log_5(5) = \log_5(125)$.
+  q_8eo2n4mqoq8i  [single_mcq, easy]  Solve for $x$ in the equation $\log_{3}(x) + \log_{3}(2) = \log_{3}(10)$. The value of $x$
+  q_9i1rpl8dotmx  [single_mcq, easy]  Solve for $x$: $\log_{3}(x+1) + \log_{3}(x-1) = 2$
+  q_a7mbvn5wnna6  [single_mcq, easy]  Solve for $x$: $\log_2(x) + \log_2(x-2) = 3$. The solution is $x = \underline{\quad}$.
+  q_b5rkbqitshqp  [single_mcq, easy]  Solve the following equation for $x$: $$\log_{3}(x) + \log_{3}(2) = \log_{3}(10)$$
+  q_nsomvas2prg9  [numeric, easy]  Solve for $x$ in the equation $\log_{2}(x + 3) = 4$.
+  q_p3nl951qnuv9  [single_mcq, easy]  Which of the following expressions is equivalent to $\log_{3}(x) + \log_{3}(y) - \log_{3}(
+  q_r5mslswxt9f7  [single_mcq, easy]  Solve the following equation for $x$: $\log_{3}(x) + \log_{3}(2) = 4$.
+  q_rdn7eufitv2p  [numeric, easy]  Solve for $x$ in the equation $\log_{3}(x) + \log_{3}(2) = 4$.
+  q_w0pu4t6kn102  [single_mcq, easy]  If $\log_3(2x - 1) = 2$, then $x = \underline{\quad}$.
+  q_zkcale79q6ll  [numeric, easy]  Solve for $x$: $2 \log_3(x) - \log_3(4) = \log_3(9)$.
+  q_zme3sivto6ej  [numeric, easy]  Solve for $x$ in the equation $\log_{3}(x) + \log_{3}(2) = \log_{3}(10)$.
+  q_bt5gtxjd0wbb  [numeric, medium]  Solve the following logarithmic equation for $x$: $$\log_{2}(x + 3) + \log_{2}(x - 3) = 4$
+  q_ckjc51dlwm2y  [single_mcq, medium]  Solve the following logarithmic equation for $x$: $\log_3(x+2) + \log_3(x-1) = 2$.
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Composite and Inverse Functions   [composite-inverse-functions]
+------------------------------------------------------------------------------
+Write to: data/lessons/composite-inverse-functions.ts
+Topic description: Composing functions and finding inverses.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      composite-inverse-functions-form-and-evaluate-the-composition-of-two
+  objective: Form and evaluate the composition of two functions
+  source:    derived, may be reworded
+
+  slug:      composite-inverse-functions-determine-the-domain-of-a-composite-function
+  objective: Determine the domain of a composite function
+  source:    derived, may be reworded
+
+  slug:      composite-inverse-functions-determine-whether-a-function-is-one-to
+  objective: Determine whether a function is one-to-one using the horizontal line test
+  source:    derived, may be reworded
+
+  slug:      composite-inverse-functions-find-the-inverse-of-a-function-algebraically
+  objective: Find the inverse of a function algebraically
+  source:    derived, may be reworded
+
+  slug:      composite-inverse-functions-verify-that-two-functions-are-inverses-by
+  objective: Verify that two functions are inverses by composition
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_44fejc74mr1h  [single_mcq, easy]  If $f(x) = 3x - 5$, what is the inverse function $f^{-1}(x)$?
+  q_49jc70bijs21  [single_mcq, easy]  If $f(x) = 2x+1$ and $g(x) = 3x$, then $f(g(x)) = \underline{\quad}$.
+  q_5n8hiukelwb1  [single_mcq, easy]  Given the functions $f(x) = 3x - 5$ and $g(x) = 2x + 1$, what is the composite function $(
+  q_h3chivp2ifdw  [single_mcq, easy]  Given the functions $f(x) = 2x - 5$ and $g(x) = x + 3$, what is the composite function $(f
+  q_jkpxa04wmxa6  [numeric, easy]  Given the functions $f(x) = 3x - 5$ and $g(x) = 2x + 1$, calculate the value of the compos
+  q_k3mfbk9fkgy3  [single_mcq, easy]  Given the functions $f(x) = 2x - 5$ and $g(x) = x + 3$, what is the value of $(f \circ g)(
+  q_mq03qre9n37h  [single_mcq, easy]  If $f(x) = 3x - 5$, what is the inverse function $f^{-1}(x)$ equal to? Choose the correct 
+  q_r80gxziyl9e2  [single_mcq, easy]  If $f(x) = 3x - 5$, what is the value of the inverse function $f^{-1}(7)$? Provide your an
+  q_srs7ee9aluq4  [single_mcq, easy]  If $f(x) = 3x - 5$, find the value of $f^{-1}(7)$. The value is ___.
+  q_tunzwpztmhbl  [single_mcq, easy]  Given the functions $f(x) = 2x + 5$ and $g(x) = x - 3$, determine the value of the composi
+  q_vqj3pblbhzns  [single_mcq, easy]  If $f(x) = 3x - 4$, find the value of $f^{-1}(5)$. The value is ___.
+  q_wekokso9iv9m  [single_mcq, easy]  Given the function $f(x) = 3x - 5$, what is the inverse function $f^{-1}(x)$?
+  q_0h1jm8jkres6  [numeric, medium]  Let $f(x) = 3x - 5$ and $g(x) = x^{2} + 2$. Determine the value of $g(f(2))$.
+  q_a74q04viphil  [numeric, medium]  Given the functions $f(x) = 3x - 5$ and $g(x) = x^{2} + 1$, find the value of $(f \circ g)
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Analytic Trigonometry and Identities   [analytic-trigonometry]
+------------------------------------------------------------------------------
+Write to: data/lessons/analytic-trigonometry.ts
+Topic description: Fundamental, sum, difference, and double angle identities.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      analytic-trigonometry-apply-the-pythagorean-reciprocal-and-quotient-identities
+  objective: Apply the Pythagorean, reciprocal, and quotient identities
+  source:    derived, may be reworded
+
+  slug:      analytic-trigonometry-use-sum-and-difference-identities-to-evaluate
+  objective: Use sum and difference identities to evaluate exact trigonometric values
+  source:    derived, may be reworded
+
+  slug:      analytic-trigonometry-apply-double-angle-and-half-angle-identities
+  objective: Apply double angle and half angle identities
+  source:    derived, may be reworded
+
+  slug:      analytic-trigonometry-verify-trigonometric-identities-algebraically
+  objective: Verify trigonometric identities algebraically
+  source:    derived, may be reworded
+
+  slug:      analytic-trigonometry-simplify-trigonometric-expressions-to-a-single-function
+  objective: Simplify trigonometric expressions to a single function
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_357d5meh2a5o  [single_mcq, easy]  What is the exact value of the expression $2 \sin(15^{\circ}) \cos(15^{\circ})$?
+  q_46lswoc75ela  [single_mcq, easy]  Using the double angle identity, the expression $2 \sin(x) \cos(x)$ is equivalent to ___.
+  q_6hr182u81q1g  [single_mcq, easy]  Simplify the trigonometric expression: $\sin(2x)\cos(x) - \cos(2x)\sin(x) = \underline{\qu
+  q_ahqmcgrj5w4u  [single_mcq, easy]  Simplify the expression $\frac{2 \tan(15^{\circ})}{1 - \tan^2(15^{\circ})}$.
+  q_bwst52hs2vt2  [single_mcq, easy]  Simplify the expression $\sin(x)\cos(x) + \cos(x)\sin(x)$ using a double angle identity.
+  q_dtttl1d54wtd  [single_mcq, easy]  Using the double angle identity $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$, simplify the 
+  q_ebajpbzj61ch  [numeric, easy]  Given that $\sin(\theta) = \frac{1}{3}$ and $\theta$ is in the first quadrant, find the ex
+  q_h9b43qu43vzs  [numeric, easy]  If $\sin(\theta) = \frac{3}{5}$ and $\theta$ is in the first quadrant, calculate the exact
+  q_haa4tzd30wup  [single_mcq, easy]  Simplify the expression $\sin(x)\cos(x) + \cos(x)\sin(x)$ to a single trigonometric functi
+  q_pq9wezas3lbs  [numeric, easy]  Given that $\sin(\theta) = \frac{3}{5}$ and $\theta$ is in the first quadrant, evaluate $\
+  q_rxvvxg8z18xx  [numeric, easy]  If $\sin(\theta) = \frac{3}{5}$ and $\cos(\theta) = \frac{4}{5}$, calculate the exact valu
+  q_s6muasy84n3e  [single_mcq, easy]  Simplify the trigonometric expression $\cos(90^{\circ} - \theta)$ using fundamental identi
+  q_sxk9d53g0usq  [single_mcq, easy]  Simplify the expression $\sin(45^{\circ} + \theta) + \sin(45^{\circ} - \theta)$ to a singl
+  q_tn54chyz4ru2  [single_mcq, easy]  Simplify the trigonometric expression $\sin(x)\cos(30^{\circ}) - \cos(x)\sin(30^{\circ})$.
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Trigonometric Equations   [trigonometric-equations]
+------------------------------------------------------------------------------
+Write to: data/lessons/trigonometric-equations.ts
+Topic description: Solving trigonometric equations over intervals.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      trigonometric-equations-solve-basic-trigonometric-equations-over-a-given
+  objective: Solve basic trigonometric equations over a given interval
+  source:    derived, may be reworded
+
+  slug:      trigonometric-equations-solve-trigonometric-equations-requiring-factoring-or-an
+  objective: Solve trigonometric equations requiring factoring or an identity substitution
+  source:    derived, may be reworded
+
+  slug:      trigonometric-equations-find-the-general-solution-of-a-trigonometric
+  objective: Find the general solution of a trigonometric equation
+  source:    derived, may be reworded
+
+  slug:      trigonometric-equations-use-inverse-trigonometric-functions-to-solve-for
+  objective: Use inverse trigonometric functions to solve for an angle
+  source:    derived, may be reworded
+
+  slug:      trigonometric-equations-solve-equations-involving-multiple-angles-such-as
+  objective: Solve equations involving multiple angles such as $\sin(2x)$
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_0461lzuon4ju  [single_mcq, easy]  Solve the equation $2 \cos(x) + 1 = 0$ for $x$ in the interval $[0, 2\pi)$.
+  q_3q7pxotyqkq3  [single_mcq, easy]  Find the solution set for the equation $2\sin(x) - 1 = 0$ over the interval $[0, 2\pi)$. T
+  q_3xjc7rw1k7mf  [single_mcq, easy]  Find the smallest positive solution for the equation $2\sin(x) - 1 = 0$ over the interval 
+  q_4tz48icxld8u  [single_mcq, easy]  Solve the equation $2\sin(x) - 1 = 0$ for the interval $0 \le x < 2\pi$.
+  q_69ojcygvjzem  [single_mcq, easy]  Find all solutions for $2\sin(x) - 1 = 0$ in the interval $[0, 2\pi)$.
+  q_74m3s5ytnpj1  [single_mcq, easy]  Find all solutions to the equation $2\sin(x) = \sqrt{3}$ in the interval $0 \le x < 2\pi$.
+  q_89s8jmdvoibt  [single_mcq, easy]  Solve the equation $2\sin(x) - 1 = 0$ for $0 \le x < 2\pi$.
+  q_arqoq9trkmpn  [numeric, easy]  Find the smallest positive solution for $x$ in degrees for the equation $2\sin(x) - 1 = 0$
+  q_csxbc113nmhk  [single_mcq, easy]  Find the solution to the equation $2\sin(x) - 1 = 0$ in the interval $[0, 2\pi)$. The solu
+  q_l35pbitrjc6b  [single_mcq, easy]  Solve the equation $2\sin(\theta) - 1 = 0$ for $\theta$ in the interval $[0, 2\pi)$.
+  q_lreb9pdhl5tz  [single_mcq, easy]  Solve the equation $2\sin(x) - 1 = 0$ for $x$ in the interval $[0, 2\pi)$. The solution se
+  q_mprmvdj0qh78  [numeric, easy]  Find the smallest positive solution for $x$ in radians for the equation $2\sin(x) - 1 = 0$
+  q_phy3llvsmqho  [single_mcq, easy]  What is the smallest solution to the equation $2\sin(x) - 1 = 0$ in the interval $[0, 2\pi
+  q_wg9tox1oj9vu  [single_mcq, easy]  Find the solution to the equation $2\sin(x) - 1 = 0$ in the interval $[0, 2\pi)$. The valu
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Graphs of Trigonometric Functions   [trig-graphs-transformations]
+------------------------------------------------------------------------------
+Write to: data/lessons/trig-graphs-transformations.ts
+Topic description: Amplitude, period, phase shift, and transformations.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      trig-graphs-transformations-determine-the-amplitude-period-phase-shift-and
+  objective: Determine the amplitude, period, phase shift, and vertical shift of a sinusoid
+  source:    derived, may be reworded
+
+  slug:      trig-graphs-transformations-graph-transformations-of-sine-and-cosine-functions
+  objective: Graph transformations of sine and cosine functions
+  source:    derived, may be reworded
+
+  slug:      trig-graphs-transformations-graph-the-tangent-function-and-identify-its
+  objective: Graph the tangent function and identify its asymptotes
+  source:    derived, may be reworded
+
+  slug:      trig-graphs-transformations-write-the-equation-of-a-sinusoid-from
+  objective: Write the equation of a sinusoid from its graph
+  source:    derived, may be reworded
+
+  slug:      trig-graphs-transformations-convert-between-degree-and-radian-measure
+  objective: Convert between degree and radian measure
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_17t40b93lkuy  [single_mcq, easy]  Consider the function $f(x) = 3 \sin(2x)$. What is the period of this function? The period
+  q_61arjacbk01s  [numeric, easy]  Determine the period of the function $f(x) = 3 \sin(4x - \pi)$.
+  q_6wh6gpwll6yd  [single_mcq, easy]  What is the period of the function $f(x) = 3 \sin(2x - \pi)$?
+  q_9kchqd85np0z  [single_mcq, easy]  What is the amplitude of the function $f(x) = -3 \sin(2x) + 5$?
+  q_exd2igiepmhf  [single_mcq, easy]  Consider the function $f(x) = 3 \sin(2x)$. What is the period of this function? ___
+  q_hwzqgjd9mbzq  [numeric, easy]  Consider the function $f(x) = 4 \sin(2x)$. What is the period of this function?
+  q_jeio5c3pijp8  [numeric, easy]  Consider the function $f(x) = 4\sin(3x)$. What is the period of this function?
+  q_k4j2e9p6s6xf  [numeric, easy]  Determine the period of the function $f(x) = 4\sin(3x)$.
+  q_lcxwc6thr4aj  [numeric, easy]  Determine the period of the function $f(x) = 4\sin(3x) + 2$.
+  q_op2ifwl9ruzx  [numeric, easy]  Determine the period of the trigonometric function defined by $f(x) = 3 \sin(4x - \pi)$.
+  q_w819x4spkayc  [numeric, easy]  Determine the period of the function $f(x) = 3 \sin(4x) + 2$.
+  q_z673xgswqz8i  [numeric, easy]  Determine the period of the function $f(x) = 3 \sin(4x) + 5$.
+  q_dhm3to8cxpem  [numeric, medium]  Consider the trigonometric function $f(x) = 5 \cos\left(\frac{\pi}{6}x - \frac{2\pi}{3}\ri
+  q_di4ekh550gvr  [numeric, medium]  Consider the function $f(x) = 4 \sin \left( \frac{\pi}{3} x - \frac{\pi}{2} \right) + 5$. 
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Sequences and Series   [sequences-series]
+------------------------------------------------------------------------------
+Write to: data/lessons/sequences-series.ts
+Topic description: Arithmetic and geometric sequences, sigma notation, series.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      sequences-series-identify-arithmetic-and-geometric-sequences-and-find
+  objective: Identify arithmetic and geometric sequences and find the common difference or ratio
+  source:    derived, may be reworded
+
+  slug:      sequences-series-find-the-general-term-of-an-arithmetic
+  objective: Find the general term of an arithmetic or geometric sequence
+  source:    derived, may be reworded
+
+  slug:      sequences-series-compute-the-sum-of-a-finite-arithmetic
+  objective: Compute the sum of a finite arithmetic or geometric series
+  source:    derived, may be reworded
+
+  slug:      sequences-series-determine-whether-an-infinite-geometric-series-converges
+  objective: Determine whether an infinite geometric series converges and find its sum
+  source:    derived, may be reworded
+
+  slug:      sequences-series-use-sigma-notation-to-express-and-evaluate
+  objective: Use sigma notation to express and evaluate a series
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_2r33hv4vlz7b  [numeric, easy]  What is the $10^{\text{th}}$ term of the arithmetic sequence $4, 11, 18, 25, \dots$?
+  q_bqxh136souv5  [single_mcq, easy]  What is the sum of the first 10 terms of the arithmetic sequence defined by $a_n = 3n + 2$
+  q_f6vxu1xyj467  [single_mcq, easy]  What is the sum of the first 8 terms of the arithmetic sequence $3, 7, 11, 15, \dots$?
+  q_hf2jeo56jvkc  [numeric, easy]  Find the 15th term of the arithmetic sequence $5, 12, 19, 26, \dots$.
+  q_imo1cf0ykdlr  [single_mcq, easy]  Evaluate the sum: $\sum_{k=1}^{5} (2k + 3)$
+  q_kiovhs5ulnid  [single_mcq, easy]  What is the sum of the first $10$ terms of an arithmetic sequence where the first term is 
+  q_udstrcq5nng5  [single_mcq, easy]  Consider the arithmetic sequence defined by $a_n = 5 + (n - 1)d$. If the first term is $5$
+  q_vnulg5uqmeuh  [numeric, easy]  What is the sum of the first 10 terms of the arithmetic sequence where the first term is $
+  q_y5j9t6r5kx7t  [numeric, easy]  Find the sum of the first 10 terms of an arithmetic sequence where the first term $a_{1} =
+  q_y8tpet2klf0a  [single_mcq, easy]  Evaluate the sum: $\sum_{n=1}^{5} (3n + 2) = \underline{\quad}$
+  q_0ga4o1pzq233  [numeric, medium]  Find the sum of the infinite geometric series $\sum_{n=1}^{\infty} 12 \cdot \left(\frac{2}
+  q_8i20lr87vbjp  [numeric, medium]  Find the sum of the infinite geometric series given by $\sum_{n=1}^{\infty} 12 \left( \fra
+  q_c3v0uyp6uqsb  [single_mcq, medium]  Consider the geometric series defined by $\sum_{n=1}^{\infty} 12 \left(\frac{2}{3}\right)^
+  q_cr9hjdxguopn  [single_mcq, medium]  Find the sum of the infinite geometric series given by $\sum_{n=1}^{\infty} 12 \left( \fra
+
+
+------------------------------------------------------------------------------
+LESSON BATCH: AMP2 / Systems and Matrices   [systems-matrices]
+------------------------------------------------------------------------------
+Write to: data/lessons/systems-matrices.ts
+Topic description: Matrix operations and solving systems with matrices.
+Lessons needed: 5
+
+SKILLS (use these slugs exactly):
+  slug:      systems-matrices-solve-systems-of-three-linear-equations-in
+  objective: Solve systems of three linear equations in three variables
+  source:    derived, may be reworded
+
+  slug:      systems-matrices-perform-matrix-addition-subtraction-and-multiplication
+  objective: Perform matrix addition, subtraction, and multiplication
+  source:    derived, may be reworded
+
+  slug:      systems-matrices-compute-the-determinant-of-a-2x2-and
+  objective: Compute the determinant of a 2x2 and 3x3 matrix
+  source:    derived, may be reworded
+
+  slug:      systems-matrices-solve-a-linear-system-using-an-inverse
+  objective: Solve a linear system using an inverse matrix or Cramer's rule
+  source:    derived, may be reworded
+
+  slug:      systems-matrices-solve-non-linear-systems-of-equations
+  objective: Solve non-linear systems of equations
+  source:    derived, may be reworded
+
+CHECKPOINT QUESTION IDS (choose from these only):
+  q_2eus9ky07enf  [numeric, easy]  Let $A = \begin{pmatrix} 2 & 1 \\ -3 & 0 \end{pmatrix}$ and $B = \begin{pmatrix} 4 & -2 \\
+  q_2tg9hrg63yft  [single_mcq, easy]  Given the matrices $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$ and $B = \begin{pmat
+  q_6ph80gey4jy7  [numeric, easy]  Given matrices $A = \begin{pmatrix} 2 & 3 \\ 1 & 4 \end{pmatrix}$ and $B = \begin{pmatrix}
+  q_9x62vmew8xhx  [numeric, easy]  Given the matrices $A = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}$ and $B = \begin{pmat
+  q_f5548dw43lz3  [numeric, easy]  Given the matrix $A = \begin{pmatrix} 2 & -1 \\ 3 & 4 \end{pmatrix}$, calculate the value 
+  q_g69i6hs4890j  [single_mcq, easy]  Given the matrices $A = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$ and $B = \begin{pma
+  q_j3g9iovj6w69  [single_mcq, easy]  Given matrices $A = \begin{pmatrix} 4 & -2 \\ 1 & 5 \end{pmatrix}$ and $B = \begin{pmatrix
+  q_jnqhyjx27w1n  [single_mcq, easy]  If $A = \begin{pmatrix} 2 & 1 \\ 3 & 0 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 2 \\ 0 
+  q_knbymy7q3ee0  [single_mcq, easy]  Given the matrix $A = \begin{pmatrix} 2 & -1 \\ 3 & 4 \end{pmatrix}$, what is the result o
+  q_uo2906be360k  [single_mcq, easy]  If matrix $A = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}$ and matrix $B = \begin{pmatri
+  q_yka3obmg42hv  [single_mcq, easy]  If matrix $A = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$ and matrix $B = \begin{pmatr
+  q_yqa14o9o6y2k  [single_mcq, easy]  Given the matrices $A = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$ and $B = \begin{pma
+  q_1unqmkhjb5dn  [single_mcq, medium]  Given the matrices $A = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$ and $B = \begin{pma
+  q_44jrx273ck0x  [single_mcq, medium]  Given the matrix $A = \begin{pmatrix} 2 & 1 \\ 3 & 2 \end{pmatrix}$, find the matrix $A^{-
+
+
+==============================================================================
+PART 2 - NEW QUESTIONS
+==============================================================================
+
+Mock exams are now multiple choice only, matching the real test. The
+bank does not have enough single_mcq variety, and AMP 2 is far short.
+
+OUTPUT FORMAT: a JSON array appended to data/generated/questions.json,
+or a separate file for review. Each question:
+
+  {
+    "id": "q_<12 random lowercase letters and digits>",
+    "exam": "AMP1" | "AMP2",
+    "topic_slug": "<from the list below>",
+    "type": "single_mcq",
+    "difficulty": "easy" | "medium" | "hard",
+    "stem": "<the question, LaTeX in $...$>",
+    "options": [
+      {"content": "...", "is_correct": false},
+      {"content": "...", "is_correct": true},
+      {"content": "...", "is_correct": false},
+      {"content": "...", "is_correct": false}
+    ],
+    "final_answer": "<the answer stated plainly>",
+    "explanation_steps": ["step 1", "step 2", "step 3"],
+    "distractor_rationales": {"0": "why someone picks this", ...},
+    "concept_summary": "<one line naming the rule tested>"
+  }
+
+RULES:
+  - EXACTLY 4 options, EXACTLY 1 with is_correct true.
+  - Every wrong option must be a mistake a real student would make:
+    a sign error, a forgotten square root, the reciprocal. Never a
+    random number, and never an obviously silly one.
+  - distractor_rationales keys are the option INDEX as a string
+    ("0","1","2","3"), covering every wrong option.
+  - At least 3 explanation_steps.
+  - Solvable with a basic scientific calculator (Casio fx-85ES class).
+  - ids must not collide with anything already in the bank.
+
+DIVERSITY - THIS IS THE MAIN PROBLEM WITH THE EXISTING BANK:
+
+  143 groups of questions share both a template AND an answer, so
+  a student who has done one learns nothing from the rest. Six factoring
+  questions all answer 5; three of those use the identical polynomial.
+
+  For every question you write:
+    - Do not reuse a stem template listed as overused below.
+    - Vary the ANSWER, not just the numbers in the question.
+    - Vary what is asked: solve for x, but also identify the error,
+      pick the equivalent form, choose the correct first step, read a
+      value off a graph, decide which of two methods applies.
+    - Real contexts where they fit the topic, and vary them. The bank
+      has 47 questions about the perimeter of a rectangular garden.
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Real Number System   [real-number-system]
+------------------------------------------------------------------------------
+Have 56 single_mcq, target 75. WRITE 19 NEW.
+Difficulty mix (from the syllabus): 10% easy, 80% medium, 10% hard
+  so roughly 2 easy, 15 medium, 2 hard
+Covers: This topic covers defining number sets, identifying characteristics, understanding relations between sets, using radical notation, evaluating and approximating roots, and placing numbers on a number line.
+Spread the questions across these objectives:
+  - Define the various sets of the real number system
+  - Give examples that require the use of different number systems
+  - Identify the characteristics of various number sets
+  - Show the relations between the natural, whole, rational, irrational, and real numbers
+  - Use radical notation to express roots
+  - Evaluate roots of perfect squares and cubes
+  - Approximate square roots and cube roots using a calculator
+  - Place real numbers on the real number line
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  9 questions (6%): "evaluate the expression m"
+  4 questions (3%): "consider the following numbers m m m m m"
+  4 questions (3%): "consider the set of real numbers m which of"
+  3 questions (2%): "the number m is a n underline quad number"
+  3 questions (2%): "which of the following statements about the real number"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Whole Numbers and Integers   [whole-numbers-and-integers]
+------------------------------------------------------------------------------
+Have 56 single_mcq, target 75. WRITE 19 NEW.
+Difficulty mix (from the syllabus): 40% easy, 60% medium, 0% hard
+  so roughly 8 easy, 11 medium, 0 hard
+Covers: This topic focuses on performing operations with whole numbers and integers, factorization, exponents, finding GCF and LCM, and applying the order of operations.
+Spread the questions across these objectives:
+  - Perform operations with whole numbers
+  - Find the factors of a whole number
+  - Determine whether a whole number is prime, composite, or neither
+  - Find the prime factorization of a number
+  - Use exponents on whole numbers
+  - Find the greatest common factor (GCF) for two or more numbers
+  - Find the lowest common multiple (LCM) for two or more numbers
+  - Use order of operations to perform calculations on integers
+  - Evaluate numerical expressions using absolute value
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  28 questions (19%): "evaluate the expression m"
+  21 questions (14%): "evaluate the following expression m"
+  7 questions (5%): "which of the following expressions evaluate to m select"
+  7 questions (5%): "evaluate the numerical expression m"
+  6 questions (4%): "calculate the value of m"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Fractions   [fractions]
+------------------------------------------------------------------------------
+Have 59 single_mcq, target 75. WRITE 16 NEW.
+Difficulty mix (from the syllabus): 30% easy, 40% medium, 30% hard
+  so roughly 5 easy, 6 medium, 5 hard
+Covers: This topic covers operations on fractions and mixed numbers, defining types of fractions, conversions, simplification, reciprocals, and complex fractions.
+Spread the questions across these objectives:
+  - Perform operations on fractions and mixed numbers
+  - Define proper fractions, improper fractions, and mixed numbers
+  - Convert mixed numbers to improper fractions and vice versa
+  - Simplify a fraction
+  - Define reciprocal
+  - Add and subtract proper fractions, improper fractions, and mixed numbers
+  - Multiply and divide proper fractions, improper fractions, and mixed numbers
+  - Perform operations on complex fractions
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  8 questions (5%): "simplify the following complex fraction m"
+  7 questions (5%): "simplify the complex fraction m"
+  6 questions (4%): "evaluate the following complex fraction m"
+  5 questions (3%): "simplify the following expression m"
+  4 questions (3%): "evaluate the following expression m"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Decimals   [decimals]
+------------------------------------------------------------------------------
+Have 54 single_mcq, target 75. WRITE 21 NEW.
+Difficulty mix (from the syllabus): 80% easy, 20% medium, 0% hard
+  so roughly 17 easy, 4 medium, 0 hard
+Covers: This topic involves converting decimals to fractions and percents, identifying base units of measure, performing metric conversions, evaluating algebraic expressions, using scientific notation, and rounding decimals.
+Spread the questions across these objectives:
+  - Change a decimal to a fraction
+  - Change a decimal to a percent
+  - Identify the base units of measure for mass, volume, and length
+  - Convert from one unit of metric measure to another (kilo- to milli-range)
+  - Evaluate algebraic expressions
+  - Write a decimal number in scientific notation, and vice versa
+  - Round numbers to one or two decimal places
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  6 questions (4%): "a recipe calls for m cups of flour if"
+  6 questions (4%): "evaluate the algebraic expression m for m m and"
+  4 questions (3%): "evaluate the algebraic expression m for m and m"
+  4 questions (3%): "match each mathematical description on the left with its"
+  3 questions (2%): "which of the following are equivalent to the decimal"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Percent   [percent]
+------------------------------------------------------------------------------
+Have 53 single_mcq, target 75. WRITE 22 NEW.
+Difficulty mix (from the syllabus): 10% easy, 70% medium, 20% hard
+  so roughly 2 easy, 15 medium, 5 hard
+Covers: This topic covers defining percent, converting between percent, fraction, and decimal forms, solving various percent problems, calculating percent increase and decrease, and determining weighted averages.
+Spread the questions across these objectives:
+  - Define percent
+  - Change a percent to a fraction or decimal
+  - Change a fraction or decimal to a percent
+  - Perform calculations using the three types of percent problems
+  - Calculate percent increase and percent decrease
+  - Calculate unweighted and weighted averages
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  5 questions (3%): "a store is having a sale where all items"
+  4 questions (3%): "a retail store marks up the price of an"
+  3 questions (2%): "a store is having a sale where all prices"
+  3 questions (2%): "a student s final grade in a course is"
+  3 questions (2%): "a retail store marks down the price of a"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Solving Equations   [solving-equations]
+------------------------------------------------------------------------------
+Have 58 single_mcq, target 75. WRITE 17 NEW.
+Difficulty mix (from the syllabus): 10% easy, 60% medium, 30% hard
+  so roughly 2 easy, 10 medium, 5 hard
+Covers: This topic focuses on solving linear equations using various properties, including those with brackets and fractions, and solving proportions for unknown values.
+Spread the questions across these objectives:
+  - Determine whether a given number is a solution for an equation
+  - Use the addition property to solve an equation
+  - Use the division property to solve an equation
+  - Combine the addition and division properties to solve an equation
+  - Solve equations that contain brackets
+  - Solve equations that contain fractions
+  - Solve a proportion for an unknown value
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  40 questions (27%): "solve the following equation for m m"
+  7 questions (5%): "solve for m m"
+  7 questions (5%): "solve the following equation for m m the value"
+  6 questions (4%): "solve for m in the following equation m"
+  5 questions (3%): "match each linear equation on the left with its"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Formula Rearrangement   [formula-rearrangement]
+------------------------------------------------------------------------------
+Have 60 single_mcq, target 75. WRITE 15 NEW.
+Difficulty mix (from the syllabus): 20% easy, 60% medium, 20% hard
+  so roughly 3 easy, 9 medium, 3 hard
+Covers: This topic involves solving equations or formulas for a specific variable, including those with linear, quadratic, and fractional forms.
+Spread the questions across these objectives:
+  - Solve an equation or formula for a given variable
+  - Isolate a variable that appears only once, using inverse operations
+  - Rearrange a formula where the target variable is inside a bracket
+  - Rearrange a formula where the target variable is in a denominator
+  - Rearrange a formula involving a power or a root
+  - Rearrange a formula where the target variable appears on both sides
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  8 questions (5%): "the formula for the area of a trapezoid is"
+  6 questions (4%): "given the formula for the surface area of a"
+  5 questions (3%): "the formula for the surface area m of a"
+  5 questions (3%): "given the formula m solve for m in terms"
+  4 questions (3%): "given the formula for the perimeter of a rectangle"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Laws of Exponents   [laws-of-exponents]
+------------------------------------------------------------------------------
+Have 62 single_mcq, target 75. WRITE 13 NEW.
+Difficulty mix (from the syllabus): 40% easy, 30% medium, 30% hard
+  so roughly 5 easy, 4 medium, 4 hard
+Covers: This topic covers performing calculations and simplifying expressions involving zero and positive exponents using the fundamental laws of exponents.
+Spread the questions across these objectives:
+  - Perform calculations with exponents
+  - Simplify expressions involving zero and positive exponents
+  - Multiply powers with the same base by adding exponents
+  - Divide powers with the same base by subtracting exponents
+  - Raise a power to a power by multiplying exponents
+  - Apply an exponent to a product or a quotient
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  11 questions (7%): "simplify the expression m"
+  10 questions (7%): "which of the following expressions are equivalent to m"
+  8 questions (5%): "simplify the following expression m"
+  6 questions (4%): "match each exponential expression on the left with its"
+  5 questions (3%): "simplify the expression m for m"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Polynomials   [polynomials]
+------------------------------------------------------------------------------
+Have 45 single_mcq, target 75. WRITE 30 NEW.
+Difficulty mix (from the syllabus): 40% easy, 60% medium, 0% hard
+  so roughly 12 easy, 18 medium, 0 hard
+Covers: This topic covers defining polynomials, identifying their types, determining their degree, writing them in descending order, and performing basic operations such as addition, subtraction, multiplication, and division, including squaring binomials.
+Spread the questions across these objectives:
+  - Define polynomials
+  - Identify monomials, binomials, and trinomials
+  - Find the degree of a polynomial that has one variable
+  - Write a polynomial in descending-exponent form
+  - Add, subtract, multiply and divide polynomials
+  - Square a binomial
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  14 questions (9%): "consider the polynomial expression m which of the following"
+  10 questions (7%): "match each polynomial operation or property on the left"
+  8 questions (5%): "simplify the expression m and write the result in"
+  6 questions (4%): "consider the polynomial m which of the following statements"
+  5 questions (3%): "when the polynomial m is simplified and written in"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Factoring   [factoring]
+------------------------------------------------------------------------------
+Have 53 single_mcq, target 75. WRITE 22 NEW.
+Difficulty mix (from the syllabus): 20% easy, 50% medium, 30% hard
+  so roughly 4 easy, 11 medium, 7 hard
+Covers: This topic focuses on finding the greatest common factor, factoring various types of trinomials, factoring differences of squares, factoring by grouping, and factoring sums and differences of cubes.
+Spread the questions across these objectives:
+  - Find the greatest common factor from a polynomial
+  - Factor trinomials of the form $x^{2} + bx + c$
+  - Factor trinomials of the form $ax^{2} + bx + c$
+  - Factor a difference of squares
+  - Factor by grouping
+  - Factor a sum and a difference of cubes
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  16 questions (11%): "factor the expression completely m if the factored form"
+  13 questions (9%): "factor the polynomial completely m"
+  11 questions (7%): "factor the following expression completely m"
+  11 questions (7%): "consider the polynomial expression m which of the following"
+  8 questions (5%): "factor the polynomial completely m if the factored form"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Rational Expressions   [rational-expressions]
+------------------------------------------------------------------------------
+Have 45 single_mcq, target 75. WRITE 30 NEW.
+Difficulty mix (from the syllabus): 10% easy, 40% medium, 50% hard
+  so roughly 3 easy, 12 medium, 15 hard
+Covers: This topic covers determining values for which rational expressions are defined, simplifying them, and performing operations such as addition, subtraction, multiplication, and division, as well as finding the lowest common denominator.
+Spread the questions across these objectives:
+  - Determine the values for which a rational algebraic expression is defined
+  - Simplify rational algebraic expressions
+  - Add, subtract, multiply and divide rational algebraic expressions
+  - Find lowest common denominator of rational algebraic expressions
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  12 questions (8%): "consider the rational expression m which of the following"
+  12 questions (8%): "match each rational expression on the left with its"
+  7 questions (5%): "simplify the following rational expression completely m"
+  6 questions (4%): "consider the rational expression m select all statements that"
+  6 questions (4%): "simplify the following rational expression completely m the simplified"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Geometry   [geometry]
+------------------------------------------------------------------------------
+Have 53 single_mcq, target 75. WRITE 22 NEW.
+Difficulty mix (from the syllabus): 30% easy, 60% medium, 10% hard
+  so roughly 7 easy, 13 medium, 2 hard
+Covers: This topic includes understanding significant digits, classifying angles and triangles, applying angle-sum principles and the Pythagorean Theorem, calculating areas and perimeters of 2D shapes, and determining volumes and surface areas of 3D shapes, as well as working with similar triangles.
+Spread the questions across these objectives:
+  - Determine the number of significant digits of an approximate number
+  - Identify pairs of complementary angles and pairs of supplementary angles
+  - Classify angles as right, acute, obtuse, or straight
+  - Classify triangles as scalene, equilateral, right, or isosceles
+  - Use the angle-sum principle to calculate unknown angles in triangles
+  - Use the Pythagorean Theorem to calculate the unknown side lengths
+  - Find the area and perimeter of a square, rectangle, triangle, and circle
+  - Find the volume and surface area of a sphere, cone, cylinder, and prisms
+  - Recognize similar triangles and identify the corresponding parts
+  - Find the missing measures in similar triangles
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  26 questions (17%): "a right circular cylinder has a radius of m"
+  11 questions (7%): "a right circular cylinder has a height of m"
+  9 questions (6%): "a right circular cone has a slant height of"
+  5 questions (3%): "a rectangular garden has a length of m meters"
+  5 questions (3%): "consider a right circular cylinder with a radius m"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Equation of the Line   [equation-of-the-line]
+------------------------------------------------------------------------------
+Have 43 single_mcq, target 75. WRITE 32 NEW.
+Difficulty mix (from the syllabus): 20% easy, 50% medium, 30% hard
+  so roughly 6 easy, 16 medium, 10 hard
+Covers: This topic covers calculating distance and midpoint, determining slopes of lines (including parallel and perpendicular), graphing lines from various information, writing linear equations, and understanding horizontal and vertical lines.
+Spread the questions across these objectives:
+  - Determine distance between two points
+  - Determine midpoint of a line segment
+  - Determine slope of a line including parallel and perpendicular lines
+  - Given a line, find steepness and direction of slope
+  - Graph a line given its slope and y-intercept, its slope and any point, or any two points on the line
+  - Write equation of a line from standard form to slope-intercept form and vice versa
+  - Graph a linear equation using its slope and y-intercept, its two intercepts, or a point on the line and the equation of a parallel or perpendicular line
+  - Graph horizontal and vertical lines from their equations
+  - Find the equation of a line given slope and y-intercept, slope and a point, two points, a point and a parallel or perpendicular line, or the graph of a line
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  12 questions (8%): "consider the line m that passes through the points"
+  11 questions (7%): "consider the line m defined by the equation m"
+  9 questions (6%): "what is the slope of a line that is"
+  9 questions (6%): "what is the equation of the line that passes"
+  8 questions (5%): "find the m intercept of the line that passes"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Systems of Equations and Inequalities   [systems-of-equations-and-inequalities]
+------------------------------------------------------------------------------
+Have 66 single_mcq, target 75. WRITE 9 NEW.
+Difficulty mix (from the syllabus): 30% easy, 40% medium, 30% hard
+  so roughly 3 easy, 4 medium, 2 hard
+Covers: This topic focuses on determining the number of solutions for systems of equations, solving systems of linear equations using graphing, elimination, or substitution methods, and graphing linear inequalities on a number line or x-y plane.
+Spread the questions across these objectives:
+  - Determine the number of solutions for a system of equations
+  - Solve a system of linear equations in two variables by graphing, elimination, or substitution
+  - Solve a system of linear inequalities in two variables by graphing
+  - Graph linear inequalities on a number line or x-y plane
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  29 questions (19%): "consider the following system of linear equations m m"
+  16 questions (11%): "consider the system of linear equations m m for"
+  11 questions (7%): "consider the system of equations given by m m"
+  10 questions (7%): "consider the system of linear equations m m if"
+  4 questions (3%): "consider the system of linear equations m m what"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Trigonometry   [trigonometry]
+------------------------------------------------------------------------------
+Have 42 single_mcq, target 75. WRITE 33 NEW.
+Difficulty mix (from the syllabus): 20% easy, 60% medium, 20% hard
+  so roughly 7 easy, 20 medium, 6 hard
+Covers: This topic covers defining primary and secondary trigonometric ratios, using a calculator to find numerical values and angles, calculating unknown side lengths and acute angles in right triangles, and converting between degrees, minutes, and seconds.
+Spread the questions across these objectives:
+  - Define the primary trigonometric ratios - sine, cosine, and tangent
+  - Use a calculator to determine the numerical values of the sine, cosine and tangent of angles between 0 and 90 degrees
+  - Use a primary trigonometric ratio to calculate the unknown length of one side of a right triangle
+  - Use the calculator to determine the size of an angle when the numerical value of its sine, cosine, or tangent is given
+  - Use a trigonometric ratio to calculate an unknown acute angle of a right triangle
+  - Define the secondary trigonometric ratios - cosecant, secant and cotangent
+  - Use the calculator to determine the numerical values of the cosecant, secant, and cotangent of angles between 0 and 90 degrees
+  - Define minutes and seconds as subdivisions of a degree, and convert between them and degrees
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  23 questions (15%): "in a right triangle m with the right angle"
+  23 questions (15%): "in a right angled triangle m where m the"
+  12 questions (8%): "in a right angled triangle m the angle m"
+  6 questions (4%): "in a right triangle with an acute angle m"
+  5 questions (3%): "in a right angled triangle m where m side"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Data Management   [data-management]
+------------------------------------------------------------------------------
+Have 32 single_mcq, target 75. WRITE 43 NEW.
+Difficulty mix (from the syllabus): 40% easy, 40% medium, 20% hard
+  so roughly 17 easy, 17 medium, 9 hard
+Covers: This topic involves interpreting data presented in various graphical forms such as circle graphs, histograms, bar charts, tables, scatterplots, and line graphs.
+Spread the questions across these objectives:
+  - Interpret data from circle graphs, histograms, bar charts, tables, scatterplots, and line graphs
+  - Read a value from a bar chart, line graph, or table
+  - Interpret a circle graph and convert between percentages and quantities
+  - Read and interpret a histogram, including class intervals
+  - Describe the relationship shown by a scatterplot
+  - Calculate the mean, median, mode, and range of a data set
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  13 questions (9%): "the following table shows the number of students enrolled"
+  9 questions (6%): "the following table shows the annual revenue in millions"
+  7 questions (5%): "the following table shows the number of students who"
+  5 questions (3%): "a local coffee shop tracked the number of cups"
+  5 questions (3%): "the following table shows the monthly revenue in thousands"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Functions   [functions]
+------------------------------------------------------------------------------
+Have 69 single_mcq, target 75. WRITE 6 NEW.
+Difficulty mix (from the syllabus): 60% easy, 30% medium, 10% hard
+  so roughly 4 easy, 2 medium, 0 hard
+Covers: This topic covers defining relations, representing them in various forms, determining domain and range, identifying functions, evaluating functions, describing and sketching graphs of transformations, and converting quadratic forms.
+Spread the questions across these objectives:
+  - Define relations
+  - Represent relations as a set of ordered pairs, as a table of values, as a graph, or as an equation
+  - Determine the domain and range of a relation
+  - Determine if a particular relation is a function
+  - Evaluate a function at a value in its domain
+  - Describe and sketch graphs of the functions given horizontal translations, vertical translations, and vertical stretch
+  - Given $y = a(x-h)^{2} + k$ determine the coordinates of its vertex, the equation of the axis of symmetry, direction of opening, maximum or minimum point, its domain and range
+  - Change $y = ax^{2} + bx + c$ to the form $y = a(x-h)^{2} + k$
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  29 questions (19%): "consider the quadratic function m which of the following"
+  14 questions (9%): "consider the quadratic function m when this function is"
+  8 questions (5%): "consider the function m which of the following statements"
+  7 questions (5%): "match each quadratic function given in standard form m"
+  7 questions (5%): "given the function m what is the vertex of"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Logarithms   [logarithms]
+------------------------------------------------------------------------------
+Have 51 single_mcq, target 75. WRITE 24 NEW.
+Difficulty mix (from the syllabus): 40% easy, 40% medium, 20% hard
+  so roughly 10 easy, 10 medium, 4 hard
+Covers: This topic involves changing expressions between exponential and logarithmic forms, using laws of logarithms to rewrite expressions and solve equations, and finding common logarithms and antilogarithms using a calculator.
+Spread the questions across these objectives:
+  - Change expressions from exponential to logarithmic form and vice versa
+  - Use the laws of logarithms to rewrite expressions
+  - Use the calculator to find common logarithms
+  - Use the laws of logarithms to solve literal equations
+  - Change the form of logarithmic and exponential equations
+  - Use the calculator to find antilogarithms
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  15 questions (10%): "consider the equation m which of the following statements"
+  9 questions (6%): "rewrite the logarithmic equation m in its equivalent exponential"
+  6 questions (4%): "solve for m in the equation m"
+  6 questions (4%): "match each logarithmic or exponential expression on the left"
+  6 questions (4%): "solve the following equation for m m"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP1 / Word Problems   [word-problems]
+------------------------------------------------------------------------------
+Have 33 single_mcq, target 75. WRITE 42 NEW.
+Difficulty mix (from the syllabus): 10% easy, 70% medium, 20% hard
+  so roughly 4 easy, 29 medium, 9 hard
+Covers: This topic applies skills from all other topics (1-19) to solve problems presented as English simple-sentence descriptions, with or without diagrams.
+Spread the questions across these objectives:
+  - Answer questions based on English simple-sentence descriptions, with or without a diagram, using the skills from all other topics
+  - Translate an English sentence into an algebraic equation
+  - Solve distance, rate, and time problems
+  - Solve mixture and concentration problems
+  - Solve work-rate problems
+  - Solve problems about consecutive integers and ages
+  - Solve money, discount, and interest problems
+  - Solve geometry word problems involving perimeter, area, and volume
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  46 questions (31%): "a rectangular garden has a perimeter of m meters"
+  9 questions (6%): "a rectangular garden has a length that is #"
+  6 questions (4%): "a rectangular garden is to be fenced against a"
+  5 questions (3%): "a rectangular garden has a length that is m"
+  5 questions (3%): "a rectangular garden has a perimeter of # meters"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Advanced Algebraic Manipulation   [advanced-algebra]
+------------------------------------------------------------------------------
+Have 25 single_mcq, target 60. WRITE 35 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 7 easy, 14 medium, 14 hard
+Covers: Complex equations and algebraic identities.
+Spread the questions across these objectives:
+  - Simplify complex algebraic expressions involving nested radicals and rational exponents
+  - Solve absolute value equations and inequalities
+  - Solve radical equations and identify extraneous solutions
+  - Rationalize denominators containing radicals or binomial surds
+  - Manipulate expressions with fractional and negative rational exponents
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  7 questions (11%): "match each algebraic expression on the left with its"
+  5 questions (8%): "consider the expression m which of the following expressions"
+  4 questions (6%): "if m and m what is the value of"
+  3 questions (5%): "simplify the expression m for m"
+  3 questions (5%): "if m and m are real numbers such that"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Quadratic Functions   [quadratic-functions]
+------------------------------------------------------------------------------
+Have 32 single_mcq, target 60. WRITE 28 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 6 easy, 11 medium, 11 hard
+Covers: Quadratic formula, vertex, discriminant, and graphs.
+Spread the questions across these objectives:
+  - Solve quadratic equations by factoring, completing the square, and the quadratic formula
+  - Use the discriminant to determine the number and nature of the roots
+  - Convert between standard, vertex, and factored form of a quadratic
+  - Identify the vertex, axis of symmetry, intercepts, and range from a quadratic
+  - Solve quadratic inequalities and express the solution in interval notation
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  5 questions (8%): "consider the quadratic function m which of the following"
+  5 questions (8%): "consider the quadratic function m the m coordinate of"
+  4 questions (6%): "what are the coordinates of the vertex of the"
+  4 questions (6%): "consider the quadratic function m if the vertex of"
+  4 questions (6%): "consider the quadratic function m if the graph of"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Polynomial Functions   [polynomial-functions]
+------------------------------------------------------------------------------
+Have 28 single_mcq, target 60. WRITE 32 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 6 easy, 13 medium, 13 hard
+Covers: Roots, end behavior, and graphs of polynomials.
+Spread the questions across these objectives:
+  - Determine end behaviour of a polynomial from its degree and leading coefficient
+  - Apply the factor theorem and remainder theorem to find roots
+  - Divide polynomials using long division and synthetic division
+  - Find all real and complex zeros of a polynomial and state their multiplicity
+  - Sketch a polynomial from its zeros, multiplicities, and end behaviour
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  16 questions (24%): "consider the polynomial function m which of the following"
+  4 questions (6%): "consider the polynomial function m as m the behavior"
+  4 questions (6%): "match each polynomial function m with its corresponding end"
+  4 questions (6%): "a polynomial function m of degree # has roots"
+  3 questions (5%): "consider the polynomial function m what is the sum"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Rational Functions and Asymptotes   [rational-functions]
+------------------------------------------------------------------------------
+Have 26 single_mcq, target 60. WRITE 34 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 7 easy, 14 medium, 13 hard
+Covers: Vertical, horizontal, and oblique asymptotes.
+Spread the questions across these objectives:
+  - Determine the domain of a rational function and identify holes
+  - Find vertical asymptotes from the denominator's zeros
+  - Determine horizontal or oblique asymptotes by comparing degrees
+  - Find the intercepts of a rational function
+  - Sketch a rational function from its asymptotes and intercepts
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  8 questions (12%): "consider the rational function m which of the following"
+  6 questions (9%): "consider the rational function m what is the equation"
+  4 questions (6%): "consider the rational function m select all statements that"
+  3 questions (5%): "consider the rational function m identify all correct statements"
+  3 questions (5%): "what is the equation of the horizontal asymptote of"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Exponential Functions   [exponential-functions]
+------------------------------------------------------------------------------
+Have 23 single_mcq, target 60. WRITE 37 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 7 easy, 15 medium, 15 hard
+Covers: Growth, decay, and solving exponential equations.
+Spread the questions across these objectives:
+  - Evaluate and graph exponential functions with base $e$ and other bases
+  - Determine the domain, range, and horizontal asymptote of an exponential function
+  - Solve exponential equations by matching bases
+  - Apply exponential models to growth, decay, and compound interest problems
+  - Describe transformations of an exponential graph
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  4 questions (6%): "the population of a small town is modeled by"
+  3 questions (5%): "consider the exponential function m where m represents time"
+  3 questions (5%): "the population of a city is modeled by the"
+  2 questions (3%): "match the following exponential equations or scenarios to their"
+  2 questions (3%): "a population of bacteria grows according to the function"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Logarithmic Functions   [logarithmic-functions]
+------------------------------------------------------------------------------
+Have 21 single_mcq, target 60. WRITE 39 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 8 easy, 16 medium, 15 hard
+Covers: Properties of logarithms and logarithmic equations.
+Spread the questions across these objectives:
+  - Convert between exponential and logarithmic form
+  - Apply the product, quotient, and power laws of logarithms
+  - Use the change of base formula
+  - Solve logarithmic equations and check for extraneous solutions
+  - Determine the domain, range, and vertical asymptote of a logarithmic function
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  6 questions (9%): "solve for m in the equation m"
+  5 questions (8%): "consider the equation m which of the following statements"
+  3 questions (5%): "solve for m m"
+  3 questions (5%): "which of the following expressions are equivalent to m"
+  3 questions (5%): "solve the following equation for m m"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Composite and Inverse Functions   [composite-inverse-functions]
+------------------------------------------------------------------------------
+Have 18 single_mcq, target 60. WRITE 42 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 8 easy, 17 medium, 17 hard
+Covers: Composing functions and finding inverses.
+Spread the questions across these objectives:
+  - Form and evaluate the composition of two functions
+  - Determine the domain of a composite function
+  - Determine whether a function is one-to-one using the horizontal line test
+  - Find the inverse of a function algebraically
+  - Verify that two functions are inverses by composition
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  5 questions (8%): "given the functions m and m what is the"
+  3 questions (5%): "given the functions m and m find the value"
+  3 questions (5%): "let m for m if m what is the"
+  2 questions (3%): "given the functions m and m identify all correct"
+  2 questions (3%): "if m find the value of m the value"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Analytic Trigonometry and Identities   [analytic-trigonometry]
+------------------------------------------------------------------------------
+Have 23 single_mcq, target 60. WRITE 37 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 7 easy, 15 medium, 15 hard
+Covers: Fundamental, sum, difference, and double angle identities.
+Spread the questions across these objectives:
+  - Apply the Pythagorean, reciprocal, and quotient identities
+  - Use sum and difference identities to evaluate exact trigonometric values
+  - Apply double angle and half angle identities
+  - Verify trigonometric identities algebraically
+  - Simplify trigonometric expressions to a single function
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  7 questions (11%): "match each trigonometric expression on the left with its"
+  4 questions (6%): "simplify the expression m to a single trigonometric function"
+  4 questions (6%): "given that m and m is in the first"
+  3 questions (5%): "which of the following expressions are equivalent to m"
+  3 questions (5%): "if m and m calculate the exact value of"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Trigonometric Equations   [trigonometric-equations]
+------------------------------------------------------------------------------
+Have 32 single_mcq, target 60. WRITE 28 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 6 easy, 11 medium, 11 hard
+Covers: Solving trigonometric equations over intervals.
+Spread the questions across these objectives:
+  - Solve basic trigonometric equations over a given interval
+  - Solve trigonometric equations requiring factoring or an identity substitution
+  - Find the general solution of a trigonometric equation
+  - Use inverse trigonometric functions to solve for an angle
+  - Solve equations involving multiple angles such as $\sin(2x)$
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  10 questions (15%): "find the sum of all solutions to the equation"
+  8 questions (12%): "solve the equation m for m in the interval"
+  6 questions (9%): "solve the equation m for m"
+  4 questions (6%): "find all solutions to the equation m on the"
+  4 questions (6%): "solve the following trigonometric equations for m in the"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Graphs of Trigonometric Functions   [trig-graphs-transformations]
+------------------------------------------------------------------------------
+Have 13 single_mcq, target 60. WRITE 47 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 9 easy, 19 medium, 19 hard
+Covers: Amplitude, period, phase shift, and transformations.
+Spread the questions across these objectives:
+  - Determine the amplitude, period, phase shift, and vertical shift of a sinusoid
+  - Graph transformations of sine and cosine functions
+  - Graph the tangent function and identify its asymptotes
+  - Write the equation of a sinusoid from its graph
+  - Convert between degree and radian measure
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  5 questions (8%): "determine the period of the function m"
+  4 questions (6%): "consider the function m what is the period of"
+  4 questions (6%): "consider the function m which of the following statements"
+  3 questions (5%): "consider the function m what are the amplitude period"
+  3 questions (5%): "match each trigonometric function with its corresponding property description"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Sequences and Series   [sequences-series]
+------------------------------------------------------------------------------
+Have 17 single_mcq, target 60. WRITE 43 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 9 easy, 17 medium, 17 hard
+Covers: Arithmetic and geometric sequences, sigma notation, series.
+Spread the questions across these objectives:
+  - Identify arithmetic and geometric sequences and find the common difference or ratio
+  - Find the general term of an arithmetic or geometric sequence
+  - Compute the sum of a finite arithmetic or geometric series
+  - Determine whether an infinite geometric series converges and find its sum
+  - Use sigma notation to express and evaluate a series
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  3 questions (5%): "what is the sum of the first # terms"
+  3 questions (5%): "find the sum of the infinite geometric series given"
+  2 questions (3%): "evaluate the sum m"
+  2 questions (3%): "find the sum of the first # terms of"
+  2 questions (3%): "what is the sum of the infinite geometric series"
+
+
+------------------------------------------------------------------------------
+QUESTION BATCH: AMP2 / Systems and Matrices   [systems-matrices]
+------------------------------------------------------------------------------
+Have 20 single_mcq, target 60. WRITE 40 NEW.
+Difficulty mix (from the syllabus): 20% easy, 40% medium, 40% hard
+  so roughly 8 easy, 16 medium, 16 hard
+Covers: Matrix operations and solving systems with matrices.
+Spread the questions across these objectives:
+  - Solve systems of three linear equations in three variables
+  - Perform matrix addition, subtraction, and multiplication
+  - Compute the determinant of a 2x2 and 3x3 matrix
+  - Solve a linear system using an inverse matrix or Cramer's rule
+  - Solve non-linear systems of equations
+
+OVERUSED TEMPLATES IN THIS TOPIC - do not write more like these:
+  6 questions (9%): "given the matrices m and m which of the"
+  6 questions (9%): "given the matrix equation m where m and m"
+  4 questions (6%): "given the matrices m and m what is the"
+  3 questions (5%): "consider the matrices m and m which of the"
+  3 questions (5%): "given the matrices m and m find the matrix"
+
+
+==============================================================================
+PART 3 - ANSWER KEY VERIFICATION
+==============================================================================
+
+No human has ever checked the answer keys. The seeding script's own
+30-question audit put the wrong-key rate at 6.7 percent, which is
+roughly 230 wrong answers across 3,435 published questions. Three are
+confirmed wrong by hand.
+
+This is the highest value work in this document. A wrong answer key
+teaches the student the wrong thing and they have no way to know.
+
+METHOD - do not skip the first step:
+  1. Solve the question from scratch WITHOUT looking at the given answer.
+  2. Only then compare with the key.
+  3. If they differ, say so. Do not talk yourself into agreeing.
+
+Reading the key first produces agreement with whatever is there, which
+is worse than not checking, because it looks like verification.
+
+OUTPUT: one line of JSON per question.
+  {"id":"q_...","agrees":true}
+  {"id":"q_...","agrees":false,"correct_answer":"...","why":"..."}
+
+Batches of 25 to 50 questions work well. Export a batch with:
+
+  npx tsx scripts/export-verify-batch.ts --offset 0 --limit 50
+
+Known bad, already caught, no need to re-report:
+  q_xnwoq8offp26  answer is 416/315, key says 0
+  q_iq45jwt9eu5s  answer is 1/108, key is 100x off
+  q_9b7wuinyq11e  answer is 1/2, key says 43/84
+
+==============================================================================
+PART 4 - HANDING THE WORK BACK
+==============================================================================
+
+Lessons:
+  1. Save each topic file to data/lessons/<topic-slug>.ts
+  2. Add the export to data/lessons/index.ts
+  3. npm run verify:lessons     (must print All clear)
+  4. npm run seed:lessons
+
+Questions:
+  1. Append to data/generated/questions.json, or hand over a separate
+     file and it will be merged.
+  2. npm test                   (LaTeX and gradability gates)
+  3. npm run seed && npm run assemble
+  4. npm run audit              (check the duplicate numbers went down)
+
+Verification results:
+  Hand over the JSONL. Disagreements are re-checked and the question is
+  either repaired or moved to needs_review, which takes it out of the
+  student-facing pool.
+
+If anything in this brief is ambiguous or looks wrong, say so rather
+than guessing. A wrong assumption repeated across 100 questions is
+expensive to unpick.
+
+==============================================================================
+END OF BRIEF
+==============================================================================

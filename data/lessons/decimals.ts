@@ -1,0 +1,191 @@
+import type { LessonSource } from "./types";
+
+/** Decimals: converting, metric units, scientific notation, rounding. */
+export const decimalsLessons: LessonSource[] = [
+  {
+    skillSlug: "decimals-change-a-decimal-to-a-fraction",
+    title: "Turning a decimal into a fraction",
+    summary: "Write any terminating decimal as a fraction in simplest form.",
+    estMinutes: 6,
+    blocks: [
+      { type: "prose", text: "Every digit after the decimal point has a name. The first is tenths, the second hundredths, the third thousandths." },
+      { type: "prose", text: "That name is the denominator you need. In $0.7$ the $7$ sits in the tenths place, so $0.7 = \\frac{7}{10}$." },
+      { type: "definition", term: "The method", meaning: "Write the digits after the point as the numerator. For the denominator, put a $1$ followed by one zero for each of those digits. Then simplify." },
+      {
+        type: "worked_example",
+        prompt: "Write $0.24$ as a fraction in simplest form.",
+        steps: [
+          { action: "Count the digits after the point.", math: "2", why: "Two digits means the last one is in the hundredths place." },
+          { action: "Write the fraction.", math: "0.24 = \\frac{24}{100}", why: "The digits become the top, and $1$ with two zeros becomes the bottom." },
+          { action: "Find what divides into both.", math: "4", why: "$4$ is the largest number that goes into both $24$ and $100$." },
+          { action: "Divide top and bottom by $4$.", math: "\\frac{24 \\div 4}{100 \\div 4} = \\frac{6}{25}", why: "Dividing both parts by the same number keeps the value the same." },
+        ],
+        answer: "$\\frac{6}{25}$",
+      },
+      { type: "callout", kind: "tip", text: "A quick check: $6 \\div 25 = 0.24$ on your calculator. If it does not match, something went wrong." },
+      { type: "checkpoint", questionIds: ["q_014un3ng9pll"] },
+    ],
+  },
+  {
+    skillSlug: "decimals-change-a-decimal-to-a-percent",
+    title: "Turning a decimal into a percent",
+    summary: "Move the point two places and know why that works.",
+    estMinutes: 5,
+    blocks: [
+      { type: "prose", text: "Percent means out of one hundred. So changing a decimal to a percent means asking how many hundredths it is." },
+      { type: "prose", text: "$0.35$ is $35$ hundredths, so it is $35\\%$. The rule people remember is to move the point two places right and add the sign." },
+      { type: "callout", kind: "watch-out", text: "Moving the point right makes the number look bigger, but nothing has changed. $0.35$ and $35\\%$ are the same amount written two ways." },
+      {
+        type: "worked_example",
+        prompt: "Write $0.06$ and $1.4$ as percents.",
+        steps: [
+          { action: "Move the point in $0.06$ two places right.", math: "0.06 \\rightarrow 6", why: "Two places right turns hundredths into whole units." },
+          { action: "Add the percent sign.", math: "6\\%", why: "The number now counts hundredths, which is what percent means." },
+          { action: "Do the same with $1.4$.", math: "1.4 \\rightarrow 140", why: "There is only one digit after the point, so a zero is added to make the second place." },
+        ],
+        answer: "$6\\%$ and $140\\%$",
+      },
+      { type: "callout", kind: "common-mistake", text: "Writing $0.06$ as $0.6\\%$ by moving only one place. Count carefully: two places, every time." },
+      { type: "prose", text: "A percent over $100$ is fine. $140\\%$ just means more than one whole, the same as $1.4$." },
+      { type: "checkpoint", questionIds: ["q_0hcjyrt85217"] },
+    ],
+  },
+  {
+    skillSlug: "decimals-round-numbers-to-one-or-two-decimal",
+    title: "Rounding to one or two decimal places",
+    summary: "Round a decimal correctly, including the tricky cases.",
+    estMinutes: 6,
+    blocks: [
+      { type: "prose", text: "Rounding shortens a number while keeping it close to the original. Test questions often say to give an answer to two decimal places." },
+      { type: "definition", term: "The rule", meaning: "Look at the digit one place past where you are cutting. If it is $5$ or more, round up. If it is $4$ or less, leave the digit alone. Then drop everything after the cut." },
+      {
+        type: "worked_example",
+        prompt: "Round $3.478$ to one decimal place, then to two.",
+        steps: [
+          { action: "For one decimal place, keep the $4$ and look at the next digit.", math: "3.4|78", why: "The digit after the cut is $7$." },
+          { action: "Decide.", math: "3.5", why: "$7$ is $5$ or more, so the $4$ rounds up to $5$." },
+          { action: "For two places, keep $47$ and look at the next digit.", math: "3.47|8", why: "The digit after the cut is $8$." },
+          { action: "Decide.", math: "3.48", why: "$8$ is $5$ or more, so the $7$ rounds up to $8$." },
+        ],
+        answer: "$3.5$ to one place, $3.48$ to two places.",
+      },
+      { type: "callout", kind: "watch-out", text: "Round from the original number, not from your own rounded answer. Rounding $3.478$ to $3.48$ and then to $3.5$ happens to work here, but with $3.448$ it gives $3.5$ instead of the correct $3.4$." },
+      { type: "callout", kind: "tip", text: "When rounding up a $9$, it becomes $0$ and carries. $2.97$ to one decimal place is $3.0$, not $2.10$." },
+      { type: "checkpoint", questionIds: ["q_0lmz48oboec4"] },
+    ],
+  },
+  {
+    skillSlug: "decimals-write-a-decimal-number-in-scientific-notation",
+    title: "Scientific notation",
+    summary: "Write very large and very small numbers compactly.",
+    estMinutes: 7,
+    blocks: [
+      { type: "definition", term: "Scientific notation", meaning: "A number written as $a \\times 10^{n}$, where $a$ is at least $1$ and less than $10$, and $n$ is a whole number." },
+      { type: "prose", text: "The point of it is to write numbers like $4\\,500\\,000$ without counting zeros. That number is $4.5 \\times 10^{6}$." },
+      { type: "prose", text: "The exponent counts how many places the point moved. Moving left gives a positive exponent. Moving right gives a negative one." },
+      {
+        type: "worked_example",
+        prompt: "Write $0.00072$ in scientific notation.",
+        steps: [
+          { action: "Put the point so one non-zero digit sits in front of it.", math: "7.2", why: "The first part must be at least $1$ and under $10$, so the point goes after the $7$." },
+          { action: "Count how many places the point moved.", math: "4", why: "From $0.00072$ to $7.2$ the point moves four places right." },
+          { action: "Choose the sign.", math: "10^{-4}", why: "The original number is smaller than $1$, so the exponent is negative." },
+          { action: "Put it together.", math: "7.2 \\times 10^{-4}", why: "This is the same value written compactly." },
+        ],
+        answer: "$7.2 \\times 10^{-4}$",
+      },
+      { type: "callout", kind: "tip", text: "Sanity check with the sign. A number below $1$ always has a negative exponent. A number above $10$ always has a positive one. If your sign disagrees with the size, you have moved the wrong way." },
+      { type: "checkpoint", questionIds: ["q_1c1rjcd908d5"] },
+    ],
+  },
+  {
+    skillSlug: "decimals-identify-the-base-units-of-measure-for",
+    title: "Base units for mass, volume and length",
+    summary: "Know the metric base units and the prefixes built on them.",
+    estMinutes: 5,
+    blocks: [
+      { type: "prose", text: "The metric system has one base unit for each kind of measurement, and everything else is built from it with a prefix." },
+      { type: "definition", term: "The three base units", meaning: "Length is measured in metres, mass in grams, and volume in litres." },
+      { type: "prose", text: "A prefix in front of the base unit multiplies or divides it by a power of ten." },
+      { type: "definition", term: "The common prefixes", meaning: "kilo means $1000$ times. centi means one hundredth. milli means one thousandth." },
+      { type: "prose", text: "So a kilogram is $1000$ grams, a centimetre is one hundredth of a metre, and a millilitre is one thousandth of a litre." },
+      {
+        type: "worked_example",
+        prompt: "How many millimetres are in one metre?",
+        steps: [
+          { action: "Identify the base unit.", math: "\\text{metre}", why: "Length is measured in metres, and the prefix milli is attached to it." },
+          { action: "Say what milli means.", why: "Milli means one thousandth, so a millimetre is one thousandth of a metre." },
+          { action: "Turn that around.", math: "1000", why: "If each piece is one thousandth of a metre, then a thousand of them make one metre." },
+        ],
+        answer: "$1000$ millimetres",
+      },
+      { type: "callout", kind: "tip", text: "The prefix always means the same thing whatever the base unit. Kilo is $1000$ in kilogram, kilometre and kilolitre alike." },
+      { type: "checkpoint", questionIds: ["q_1td2f22na5vi"] },
+    ],
+  },
+  {
+    skillSlug: "decimals-convert-from-one-unit-of-metric-measure",
+    title: "Converting between metric units",
+    summary: "Move between kilo, base, centi and milli without getting the direction wrong.",
+    estMinutes: 7,
+    blocks: [
+      { type: "prose", text: "Every metric conversion is a multiply or a divide by a power of ten. The only hard part is knowing which." },
+      { type: "definition", term: "The direction rule", meaning: "Going to a smaller unit means you need more of them, so multiply. Going to a larger unit means you need fewer, so divide." },
+      {
+        type: "worked_example",
+        prompt: "Change $2.5$ kilograms to grams.",
+        steps: [
+          { action: "Compare the two units.", why: "A gram is smaller than a kilogram, so the answer will be a bigger number. That means multiply." },
+          { action: "Find the factor.", math: "1000", why: "Kilo means $1000$, so one kilogram is $1000$ grams." },
+          { action: "Multiply.", math: "2.5 \\times 1000 = 2500", why: "Multiplying by $1000$ moves the point three places right." },
+        ],
+        answer: "$2500$ grams",
+      },
+      {
+        type: "worked_example",
+        prompt: "Change $450$ millilitres to litres.",
+        steps: [
+          { action: "Compare the units.", why: "A litre is larger than a millilitre, so the answer will be a smaller number. That means divide." },
+          { action: "Find the factor.", math: "1000", why: "Milli means one thousandth, so $1000$ millilitres make a litre." },
+          { action: "Divide.", math: "450 \\div 1000 = 0.45", why: "Dividing by $1000$ moves the point three places left." },
+        ],
+        answer: "$0.45$ litres",
+      },
+      { type: "callout", kind: "watch-out", text: "Check the size of your answer against common sense. If you convert grams to kilograms and get a bigger number, you multiplied when you should have divided." },
+      { type: "checkpoint", questionIds: ["q_1z9goes6o0l3"] },
+    ],
+  },
+  {
+    skillSlug: "decimals-evaluate-algebraic-expressions",
+    title: "Putting numbers into an expression",
+    summary: "Substitute values for letters and calculate the result.",
+    estMinutes: 6,
+    blocks: [
+      { type: "definition", term: "Evaluate", meaning: "To evaluate an expression means to replace each letter with the number you are given, then work out the answer." },
+      { type: "callout", kind: "tip", text: "Put brackets around every number as you substitute it. This keeps negatives and powers behaving correctly, and costs nothing." },
+      {
+        type: "worked_example",
+        prompt: "Evaluate $3x - 2$ when $x = 4$.",
+        steps: [
+          { action: "Replace $x$ with $4$, in brackets.", math: "3(4) - 2", why: "The brackets make clear that $3$ multiplies the $4$." },
+          { action: "Multiply first.", math: "12 - 2", why: "The order of operations puts multiplication before subtraction." },
+          { action: "Subtract.", math: "10", why: "Nothing else is left." },
+        ],
+        answer: "$10$",
+      },
+      {
+        type: "worked_example",
+        prompt: "Evaluate $\\frac{2a - b^{2}}{c}$ when $a = 5$, $b = 3$ and $c = 2$.",
+        steps: [
+          { action: "Substitute every letter.", math: "\\frac{2(5) - (3)^{2}}{2}", why: "Each letter is replaced by its own value, brackets included." },
+          { action: "Deal with the power first.", math: "(3)^{2} = 9", why: "Exponents come before multiplication and subtraction." },
+          { action: "Do the multiplication on top.", math: "2(5) = 10", why: "Multiplication comes before subtraction." },
+          { action: "Finish the top, then divide.", math: "\\frac{10 - 9}{2} = \\frac{1}{2}", why: "The fraction bar groups the whole top, so it is completed before dividing." },
+        ],
+        answer: "$\\frac{1}{2}$ or $0.5$",
+      },
+      { type: "callout", kind: "watch-out", text: "A fraction bar acts like brackets around the top and the bottom. Work each out fully before dividing." },
+      { type: "checkpoint", questionIds: ["q_2b58uml27o7w"] },
+    ],
+  },
+];

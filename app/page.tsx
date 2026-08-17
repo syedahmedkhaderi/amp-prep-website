@@ -9,6 +9,7 @@ import {
   getTopicBySlug,
   getTopicQuestionStats,
   getTopics,
+  getPublishedLessons,
 } from "@/lib/db/queries";
 import { toClientSafe } from "@/lib/types";
 
@@ -70,6 +71,7 @@ function getTopicStats() {
     .map((topic) => ({
       slug: topic.slug,
       name: topic.name,
+      examCode: topic.examCode,
       total: getTopicQuestionStats(topic.id).total,
     }))
     .filter((t) => t.total > 0)
@@ -81,6 +83,15 @@ export default function HomePage() {
   const samples = getSampleQuestions();
   const topicStats = getTopicStats();
   const totalQuestions = topicStats.reduce((sum, t) => sum + t.total, 0);
+  const amp1Topics = topicStats.filter((t) => t.examCode === "AMP1");
+  const amp2Topics = topicStats.filter((t) => t.examCode === "AMP2");
+
+  // Lesson counts come from the same place as the question counts, so the
+  // marketing claim cannot drift from what a student would actually find.
+  const lessons = getPublishedLessons();
+  const amp1Slugs = new Set(amp1Topics.map((t) => t.slug));
+  const amp1Lessons = lessons.filter((l) => l.topicSlug && amp1Slugs.has(l.topicSlug)).length;
+  const amp2Lessons = lessons.length - amp1Lessons;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -90,33 +101,33 @@ export default function HomePage() {
       </Suspense>
       <main id="main-content" className="flex-1">
         <section className="border-b border-surface-border bg-gradient-to-b from-surface-panel to-white">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600">
                 UDST AMP practice
               </p>
+              {/* The lessons are the thing that makes this more than a question
+                  bank, so the headline leads with teaching rather than with
+                  practice volume. */}
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-brand-deep md:text-5xl">
-                Prepare for AMP 1 and AMP 2 with exam style practice
+                Learn the maths first, then practise it
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
-                Work through original mathematics questions by topic, then sit a timed mock that uses the same page rail, saved answer counter, and quiz controls you will see on test day.
+                Every topic on the UDST syllabus is taught from the beginning, in plain
+                language, with worked examples and graphs you can move. When a topic makes
+                sense, practise it, then sit a timed mock built like the real test.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8">
                 <Link
                   href="/signup"
-                  className="rounded-lg bg-brand-deep px-8 py-3 text-center font-medium text-white shadow-sm transition hover:bg-brand-700 hover:shadow"
+                  className="inline-block rounded-lg bg-brand-deep px-8 py-3 text-center font-medium text-white shadow-sm transition hover:bg-brand-700 hover:shadow"
                 >
-                  Start practicing free
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="rounded-lg border border-surface-border bg-white px-8 py-3 text-center font-medium text-ink transition hover:border-brand-600"
-                >
-                  Compare plans
+                  Start learning free
                 </Link>
               </div>
               <p className="mt-4 text-sm text-ink-light">
-                Free account: 20 practice questions each day and 1 AMP 1 mock each week.
+                Free account: every AMP 1 lesson, 20 practice questions each day, and 1 AMP 1
+                mock each week.
               </p>
             </div>
 
@@ -192,7 +203,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-6 py-16">
+        <section className="mx-auto max-w-7xl px-6 py-16">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
               <div className="text-3xl font-bold text-brand">60</div>
@@ -235,7 +246,7 @@ export default function HomePage() {
           </section>
         )}
 
-        <section className="mx-auto max-w-5xl px-6 py-16">
+        <section className="mx-auto max-w-7xl px-6 py-16">
           <h2 className="text-2xl font-bold text-brand-deep">How it works</h2>
           <ol className="mt-8 grid gap-8 md:grid-cols-3">
             {[
@@ -264,28 +275,39 @@ export default function HomePage() {
         </section>
 
         <section className="bg-surface-panel py-16">
-          <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-7xl px-6">
             <h2 className="text-2xl font-bold text-brand-deep">
-              Every topic, with what is actually in it
+              Every topic, taught and then practised
             </h2>
             <p className="mt-2 text-ink-soft">
-              Real counts from the question bank, not a promise. Each question
-              comes with a step by step worked solution.
+              Real counts from the database, not a promise. Every topic has lessons that
+              explain it from scratch, and every question has a step by step worked solution.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {topicStats.map((t) => (
-                <div
-                  key={t.slug}
-                  className="flex items-baseline justify-between gap-3 rounded-lg border border-surface-border bg-white px-4 py-3 transition hover:border-brand-600 hover:shadow-sm"
-                >
-                  <span className="text-sm text-ink">{t.name}</span>
-                  <span className="shrink-0 text-xs font-medium text-ink-light">
-                    {t.total.toLocaleString()}
-                  </span>
-                </div>
-              ))}
+
+            {/* AMP 1 and AMP 2 are separate tests taken by different students, so
+                they sit side by side rather than in one merged list. The vertical
+                rule between them carries that distinction on wide screens; on a
+                phone the columns stack and the headings do the same job. */}
+            <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-0">
+              <div className="lg:pr-10">
+                <TopicGroup
+                  title="AMP 1"
+                  subtitle="Taken by every applicant. 60 multiple choice questions in 2 hours."
+                  topics={amp1Topics}
+                  lessonCount={amp1Lessons}
+                />
+              </div>
+              <div className="lg:border-l lg:border-surface-border lg:pl-10">
+                <TopicGroup
+                  title="AMP 2"
+                  subtitle="For students who score a high pass on AMP 1. Also 60 questions in 2 hours."
+                  topics={amp2Topics}
+                  lessonCount={amp2Lessons}
+                />
+              </div>
             </div>
-            <p className="mt-6 text-sm text-ink-light">
+
+            <p className="mt-8 text-sm text-ink-light">
               {totalQuestions.toLocaleString()} questions across{" "}
               {topicStats.length} topics, and growing.
             </p>
@@ -311,6 +333,47 @@ export default function HomePage() {
         </section>
       </main>
       <SiteFooter />
+    </div>
+  );
+}
+
+/** One exam's topics, with how many lessons and questions each has. */
+function TopicGroup({
+  title,
+  subtitle,
+  topics,
+  lessonCount,
+}: {
+  title: string;
+  subtitle: string;
+  topics: { slug: string; name: string; total: number }[];
+  lessonCount: number;
+}) {
+  if (topics.length === 0) return null;
+  const questionTotal = topics.reduce((sum, t) => sum + t.total, 0);
+  return (
+    <div>
+      <div className="flex items-baseline gap-3">
+        <h3 className="text-lg font-bold text-brand-deep">{title}</h3>
+        <span className="text-xs text-ink-light">{topics.length} topics</span>
+      </div>
+      <p className="mt-1 text-sm text-ink-soft">{subtitle}</p>
+      <p className="mt-2 text-sm font-medium text-brand-600">
+        {lessonCount} lessons and {questionTotal.toLocaleString()} questions
+      </p>
+      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        {topics.map((t) => (
+          <div
+            key={t.slug}
+            className="flex items-baseline justify-between gap-3 rounded-lg border border-surface-border bg-white px-3 py-2 transition hover:border-brand-600 hover:shadow-sm"
+          >
+            <span className="text-sm text-ink">{t.name}</span>
+            <span className="shrink-0 text-xs font-medium text-ink-light">
+              {t.total.toLocaleString()}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
