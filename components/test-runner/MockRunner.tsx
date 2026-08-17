@@ -140,8 +140,8 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
 
       <div className="flex flex-1 overflow-hidden">
         {/* Left navigation rail */}
-        <nav className="w-[140px] flex-shrink-0 border-r border-surface-border bg-surface-panel overflow-y-auto rail-scroll">
-          <div className="p-2">
+        <nav className="w-[180px] flex-shrink-0 border-r border-surface-border bg-surface-panel overflow-y-auto rail-scroll">
+          <div className="space-y-1.5 p-3">
             {questions.map((q, i) => {
               const isSaved = savedIds.has(q.id);
               const isCurrent = i === currentIndex;
@@ -149,17 +149,17 @@ export function MockRunner({ attemptId, questions, timeLimitSeconds, examTitle }
                 <button
                   key={q.id}
                   onClick={() => setCurrentIndex(i)}
-                  className={`w-full text-left p-2 rounded text-xs transition-colors ${
+                  className={`w-full rounded-md px-2.5 py-2 text-left text-xs transition-colors ${
                     isCurrent ? "bg-quiz-blue text-white" : "text-ink hover:bg-surface-border"
                   }`}
                 >
-                  <div className="flex items-center gap-1.5">
-                    <span className={`flex h-4 w-4 items-center justify-center rounded text-[10px] ${
+                  <div className="flex items-center gap-2.5">
+                    <span className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded text-[10px] ${
                       isCurrent ? "bg-white/20" : isSaved ? "bg-green-200 text-green-800" : "bg-white border border-surface-border"
                     }`}>
                       {isSaved ? "✓" : ""}
                     </span>
-                    <span>Page {i + 1}</span>
+                    <span className="tabular-nums">Page {i + 1}</span>
                   </div>
                 </button>
               );

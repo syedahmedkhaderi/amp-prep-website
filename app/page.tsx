@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { SiteHeader, SiteFooter } from "@/components/ui/SiteChrome";
 import { AccountDeletedNotice } from "@/components/ui/AccountDeletedNotice";
 import { SampleQuestions } from "@/components/ui/SampleQuestions";
+import { WorkedSolutionShowcase, type ShowcaseQuestion } from "@/components/ui/WorkedSolutionShowcase";
 import {
   getQuestionCount,
   getQuestions,
@@ -21,6 +22,46 @@ import { toClientSafe } from "@/lib/types";
  * correct option index is sent separately and only drives the "Show answer"
  * toggle for these three questions.
  */
+/**
+ * Find one question that carries a complete review: numbered working, a concept
+ * line, and a reason for at least two wrong options. Most of the bank qualifies,
+ * so this takes the first good match rather than searching hard.
+ */
+function getShowcaseQuestion(): ShowcaseQuestion | null {
+  for (const slug of ["quadratic-functions", "functions", "equation-of-the-line", "percent", "fractions"]) {
+    const topic = getTopicBySlug(slug);
+    if (!topic) continue;
+
+    for (const q of getQuestions({ topicId: topic.id, type: "single_mcq", limit: 40 })) {
+      const options = q.options ?? [];
+      const steps = q.explanationSteps ?? [];
+      const rationales = q.distractorRationales ?? {};
+      const explained = options.filter(
+        (o, i) => !o.isCorrect && (rationales[String(i)] ?? rationales[o.content])
+      ).length;
+
+      const usable =
+        options.length === 4 &&
+        options.some((o) => o.isCorrect) &&
+        steps.length >= 3 &&
+        explained >= 2 &&
+        q.conceptSummary &&
+        q.stem.length < 220;
+
+      if (!usable) continue;
+      return {
+        stem: q.stem,
+        options: options.map((o) => ({ content: o.content, isCorrect: o.isCorrect })),
+        explanationSteps: steps,
+        conceptSummary: q.conceptSummary,
+        distractorRationales: rationales,
+        topic: topic.name,
+      };
+    }
+  }
+  return null;
+}
+
 function getSampleQuestions() {
   // Spread across arithmetic, algebra and trigonometry so the range of the bank
   // is visible. Slugs are verified against data/generated/topics.json; a slug
@@ -81,6 +122,7 @@ function getTopicStats() {
 export default function HomePage() {
   const stats = getQuestionCount();
   const samples = getSampleQuestions();
+  const showcase = getShowcaseQuestion();
   const topicStats = getTopicStats();
   const totalQuestions = topicStats.reduce((sum, t) => sum + t.total, 0);
   const amp1Topics = topicStats.filter((t) => t.examCode === "AMP1");
@@ -122,7 +164,7 @@ export default function HomePage() {
                   href="/signup"
                   className="inline-block rounded-lg bg-brand-deep px-8 py-3 text-center font-medium text-white shadow-sm transition hover:bg-brand-700 hover:shadow"
                 >
-                  Start learning free
+                  Start learning for free
                 </Link>
               </div>
               <p className="mt-4 text-sm text-ink-light">
@@ -241,6 +283,24 @@ export default function HomePage() {
               </p>
               <div className="mt-8">
                 <SampleQuestions samples={samples} />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {showcase && (
+          <section className="bg-surface-panel py-16">
+            <div className="mx-auto max-w-4xl px-6">
+              <h2 className="text-2xl font-bold text-brand-deep">
+                Get a question wrong and find out why
+              </h2>
+              <p className="mt-2 max-w-2xl text-ink-soft">
+                Every question is marked the moment you answer it and comes back with the working
+                laid out step by step, the idea it is testing, and a line on why each wrong option
+                looked right. This is a real question from the bank with its real review.
+              </p>
+              <div className="mt-8">
+                <WorkedSolutionShowcase question={showcase} />
               </div>
             </div>
           </section>
