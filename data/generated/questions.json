@@ -161620,5 +161620,2525 @@
     },
     "concept_summary": "One root means the discriminant is exactly zero.",
     "source": "authored"
+  },
+  {
+    "id": "qa_a1wp01",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-translate-an-english-sentence-into-an-algebraic",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Write an expression for: seven less than twice a number $n$.",
+    "options": [
+      {
+        "content": "$2n - 7$",
+        "is_correct": true
+      },
+      {
+        "content": "$7 - 2n$",
+        "is_correct": false
+      },
+      {
+        "content": "$2(n - 7)$",
+        "is_correct": false
+      },
+      {
+        "content": "$2n + 7$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2n - 7$",
+    "explanation_steps": [
+      "Twice a number is $2n$.",
+      "\"Less than\" reverses the order: seven less than something means that something minus seven.",
+      "So the expression is $2n - 7$."
+    ],
+    "distractor_rationales": {
+      "1": "This subtracts in the wrong order. Seven less than $2n$ starts from $2n$.",
+      "2": "The brackets subtract seven before doubling, which is a different value.",
+      "3": "\"Less than\" is subtraction, not addition."
+    },
+    "concept_summary": "\"Less than\" reverses the order of a subtraction.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp02",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-distance-rate-and-time-problems",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A cyclist rides for $3$ hours at $18$ km/h. How far do they travel?",
+    "options": [
+      {
+        "content": "$54$ km",
+        "is_correct": true
+      },
+      {
+        "content": "$6$ km",
+        "is_correct": false
+      },
+      {
+        "content": "$21$ km",
+        "is_correct": false
+      },
+      {
+        "content": "$15$ km",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$54$ km",
+    "explanation_steps": [
+      "Distance is speed multiplied by time.",
+      "Substitute: $18 \\times 3$.",
+      "That gives $54$ km."
+    ],
+    "distractor_rationales": {
+      "1": "$6$ divides speed by time, which would give a rate, not a distance.",
+      "2": "$21$ adds the two numbers instead of multiplying.",
+      "3": "$15$ subtracts them."
+    },
+    "concept_summary": "Distance equals speed times time.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp03",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-distance-rate-and-time-problems",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A train covers $240$ km in $3$ hours, then $150$ km in $2$ hours. What is its average speed for the whole trip?",
+    "options": [
+      {
+        "content": "$78$ km/h",
+        "is_correct": true
+      },
+      {
+        "content": "$77.5$ km/h",
+        "is_correct": false
+      },
+      {
+        "content": "$80$ km/h",
+        "is_correct": false
+      },
+      {
+        "content": "$75$ km/h",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$78$ km/h",
+    "explanation_steps": [
+      "Average speed is total distance divided by total time, not the average of the two speeds.",
+      "Total distance is $240 + 150 = 390$ km. Total time is $3 + 2 = 5$ hours.",
+      "$390 \\div 5 = 78$ km/h."
+    ],
+    "distractor_rationales": {
+      "1": "$77.5$ averages the two speeds ($80$ and $75$), which only works when the times are equal.",
+      "2": "$80$ km/h is the speed on the first leg only.",
+      "3": "$75$ km/h is the speed on the second leg only."
+    },
+    "concept_summary": "Average speed is total distance over total time.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp04",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-work-rate-problems",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "One pump fills a tank in $6$ hours, another in $3$ hours. Working together, how long do they take?",
+    "options": [
+      {
+        "content": "$2$ hours",
+        "is_correct": true
+      },
+      {
+        "content": "$4.5$ hours",
+        "is_correct": false
+      },
+      {
+        "content": "$9$ hours",
+        "is_correct": false
+      },
+      {
+        "content": "$3$ hours",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2$ hours",
+    "explanation_steps": [
+      "Work with rates per hour. The first pump does $\\frac{1}{6}$ of the tank each hour, the second $\\frac{1}{3}$.",
+      "Together they do $\\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6} = \\frac{1}{2}$ of the tank each hour.",
+      "Filling half a tank per hour means the whole tank takes $2$ hours."
+    ],
+    "distractor_rationales": {
+      "1": "$4.5$ averages the two times, but two pumps together must beat the faster one alone.",
+      "2": "$9$ adds the times, which would be them working one after the other.",
+      "3": "$3$ hours is the faster pump on its own, ignoring the help."
+    },
+    "concept_summary": "Add the rates, not the times.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp05",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-problems-about-consecutive-integers-and-ages",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Three consecutive integers add to $48$. What is the smallest?",
+    "options": [
+      {
+        "content": "$15$",
+        "is_correct": true
+      },
+      {
+        "content": "$16$",
+        "is_correct": false
+      },
+      {
+        "content": "$14$",
+        "is_correct": false
+      },
+      {
+        "content": "$17$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$15$",
+    "explanation_steps": [
+      "Call them $n$, $n + 1$ and $n + 2$.",
+      "Their sum is $3n + 3 = 48$, so $3n = 45$.",
+      "Dividing gives $n = 15$, and the three numbers are $15, 16, 17$."
+    ],
+    "distractor_rationales": {
+      "1": "$16$ is the middle number, which is the sum divided by three.",
+      "2": "$14$ would make the three sum to $45$.",
+      "3": "$17$ is the largest of the three."
+    },
+    "concept_summary": "Consecutive integers differ by one, so write them all from a single letter.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp06",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-money-discount-and-interest-problems",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A jacket is reduced by $30\\%$ to a sale price of $84$ riyals. What was the original price?",
+    "options": [
+      {
+        "content": "$120$ riyals",
+        "is_correct": true
+      },
+      {
+        "content": "$109.20$ riyals",
+        "is_correct": false
+      },
+      {
+        "content": "$114$ riyals",
+        "is_correct": false
+      },
+      {
+        "content": "$280$ riyals",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$120$ riyals",
+    "explanation_steps": [
+      "A $30\\%$ reduction means the sale price is $70\\%$ of the original.",
+      "So $0.7 \\times \\text{original} = 84$.",
+      "Divide: $84 \\div 0.7 = 120$ riyals."
+    ],
+    "distractor_rationales": {
+      "1": "This adds $30\\%$ to the sale price, but percentages are taken of different amounts each way.",
+      "2": "$114$ adds $30$ riyals rather than $30$ percent.",
+      "3": "$280$ divides by $0.3$ instead of $0.7$."
+    },
+    "concept_summary": "Work back from the percentage that remains, not the one removed.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp07",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-mixture-and-concentration-problems",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "How much pure water must be added to $20$ litres of a $50\\%$ acid solution to dilute it to $40\\%$?",
+    "options": [
+      {
+        "content": "$5$ litres",
+        "is_correct": true
+      },
+      {
+        "content": "$4$ litres",
+        "is_correct": false
+      },
+      {
+        "content": "$10$ litres",
+        "is_correct": false
+      },
+      {
+        "content": "$2$ litres",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$ litres",
+    "explanation_steps": [
+      "The amount of acid does not change: $50\\%$ of $20$ is $10$ litres of acid.",
+      "After adding $x$ litres of water the total is $20 + x$, and the acid must be $40\\%$ of it.",
+      "So $10 = 0.4(20 + x)$, giving $25 = 20 + x$ and $x = 5$ litres."
+    ],
+    "distractor_rationales": {
+      "1": "$4$ litres would give a concentration just over $41\\%$.",
+      "2": "$10$ litres would dilute it to about $33\\%$.",
+      "3": "$2$ litres barely changes it, leaving about $45\\%$."
+    },
+    "concept_summary": "In a dilution the solute stays fixed and only the total changes.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp08",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-geometry-word-problems-involving-perimeter-area",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A square has an area of $81$ square metres. What is its perimeter?",
+    "options": [
+      {
+        "content": "$36$ m",
+        "is_correct": true
+      },
+      {
+        "content": "$324$ m",
+        "is_correct": false
+      },
+      {
+        "content": "$18$ m",
+        "is_correct": false
+      },
+      {
+        "content": "$40.5$ m",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$36$ m",
+    "explanation_steps": [
+      "The side of a square is the square root of its area: $\\sqrt{81} = 9$ m.",
+      "Perimeter is four times the side.",
+      "$4 \\times 9 = 36$ m."
+    ],
+    "distractor_rationales": {
+      "1": "$324$ multiplies the area by four instead of the side.",
+      "2": "$18$ is only two sides.",
+      "3": "$40.5$ halves the area, which has no geometric meaning here."
+    },
+    "concept_summary": "Find the side first, then use it.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp09",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-answer-questions-based-on-english-simple-sentence",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "A shop sells pens for $3$ riyals each. Which expression gives the cost of $p$ pens?",
+    "options": [
+      {
+        "content": "$3p$",
+        "is_correct": true
+      },
+      {
+        "content": "$p + 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{p}{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3}{p}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$3p$",
+    "explanation_steps": [
+      "Each pen costs the same, so the total is the price repeated $p$ times.",
+      "Repeated addition is multiplication.",
+      "The cost is $3 \\times p$, written $3p$."
+    ],
+    "distractor_rationales": {
+      "1": "Adding would only be right if the $3$ were a one-off charge.",
+      "2": "Dividing by $3$ would answer how many pens a certain amount buys.",
+      "3": "This is upside down and gives riyals per pen only when $p = 1$."
+    },
+    "concept_summary": "A fixed price per item means multiply.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1wp10",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-money-discount-and-interest-problems",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "How much simple interest does $2000$ riyals earn in $3$ years at $5\\%$ per year?",
+    "options": [
+      {
+        "content": "$300$ riyals",
+        "is_correct": true
+      },
+      {
+        "content": "$100$ riyals",
+        "is_correct": false
+      },
+      {
+        "content": "$2300$ riyals",
+        "is_correct": false
+      },
+      {
+        "content": "$315.25$ riyals",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$300$ riyals",
+    "explanation_steps": [
+      "Simple interest is principal times rate times time.",
+      "Substitute: $2000 \\times 0.05 \\times 3$.",
+      "$2000 \\times 0.05 = 100$ per year, and over three years that is $300$ riyals."
+    ],
+    "distractor_rationales": {
+      "1": "$100$ is one year's interest only.",
+      "2": "$2300$ is the final balance, not the interest earned.",
+      "3": "$315.25$ is the compound interest, which is not what simple interest means."
+    },
+    "concept_summary": "Simple interest is the same amount every year.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1dm01",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-calculate-the-mean-median-mode-and-range",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is the median of $3, 9, 4, 1, 8$?",
+    "options": [
+      {
+        "content": "$4$",
+        "is_correct": true
+      },
+      {
+        "content": "$5$",
+        "is_correct": false
+      },
+      {
+        "content": "$8$",
+        "is_correct": false
+      },
+      {
+        "content": "$9$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$4$",
+    "explanation_steps": [
+      "The median is the middle value once the list is in order.",
+      "Sorted, the list is $1, 3, 4, 8, 9$.",
+      "There are five values, so the third one is the middle: $4$."
+    ],
+    "distractor_rationales": {
+      "1": "$5$ is the mean, which is a different average.",
+      "2": "$8$ is the fourth value, not the middle one.",
+      "3": "$9$ is the largest value."
+    },
+    "concept_summary": "Sort first, then take the middle.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1dm02",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-calculate-the-mean-median-mode-and-range",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A set of four numbers has a mean of $12$. Three of them are $8$, $14$ and $15$. What is the fourth?",
+    "options": [
+      {
+        "content": "$11$",
+        "is_correct": true
+      },
+      {
+        "content": "$12$",
+        "is_correct": false
+      },
+      {
+        "content": "$13$",
+        "is_correct": false
+      },
+      {
+        "content": "$37$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$11$",
+    "explanation_steps": [
+      "A mean of $12$ across four numbers means they total $4 \\times 12 = 48$.",
+      "The three known values add to $8 + 14 + 15 = 37$.",
+      "The fourth is $48 - 37 = 11$."
+    ],
+    "distractor_rationales": {
+      "1": "$12$ assumes the missing value equals the mean, which is only true by coincidence.",
+      "2": "$13$ would make the total $50$ and the mean $12.5$.",
+      "3": "$37$ is the sum of the other three, not the missing value."
+    },
+    "concept_summary": "Turn the mean back into a total, then subtract.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1dm03",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-interpret-a-circle-graph-and-convert-between",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A slice of a circle graph represents $25\\%$ of the data. What is its angle at the centre?",
+    "options": [
+      {
+        "content": "$90^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$25^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$120^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$45^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$90^{\\circ}$",
+    "explanation_steps": [
+      "A full circle graph is $360^{\\circ}$ and represents $100\\%$.",
+      "So each percent is $3.6^{\\circ}$.",
+      "$25 \\times 3.6 = 90^{\\circ}$, which is a quarter of the circle."
+    ],
+    "distractor_rationales": {
+      "1": "$25^{\\circ}$ uses the percentage as if it were already degrees.",
+      "2": "$120^{\\circ}$ is a third of the circle, which would be about $33\\%$.",
+      "3": "$45^{\\circ}$ is an eighth, which would be $12.5\\%$."
+    },
+    "concept_summary": "Each percent of a circle graph is $3.6$ degrees.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1dm04",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-describe-the-relationship-shown-by-a-scatterplot",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "On a scatterplot, points drift downward from left to right. What does this show?",
+    "options": [
+      {
+        "content": "A negative relationship",
+        "is_correct": true
+      },
+      {
+        "content": "A positive relationship",
+        "is_correct": false
+      },
+      {
+        "content": "No relationship",
+        "is_correct": false
+      },
+      {
+        "content": "That one variable causes the other",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A negative relationship",
+    "explanation_steps": [
+      "Read the direction: as the left-to-right variable rises, the up-and-down one falls.",
+      "One going up while the other goes down is a negative relationship.",
+      "The steeper and tighter the drift, the stronger it is."
+    ],
+    "distractor_rationales": {
+      "1": "A positive relationship drifts upward to the right.",
+      "2": "No relationship looks like a shapeless cloud with no drift.",
+      "3": "A scatterplot shows association only. It cannot establish cause."
+    },
+    "concept_summary": "Downward to the right means negative.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1dm05",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-calculate-the-mean-median-mode-and-range",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Which average is affected most by one unusually large value?",
+    "options": [
+      {
+        "content": "The mean",
+        "is_correct": true
+      },
+      {
+        "content": "The median",
+        "is_correct": false
+      },
+      {
+        "content": "The mode",
+        "is_correct": false
+      },
+      {
+        "content": "All three equally",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "The mean",
+    "explanation_steps": [
+      "The mean adds every value, so a very large one pulls the total up.",
+      "The median only cares about position in the sorted list, so an extreme value moves it by at most one place.",
+      "The mode is the most common value and usually does not change at all."
+    ],
+    "distractor_rationales": {
+      "1": "The median is deliberately resistant to extreme values.",
+      "2": "The mode ignores size entirely and counts repeats.",
+      "3": "They respond very differently, which is why all three are reported."
+    },
+    "concept_summary": "The mean uses every value, so outliers move it.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1dm06",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-read-and-interpret-a-histogram-including-class",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A histogram has classes $0$ to $10$, $10$ to $20$ and $20$ to $30$. What is the class width?",
+    "options": [
+      {
+        "content": "$10$",
+        "is_correct": true
+      },
+      {
+        "content": "$3$",
+        "is_correct": false
+      },
+      {
+        "content": "$30$",
+        "is_correct": false
+      },
+      {
+        "content": "$5$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$10$",
+    "explanation_steps": [
+      "Class width is the distance across one class.",
+      "The first runs from $0$ to $10$.",
+      "$10 - 0 = 10$, and every class here is the same width."
+    ],
+    "distractor_rationales": {
+      "1": "$3$ is the number of classes, not their width.",
+      "2": "$30$ is the whole range across all three.",
+      "3": "$5$ is the midpoint of the first class."
+    },
+    "concept_summary": "Class width is the span of one bar.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge01",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-identify-pairs-of-complementary-angles-and-pairs",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Two angles are complementary. One is $37^{\\circ}$. What is the other?",
+    "options": [
+      {
+        "content": "$53^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$143^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$63^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$37^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$53^{\\circ}$",
+    "explanation_steps": [
+      "Complementary angles add to $90^{\\circ}$.",
+      "Subtract: $90 - 37$.",
+      "That leaves $53^{\\circ}$."
+    ],
+    "distractor_rationales": {
+      "1": "$143^{\\circ}$ uses $180^{\\circ}$, which is for supplementary angles.",
+      "2": "$63^{\\circ}$ subtracts from $100$ rather than $90$.",
+      "3": "Equal angles are only complementary when both are $45^{\\circ}$."
+    },
+    "concept_summary": "Complementary adds to $90^{\\circ}$; supplementary adds to $180^{\\circ}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge02",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-use-the-angle-sum-principle-to-calculate",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A triangle has angles of $52^{\\circ}$ and $71^{\\circ}$. What is the third?",
+    "options": [
+      {
+        "content": "$57^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$123^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$67^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$19^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$57^{\\circ}$",
+    "explanation_steps": [
+      "The angles of any triangle add to $180^{\\circ}$.",
+      "The two given add to $52 + 71 = 123$.",
+      "$180 - 123 = 57^{\\circ}$."
+    ],
+    "distractor_rationales": {
+      "1": "$123^{\\circ}$ is the sum of the two given angles, not the missing one.",
+      "2": "$67^{\\circ}$ would make the total $190^{\\circ}$.",
+      "3": "$19^{\\circ}$ is the difference between the two given angles."
+    },
+    "concept_summary": "A triangle's angles total $180^{\\circ}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge03",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-use-the-pythagorean-theorem-to-calculate-the",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A right triangle has legs of $9$ and $12$. How long is the hypotenuse?",
+    "options": [
+      {
+        "content": "$15$",
+        "is_correct": true
+      },
+      {
+        "content": "$21$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sqrt{63}$",
+        "is_correct": false
+      },
+      {
+        "content": "$108$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$15$",
+    "explanation_steps": [
+      "Pythagoras: the squares of the legs add to the square of the hypotenuse.",
+      "$9^{2} + 12^{2} = 81 + 144 = 225$.",
+      "$\\sqrt{225} = 15$."
+    ],
+    "distractor_rationales": {
+      "1": "$21$ adds the legs directly, which would only be true if the triangle were flat.",
+      "2": "This subtracts the squares instead of adding them.",
+      "3": "$108$ multiplies the legs, which gives twice the area."
+    },
+    "concept_summary": "Add the squares of the legs, then take the square root.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge04",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-find-the-area-and-perimeter-of-a",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A circle has a diameter of $14$ cm. What is its area, using $\\pi \\approx 3.14$?",
+    "options": [
+      {
+        "content": "$153.86$ cm$^{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$615.44$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$43.96$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$87.92$ cm$^{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$153.86$ cm$^{2}$",
+    "explanation_steps": [
+      "Area uses the radius, so halve the diameter: $r = 7$ cm.",
+      "Area is $\\pi r^{2} = 3.14 \\times 49$.",
+      "That is $153.86$ cm$^{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$615.44$ uses the diameter in place of the radius, giving four times too much.",
+      "2": "$43.96$ is the circumference, not the area.",
+      "3": "$87.92$ is $2\\pi r$ with the diameter, which is not a standard formula."
+    },
+    "concept_summary": "Area needs the radius; halve the diameter first.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge05",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-find-the-volume-and-surface-area-of",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A cylinder has radius $3$ cm and height $10$ cm. What is its volume, using $\\pi \\approx 3.14$?",
+    "options": [
+      {
+        "content": "$282.6$ cm$^{3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$94.2$ cm$^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$188.4$ cm$^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$942$ cm$^{3}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$282.6$ cm$^{3}$",
+    "explanation_steps": [
+      "Volume of a cylinder is the circular base area times the height.",
+      "Base area is $\\pi r^{2} = 3.14 \\times 9 = 28.26$ cm$^{2}$.",
+      "Multiply by the height: $28.26 \\times 10 = 282.6$ cm$^{3}$."
+    ],
+    "distractor_rationales": {
+      "1": "$94.2$ uses $\\pi r h$ and forgets to square the radius.",
+      "2": "$188.4$ is the curved surface area, $2\\pi r h$.",
+      "3": "$942$ squares the radius as $30$ rather than $9$."
+    },
+    "concept_summary": "Volume of a prism or cylinder is base area times height.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge06",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-recognize-similar-triangles-and-identify-the-corresponding",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Two triangles are similar. What must be true of them?",
+    "options": [
+      {
+        "content": "Their angles match and their sides are in a constant ratio.",
+        "is_correct": true
+      },
+      {
+        "content": "Their sides are equal.",
+        "is_correct": false
+      },
+      {
+        "content": "They have the same area.",
+        "is_correct": false
+      },
+      {
+        "content": "They must both contain a right angle.",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Their angles match and their sides are in a constant ratio.",
+    "explanation_steps": [
+      "Similar means the same shape, at a possibly different size.",
+      "Same shape fixes every angle, so all three angles match.",
+      "Different size means each pair of matching sides has the same scale factor."
+    ],
+    "distractor_rationales": {
+      "1": "Equal sides would make them congruent, which is a stronger condition.",
+      "2": "Areas match only when the scale factor is $1$.",
+      "3": "Similar triangles can be any shape, not only right-angled."
+    },
+    "concept_summary": "Similar means equal angles and proportional sides.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge07",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-find-the-missing-measures-in-similar-triangles",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Two similar triangles have matching sides of $4$ cm and $10$ cm. If the smaller has an area of $8$ cm$^{2}$, what is the area of the larger?",
+    "options": [
+      {
+        "content": "$50$ cm$^{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$20$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$80$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$32$ cm$^{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$50$ cm$^{2}$",
+    "explanation_steps": [
+      "The scale factor for lengths is $\\frac{10}{4} = 2.5$.",
+      "Area scales by the square of the length factor, so by $2.5^{2} = 6.25$.",
+      "$8 \\times 6.25 = 50$ cm$^{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$20$ multiplies by the length factor once, which is what makes this question hard.",
+      "2": "$80$ multiplies by $10$ instead of $6.25$.",
+      "3": "$32$ multiplies by $4$, the smaller side rather than the squared ratio."
+    },
+    "concept_summary": "Lengths scale by $k$, areas by $k^{2}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge08",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-classify-triangles-as-scalene-equilateral-right-or",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "A triangle has sides $7$, $7$ and $10$. What kind is it?",
+    "options": [
+      {
+        "content": "Isosceles",
+        "is_correct": true
+      },
+      {
+        "content": "Equilateral",
+        "is_correct": false
+      },
+      {
+        "content": "Scalene",
+        "is_correct": false
+      },
+      {
+        "content": "Right-angled",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Isosceles",
+    "explanation_steps": [
+      "Count how many sides are equal: two of them are $7$.",
+      "Exactly two equal sides makes a triangle isosceles.",
+      "Check for a right angle too: $7^{2} + 7^{2} = 98$, which is not $10^{2} = 100$, so it is not right-angled."
+    ],
+    "distractor_rationales": {
+      "1": "Equilateral needs all three sides equal.",
+      "2": "Scalene means no two sides are equal.",
+      "3": "It is very close, but $98 \\ne 100$, so the angle is not exactly right."
+    },
+    "concept_summary": "Two equal sides makes an isosceles triangle.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge09",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-determine-the-number-of-significant-digits-of",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "How many significant digits does $0.00450$ have?",
+    "options": [
+      {
+        "content": "$3$",
+        "is_correct": true
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      },
+      {
+        "content": "$5$",
+        "is_correct": false
+      },
+      {
+        "content": "$6$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$3$",
+    "explanation_steps": [
+      "Zeros in front of the first non-zero digit only fix the decimal point, so they do not count.",
+      "That leaves $4$, $5$ and the final $0$.",
+      "A trailing zero after the decimal point is significant, so the count is $3$."
+    ],
+    "distractor_rationales": {
+      "1": "$2$ drops the trailing zero, which is written deliberately to show precision.",
+      "2": "$5$ counts the leading zeros.",
+      "3": "$6$ counts every character in the number."
+    },
+    "concept_summary": "Leading zeros never count; trailing zeros after a decimal point do.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1ge10",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-classify-angles-as-right-acute-obtuse-or",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "An angle measures $115^{\\circ}$. How is it classified?",
+    "options": [
+      {
+        "content": "Obtuse",
+        "is_correct": true
+      },
+      {
+        "content": "Acute",
+        "is_correct": false
+      },
+      {
+        "content": "Right",
+        "is_correct": false
+      },
+      {
+        "content": "Reflex",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Obtuse",
+    "explanation_steps": [
+      "Acute is under $90^{\\circ}$ and right is exactly $90^{\\circ}$.",
+      "Obtuse is between $90^{\\circ}$ and $180^{\\circ}$.",
+      "$115^{\\circ}$ falls in that band, so it is obtuse."
+    ],
+    "distractor_rationales": {
+      "1": "Acute angles are smaller than $90^{\\circ}$.",
+      "2": "A right angle is exactly $90^{\\circ}$.",
+      "3": "Reflex angles are larger than $180^{\\circ}$."
+    },
+    "concept_summary": "Between $90^{\\circ}$ and $180^{\\circ}$ is obtuse.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1po01",
+    "exam": "AMP1",
+    "topic_slug": "polynomials",
+    "skill_slug": "polynomials-identify-monomials-binomials-and-trinomials",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "How many terms does a binomial have?",
+    "options": [
+      {
+        "content": "Two",
+        "is_correct": true
+      },
+      {
+        "content": "One",
+        "is_correct": false
+      },
+      {
+        "content": "Three",
+        "is_correct": false
+      },
+      {
+        "content": "Any number",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "Two",
+    "explanation_steps": [
+      "The prefix \"bi\" means two, as in bicycle.",
+      "A binomial is a polynomial with exactly two terms, such as $x + 5$.",
+      "Terms are the pieces separated by plus or minus signs."
+    ],
+    "distractor_rationales": {
+      "1": "One term is a monomial.",
+      "2": "Three terms is a trinomial.",
+      "3": "\"Polynomial\" is the general word for any number of terms."
+    },
+    "concept_summary": "Mono is one, bi is two, tri is three.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1po02",
+    "exam": "AMP1",
+    "topic_slug": "polynomials",
+    "skill_slug": "polynomials-find-the-degree-of-a-polynomial-that",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the degree of $5x^{2}y^{3} - 4x^{4}$?",
+    "options": [
+      {
+        "content": "$5$",
+        "is_correct": true
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      },
+      {
+        "content": "$3$",
+        "is_correct": false
+      },
+      {
+        "content": "$9$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$",
+    "explanation_steps": [
+      "For a term with several letters, add their exponents.",
+      "The first term gives $2 + 3 = 5$. The second gives $4$.",
+      "The degree of the polynomial is the largest of these, which is $5$."
+    ],
+    "distractor_rationales": {
+      "1": "$4$ is the degree of the second term only.",
+      "2": "$3$ is the exponent on $y$ alone.",
+      "3": "$9$ adds every exponent in the whole expression instead of taking the largest term."
+    },
+    "concept_summary": "Degree of a term adds its exponents; degree of a polynomial takes the largest.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1po03",
+    "exam": "AMP1",
+    "topic_slug": "polynomials",
+    "skill_slug": "polynomials-square-a-binomial",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Expand $(x + 5)^{2}$.",
+    "options": [
+      {
+        "content": "$x^{2} + 10x + 25$",
+        "is_correct": true
+      },
+      {
+        "content": "$x^{2} + 25$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{2} + 5x + 25$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{2} + 10x + 10$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x^{2} + 10x + 25$",
+    "explanation_steps": [
+      "Squaring a bracket means multiplying it by itself, not squaring each piece.",
+      "The pattern is first squared, plus twice the product, plus last squared.",
+      "That gives $x^{2} + 2(5x) + 25 = x^{2} + 10x + 25$."
+    ],
+    "distractor_rationales": {
+      "1": "This squares each term separately and loses the middle term entirely.",
+      "2": "The middle term is twice the product, so $10x$ rather than $5x$.",
+      "3": "The last term is $5$ squared, which is $25$, not doubled."
+    },
+    "concept_summary": "$(a+b)^{2} = a^{2} + 2ab + b^{2}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1po04",
+    "exam": "AMP1",
+    "topic_slug": "polynomials",
+    "skill_slug": "polynomials-add-subtract-multiply-and-divide-polynomials",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Simplify $(3x^{2} + 2x) - (x^{2} - 5x)$.",
+    "options": [
+      {
+        "content": "$2x^{2} + 7x$",
+        "is_correct": true
+      },
+      {
+        "content": "$2x^{2} - 3x$",
+        "is_correct": false
+      },
+      {
+        "content": "$4x^{2} - 3x$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{2} + 3x$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2x^{2} + 7x$",
+    "explanation_steps": [
+      "The minus sign applies to everything in the second bracket.",
+      "So it becomes $3x^{2} + 2x - x^{2} + 5x$.",
+      "Collect like terms: $2x^{2} + 7x$."
+    ],
+    "distractor_rationales": {
+      "1": "This subtracts only the first term of the bracket and leaves $-5x$ unchanged.",
+      "2": "This adds the squared terms instead of subtracting them.",
+      "3": "This gets the sign of $5x$ right but mishandles the $2x$."
+    },
+    "concept_summary": "Subtracting a bracket flips the sign of every term inside it.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1po05",
+    "exam": "AMP1",
+    "topic_slug": "polynomials",
+    "skill_slug": "polynomials-write-a-polynomial-in-descending-exponent-form",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Write $4x - 3 + 2x^{3} - x^{2}$ in descending exponent order.",
+    "options": [
+      {
+        "content": "$2x^{3} - x^{2} + 4x - 3$",
+        "is_correct": true
+      },
+      {
+        "content": "$-3 + 4x - x^{2} + 2x^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{3} + 4x - x^{2} - 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$4x + 2x^{3} - x^{2} - 3$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2x^{3} - x^{2} + 4x - 3$",
+    "explanation_steps": [
+      "Descending order means highest power first.",
+      "The powers present are $3$, $2$, $1$ and $0$.",
+      "Reading them in that order gives $2x^{3} - x^{2} + 4x - 3$, keeping each sign attached."
+    ],
+    "distractor_rationales": {
+      "1": "This is ascending order, lowest power first.",
+      "2": "The $x$ and $x^{2}$ terms are swapped.",
+      "3": "This starts with the $x$ term, which is not the highest power."
+    },
+    "concept_summary": "Descending order runs from the highest exponent down.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1re01",
+    "exam": "AMP1",
+    "topic_slug": "rational-expressions",
+    "skill_slug": "rational-expressions-determine-the-values-for-which-a-rational",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "For which value is $\\frac{5}{x - 4}$ undefined?",
+    "options": [
+      {
+        "content": "$x = 4$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = -4$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 5$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 0$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 4$",
+    "explanation_steps": [
+      "A fraction is undefined only where its bottom is zero.",
+      "Solve $x - 4 = 0$.",
+      "That gives $x = 4$."
+    ],
+    "distractor_rationales": {
+      "1": "The sign flips when solving: $x - 4 = 0$ gives $+4$.",
+      "2": "$5$ is the top, which never causes a problem.",
+      "3": "At $x = 0$ the fraction is $-\\frac{5}{4}$, which is perfectly defined."
+    },
+    "concept_summary": "Set the denominator to zero to find excluded values.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1re02",
+    "exam": "AMP1",
+    "topic_slug": "rational-expressions",
+    "skill_slug": "rational-expressions-simplify-rational-algebraic-expressions",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Simplify $\\frac{x^{2} - 9}{x^{2} + 6x + 9}$.",
+    "options": [
+      {
+        "content": "$\\frac{x - 3}{x + 3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x + 3}{x - 3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$-\\frac{9}{6x + 9}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x - 3}{x - 3}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{x - 3}{x + 3}$",
+    "explanation_steps": [
+      "Factor the top as a difference of squares: $(x - 3)(x + 3)$.",
+      "Factor the bottom as a perfect square: $(x + 3)^{2}$.",
+      "One $(x + 3)$ cancels top and bottom, leaving $\\frac{x - 3}{x + 3}$."
+    ],
+    "distractor_rationales": {
+      "1": "This inverts the result.",
+      "2": "This cancels the $x^{2}$ terms, which are added rather than multiplied, so they cannot cancel.",
+      "3": "The bottom keeps an $(x + 3)$, not an $(x - 3)$."
+    },
+    "concept_summary": "Factor both parts fully, then cancel whole factors only.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1re03",
+    "exam": "AMP1",
+    "topic_slug": "rational-expressions",
+    "skill_slug": "rational-expressions-find-lowest-common-denominator-of-rational-algebraic",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the lowest common denominator of $\\frac{1}{6x}$ and $\\frac{1}{4x^{2}}$?",
+    "options": [
+      {
+        "content": "$12x^{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$24x^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$10x^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$12x$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$12x^{2}$",
+    "explanation_steps": [
+      "Take the lowest common multiple of the numbers: for $6$ and $4$ that is $12$.",
+      "For the letters, take the highest power present, which is $x^{2}$.",
+      "Putting them together gives $12x^{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$24x^{3}$ multiplies the two denominators together. It works, but it is not the lowest.",
+      "2": "$10$ adds $6$ and $4$ rather than finding their common multiple.",
+      "3": "$12x$ is not divisible by $4x^{2}$."
+    },
+    "concept_summary": "Lowest common multiple of the numbers, highest power of each letter.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1re04",
+    "exam": "AMP1",
+    "topic_slug": "rational-expressions",
+    "skill_slug": "rational-expressions-add-subtract-multiply-and-divide-rational-algebraic",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Simplify $\\frac{2}{x} + \\frac{3}{x + 1}$ as a single fraction.",
+    "options": [
+      {
+        "content": "$\\frac{5x + 2}{x(x+1)}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{5}{2x + 1}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{5x + 2}{2x + 1}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{6}{x(x+1)}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{5x + 2}{x(x+1)}$",
+    "explanation_steps": [
+      "The common denominator is $x(x+1)$.",
+      "Rewrite each fraction over it: $\\frac{2(x+1)}{x(x+1)} + \\frac{3x}{x(x+1)}$.",
+      "Add the tops: $2x + 2 + 3x = 5x + 2$, over $x(x+1)$."
+    ],
+    "distractor_rationales": {
+      "1": "This adds the tops and bottoms separately, which is never how fractions add.",
+      "2": "The top is right but the bottom was added rather than multiplied.",
+      "3": "$6$ multiplies the tops, which is what happens when multiplying, not adding."
+    },
+    "concept_summary": "Rewrite over a common denominator, then add only the tops.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1pc01",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-calculate-percent-increase-and-percent-decrease",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A price rises from $40$ to $50$ riyals. What is the percent increase?",
+    "options": [
+      {
+        "content": "$25\\%$",
+        "is_correct": true
+      },
+      {
+        "content": "$20\\%$",
+        "is_correct": false
+      },
+      {
+        "content": "$10\\%$",
+        "is_correct": false
+      },
+      {
+        "content": "$80\\%$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$25\\%$",
+    "explanation_steps": [
+      "Find the change: $50 - 40 = 10$ riyals.",
+      "Divide by the original amount, not the new one: $\\frac{10}{40} = 0.25$.",
+      "As a percent that is $25\\%$."
+    ],
+    "distractor_rationales": {
+      "1": "$20\\%$ divides by the new price instead of the original.",
+      "2": "$10\\%$ is the size of the change in riyals, not as a percentage.",
+      "3": "$80\\%$ is $40$ as a fraction of $50$, which answers a different question."
+    },
+    "concept_summary": "Percent change divides by the original amount.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1pc02",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-perform-calculations-using-the-three-types-of",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "$18$ is what percent of $72$?",
+    "options": [
+      {
+        "content": "$25\\%$",
+        "is_correct": true
+      },
+      {
+        "content": "$400\\%$",
+        "is_correct": false
+      },
+      {
+        "content": "$54\\%$",
+        "is_correct": false
+      },
+      {
+        "content": "$18\\%$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$25\\%$",
+    "explanation_steps": [
+      "\"What percent of\" means divide the part by the whole.",
+      "$\\frac{18}{72} = \\frac{1}{4} = 0.25$.",
+      "Multiply by $100$ to get $25\\%$."
+    ],
+    "distractor_rationales": {
+      "1": "$400\\%$ divides the whole by the part, answering the question backwards.",
+      "2": "$54$ is the difference between the two numbers.",
+      "3": "$18\\%$ repeats the part without comparing it to anything."
+    },
+    "concept_summary": "Part over whole, then times $100$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1pc03",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-calculate-unweighted-and-weighted-averages",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A course is $30\\%$ coursework and $70\\%$ exam. A student scores $80$ on coursework and $60$ on the exam. What is the final mark?",
+    "options": [
+      {
+        "content": "$66$",
+        "is_correct": true
+      },
+      {
+        "content": "$70$",
+        "is_correct": false
+      },
+      {
+        "content": "$74$",
+        "is_correct": false
+      },
+      {
+        "content": "$64$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$66$",
+    "explanation_steps": [
+      "Multiply each score by its weight: $0.3 \\times 80 = 24$ and $0.7 \\times 60 = 42$.",
+      "Add the two weighted parts: $24 + 42$.",
+      "The final mark is $66$."
+    ],
+    "distractor_rationales": {
+      "1": "$70$ is the plain average of $80$ and $60$, which ignores the weights.",
+      "2": "$74$ swaps the weights, giving the coursework the larger share.",
+      "3": "$64$ uses weights of $20$ and $80$."
+    },
+    "concept_summary": "Weighted average multiplies each score by its share, then adds.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1pc04",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-calculate-percent-increase-and-percent-decrease",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A price rises by $20\\%$, then falls by $20\\%$. Compared with the start, the final price is:",
+    "options": [
+      {
+        "content": "$4\\%$ lower",
+        "is_correct": true
+      },
+      {
+        "content": "the same",
+        "is_correct": false
+      },
+      {
+        "content": "$4\\%$ higher",
+        "is_correct": false
+      },
+      {
+        "content": "$20\\%$ lower",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$4\\%$ lower",
+    "explanation_steps": [
+      "Take $100$ as the starting price. A $20\\%$ rise gives $120$.",
+      "The fall is $20\\%$ of $120$, which is $24$, not $20$.",
+      "$120 - 24 = 96$, which is $4\\%$ below the original $100$."
+    ],
+    "distractor_rationales": {
+      "1": "The two percentages are taken of different amounts, so they do not cancel.",
+      "2": "The result is lower, because the fall is calculated on a bigger number.",
+      "3": "$20\\%$ lower would be $80$, which is far below the real answer."
+    },
+    "concept_summary": "Percentages apply to whatever the amount is at the time.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1pc05",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-change-a-percent-to-a-fraction-or",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Write $12.5\\%$ as a fraction in lowest terms.",
+    "options": [
+      {
+        "content": "$\\frac{1}{8}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{1}{4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{12.5}{100}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{12}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\frac{1}{8}$",
+    "explanation_steps": [
+      "Percent means out of one hundred, so start with $\\frac{12.5}{100}$.",
+      "Clear the decimal by doubling both parts: $\\frac{25}{200}$.",
+      "Divide both by $25$ to get $\\frac{1}{8}$."
+    ],
+    "distractor_rationales": {
+      "1": "$\\frac{1}{4}$ is $25\\%$, twice as much.",
+      "2": "This is correct but not in lowest terms, and a fraction should not contain a decimal.",
+      "3": "$\\frac{1}{12}$ reads the $12.5$ as the denominator."
+    },
+    "concept_summary": "Percent over $100$, then simplify.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fa01",
+    "exam": "AMP1",
+    "topic_slug": "factoring",
+    "skill_slug": "factoring-factor-a-difference-of-squares",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Factor $x^{2} - 49$.",
+    "options": [
+      {
+        "content": "$(x - 7)(x + 7)$",
+        "is_correct": true
+      },
+      {
+        "content": "$(x - 7)^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x - 49)(x + 1)$",
+        "is_correct": false
+      },
+      {
+        "content": "It cannot be factored.",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$(x - 7)(x + 7)$",
+    "explanation_steps": [
+      "Both parts are perfect squares and they are subtracted, so this is a difference of squares.",
+      "The pattern is $a^{2} - b^{2} = (a - b)(a + b)$.",
+      "With $a = x$ and $b = 7$, the factors are $(x - 7)(x + 7)$."
+    ],
+    "distractor_rationales": {
+      "1": "$(x-7)^{2}$ expands to $x^{2} - 14x + 49$, which has an extra middle term.",
+      "2": "These multiply to $x^{2} - 48x - 49$.",
+      "3": "A difference of squares always factors."
+    },
+    "concept_summary": "A difference of squares splits into a sum times a difference.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fa02",
+    "exam": "AMP1",
+    "topic_slug": "factoring",
+    "skill_slug": "factoring-find-the-greatest-common-factor-from-a",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Factor out the greatest common factor of $12x^{3} - 18x^{2}$.",
+    "options": [
+      {
+        "content": "$6x^{2}(2x - 3)$",
+        "is_correct": true
+      },
+      {
+        "content": "$6x(2x^{2} - 3x)$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{2}(6x - 9)$",
+        "is_correct": false
+      },
+      {
+        "content": "$6x^{3}(2 - 3x)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$6x^{2}(2x - 3)$",
+    "explanation_steps": [
+      "The largest number dividing both $12$ and $18$ is $6$.",
+      "The lowest power of $x$ present is $x^{2}$, so that comes out too.",
+      "Dividing each term by $6x^{2}$ leaves $2x - 3$."
+    ],
+    "distractor_rationales": {
+      "1": "This takes out only one $x$, so the bracket still has a common factor.",
+      "2": "This takes out $2$ rather than $6$, leaving $3$ inside as a common factor.",
+      "3": "$x^{3}$ does not divide the second term, which only has $x^{2}$."
+    },
+    "concept_summary": "Take the largest number and the lowest power of each letter.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fa03",
+    "exam": "AMP1",
+    "topic_slug": "factoring",
+    "skill_slug": "factoring-factor-trinomials-of-the-form",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Factor $x^{2} - x - 20$.",
+    "options": [
+      {
+        "content": "$(x - 5)(x + 4)$",
+        "is_correct": true
+      },
+      {
+        "content": "$(x + 5)(x - 4)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x - 10)(x + 2)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x - 20)(x + 1)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$(x - 5)(x + 4)$",
+    "explanation_steps": [
+      "Look for two numbers multiplying to $-20$ and adding to $-1$.",
+      "The pair $-5$ and $+4$ multiplies to $-20$ and adds to $-1$.",
+      "So the factors are $(x - 5)(x + 4)$."
+    ],
+    "distractor_rationales": {
+      "1": "This pair adds to $+1$, giving $x^{2} + x - 20$.",
+      "2": "$-10$ and $2$ add to $-8$, not $-1$.",
+      "3": "$-20$ and $1$ add to $-19$."
+    },
+    "concept_summary": "Find two numbers with the right product and the right sum.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fa04",
+    "exam": "AMP1",
+    "topic_slug": "factoring",
+    "skill_slug": "factoring-factor-by-grouping",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Factor $x^{3} + 3x^{2} + 4x + 12$ by grouping.",
+    "options": [
+      {
+        "content": "$(x + 3)(x^{2} + 4)$",
+        "is_correct": true
+      },
+      {
+        "content": "$(x + 3)(x^{2} - 4)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x^{2} + 3)(x + 4)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x + 4)(x^{2} + 3)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$(x + 3)(x^{2} + 4)$",
+    "explanation_steps": [
+      "Split into pairs: $(x^{3} + 3x^{2})$ and $(4x + 12)$.",
+      "Take the common factor from each: $x^{2}(x + 3)$ and $4(x + 3)$.",
+      "Both share $(x + 3)$, so the answer is $(x + 3)(x^{2} + 4)$."
+    ],
+    "distractor_rationales": {
+      "1": "The second group gives $+4$, since $12 \\div 3 = 4$ is positive.",
+      "2": "Expanding this gives $x^{3} + 4x^{2} + 3x + 12$, a different polynomial.",
+      "3": "Same expansion as the previous option, just written in the other order."
+    },
+    "concept_summary": "Group in pairs, factor each, then take out the shared bracket.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1fa05",
+    "exam": "AMP1",
+    "topic_slug": "factoring",
+    "skill_slug": "factoring-factor-a-sum-and-a-difference-of",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Factor $x^{3} + 27$.",
+    "options": [
+      {
+        "content": "$(x + 3)(x^{2} - 3x + 9)$",
+        "is_correct": true
+      },
+      {
+        "content": "$(x + 3)(x^{2} + 3x + 9)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x + 3)^{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$(x - 3)(x^{2} + 3x + 9)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$(x + 3)(x^{2} - 3x + 9)$",
+    "explanation_steps": [
+      "This is a sum of cubes, since $27 = 3^{3}$.",
+      "The pattern is $a^{3} + b^{3} = (a + b)(a^{2} - ab + b^{2})$.",
+      "With $a = x$ and $b = 3$ that gives $(x + 3)(x^{2} - 3x + 9)$."
+    ],
+    "distractor_rationales": {
+      "1": "The middle sign in the long bracket is always opposite to the short one.",
+      "2": "$(x+3)^{3}$ expands to $x^{3} + 9x^{2} + 27x + 27$.",
+      "3": "$(x - 3)$ belongs to a difference of cubes, not a sum."
+    },
+    "concept_summary": "Sum of cubes: same sign, opposite sign, always plus.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1tr01",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-define-the-primary-trigonometric-ratios-sine-cosine",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "In a right triangle, which ratio is the cosine of an angle?",
+    "options": [
+      {
+        "content": "adjacent over hypotenuse",
+        "is_correct": true
+      },
+      {
+        "content": "opposite over hypotenuse",
+        "is_correct": false
+      },
+      {
+        "content": "opposite over adjacent",
+        "is_correct": false
+      },
+      {
+        "content": "hypotenuse over adjacent",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "adjacent over hypotenuse",
+    "explanation_steps": [
+      "The three primary ratios are sine, cosine and tangent.",
+      "Cosine pairs the side next to the angle with the longest side.",
+      "So cosine is adjacent divided by hypotenuse."
+    ],
+    "distractor_rationales": {
+      "1": "That is sine.",
+      "2": "That is tangent.",
+      "3": "That is secant, the reciprocal of cosine."
+    },
+    "concept_summary": "Cosine is adjacent over hypotenuse.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1tr02",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-use-a-primary-trigonometric-ratio-to-calculate",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A right triangle has a hypotenuse of $10$ and an angle of $30^{\\circ}$. How long is the side opposite that angle?",
+    "options": [
+      {
+        "content": "$5$",
+        "is_correct": true
+      },
+      {
+        "content": "$8.66$",
+        "is_correct": false
+      },
+      {
+        "content": "$5.77$",
+        "is_correct": false
+      },
+      {
+        "content": "$20$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$",
+    "explanation_steps": [
+      "Opposite and hypotenuse means sine: $\\sin 30^{\\circ} = \\frac{\\text{opposite}}{10}$.",
+      "$\\sin 30^{\\circ} = 0.5$.",
+      "So the opposite side is $0.5 \\times 10 = 5$."
+    ],
+    "distractor_rationales": {
+      "1": "$8.66$ is the adjacent side, which uses cosine.",
+      "2": "$5.77$ divides by $\\cos 30^{\\circ}$ rather than multiplying by $\\sin 30^{\\circ}$.",
+      "3": "$20$ divides by $0.5$ instead of multiplying, making the side longer than the hypotenuse, which is impossible."
+    },
+    "concept_summary": "Pick the ratio that links the side you know to the one you want.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1tr03",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-define-the-secondary-trigonometric-ratios-cosecant-secant",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which ratio is the reciprocal of sine?",
+    "options": [
+      {
+        "content": "cosecant",
+        "is_correct": true
+      },
+      {
+        "content": "secant",
+        "is_correct": false
+      },
+      {
+        "content": "cotangent",
+        "is_correct": false
+      },
+      {
+        "content": "cosine",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "cosecant",
+    "explanation_steps": [
+      "Each primary ratio has a reciprocal partner.",
+      "The names are confusing: cosecant goes with sine, and secant goes with cosine.",
+      "So $\\csc\\theta = \\frac{1}{\\sin\\theta}$."
+    ],
+    "distractor_rationales": {
+      "1": "Secant is the reciprocal of cosine.",
+      "2": "Cotangent is the reciprocal of tangent.",
+      "3": "Cosine is a primary ratio, not a reciprocal of sine."
+    },
+    "concept_summary": "Cosecant pairs with sine, secant with cosine.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1tr04",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-use-a-trigonometric-ratio-to-calculate-an",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A ladder leans against a wall, reaching $4$ m up, with its foot $3$ m from the wall. What angle does it make with the ground?",
+    "options": [
+      {
+        "content": "About $53^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "About $37^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "About $45^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "About $60^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "About $53^{\\circ}$",
+    "explanation_steps": [
+      "The height is opposite the angle and the distance along the ground is adjacent, so use tangent.",
+      "$\\tan\\theta = \\frac{4}{3} \\approx 1.333$.",
+      "$\\tan^{-1}(1.333) \\approx 53^{\\circ}$."
+    ],
+    "distractor_rationales": {
+      "1": "$37^{\\circ}$ is the angle at the top, between the ladder and the wall.",
+      "2": "$45^{\\circ}$ would need the height and the distance to be equal.",
+      "3": "$60^{\\circ}$ would need a ratio of about $1.73$."
+    },
+    "concept_summary": "Opposite over adjacent is tangent; the inverse gives the angle.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1tr05",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-define-minutes-and-seconds-as-subdivisions-of",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "How many minutes are there in one degree?",
+    "options": [
+      {
+        "content": "$60$",
+        "is_correct": true
+      },
+      {
+        "content": "$100$",
+        "is_correct": false
+      },
+      {
+        "content": "$360$",
+        "is_correct": false
+      },
+      {
+        "content": "$10$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$60$",
+    "explanation_steps": [
+      "Angle measure is divided like time.",
+      "One degree splits into $60$ minutes, written $60'$.",
+      "Each minute then splits into $60$ seconds."
+    ],
+    "distractor_rationales": {
+      "1": "$100$ would be a decimal division, which angles do not use.",
+      "2": "$360$ is the number of degrees in a full turn.",
+      "3": "$10$ is not a subdivision used for angles."
+    },
+    "concept_summary": "Degrees split into 60 minutes, minutes into 60 seconds.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1tr06",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-use-a-primary-trigonometric-ratio-to-calculate",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "In a right triangle the side opposite an angle is $7$ and the adjacent side is $7$. What is the angle?",
+    "options": [
+      {
+        "content": "$45^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$30^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$60^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$90^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$45^{\\circ}$",
+    "explanation_steps": [
+      "Opposite over adjacent is tangent: $\\tan\\theta = \\frac{7}{7} = 1$.",
+      "The angle whose tangent is $1$ is $45^{\\circ}$.",
+      "This makes sense: equal legs give an isosceles right triangle."
+    ],
+    "distractor_rationales": {
+      "1": "$\\tan 30^{\\circ} \\approx 0.577$, not $1$.",
+      "2": "$\\tan 60^{\\circ} \\approx 1.73$.",
+      "3": "$90^{\\circ}$ is the right angle itself, not one of the other two."
+    },
+    "concept_summary": "A tangent of $1$ means the two legs are equal.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1el01",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-determine-distance-between-two-points",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the distance between $(1, 2)$ and $(4, 6)$?",
+    "options": [
+      {
+        "content": "$5$",
+        "is_correct": true
+      },
+      {
+        "content": "$7$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sqrt{7}$",
+        "is_correct": false
+      },
+      {
+        "content": "$25$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$",
+    "explanation_steps": [
+      "Find the horizontal and vertical gaps: $4 - 1 = 3$ and $6 - 2 = 4$.",
+      "The distance is the hypotenuse of a right triangle with those legs.",
+      "$\\sqrt{3^{2} + 4^{2}} = \\sqrt{25} = 5$."
+    ],
+    "distractor_rationales": {
+      "1": "$7$ adds the two gaps instead of using Pythagoras.",
+      "2": "$\\sqrt{7}$ adds the gaps then takes the root, missing the squaring.",
+      "3": "$25$ is the squared distance; the root has not been taken."
+    },
+    "concept_summary": "Distance is Pythagoras on the horizontal and vertical gaps.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1el02",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-determine-midpoint-of-a-line-segment",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is the midpoint of the segment joining $(-2, 5)$ and $(6, 1)$?",
+    "options": [
+      {
+        "content": "$(2, 3)$",
+        "is_correct": true
+      },
+      {
+        "content": "$(4, 6)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(2, -2)$",
+        "is_correct": false
+      },
+      {
+        "content": "$(8, -4)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$(2, 3)$",
+    "explanation_steps": [
+      "The midpoint averages each coordinate separately.",
+      "$x$: $\\frac{-2 + 6}{2} = 2$.",
+      "$y$: $\\frac{5 + 1}{2} = 3$. So the midpoint is $(2, 3)$."
+    ],
+    "distractor_rationales": {
+      "1": "$(4, 6)$ adds the coordinates without halving.",
+      "2": "The $y$ coordinate averages, so it is $3$, not the halved difference.",
+      "3": "$(8, -4)$ subtracts the coordinates, which gives the gap rather than the middle."
+    },
+    "concept_summary": "Average the $x$ values and average the $y$ values.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1el03",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-determine-slope-of-a-line-including-parallel",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A line has slope $\\frac{2}{3}$. What is the slope of a line perpendicular to it?",
+    "options": [
+      {
+        "content": "$-\\frac{3}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{3}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$-\\frac{2}{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{2}{3}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$-\\frac{3}{2}$",
+    "explanation_steps": [
+      "Perpendicular slopes are negative reciprocals of each other.",
+      "Flip the fraction: $\\frac{3}{2}$.",
+      "Then change the sign: $-\\frac{3}{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "This flips but forgets to change the sign.",
+      "2": "This changes the sign but does not flip.",
+      "3": "This is the original slope, which would be a parallel line."
+    },
+    "concept_summary": "Perpendicular means flip the fraction and change the sign.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1el04",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-find-the-equation-of-a-line-given",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Find the equation of the line through $(2, 1)$ and $(4, 7)$.",
+    "options": [
+      {
+        "content": "$y = 3x - 5$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = 3x + 5$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = \\frac{1}{3}x + \\frac{1}{3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = 3x - 1$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = 3x - 5$",
+    "explanation_steps": [
+      "Slope is the change in $y$ over the change in $x$: $\\frac{7 - 1}{4 - 2} = \\frac{6}{2} = 3$.",
+      "Use one point to find the intercept: $1 = 3(2) + b$, so $b = 1 - 6 = -5$.",
+      "The line is $y = 3x - 5$. Check with the other point: $3(4) - 5 = 7$."
+    ],
+    "distractor_rationales": {
+      "1": "The intercept sign is wrong; $y = 3x + 5$ passes through neither point.",
+      "2": "This uses the reciprocal of the slope.",
+      "3": "$y = 3x - 1$ gives $5$ at $x = 2$, not $1$."
+    },
+    "concept_summary": "Slope first, then substitute a point to find the intercept.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1el05",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-graph-horizontal-and-vertical-lines-from-their",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What does the graph of $x = 4$ look like?",
+    "options": [
+      {
+        "content": "A vertical line through $4$ on the $x$ axis",
+        "is_correct": true
+      },
+      {
+        "content": "A horizontal line through $4$ on the $y$ axis",
+        "is_correct": false
+      },
+      {
+        "content": "A line with slope $4$ through the origin",
+        "is_correct": false
+      },
+      {
+        "content": "A single point at $(4, 0)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A vertical line through $4$ on the $x$ axis",
+    "explanation_steps": [
+      "The equation says $x$ is always $4$, whatever $y$ is.",
+      "Points like $(4, 0)$, $(4, 1)$ and $(4, -3)$ all satisfy it.",
+      "Stacking those points gives a vertical line."
+    ],
+    "distractor_rationales": {
+      "1": "A horizontal line would be $y = 4$.",
+      "2": "Slope $4$ through the origin is $y = 4x$.",
+      "3": "Every value of $y$ works, so it is a whole line, not one point."
+    },
+    "concept_summary": "$x = a$ is vertical; $y = b$ is horizontal.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1el06",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-write-equation-of-a-line-from-standard",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Rewrite $2x + 3y = 12$ in the form $y = mx + b$.",
+    "options": [
+      {
+        "content": "$y = -\\frac{2}{3}x + 4$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = \\frac{2}{3}x + 4$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = -2x + 12$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = -\\frac{3}{2}x + 4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = -\\frac{2}{3}x + 4$",
+    "explanation_steps": [
+      "Move the $x$ term across: $3y = -2x + 12$.",
+      "Divide every term by $3$.",
+      "That gives $y = -\\frac{2}{3}x + 4$."
+    ],
+    "distractor_rationales": {
+      "1": "Moving $2x$ across makes it negative.",
+      "2": "This forgets to divide by the $3$ in front of $y$.",
+      "3": "This inverts the slope fraction."
+    },
+    "concept_summary": "Isolate $y$, then divide everything by its coefficient.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1lg01",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-change-expressions-from-exponential-to-logarithmic-form",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Write $4^{3} = 64$ in logarithmic form.",
+    "options": [
+      {
+        "content": "$\\log_{4}(64) = 3$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\log_{3}(64) = 4$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\log_{64}(4) = 3$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\log_{4}(3) = 64$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\log_{4}(64) = 3$",
+    "explanation_steps": [
+      "In $4^{3} = 64$, the base is $4$, the exponent is $3$ and the result is $64$.",
+      "A logarithm keeps the same base and returns the exponent.",
+      "So $\\log_{4}(64) = 3$."
+    ],
+    "distractor_rationales": {
+      "1": "This makes the exponent the base.",
+      "2": "This swaps the base and the result.",
+      "3": "This puts the exponent inside and the result outside."
+    },
+    "concept_summary": "The base stays the base; the log gives the exponent.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1lg02",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-use-the-laws-of-logarithms-to-rewrite",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Rewrite $\\log(x) + \\log(y)$ as a single logarithm.",
+    "options": [
+      {
+        "content": "$\\log(xy)$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\log(x + y)$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\log(x)\\log(y)$",
+        "is_correct": false
+      },
+      {
+        "content": "$2\\log(xy)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\log(xy)$",
+    "explanation_steps": [
+      "Logarithms turn multiplication inside into addition outside.",
+      "Reading that backwards, adding two logs gives the log of the product.",
+      "So $\\log(x) + \\log(y) = \\log(xy)$."
+    ],
+    "distractor_rationales": {
+      "1": "There is no law for the log of a sum; it cannot be split or combined.",
+      "2": "Multiplying the logs is a different quantity entirely.",
+      "3": "The $2$ appears from nowhere."
+    },
+    "concept_summary": "Adding logs multiplies the insides.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1lg03",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-use-the-laws-of-logarithms-to-solve",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $\\log_{2}(x + 1) = 4$.",
+    "options": [
+      {
+        "content": "$x = 15$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 16$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 7$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 3$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 15$",
+    "explanation_steps": [
+      "Convert to exponential form: $x + 1 = 2^{4}$.",
+      "$2^{4} = 16$, so $x + 1 = 16$.",
+      "Subtract one: $x = 15$."
+    ],
+    "distractor_rationales": {
+      "1": "$16$ forgets to subtract the $1$.",
+      "2": "$7$ would come from $2^{3}$.",
+      "3": "$3$ solves $\\log_{2}(x+1) = 2$."
+    },
+    "concept_summary": "Turn the log into a power, then solve normally.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1lg04",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-use-the-calculator-to-find-common-logarithms",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is $\\log(1000)$, where $\\log$ means base $10$?",
+    "options": [
+      {
+        "content": "$3$",
+        "is_correct": true
+      },
+      {
+        "content": "$100$",
+        "is_correct": false
+      },
+      {
+        "content": "$10$",
+        "is_correct": false
+      },
+      {
+        "content": "$1000$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$3$",
+    "explanation_steps": [
+      "A common logarithm asks what power of $10$ gives the number.",
+      "$10^{3} = 1000$.",
+      "So the answer is $3$."
+    ],
+    "distractor_rationales": {
+      "1": "$100$ divides by ten, which is not what a logarithm does.",
+      "2": "$10$ is the base, not the exponent.",
+      "3": "$1000$ repeats the input."
+    },
+    "concept_summary": "A base-10 log counts the zeros in a power of ten.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1lg05",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-use-the-calculator-to-find-antilogarithms",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "If $\\log(x) = 2$, what is $x$?",
+    "options": [
+      {
+        "content": "$100$",
+        "is_correct": true
+      },
+      {
+        "content": "$20$",
+        "is_correct": false
+      },
+      {
+        "content": "$0.01$",
+        "is_correct": false
+      },
+      {
+        "content": "$2$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$100$",
+    "explanation_steps": [
+      "An antilogarithm undoes a logarithm.",
+      "$\\log(x) = 2$ means $10^{2} = x$.",
+      "So $x = 100$."
+    ],
+    "distractor_rationales": {
+      "1": "$20$ multiplies the base by the exponent.",
+      "2": "$0.01$ is $10^{-2}$, the wrong sign.",
+      "3": "$2$ is the logarithm, not the number."
+    },
+    "concept_summary": "Antilog means raise the base to that power.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a1lg06",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-change-the-form-of-logarithmic-and-exponential",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Which expression equals $3\\log(x) - \\log(y)$?",
+    "options": [
+      {
+        "content": "$\\log\\left(\\frac{x^{3}}{y}\\right)$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\log\\left(\\frac{3x}{y}\\right)$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\log(3x - y)$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3\\log x}{\\log y}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\log\\left(\\frac{x^{3}}{y}\\right)$",
+    "explanation_steps": [
+      "The $3$ in front moves up as an exponent: $3\\log(x) = \\log(x^{3})$.",
+      "Subtracting logs makes a quotient.",
+      "So the expression is $\\log\\left(\\frac{x^{3}}{y}\\right)$."
+    ],
+    "distractor_rationales": {
+      "1": "A coefficient becomes an exponent, not a multiplier inside.",
+      "2": "Subtraction outside becomes division inside, never subtraction inside.",
+      "3": "A quotient of logs is the change-of-base formula, a different thing."
+    },
+    "concept_summary": "A coefficient becomes an exponent; subtraction becomes division.",
+    "source": "authored"
   }
 ]
