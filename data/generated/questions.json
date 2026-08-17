@@ -171580,5 +171580,1045 @@
     },
     "concept_summary": "Multiplying the angle by $n$ multiplies the solution count by $n$.",
     "source": "authored"
+  },
+  {
+    "id": "qa_a2ge01",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-find-the-area-and-perimeter-of-a",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A trapezoid has parallel sides of $6$ cm and $10$ cm, and a height of $4$ cm. What is its area?",
+    "options": [
+      {
+        "content": "$32$ cm$^{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$64$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$40$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$20$ cm$^{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$32$ cm$^{2}$",
+    "explanation_steps": [
+      "Area is the average of the two parallel sides, times the height.",
+      "The average is $\\frac{6 + 10}{2} = 8$.",
+      "$8 \\times 4 = 32$ cm$^{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$64$ forgets to halve, using the sum of the sides rather than their average.",
+      "2": "$40$ uses only the longer side.",
+      "3": "$20$ uses only the shorter side, and halves once too often."
+    },
+    "concept_summary": "Average the parallel sides, then multiply by the height.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2ge02",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-find-the-volume-and-surface-area-of",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A cube has edges of $4$ cm. What is its total surface area?",
+    "options": [
+      {
+        "content": "$96$ cm$^{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$64$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$16$ cm$^{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$24$ cm$^{2}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$96$ cm$^{2}$",
+    "explanation_steps": [
+      "A cube has six identical square faces.",
+      "Each face has area $4 \\times 4 = 16$ cm$^{2}$.",
+      "$6 \\times 16 = 96$ cm$^{2}$."
+    ],
+    "distractor_rationales": {
+      "1": "$64$ is the volume, in cubic centimetres.",
+      "2": "$16$ is one face only.",
+      "3": "$24$ is the total edge length."
+    },
+    "concept_summary": "Six faces, each the square of the edge.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2ge03",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-use-the-pythagorean-theorem-to-calculate-the",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A right triangle has a hypotenuse of $13$ and one leg of $5$. How long is the other leg?",
+    "options": [
+      {
+        "content": "$12$",
+        "is_correct": true
+      },
+      {
+        "content": "$8$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\sqrt{194}$",
+        "is_correct": false
+      },
+      {
+        "content": "$18$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$12$",
+    "explanation_steps": [
+      "Rearrange Pythagoras to find a leg: subtract rather than add.",
+      "$13^{2} - 5^{2} = 169 - 25 = 144$.",
+      "$\\sqrt{144} = 12$."
+    ],
+    "distractor_rationales": {
+      "1": "$8$ subtracts the sides directly instead of their squares.",
+      "2": "This adds the squares, which finds a hypotenuse rather than a leg.",
+      "3": "$18$ adds the two given sides."
+    },
+    "concept_summary": "To find a leg, subtract the squares.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2ge04",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-identify-pairs-of-complementary-angles-and-pairs",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Two angles on a straight line measure $x$ and $2x$. What is $x$?",
+    "options": [
+      {
+        "content": "$60^{\\circ}$",
+        "is_correct": true
+      },
+      {
+        "content": "$30^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$90^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "$45^{\\circ}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$60^{\\circ}$",
+    "explanation_steps": [
+      "Angles on a straight line are supplementary, adding to $180^{\\circ}$.",
+      "So $x + 2x = 180$, giving $3x = 180$.",
+      "Dividing gives $x = 60^{\\circ}$."
+    ],
+    "distractor_rationales": {
+      "1": "$30^{\\circ}$ uses $90^{\\circ}$ instead of $180^{\\circ}$.",
+      "2": "$90^{\\circ}$ would make the two angles total $270^{\\circ}$.",
+      "3": "$45^{\\circ}$ would total $135^{\\circ}$."
+    },
+    "concept_summary": "Angles on a straight line total $180^{\\circ}$.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2ge05",
+    "exam": "AMP1",
+    "topic_slug": "geometry",
+    "skill_slug": "geometry-find-the-missing-measures-in-similar-triangles",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Two similar triangles have matching sides of $3$ and $12$. A second side of the smaller is $5$. What is the matching side of the larger?",
+    "options": [
+      {
+        "content": "$20$",
+        "is_correct": true
+      },
+      {
+        "content": "$14$",
+        "is_correct": false
+      },
+      {
+        "content": "$15$",
+        "is_correct": false
+      },
+      {
+        "content": "$60$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$20$",
+    "explanation_steps": [
+      "The scale factor is $\\frac{12}{3} = 4$.",
+      "Every side of the larger triangle is four times the matching smaller side.",
+      "$5 \\times 4 = 20$."
+    ],
+    "distractor_rationales": {
+      "1": "$14$ adds $9$, the difference, rather than scaling.",
+      "2": "$15$ multiplies by $3$ instead of $4$.",
+      "3": "$60$ multiplies by $12$."
+    },
+    "concept_summary": "Similar triangles scale every side by the same factor.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2dm01",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-calculate-the-mean-median-mode-and-range",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is the range of $12, 4, 19, 7, 15$?",
+    "options": [
+      {
+        "content": "$15$",
+        "is_correct": true
+      },
+      {
+        "content": "$19$",
+        "is_correct": false
+      },
+      {
+        "content": "$11.4$",
+        "is_correct": false
+      },
+      {
+        "content": "$12$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$15$",
+    "explanation_steps": [
+      "Range is the largest value minus the smallest.",
+      "The largest is $19$ and the smallest is $4$.",
+      "$19 - 4 = 15$."
+    ],
+    "distractor_rationales": {
+      "1": "$19$ is the largest value, not the spread.",
+      "2": "$11.4$ is the mean.",
+      "3": "$12$ is the median."
+    },
+    "concept_summary": "Range is largest minus smallest.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2dm02",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-calculate-the-mean-median-mode-and-range",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "What is the median of $6, 2, 9, 4$?",
+    "options": [
+      {
+        "content": "$5$",
+        "is_correct": true
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      },
+      {
+        "content": "$6$",
+        "is_correct": false
+      },
+      {
+        "content": "$5.25$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$5$",
+    "explanation_steps": [
+      "Sort the list: $2, 4, 6, 9$.",
+      "With an even count there is no single middle value, so average the two central ones.",
+      "$\\frac{4 + 6}{2} = 5$."
+    ],
+    "distractor_rationales": {
+      "1": "$4$ is only one of the two middle values.",
+      "2": "$6$ is the other middle value.",
+      "3": "$5.25$ is the mean, not the median."
+    },
+    "concept_summary": "An even count means averaging the two middle values.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2dm03",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-read-a-value-from-a-bar-chart",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "On a bar chart, what does the height of a bar represent?",
+    "options": [
+      {
+        "content": "The value or frequency for that category",
+        "is_correct": true
+      },
+      {
+        "content": "The number of categories",
+        "is_correct": false
+      },
+      {
+        "content": "The width of the category",
+        "is_correct": false
+      },
+      {
+        "content": "The total across all categories",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "The value or frequency for that category",
+    "explanation_steps": [
+      "Each bar stands for one category along the bottom axis.",
+      "Its height is read against the vertical scale.",
+      "That height is the value recorded for that category."
+    ],
+    "distractor_rationales": {
+      "1": "The number of categories is the count of bars, not any one height.",
+      "2": "Bar widths on a bar chart are uniform and carry no meaning.",
+      "3": "The total would be the sum of all the heights."
+    },
+    "concept_summary": "Bar height reads against the vertical scale.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2dm04",
+    "exam": "AMP1",
+    "topic_slug": "data-management",
+    "skill_slug": "data-management-interpret-data-from-circle-graphs-histograms-bar",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A circle graph shows $120$ students split into four categories. One slice is $90^{\\circ}$. How many students does it represent?",
+    "options": [
+      {
+        "content": "$30$",
+        "is_correct": true
+      },
+      {
+        "content": "$90$",
+        "is_correct": false
+      },
+      {
+        "content": "$40$",
+        "is_correct": false
+      },
+      {
+        "content": "$25$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$30$",
+    "explanation_steps": [
+      "A $90^{\\circ}$ slice is $\\frac{90}{360} = \\frac{1}{4}$ of the circle.",
+      "So it represents a quarter of the students.",
+      "$\\frac{120}{4} = 30$ students."
+    ],
+    "distractor_rationales": {
+      "1": "$90$ is the angle in degrees, not a student count.",
+      "2": "$40$ would be a third of the students, or $120^{\\circ}$.",
+      "3": "$25$ is the percentage, not the number."
+    },
+    "concept_summary": "Convert the angle to a fraction of $360^{\\circ}$, then apply it to the total.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2pc01",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-perform-calculations-using-the-three-types-of",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is $15\\%$ of $200$?",
+    "options": [
+      {
+        "content": "$30$",
+        "is_correct": true
+      },
+      {
+        "content": "$15$",
+        "is_correct": false
+      },
+      {
+        "content": "$3$",
+        "is_correct": false
+      },
+      {
+        "content": "$1333$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$30$",
+    "explanation_steps": [
+      "\"Of\" means multiply, and $15\\%$ as a decimal is $0.15$.",
+      "$0.15 \\times 200$.",
+      "That is $30$."
+    ],
+    "distractor_rationales": {
+      "1": "$15$ is the percentage itself, which happens to be $7.5\\%$ of $200$.",
+      "2": "$3$ moves the decimal point one place too far.",
+      "3": "$1333$ divides instead of multiplying."
+    },
+    "concept_summary": "Percent of a number: convert to a decimal and multiply.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2pc02",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-define-percent",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What does $100\\%$ of an amount mean?",
+    "options": [
+      {
+        "content": "The whole amount",
+        "is_correct": true
+      },
+      {
+        "content": "Twice the amount",
+        "is_correct": false
+      },
+      {
+        "content": "One hundred times the amount",
+        "is_correct": false
+      },
+      {
+        "content": "One hundredth of the amount",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "The whole amount",
+    "explanation_steps": [
+      "Percent means \"per hundred\", so $100\\%$ is $\\frac{100}{100}$.",
+      "That fraction equals $1$.",
+      "Multiplying by $1$ leaves the amount unchanged."
+    ],
+    "distractor_rationales": {
+      "1": "Twice would be $200\\%$.",
+      "2": "One hundred times would be $10\\,000\\%$.",
+      "3": "One hundredth would be $1\\%$."
+    },
+    "concept_summary": "$100\\%$ is the whole thing.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2pc03",
+    "exam": "AMP1",
+    "topic_slug": "percent",
+    "skill_slug": "percent-calculate-unweighted-and-weighted-averages",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A student scores $70$, $85$ and $91$ on three equally weighted tests. What is the average?",
+    "options": [
+      {
+        "content": "$82$",
+        "is_correct": true
+      },
+      {
+        "content": "$85$",
+        "is_correct": false
+      },
+      {
+        "content": "$246$",
+        "is_correct": false
+      },
+      {
+        "content": "$80$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$82$",
+    "explanation_steps": [
+      "Add the three scores: $70 + 85 + 91 = 246$.",
+      "Divide by how many there are: $\\frac{246}{3}$.",
+      "That gives $82$."
+    ],
+    "distractor_rationales": {
+      "1": "$85$ is the middle score, which is the median rather than the mean.",
+      "2": "$246$ is the total before dividing.",
+      "3": "$80$ would need the scores to total $240$."
+    },
+    "concept_summary": "Add them up and divide by how many.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2wp01",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-problems-about-consecutive-integers-and-ages",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Sara is $4$ years older than Omar. Together they are $28$. How old is Omar?",
+    "options": [
+      {
+        "content": "$12$",
+        "is_correct": true
+      },
+      {
+        "content": "$16$",
+        "is_correct": false
+      },
+      {
+        "content": "$14$",
+        "is_correct": false
+      },
+      {
+        "content": "$24$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$12$",
+    "explanation_steps": [
+      "Let Omar be $n$, so Sara is $n + 4$.",
+      "Together: $n + (n + 4) = 28$, so $2n = 24$.",
+      "Dividing gives $n = 12$, and Sara is $16$."
+    ],
+    "distractor_rationales": {
+      "1": "$16$ is Sara's age, not Omar's.",
+      "2": "$14$ splits the total evenly and ignores the four-year gap.",
+      "3": "$24$ is the total after subtracting the gap, before halving."
+    },
+    "concept_summary": "Write both ages from one letter, then add.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2wp02",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-distance-rate-and-time-problems",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A car travels $180$ km at $60$ km/h. How long does the journey take?",
+    "options": [
+      {
+        "content": "$3$ hours",
+        "is_correct": true
+      },
+      {
+        "content": "$2$ hours",
+        "is_correct": false
+      },
+      {
+        "content": "$120$ hours",
+        "is_correct": false
+      },
+      {
+        "content": "$0.33$ hours",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$3$ hours",
+    "explanation_steps": [
+      "Time is distance divided by speed.",
+      "$\\frac{180}{60}$.",
+      "That is $3$ hours."
+    ],
+    "distractor_rationales": {
+      "1": "$2$ hours would cover only $120$ km.",
+      "2": "$120$ subtracts the two numbers.",
+      "3": "This divides speed by distance, inverting the formula."
+    },
+    "concept_summary": "Time equals distance over speed.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2wp03",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-geometry-word-problems-involving-perimeter-area",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A rectangle is twice as long as it is wide and has a perimeter of $36$ m. What is its width?",
+    "options": [
+      {
+        "content": "$6$ m",
+        "is_correct": true
+      },
+      {
+        "content": "$9$ m",
+        "is_correct": false
+      },
+      {
+        "content": "$12$ m",
+        "is_correct": false
+      },
+      {
+        "content": "$18$ m",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$6$ m",
+    "explanation_steps": [
+      "Let the width be $w$, so the length is $2w$.",
+      "Perimeter is $2(w + 2w) = 6w$, and this equals $36$.",
+      "So $w = 6$ m, and the length is $12$ m."
+    ],
+    "distractor_rationales": {
+      "1": "$9$ divides the perimeter by four, which would suit a square.",
+      "2": "$12$ is the length, not the width.",
+      "3": "$18$ is half the perimeter."
+    },
+    "concept_summary": "Express both dimensions from one letter, then use the perimeter formula.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2wp04",
+    "exam": "AMP1",
+    "topic_slug": "word-problems",
+    "skill_slug": "word-problems-solve-mixture-and-concentration-problems",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A $200$ ml drink is $15\\%$ juice. How much juice does it contain?",
+    "options": [
+      {
+        "content": "$30$ ml",
+        "is_correct": true
+      },
+      {
+        "content": "$15$ ml",
+        "is_correct": false
+      },
+      {
+        "content": "$170$ ml",
+        "is_correct": false
+      },
+      {
+        "content": "$85$ ml",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$30$ ml",
+    "explanation_steps": [
+      "Find $15\\%$ of $200$.",
+      "$0.15 \\times 200$.",
+      "That is $30$ ml of juice, with $170$ ml of everything else."
+    ],
+    "distractor_rationales": {
+      "1": "$15$ reads the percentage as a volume.",
+      "2": "$170$ ml is the non-juice part.",
+      "3": "$85$ is the percentage of non-juice, not a volume."
+    },
+    "concept_summary": "A concentration is a percentage of the total volume.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2tr01",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-use-a-primary-trigonometric-ratio-to-calculate",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "A right triangle has an angle of $60^{\\circ}$ and an adjacent side of $8$. How long is the hypotenuse?",
+    "options": [
+      {
+        "content": "$16$",
+        "is_correct": true
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      },
+      {
+        "content": "$13.86$",
+        "is_correct": false
+      },
+      {
+        "content": "$9.24$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$16$",
+    "explanation_steps": [
+      "Adjacent and hypotenuse means cosine: $\\cos 60^{\\circ} = \\frac{8}{h}$.",
+      "$\\cos 60^{\\circ} = 0.5$, so $0.5 = \\frac{8}{h}$.",
+      "Rearranging gives $h = \\frac{8}{0.5} = 16$."
+    ],
+    "distractor_rationales": {
+      "1": "$4$ multiplies by $0.5$ instead of dividing, giving something shorter than a leg.",
+      "2": "$13.86$ is the opposite side.",
+      "3": "$9.24$ uses tangent rather than cosine."
+    },
+    "concept_summary": "The hypotenuse is always the longest side, so dividing is the right move here.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2tr02",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-define-the-primary-trigonometric-ratios-sine-cosine",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "Which side of a right triangle is always the longest?",
+    "options": [
+      {
+        "content": "The hypotenuse",
+        "is_correct": true
+      },
+      {
+        "content": "The opposite side",
+        "is_correct": false
+      },
+      {
+        "content": "The adjacent side",
+        "is_correct": false
+      },
+      {
+        "content": "It depends on the angle",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "The hypotenuse",
+    "explanation_steps": [
+      "The hypotenuse sits opposite the right angle.",
+      "The right angle is the largest angle in the triangle, since the other two must add to $90^{\\circ}$.",
+      "The largest angle faces the longest side, so the hypotenuse is always longest."
+    ],
+    "distractor_rationales": {
+      "1": "The opposite side faces an acute angle, so it is shorter.",
+      "2": "The adjacent side also faces an acute angle.",
+      "3": "The hypotenuse is longest regardless of the other angles."
+    },
+    "concept_summary": "The hypotenuse faces the right angle and is always longest.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2tr03",
+    "exam": "AMP1",
+    "topic_slug": "trigonometry",
+    "skill_slug": "trigonometry-use-the-calculator-to-determine-the-size",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which calculator function finds an angle from a known sine value?",
+    "options": [
+      {
+        "content": "$\\sin^{-1}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\sin$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{\\sin}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\cos^{-1}$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$\\sin^{-1}$",
+    "explanation_steps": [
+      "The plain sine key turns an angle into a ratio.",
+      "To go the other way you need the inverse, marked $\\sin^{-1}$ or arcsin.",
+      "It takes a ratio and returns the angle."
+    ],
+    "distractor_rationales": {
+      "1": "That goes from angle to ratio, the direction you already have.",
+      "2": "That is the reciprocal, cosecant, which is a different quantity.",
+      "3": "That inverts cosine, not sine."
+    },
+    "concept_summary": "The inverse key goes from ratio back to angle.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2el01",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-determine-slope-of-a-line-including-parallel",
+    "type": "single_mcq",
+    "difficulty": "easy",
+    "stem": "What is the slope of the line through $(1, 3)$ and $(5, 11)$?",
+    "options": [
+      {
+        "content": "$2$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{1}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$4$",
+        "is_correct": false
+      },
+      {
+        "content": "$8$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2$",
+    "explanation_steps": [
+      "Slope is the change in $y$ divided by the change in $x$.",
+      "$y$ changes by $11 - 3 = 8$; $x$ changes by $5 - 1 = 4$.",
+      "$\\frac{8}{4} = 2$."
+    ],
+    "distractor_rationales": {
+      "1": "This divides the wrong way round.",
+      "2": "$4$ is the horizontal change alone.",
+      "3": "$8$ is the vertical change alone."
+    },
+    "concept_summary": "Slope is rise over run.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2el02",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-graph-a-line-given-its-slope-and",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "In $y = -\\frac{1}{3}x + 2$, what does the $2$ tell you?",
+    "options": [
+      {
+        "content": "The line crosses the $y$ axis at $2$",
+        "is_correct": true
+      },
+      {
+        "content": "The line crosses the $x$ axis at $2$",
+        "is_correct": false
+      },
+      {
+        "content": "The line rises $2$ for every step right",
+        "is_correct": false
+      },
+      {
+        "content": "The line passes through $(2, 0)$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "The line crosses the $y$ axis at $2$",
+    "explanation_steps": [
+      "In $y = mx + b$, the constant $b$ is the $y$ intercept.",
+      "Setting $x = 0$ gives $y = 2$.",
+      "So the line passes through $(0, 2)$."
+    ],
+    "distractor_rationales": {
+      "1": "The $x$ intercept here is $6$, found by setting $y = 0$.",
+      "2": "The rise per step is the slope, which is $-\\frac{1}{3}$.",
+      "3": "At $x = 2$ the value is $\\frac{4}{3}$, not $0$."
+    },
+    "concept_summary": "The constant term is where the line meets the $y$ axis.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2el03",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-given-a-line-find-steepness-and-direction",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Which line is steepest?",
+    "options": [
+      {
+        "content": "$y = -5x + 1$",
+        "is_correct": true
+      },
+      {
+        "content": "$y = 3x - 2$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = 0.5x$",
+        "is_correct": false
+      },
+      {
+        "content": "$y = -x + 4$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$y = -5x + 1$",
+    "explanation_steps": [
+      "Steepness is the size of the slope, ignoring its sign.",
+      "The sizes here are $5$, $3$, $0.5$ and $1$.",
+      "$5$ is the largest, so that line is steepest, even though it falls rather than rises."
+    ],
+    "distractor_rationales": {
+      "1": "A slope of $3$ is steep but less so than $5$.",
+      "2": "$0.5$ is the shallowest of the four.",
+      "3": "A slope of $-1$ has size $1$."
+    },
+    "concept_summary": "Steepness is the size of the slope, not its sign.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2el04",
+    "exam": "AMP1",
+    "topic_slug": "equation-of-the-line",
+    "skill_slug": "equation-of-the-line-graph-a-linear-equation-using-its-slope",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "A line has slope $0$. What does its graph look like?",
+    "options": [
+      {
+        "content": "A horizontal line",
+        "is_correct": true
+      },
+      {
+        "content": "A vertical line",
+        "is_correct": false
+      },
+      {
+        "content": "A line at $45^{\\circ}$",
+        "is_correct": false
+      },
+      {
+        "content": "A single point",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "A horizontal line",
+    "explanation_steps": [
+      "Slope is rise over run, so a slope of zero means no rise at all.",
+      "The $y$ value stays the same for every $x$.",
+      "That draws a flat, horizontal line."
+    ],
+    "distractor_rationales": {
+      "1": "A vertical line has undefined slope, because the run is zero.",
+      "2": "A $45^{\\circ}$ line has slope $1$.",
+      "3": "A line has infinitely many points."
+    },
+    "concept_summary": "Zero slope is flat; undefined slope is vertical.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2lg01",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-change-expressions-from-exponential-to-logarithmic-form",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Write $\\log_{6}(36) = 2$ in exponential form.",
+    "options": [
+      {
+        "content": "$6^{2} = 36$",
+        "is_correct": true
+      },
+      {
+        "content": "$2^{6} = 36$",
+        "is_correct": false
+      },
+      {
+        "content": "$36^{2} = 6$",
+        "is_correct": false
+      },
+      {
+        "content": "$6^{36} = 2$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$6^{2} = 36$",
+    "explanation_steps": [
+      "The base of the logarithm stays the base of the power: $6$.",
+      "The value of the logarithm becomes the exponent: $2$.",
+      "The argument becomes the result: $6^{2} = 36$."
+    ],
+    "distractor_rationales": {
+      "1": "This swaps the base and the exponent.",
+      "2": "This makes the argument the base.",
+      "3": "This swaps the exponent and the result."
+    },
+    "concept_summary": "Base stays base; the log value becomes the exponent.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2lg02",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-use-the-laws-of-logarithms-to-solve",
+    "type": "single_mcq",
+    "difficulty": "hard",
+    "stem": "Solve $\\log(x) + \\log(4) = \\log(20)$.",
+    "options": [
+      {
+        "content": "$x = 5$",
+        "is_correct": true
+      },
+      {
+        "content": "$x = 16$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 80$",
+        "is_correct": false
+      },
+      {
+        "content": "$x = 24$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$x = 5$",
+    "explanation_steps": [
+      "Combine the left side: $\\log(4x) = \\log(20)$.",
+      "If two logs with the same base are equal, their insides are equal: $4x = 20$.",
+      "So $x = 5$."
+    ],
+    "distractor_rationales": {
+      "1": "$16$ subtracts $4$ from $20$.",
+      "2": "$80$ multiplies rather than divides.",
+      "3": "$24$ adds the two numbers."
+    },
+    "concept_summary": "Combine to one log on each side, then drop the logs.",
+    "source": "authored"
+  },
+  {
+    "id": "qa_a2lg03",
+    "exam": "AMP1",
+    "topic_slug": "logarithms",
+    "skill_slug": "logarithms-use-the-calculator-to-find-common-logarithms",
+    "type": "single_mcq",
+    "difficulty": "medium",
+    "stem": "Between which two whole numbers does $\\log(450)$ lie?",
+    "options": [
+      {
+        "content": "$2$ and $3$",
+        "is_correct": true
+      },
+      {
+        "content": "$1$ and $2$",
+        "is_correct": false
+      },
+      {
+        "content": "$3$ and $4$",
+        "is_correct": false
+      },
+      {
+        "content": "$450$ and $451$",
+        "is_correct": false
+      }
+    ],
+    "final_answer": "$2$ and $3$",
+    "explanation_steps": [
+      "$\\log(100) = 2$ and $\\log(1000) = 3$.",
+      "$450$ sits between $100$ and $1000$.",
+      "So its logarithm sits between $2$ and $3$."
+    ],
+    "distractor_rationales": {
+      "1": "$450$ is above $100$, so the log is above $2$.",
+      "2": "$450$ is below $1000$, so the log is below $3$.",
+      "3": "A logarithm is much smaller than its argument."
+    },
+    "concept_summary": "Bracket the number between powers of ten.",
+    "source": "authored"
   }
 ]
