@@ -31,7 +31,7 @@ function TopicLink({ topic, active }: { topic: SidebarTopic; active: boolean }) 
   if (topic.locked) {
     return (
       <Link
-        href="/pricing"
+        href="/pricing?from=learn"
         className="group flex items-center justify-between gap-2 rounded-md px-3 py-1.5 text-sm text-ink-light transition hover:bg-surface-panel"
         title="AMP 2 lessons are part of Pro"
       >

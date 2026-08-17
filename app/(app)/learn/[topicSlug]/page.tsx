@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { getTopicBySlug, getSkills, getLessonsForTopic, getLessonProgress } from "@/lib/db/queries";
 

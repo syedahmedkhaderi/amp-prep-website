@@ -419,6 +419,71 @@ try {
   });
 
   // =========================================================================
+  await step("learn: sidebar, lesson, checkpoint and the AMP 2 lock", async () => {
+    await page.goto(`${BASE}/learn`, { waitUntil: "domcontentloaded" });
+    check("learn index renders", (await page.locator("h1").innerText()).includes("Learn"));
+
+    // The rail is built in the layout, so it must survive navigation between
+    // lessons rather than being re-rendered per page.
+    const rail = page.locator('nav[aria-label="Lesson topics"]');
+    check("topic sidebar is present", (await rail.count()) > 0);
+
+    const amp2Slug = db
+      .prepare("SELECT t.slug FROM topics t JOIN exams e ON e.id = t.exam_id WHERE e.code = 'AMP2' LIMIT 1")
+      .get()?.slug;
+    if (amp2Slug) {
+      // Free plan: the link points at pricing, and typing the URL is stopped too.
+      await page.goto(`${BASE}/learn/${amp2Slug}`, { waitUntil: "domcontentloaded" });
+      check("an AMP 2 topic redirects a free account to pricing", /\/pricing/.test(page.url()), page.url());
+    }
+
+    // Pick a topic that actually has a published lesson.
+    const row = db
+      .prepare(
+        `SELECT t.slug AS topic, l.slug AS lesson
+           FROM lessons l
+           JOIN skills s ON s.id = l.skill_id
+           JOIN topics t ON t.id = s.topic_id
+           JOIN exams e ON e.id = t.exam_id
+          WHERE e.code = 'AMP1' AND l.status = 'published'
+          LIMIT 1`
+      )
+      .get();
+    if (!row) {
+      check("at least one AMP 1 lesson is published", false);
+      return;
+    }
+
+    await page.goto(`${BASE}/learn/${row.topic}`, { waitUntil: "domcontentloaded" });
+    check("topic page lists its lessons", (await page.locator(`a[href^="/learn/${row.topic}/"]`).count()) > 0);
+    check("sidebar survives navigation into a topic", (await rail.count()) > 0);
+
+    await page.goto(`${BASE}/learn/${row.topic}/${row.lesson}`, { waitUntil: "domcontentloaded" });
+    const lessonText = await page.locator("main").innerText();
+    check("lesson renders a heading", (await page.locator("h1").innerText()).length > 0);
+    check("lesson has body text", lessonText.length > 400, `${lessonText.length} chars`);
+    check("sidebar survives navigation into a lesson", (await rail.count()) > 0);
+    check("lesson offers a way to mark it complete", (await page.getByRole("button", { name: /complete/i }).count()) > 0);
+
+    // Any graph must be projected into pixel space. The bug this guards against
+    // drew every curve into a few pixels in the corner because the renderer fed
+    // data coordinates straight into the SVG path.
+    const paths = await page.$$eval("svg path", (ps) => ps.map((p) => p.getAttribute("d") || ""));
+    const curves = paths.filter((d) => /^M [\d.]+ [\d.]+ L/.test(d));
+    if (curves.length > 0) {
+      const firstX = parseFloat(curves[0].split(" ")[1]);
+      check("graph paths are in pixel space, not data space", firstX > 10, `first x = ${firstX}`);
+    }
+
+    // The answer key must never ship with the page.
+    const html = await page.content();
+    check(
+      "no answer key in the lesson HTML",
+      !/explanationSteps|distractorRationales|"isCorrect":true/.test(html)
+    );
+  });
+
+  // =========================================================================
   await step("practice attempt, start to finish", async () => {
     await page.goto(`${BASE}/practice/start/${topicSlug}`, { waitUntil: "domcontentloaded" });
     await page.waitForURL(/\/practice\/runner\//, { timeout: 20000 }).catch(() => {});
