@@ -131,6 +131,10 @@ function proseBlocks(lesson: LessonSource): string[] {
     if (block.type === "prose") out.push(block.text);
     if (block.type === "definition") out.push(block.meaning);
     if (block.type === "callout") out.push(block.text);
+    if (block.type === "list") {
+      if (block.intro) out.push(block.intro);
+      out.push(...block.items);
+    }
     if (block.type === "worked_example") {
       out.push(block.prompt);
       for (const step of block.steps) {
@@ -164,6 +168,15 @@ function allMathStrings(lesson: LessonSource): { path: string; text: string }[] 
       });
     }
     if (block.type === "graph" || block.type === "diagram") push("caption", block.caption);
+    if (block.type === "table") {
+      push("caption", block.caption);
+      block.headers.forEach((h, c) => push(`header[${c}]`, h));
+      block.rows.forEach((row, r) => row.forEach((cell, c) => push(`row[${r}][${c}]`, cell)));
+    }
+    if (block.type === "list") {
+      push("intro", block.intro);
+      block.items.forEach((item, j) => push(`item[${j}]`, item));
+    }
   });
   return out;
 }
@@ -247,6 +260,27 @@ export function verifyLessons(lessons: LessonSource[], validSkillSlugs: Set<stri
         const spec = block.spec as { description?: string };
         if (!spec?.description) fail("diagram-alt-text", `block[${i}] has no description`);
       }
+    });
+
+    // A table whose rows do not match its headers renders as a broken grid, so
+    // it is a hard failure rather than something to notice in review.
+    lesson.blocks.forEach((block, i) => {
+      if (block.type !== "table") return;
+      if (block.headers.length < 2) fail("table", `block[${i}] needs at least two columns`);
+      if (block.rows.length === 0) fail("table", `block[${i}] has no rows`);
+      block.rows.forEach((row, r) => {
+        if (row.length !== block.headers.length) {
+          fail(
+            "table",
+            `block[${i}] row ${r} has ${row.length} cells but there are ${block.headers.length} headers`
+          );
+        }
+      });
+    });
+
+    lesson.blocks.forEach((block, i) => {
+      if (block.type !== "list") return;
+      if (block.items.length < 2) fail("list", `block[${i}] needs at least two items`);
     });
 
     // Checkpoints must point at questions a student can actually be served.

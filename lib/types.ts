@@ -119,6 +119,13 @@ export type LessonBlock =
    */
   | { type: "interactive"; spec: unknown; caption?: string }
   | { type: "diagram"; spec: unknown; caption?: string }
+  /**
+   * A comparison table. Rules, conversions and sign cases are far easier to
+   * scan as a grid than as a paragraph, which is what they were before.
+   */
+  | { type: "table"; caption?: string; headers: string[]; rows: string[][] }
+  /** A short list of points. `ordered` when the sequence is the content. */
+  | { type: "list"; ordered?: boolean; items: string[]; intro?: string }
   | { type: "callout"; kind: CalloutKind; text: string }
   | { type: "checkpoint"; questionIds: string[]; prompt?: string };
 

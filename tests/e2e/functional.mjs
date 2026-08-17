@@ -475,7 +475,56 @@ try {
       check("graph paths are in pixel space, not data space", firstX > 10, `first x = ${firstX}`);
     }
 
+    // Worked examples must be typeset, not printed as LaTeX source. Every one
+    // of the 605 `math` fields in the bank is undelimited, so before MathLine
+    // existed readers saw `2^{2} \\cdot x^{6}` on screen.
+    const withExample = db
+      .prepare(
+        `SELECT t.slug AS topic, l.slug AS lesson
+           FROM lessons l
+           JOIN skills s ON s.id = l.skill_id
+           JOIN topics t ON t.id = s.topic_id
+          WHERE l.status = 'published' AND l.blocks LIKE '%worked_example%'
+          LIMIT 1`
+      )
+      .get();
+    if (withExample) {
+      await page.goto(`${BASE}/learn/${withExample.topic}/${withExample.lesson}`, {
+        waitUntil: "networkidle",
+      });
+      const body = await page.locator("main").innerText();
+      check("worked-example maths is typeset", (await page.locator("main .katex").count()) > 0);
+      check(
+        "no raw LaTeX source is visible to the reader",
+        !/\^\{\d|\\frac|\\times|\\cdot/.test(body),
+        body.match(/.{0,50}(\^\{\d|\\frac|\\times|\\cdot).{0,30}/)?.[0] ?? ""
+      );
+    }
+
+    // Enrichment tables render as real grids rather than markdown pipes.
+    const withTable = db
+      .prepare(
+        `SELECT t.slug AS topic, l.slug AS lesson
+           FROM lessons l
+           JOIN skills s ON s.id = l.skill_id
+           JOIN topics t ON t.id = s.topic_id
+          WHERE l.status = 'published' AND l.blocks LIKE '%"table"%'
+          LIMIT 1`
+      )
+      .get();
+    if (withTable) {
+      await page.goto(`${BASE}/learn/${withTable.topic}/${withTable.lesson}`, {
+        waitUntil: "domcontentloaded",
+      });
+      check("a lesson table renders as a real table", (await page.locator("main table").count()) > 0);
+      check(
+        "no raw markdown pipe row is left on screen",
+        !/\|\s*:?-{2,}/.test(await page.locator("main").innerText())
+      );
+    }
+
     // The answer key must never ship with the page.
+    await page.goto(`${BASE}/learn/${row.topic}/${row.lesson}`, { waitUntil: "domcontentloaded" });
     const html = await page.content();
     check(
       "no answer key in the lesson HTML",

@@ -127,6 +127,69 @@ export function LessonBody({
               </figure>
             );
 
+          case "table":
+            return (
+              <figure key={i}>
+                <div className="overflow-x-auto rounded-xl border border-surface-border">
+                  <table className="w-full border-collapse text-sm">
+                    <thead>
+                      <tr className="bg-surface-panel">
+                        {block.headers.map((h, c) => (
+                          <th
+                            key={c}
+                            scope="col"
+                            className="border-b border-surface-border px-4 py-2 text-left font-semibold text-ink"
+                          >
+                            <MathText text={h} />
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, r) => (
+                        <tr key={r} className="border-b border-surface-border last:border-0">
+                          {row.map((cell, c) => (
+                            <td key={c} className="px-4 py-2 align-top text-ink">
+                              <MathText text={cell} />
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                {block.caption && (
+                  <figcaption className="mt-2 text-sm text-ink-soft">
+                    <MathText text={block.caption} />
+                  </figcaption>
+                )}
+              </figure>
+            );
+
+          case "list": {
+            const List = block.ordered ? "ol" : "ul";
+            return (
+              <div key={i}>
+                {block.intro && (
+                  <p className="text-ink leading-relaxed">
+                    <MathText text={block.intro} />
+                  </p>
+                )}
+                <List
+                  className={`mt-2 space-y-1.5 pl-5 text-ink ${
+                    block.ordered ? "list-decimal" : "list-disc"
+                  }`}
+                >
+                  {block.items.map((item, j) => (
+                    <li key={j} className="leading-relaxed">
+                      <MathText text={item} />
+                    </li>
+                  ))}
+                </List>
+              </div>
+            );
+          }
+
           case "callout": {
             const style = CALLOUT_STYLE[block.kind] ?? CALLOUT_STYLE.tip;
             return (
