@@ -1,3 +1,4 @@
+import { enrichments } from "./enrichment";
 import type { LessonSource } from "./types";
 import { fractionsLessons } from "./fractions";
 import { linesAndGraphsLessons } from "./lines-and-graphs";
@@ -25,7 +26,7 @@ import { amp2TrigSequencesLessons } from "./amp2-trig-sequences";
  * error: /learn shows it as "coming soon" and still links its practice
  * questions, so the feature is useful before the syllabus is fully covered.
  */
-export const allLessons: LessonSource[] = [
+const authoredLessons: LessonSource[] = [
   ...realNumberSystemLessons,
   ...wholeNumbersLessons,
   ...fractionsLessons,
@@ -45,5 +46,40 @@ export const allLessons: LessonSource[] = [
   ...amp2TrigSequencesLessons,
   ...linesAndGraphsLessons,
 ];
+
+/**
+ * Apply the enrichment blocks before anything reads the lessons.
+ *
+ * These live in a separate file because they were added in one pass across 18
+ * lessons, and threading them back into fourteen topic files by hand would have
+ * made that diff unreviewable. Applying them here rather than in a database
+ * migration is what makes them survive `npm run seed`, which rebuilds the
+ * lessons table from this array.
+ *
+ * The checkpoint stays last: it is the "now you try", and it only makes sense
+ * after everything that teaches.
+ */
+function enrich(lesson: LessonSource): LessonSource {
+  const entry = enrichments.find((e) => lesson.skillSlug.startsWith(e.match));
+  if (!entry) return lesson;
+
+  const present = new Set(lesson.blocks.map((b) => b.type));
+  const toAdd = entry.blocks.filter((b) => !present.has(b.type));
+  if (toAdd.length === 0) return lesson;
+
+  const checkpointAt = lesson.blocks.findIndex((b) => b.type === "checkpoint");
+  const blocks =
+    checkpointAt === -1
+      ? [...lesson.blocks, ...toAdd]
+      : [
+          ...lesson.blocks.slice(0, checkpointAt),
+          ...toAdd,
+          ...lesson.blocks.slice(checkpointAt),
+        ];
+
+  return { ...lesson, blocks };
+}
+
+export const allLessons: LessonSource[] = authoredLessons.map(enrich);
 
 export type { LessonSource };
