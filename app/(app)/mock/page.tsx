@@ -26,7 +26,7 @@ export default async function MockPage({
   const visibleAmp1 = entitlements.isPro ? amp1Papers : amp1Free;
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8">
+    <div className="mx-auto max-w-7xl px-6 py-8">
       <h1 className="text-2xl font-bold text-brand-deep">Timed mock exams</h1>
       <p className="mt-1 text-sm text-ink-soft">
         Each mock reproduces the official quiz interface: a live countdown that

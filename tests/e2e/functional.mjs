@@ -174,11 +174,22 @@ try {
           headers: { "Content-Type": "application/json" },
           body: method === "GET" || method === "HEAD" ? undefined : "{}",
         });
-        // 401/403 is the expected refusal. The payment webhook is authenticated
-        // by HMAC signature rather than by session, and with no provider
-        // configured it can only answer 503 -- still a refusal, still not a 200
-        // and not a crash.
-        const allowed = path === "/api/webhooks/payments" ? [401, 403, 503] : [401, 403];
+        // 401/403 is the expected refusal. Two routes are deliberately not
+        // session-authenticated and are listed here rather than exempted
+        // silently, so that adding a third requires saying why.
+        //
+        //   /api/webhooks/payments -- authenticated by HMAC signature, not by
+        //     session. With no provider configured it can only answer 503:
+        //     still a refusal, still not a 200 and not a crash.
+        //   /api/health -- the host's health check runs unauthenticated, before
+        //     any user exists. It answers 200 when the database is seeded and
+        //     503 when it is not, and returns two aggregate counts and no user
+        //     data of any kind.
+        const openRoutes = {
+          "/api/webhooks/payments": [401, 403, 503],
+          "/api/health": [200, 503],
+        };
+        const allowed = openRoutes[path] ?? [401, 403];
         if (!allowed.includes(res.status)) badApi.push(`${method} ${path} -> ${res.status}`);
       }
     }
@@ -408,6 +419,120 @@ try {
   });
 
   // =========================================================================
+  await step("learn: sidebar, lesson, checkpoint and the AMP 2 lock", async () => {
+    await page.goto(`${BASE}/learn`, { waitUntil: "domcontentloaded" });
+    check("learn index renders", (await page.locator("h1").innerText()).includes("Learn"));
+
+    // The rail is built in the layout, so it must survive navigation between
+    // lessons rather than being re-rendered per page.
+    const rail = page.locator('nav[aria-label="Lesson topics"]');
+    check("topic sidebar is present", (await rail.count()) > 0);
+
+    const amp2Slug = db
+      .prepare("SELECT t.slug FROM topics t JOIN exams e ON e.id = t.exam_id WHERE e.code = 'AMP2' LIMIT 1")
+      .get()?.slug;
+    if (amp2Slug) {
+      // Free plan: the link points at pricing, and typing the URL is stopped too.
+      await page.goto(`${BASE}/learn/${amp2Slug}`, { waitUntil: "domcontentloaded" });
+      check("an AMP 2 topic redirects a free account to pricing", /\/pricing/.test(page.url()), page.url());
+    }
+
+    // Pick a topic that actually has a published lesson.
+    const row = db
+      .prepare(
+        `SELECT t.slug AS topic, l.slug AS lesson
+           FROM lessons l
+           JOIN skills s ON s.id = l.skill_id
+           JOIN topics t ON t.id = s.topic_id
+           JOIN exams e ON e.id = t.exam_id
+          WHERE e.code = 'AMP1' AND l.status = 'published'
+          LIMIT 1`
+      )
+      .get();
+    if (!row) {
+      check("at least one AMP 1 lesson is published", false);
+      return;
+    }
+
+    await page.goto(`${BASE}/learn/${row.topic}`, { waitUntil: "domcontentloaded" });
+    check("topic page lists its lessons", (await page.locator(`a[href^="/learn/${row.topic}/"]`).count()) > 0);
+    check("sidebar survives navigation into a topic", (await rail.count()) > 0);
+
+    await page.goto(`${BASE}/learn/${row.topic}/${row.lesson}`, { waitUntil: "domcontentloaded" });
+    const lessonText = await page.locator("main").innerText();
+    check("lesson renders a heading", (await page.locator("h1").innerText()).length > 0);
+    check("lesson has body text", lessonText.length > 400, `${lessonText.length} chars`);
+    check("sidebar survives navigation into a lesson", (await rail.count()) > 0);
+    check("lesson offers a way to mark it complete", (await page.getByRole("button", { name: /complete/i }).count()) > 0);
+
+    // Any graph must be projected into pixel space. The bug this guards against
+    // drew every curve into a few pixels in the corner because the renderer fed
+    // data coordinates straight into the SVG path.
+    const paths = await page.$$eval("svg path", (ps) => ps.map((p) => p.getAttribute("d") || ""));
+    const curves = paths.filter((d) => /^M [\d.]+ [\d.]+ L/.test(d));
+    if (curves.length > 0) {
+      const firstX = parseFloat(curves[0].split(" ")[1]);
+      check("graph paths are in pixel space, not data space", firstX > 10, `first x = ${firstX}`);
+    }
+
+    // Worked examples must be typeset, not printed as LaTeX source. Every one
+    // of the 605 `math` fields in the bank is undelimited, so before MathLine
+    // existed readers saw `2^{2} \\cdot x^{6}` on screen.
+    const withExample = db
+      .prepare(
+        `SELECT t.slug AS topic, l.slug AS lesson
+           FROM lessons l
+           JOIN skills s ON s.id = l.skill_id
+           JOIN topics t ON t.id = s.topic_id
+          WHERE l.status = 'published' AND l.blocks LIKE '%worked_example%'
+          LIMIT 1`
+      )
+      .get();
+    if (withExample) {
+      await page.goto(`${BASE}/learn/${withExample.topic}/${withExample.lesson}`, {
+        waitUntil: "networkidle",
+      });
+      const body = await page.locator("main").innerText();
+      check("worked-example maths is typeset", (await page.locator("main .katex").count()) > 0);
+      check(
+        "no raw LaTeX source is visible to the reader",
+        !/\^\{\d|\\frac|\\times|\\cdot/.test(body),
+        body.match(/.{0,50}(\^\{\d|\\frac|\\times|\\cdot).{0,30}/)?.[0] ?? ""
+      );
+    }
+
+    // Enrichment tables render as real grids rather than markdown pipes.
+    const withTable = db
+      .prepare(
+        `SELECT t.slug AS topic, l.slug AS lesson
+           FROM lessons l
+           JOIN skills s ON s.id = l.skill_id
+           JOIN topics t ON t.id = s.topic_id
+          WHERE l.status = 'published' AND l.blocks LIKE '%"table"%'
+          LIMIT 1`
+      )
+      .get();
+    if (withTable) {
+      await page.goto(`${BASE}/learn/${withTable.topic}/${withTable.lesson}`, {
+        waitUntil: "domcontentloaded",
+      });
+      check("a lesson table renders as a real table", (await page.locator("main table").count()) > 0);
+      check(
+        "no raw markdown pipe row is left on screen",
+        !/\|\s*:?-{2,}/.test(await page.locator("main").innerText())
+      );
+    }
+
+    // The answer key must never ship with the page.
+    await page.goto(`${BASE}/learn/${row.topic}/${row.lesson}`, { waitUntil: "domcontentloaded" });
+    const html = await page.content();
+    check(
+      "no answer key in the lesson HTML",
+      !/explanationSteps|distractorRationales|"isCorrect":true/.test(html)
+    );
+  });
+
+  // =========================================================================
   await step("practice attempt, start to finish", async () => {
     await page.goto(`${BASE}/practice/start/${topicSlug}`, { waitUntil: "domcontentloaded" });
     await page.waitForURL(/\/practice\/runner\//, { timeout: 20000 }).catch(() => {});
@@ -418,11 +543,26 @@ try {
     const total = Number((await page.locator("main").innerText()).match(/Question 1 of (\d+)/)?.[1] ?? 0);
     check("practice runner loads a question set", total > 0, `${total} questions`);
 
-    const answerable = 'label input[type="radio"], label input[type="checkbox"], input[type="text"]';
+    // All five question types have to be answerable here. Matching questions
+    // render <select> per row, which an earlier version of this selector missed,
+    // so the stage failed whenever a reseed happened to put one first.
+    const answerable =
+      'label input[type="radio"], label input[type="checkbox"], input[type="text"], select';
     const first = page.locator(answerable).first();
     await first.waitFor({ timeout: 10000 });
-    if ((await first.getAttribute("type")) === "text") await first.fill("42");
-    else await first.check();
+    const tag = await first.evaluate((el) => el.tagName.toLowerCase());
+    if (tag === "select") {
+      // Pick the first real choice on every row, not just this one: a matching
+      // question is not submittable until each row has an answer.
+      const rows = page.locator("select");
+      for (let i = 0; i < (await rows.count()); i++) {
+        await rows.nth(i).selectOption({ index: 1 });
+      }
+    } else if ((await first.getAttribute("type")) === "text") {
+      await first.fill("42");
+    } else {
+      await first.check();
+    }
 
     const save = page.getByRole("button", { name: /^Save answer$/ });
     check("save button enables once an answer is chosen", await save.isEnabled());
@@ -718,8 +858,10 @@ try {
     check("sign in with the same credentials works", page.url().includes("/dashboard"), page.url());
 
     const text = await page.locator("main").innerText();
-    check("dashboard lists the completed work in recent activity", /Recent activity/i.test(text));
-    check("recent activity shows a score", /\d+%/.test(text), text.match(/\d+%/)?.[0]);
+    // The dashboard no longer lists recent attempts; it leads with the learning
+    // path and summarises progress instead.
+    check("dashboard leads with the learning path", /Continue learning|Learn the topics/.test(text));
+    check("dashboard reports lesson progress", /\d+ of \d+ lessons read/.test(text));
     check("the gauge now reports started topics", !/^0 of/.test(text.match(/\d+ of \d+ topics started/)?.[0] ?? "0 of"), text.match(/\d+ of \d+ topics started/)?.[0]);
   });
 

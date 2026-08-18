@@ -12,7 +12,7 @@ export default async function TopicsPage() {
   const amp2 = topics.filter((t) => t.examCode === "AMP2");
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8">
+    <div className="mx-auto max-w-7xl px-6 py-8">
       <h1 className="text-2xl font-bold text-brand-deep">Topics</h1>
       <p className="mt-1 text-sm text-ink-soft">
         Choose a topic to practice. Every question includes a full worked solution.

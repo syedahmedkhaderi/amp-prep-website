@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { getTopicBySlug, getTopicQuestionStats } from "@/lib/db/queries";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 
 export default async function TopicDetailPage({
   params,
@@ -40,7 +41,7 @@ export default async function TopicDetailPage({
   const questionStats = getTopicQuestionStats(topic.id);
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-8">
+    <div className="mx-auto max-w-7xl px-6 py-8">
       <Link href="/topics" className="text-sm text-brand-600 hover:text-brand-deep">
         Back to all topics
       </Link>
@@ -97,7 +98,7 @@ export default async function TopicDetailPage({
                   {questionStats.sample.difficulty} | {questionStats.sample.type.replace(/_/g, " ")}
                 </p>
                 <p className="mt-2 text-ink">
-                  <MathText text={questionStats.sample.stem} />
+                  <RichText text={questionStats.sample.stem} />
                 </p>
               </div>
             </div>

@@ -18,6 +18,7 @@ export default function robots(): MetadataRoute.Robots {
           "/account",
           "/dashboard",
           "/topics",
+          "/learn",
           "/mock",
           "/practice",
           "/attempt",

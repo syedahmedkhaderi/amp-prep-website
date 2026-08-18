@@ -94,6 +94,14 @@ is no self-contained server bundle to copy — the runtime image needs
 The instructions below use Fly.io because its volumes are explicit and its free
 allowance covers this workload. Railway and a plain VPS are noted after.
 
+> **`Dockerfile`, `.dockerignore`, and `fly.toml` are now in the repository.**
+> You no longer need to create them from the listings below; they are kept here
+> because the reasoning behind each line is the part worth reading. Two
+> placeholders in `fly.toml` must be filled in before the first deploy — `app`
+> (globally unique) and `primary_region` (the volume must be created in the same
+> region). They have never been through an image build; treat the first
+> `fly deploy` as the real test of all three.
+
 The container image is minimal by necessity — one stage, no pruning:
 
 ```dockerfile
@@ -157,18 +165,22 @@ data/source
 > `fly deploy` as the real test of them. In particular, watch the build log for
 > the `[seed]` output; if it is missing, the homepage will ship empty.
 
-Write both files **before** you run `fly launch`. With no Dockerfile present,
-`fly launch` scaffolds its own Next.js one — typically multi-stage with a
-dev-dependency prune, which violates constraint 4 (no `tsx`, so you cannot seed
-or grant Pro) and skips the build-time seed. When a Dockerfile already exists,
-Fly detects and keeps it.
+Both files must exist **before** you run `fly launch` — they now do. This is why
+it matters: with no Dockerfile present, `fly launch` scaffolds its own Next.js
+one, typically multi-stage with a dev-dependency prune, which violates
+constraint 4 (no `tsx`, so you cannot seed or grant Pro) and skips the build-time
+seed. When a Dockerfile already exists, Fly detects and keeps it.
 
 ```bash
-fly launch --no-deploy          # writes fly.toml; decline any managed database
+fly launch --no-deploy          # keeps the committed fly.toml; decline any managed database
 fly volumes create amp_data --size 1 --region <your-region>
 ```
 
-In `fly.toml`, mount the volume and hold the instance count at one:
+Create the volume in the **same region** as `primary_region` in `fly.toml`, or
+the machine will fail to start with no volume to mount.
+
+The committed `fly.toml` already mounts the volume and holds the instance count
+at one:
 
 ```toml
 [mounts]
@@ -387,7 +399,7 @@ command:
   repopulates it**.
 - `scripts/assemble-papers.ts:30-37` is the **only** code that writes
   `paper_questions`.
-- `seed` deletes the `papers`' contents but leaves the 69 `papers` rows
+- `seed` deletes the `papers`' contents but leaves the 67 `papers` rows
   themselves alone.
 
 So the first command silently destroys the second command's output, and the
@@ -438,10 +450,18 @@ console.log("published:",q("questions where status=\x27published\x27"),
  "topics:",q("topics"),"papers:",q("papers"),"paper_questions:",q("paper_questions"));'
 ```
 
-**`paper_questions` must be greater than zero**, and `papers` should read 69
-(50 AMP1, 19 AMP2). If `paper_questions` is zero while `papers` is not,
+**`paper_questions` must be greater than zero**, and `papers` should read 67
+(50 AMP1, 17 AMP2). If `paper_questions` is zero while `papers` is not,
 `assemble` did not run. Do not move on: `/mock` will render an empty list and
 look merely unpopulated. Run `npm run assemble` and check again.
+
+Why 67 and not the round numbers in `scripts/assemble-papers.ts`: every count
+there is a **ceiling**, not a quota — `Math.min(target, floor(available /
+paper_size))`. AMP2 asks for 20 papers of 40 questions, but 95 of its 792
+authored questions sit in `needs_review`, so 697 are publishable and
+`floor(697 / 40)` is 17. AMP1 asks for 10 free + 40 pro and gets both. Publish
+the held-back AMP2 questions and this rises on the next assemble; until then 67
+is correct and is not a sign that anything failed.
 
 This count is the only cheap signal you get. `lib/attempts.ts:108-110` does
 raise `"No questions available for this selection."` if an attempt is ever
@@ -531,6 +551,24 @@ transactions live in `-wal` until a checkpoint folds them in, so a plain copy of
 the `.db` alone is stale at best and internally inconsistent at worst. Both
 commands below use SQLite's online-backup machinery instead and are safe to run
 against a database the live site is actively writing to.
+
+The packaged way is `npm run backup`, which wraps the `VACUUM INTO` call below:
+it timestamps the file into `backups/`, writes to a `.partial` name and renames
+only on success so an interrupted run cannot leave a half-written file looking
+like a good backup, and prints the size and user count so an empty snapshot is
+obvious immediately.
+
+```bash
+fly ssh console -C "sh -c 'cd /app && npm run backup'"
+fly ssh sftp get /app/backups/<the file it printed> ./
+```
+
+It runs through `tsx`, so it depends on the same full `node_modules` that
+constraint 4 already requires. `npm run backup -- /tmp/verify.db` writes to an
+explicit path instead, which is what you want for the restore rehearsal below.
+
+The two raw forms are documented next, because knowing what the wrapper does
+matters when you are recovering under pressure.
 
 `VACUUM INTO` is the simpler of the two — it needs only a read-only handle and
 produces a compacted single file with no `-wal` companion:
@@ -734,13 +772,29 @@ production build reached over plain HTTP will appear to accept your login and
 then behave as if you are signed out — the browser refuses to store the cookie.
 That symptom is a missing TLS terminator, not a broken auth system.
 
-There is no `/api/health` endpoint in this codebase, and there is no good
-substitute. Point the host's health check at `/` to confirm the process is
-listening, but understand its limits: `/` is statically prerendered at build
-time, so it returns 200 with a completely broken or unmounted volume. It proves
-the server is up and nothing more. Step 5 of the walkthrough above — restart,
-then sign in — is the only check here that actually exercises persistence, and
-it is a manual one.
+Point the host's health check at **`/api/health`**, which `fly.toml` already
+does. It is `force-dynamic`, so it runs per request against the database on the
+volume, and it counts the two things whose absence makes the product silently
+useless:
+
+```bash
+curl -s https://YOUR_DOMAIN/api/health
+# {"status":"ok","questions":3435,"paperQuestions":3680}
+```
+
+It answers **503** with a `problems` array when `questions` is zero (the volume
+is not mounted where the process thinks it is, or `seed` never ran) or when
+`paperQuestions` is zero (`seed` ran without `assemble`). Both are otherwise
+invisible — the second in particular renders `/mock` as an ordinary empty list.
+
+Do **not** point the check at `/`. It is statically prerendered at build time,
+so it returns 200 over a completely unmounted volume and proves only that the
+process is listening.
+
+One limit worth stating: `/api/health` reads whichever database the process
+opened, so it confirms that database is populated, not that it is the one on
+your volume surviving a restart. Step 6 of the walkthrough above — restart, then
+sign in — remains the only check that proves persistence, and it is manual.
 
 ## Routine operations
 

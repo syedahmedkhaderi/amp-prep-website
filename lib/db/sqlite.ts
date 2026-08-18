@@ -192,6 +192,54 @@ export function initDB(): void {
       created_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
+    -- A skill is one learning objective inside a topic. AMP 1's are transcribed
+    -- verbatim from the study guide; AMP 2's and the teaching decompositions of
+    -- the broader AMP 1 topics are marked 'derived' in the source column so a
+    -- reviewer can tell which wording carries the exam board's authority.
+    CREATE TABLE IF NOT EXISTS skills (
+      id TEXT PRIMARY KEY,
+      topic_id TEXT NOT NULL REFERENCES topics(id) ON DELETE CASCADE,
+      name TEXT NOT NULL,
+      slug TEXT NOT NULL UNIQUE,
+      order_index INTEGER NOT NULL,
+      objective TEXT NOT NULL,
+      source TEXT NOT NULL DEFAULT 'derived',
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
+    -- One lesson per skill. The blocks column is the JSON lesson body: prose,
+    -- definitions, worked examples, graphs, callouts and checkpoints. It holds
+    -- worked solutions, so it is answer-key adjacent and must not be handed to
+    -- the client wholesale for a checkpoint the student has not answered yet.
+    CREATE TABLE IF NOT EXISTS lessons (
+      id TEXT PRIMARY KEY,
+      skill_id TEXT NOT NULL UNIQUE REFERENCES skills(id) ON DELETE CASCADE,
+      title TEXT NOT NULL,
+      slug TEXT NOT NULL UNIQUE,
+      order_index INTEGER NOT NULL,
+      summary TEXT,
+      blocks TEXT NOT NULL,
+      est_minutes INTEGER NOT NULL DEFAULT 5,
+      status TEXT NOT NULL DEFAULT 'draft',
+      is_free INTEGER NOT NULL DEFAULT 1,
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS lesson_progress (
+      id TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      lesson_id TEXT NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
+      state TEXT NOT NULL DEFAULT 'viewed',
+      viewed_at TEXT NOT NULL DEFAULT (datetime('now')),
+      completed_at TEXT,
+      UNIQUE(user_id, lesson_id)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_skills_topic ON skills(topic_id, order_index);
+    CREATE INDEX IF NOT EXISTS idx_lessons_skill ON lessons(skill_id);
+    CREATE INDEX IF NOT EXISTS idx_lessons_status ON lessons(status, order_index);
+    CREATE INDEX IF NOT EXISTS idx_lesson_progress_user ON lesson_progress(user_id);
+    CREATE INDEX IF NOT EXISTS idx_lesson_progress_lesson ON lesson_progress(lesson_id);
     CREATE INDEX IF NOT EXISTS idx_questions_topic ON questions(topic_id);
     CREATE INDEX IF NOT EXISTS idx_questions_exam ON questions(exam_id);
     CREATE INDEX IF NOT EXISTS idx_questions_status ON questions(status);
@@ -222,7 +270,10 @@ export function initDB(): void {
     ).run(id(), "AMP1", "AMP 1: Academic Mathematics Placement", "Basic high school mathematics. 60 multiple choice questions across 20 topic areas.", 120, 60);
     db.prepare(
       "INSERT INTO exams (id, code, title, description, duration_minutes, total_questions) VALUES (?, ?, ?, ?, ?, ?)"
-    ).run(id(), "AMP2", "AMP 2: Advanced Mathematics Placement", "Advanced algebra, functions, and precalculus. 40 questions in 90 minutes.", 90, 40);
+    // 60 questions in 120 minutes, the same as AMP 1. UDST's Testing Centre
+    // states this for both tests; the 40-in-90 figure this row used to carry
+    // was wrong and made every AMP 2 mock the wrong length.
+    ).run(id(), "AMP2", "AMP 2: Advanced Mathematics Placement", "Advanced algebra, functions, and precalculus. 60 multiple choice questions in 120 minutes.", 120, 60);
   }
 }
 
@@ -245,6 +296,15 @@ function runColumnMigrations(db: DBType): void {
   // token. A token minted before the bump no longer matches and is rejected,
   // which is what makes "change your password" actually end other sessions.
   addColumn("users", "token_version", "INTEGER NOT NULL DEFAULT 0");
+
+  // Which learning objective a question exercises. Nullable: the bank predates
+  // the skill taxonomy, and a wrong skill is worse than an absent one, so
+  // questions are only labelled where the mapping is unambiguous.
+  addColumn("questions", "skill_id", "TEXT REFERENCES skills(id)");
+
+  // Indexed here rather than in the schema block above, because the column it
+  // covers does not exist until the line above has run.
+  db.exec("CREATE INDEX IF NOT EXISTS idx_questions_skill ON questions(skill_id);");
 }
 
 export function closeDB(): void {

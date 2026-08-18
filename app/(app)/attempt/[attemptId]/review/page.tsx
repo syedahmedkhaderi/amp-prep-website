@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { getAttemptReview } from "@/lib/attempts";
 import { MathText } from "@/components/ui/Katex";
+import { RichText } from "@/components/ui/RichText";
 
 export default async function AttemptReviewPage({ params }: { params: Promise<{ attemptId: string }> }) {
   const { attemptId } = await params;
@@ -26,7 +27,7 @@ export default async function AttemptReviewPage({ params }: { params: Promise<{ 
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8">
+    <div className="mx-auto max-w-6xl px-6 py-8">
       <Link href="/dashboard" className="text-sm text-brand-600 hover:text-brand-deep">
         Back to dashboard
       </Link>
@@ -115,7 +116,7 @@ export default async function AttemptReviewPage({ params }: { params: Promise<{ 
                 </div>
 
                 <div className="mt-2 text-ink">
-                  <MathText text={q.stem} />
+                  <RichText text={q.stem} />
                 </div>
 
                 {/* Options review */}

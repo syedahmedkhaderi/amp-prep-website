@@ -8,6 +8,7 @@
 
 import { getDB, initDB } from "@/lib/db/sqlite";
 import type { Exam, Topic, Question, Attempt, Option, MatchItem, Paper } from "@/lib/types";
+import type { Skill, Lesson, LessonProgress, LessonBlock, LessonState } from "@/lib/types";
 import type { QType, Difficulty, ExamCode } from "@/lib/types";
 
 const uid = () => Math.random().toString(36).slice(2, 12);
@@ -263,6 +264,149 @@ function rowToExam(row: any): Exam {
     durationMinutes: row.duration_minutes,
     totalQuestions: row.total_questions,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Skills and lessons
+// ---------------------------------------------------------------------------
+
+function rowToSkill(row: any): Skill {
+  return {
+    id: row.id,
+    topicId: row.topic_id,
+    name: row.name,
+    slug: row.slug,
+    orderIndex: row.order_index,
+    objective: row.objective,
+    source: row.source,
+    topicSlug: row.topic_slug,
+    examCode: row.exam_code,
+  };
+}
+
+function rowToLesson(row: any): Lesson {
+  return {
+    id: row.id,
+    skillId: row.skill_id,
+    title: row.title,
+    slug: row.slug,
+    orderIndex: row.order_index,
+    summary: row.summary ?? "",
+    // Stored as a JSON string. A malformed body would break the whole lesson
+    // page, so it degrades to an empty lesson rather than throwing during render.
+    blocks: safeParseBlocks(row.blocks, row.slug),
+    estMinutes: row.est_minutes,
+    status: row.status,
+    isFree: row.is_free === 1,
+    skillSlug: row.skill_slug,
+    topicSlug: row.topic_slug,
+    topicName: row.topic_name,
+  };
+}
+
+function safeParseBlocks(raw: string, slug: string): LessonBlock[] {
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    console.error(`[queries] lesson ${slug} has unparseable blocks`);
+    return [];
+  }
+}
+
+export function getSkills(topicId?: string): Skill[] {
+  initDB();
+  const db = getDB();
+  const base = `SELECT s.*, t.slug AS topic_slug, e.code AS exam_code
+                FROM skills s
+                JOIN topics t ON t.id = s.topic_id
+                JOIN exams e ON e.id = t.exam_id`;
+  const rows = topicId
+    ? (db.prepare(`${base} WHERE s.topic_id = ? ORDER BY s.order_index`).all(topicId) as any[])
+    : (db.prepare(`${base} ORDER BY e.code, t.order_index, s.order_index`).all() as any[]);
+  return rows.map(rowToSkill);
+}
+
+export function getSkillBySlug(slug: string): Skill | null {
+  initDB();
+  const db = getDB();
+  const row = db.prepare(
+    `SELECT s.*, t.slug AS topic_slug, e.code AS exam_code
+     FROM skills s
+     JOIN topics t ON t.id = s.topic_id
+     JOIN exams e ON e.id = t.exam_id
+     WHERE s.slug = ?`
+  ).get(slug) as any;
+  return row ? rowToSkill(row) : null;
+}
+
+const LESSON_SELECT = `SELECT l.*, s.slug AS skill_slug, t.slug AS topic_slug, t.name AS topic_name
+                       FROM lessons l
+                       JOIN skills s ON s.id = l.skill_id
+                       JOIN topics t ON t.id = s.topic_id`;
+
+export function getLessonBySlug(slug: string): Lesson | null {
+  initDB();
+  const db = getDB();
+  const row = db.prepare(`${LESSON_SELECT} WHERE l.slug = ?`).get(slug) as any;
+  return row ? rowToLesson(row) : null;
+}
+
+/** Published lessons for a topic, in teaching order. */
+export function getLessonsForTopic(topicSlug: string): Lesson[] {
+  initDB();
+  const db = getDB();
+  const rows = db.prepare(
+    `${LESSON_SELECT} WHERE t.slug = ? AND l.status = 'published' ORDER BY s.order_index, l.order_index`
+  ).all(topicSlug) as any[];
+  return rows.map(rowToLesson);
+}
+
+/** Every published lesson, grouped by the caller. Used by the syllabus index. */
+export function getPublishedLessons(): Lesson[] {
+  initDB();
+  const db = getDB();
+  const rows = db.prepare(
+    `${LESSON_SELECT} JOIN exams e ON e.id = t.exam_id
+     WHERE l.status = 'published'
+     ORDER BY e.code, t.order_index, s.order_index, l.order_index`
+  ).all() as any[];
+  return rows.map(rowToLesson);
+}
+
+export function getLessonProgress(userId: string): LessonProgress[] {
+  initDB();
+  const db = getDB();
+  const rows = db.prepare("SELECT * FROM lesson_progress WHERE user_id = ?").all(userId) as any[];
+  return rows.map((row) => ({
+    id: row.id,
+    userId: row.user_id,
+    lessonId: row.lesson_id,
+    state: row.state,
+    viewedAt: row.viewed_at,
+    completedAt: row.completed_at,
+  }));
+}
+
+/**
+ * Record that a user has seen or finished a lesson.
+ *
+ * Completion is sticky: revisiting a finished lesson must not demote it back to
+ * "viewed", or a student's progress would go backwards for reading their notes.
+ */
+export function upsertLessonProgress(userId: string, lessonId: string, state: LessonState): void {
+  initDB();
+  const db = getDB();
+  const id = "lp_" + Math.random().toString(36).slice(2, 12);
+  const completedAt = state === "completed" ? new Date().toISOString() : null;
+  db.prepare(
+    `INSERT INTO lesson_progress (id, user_id, lesson_id, state, viewed_at, completed_at)
+     VALUES (?, ?, ?, ?, datetime('now'), ?)
+     ON CONFLICT(user_id, lesson_id) DO UPDATE SET
+       state = CASE WHEN lesson_progress.state = 'completed' THEN 'completed' ELSE excluded.state END,
+       viewed_at = datetime('now'),
+       completed_at = COALESCE(lesson_progress.completed_at, excluded.completed_at)`
+  ).run(id, userId, lessonId, state, completedAt);
 }
 
 function rowToTopic(row: any): Topic {

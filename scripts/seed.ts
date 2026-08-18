@@ -112,6 +112,14 @@ const PLAIN_NUMBER = /^[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$/;
  * `UPDATE questions SET status='published' WHERE status='needs_review'`.
  */
 function heldForReview(q: any): string | null {
+  // An upstream repair script may already have quarantined this question, for
+  // example scripts/repair-notation.ts when a math delimiter has gone missing
+  // and cannot be safely guessed back. Seeding used to compute status purely
+  // from its own rules and silently overwrote that decision, republishing
+  // questions another pass had deliberately pulled.
+  if (q.status === "needs_review") return "quarantined by an earlier repair pass";
+  if (q.status === "retired") return "retired as a duplicate of another question";
+
   const prose = [...(q.explanation_steps || []), q.concept_summary || ""].join(" ");
   if (SELF_CORRECTION.test(prose)) return "explanation contradicts itself mid-derivation";
 
@@ -285,7 +293,9 @@ function seed() {
         JSON.stringify(q.distractor_rationales || {}),
         q.concept_summary || "",
         "generated",
-        reviewReason ? "needs_review" : "published",
+        // A retired duplicate keeps its own status so it stays distinguishable
+        // from a question a human still needs to look at.
+        q.status === "retired" ? "retired" : reviewReason ? "needs_review" : "published",
         reviewReason ? 0 : isFree ? 1 : 0
       );
 

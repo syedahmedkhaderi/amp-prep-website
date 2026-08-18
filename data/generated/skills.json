@@ -1,0 +1,1779 @@
+{
+  "source": "UDST Academic Mathematics Placement Study Guide (AMP 1, verbatim); UDST Testing Centre AMP 2 scope (derived)",
+  "builtAt": "2026-08-17T04:49:17.173Z",
+  "skills": [
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Define the various sets of the real number",
+      "slug": "real-number-system-define-the-various-sets-of-the-real",
+      "orderIndex": 1,
+      "objective": "Define the various sets of the real number system",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Give examples that require the use of different",
+      "slug": "real-number-system-give-examples-that-require-the-use-of",
+      "orderIndex": 2,
+      "objective": "Give examples that require the use of different number systems",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Identify the characteristics of various number sets",
+      "slug": "real-number-system-identify-the-characteristics-of-various-number-sets",
+      "orderIndex": 3,
+      "objective": "Identify the characteristics of various number sets",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Show the relations between the natural, whole, rational",
+      "slug": "real-number-system-show-the-relations-between-the-natural-whole",
+      "orderIndex": 4,
+      "objective": "Show the relations between the natural, whole, rational, irrational, and real numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Use radical notation to express roots",
+      "slug": "real-number-system-use-radical-notation-to-express-roots",
+      "orderIndex": 5,
+      "objective": "Use radical notation to express roots",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Evaluate roots of perfect squares and cubes",
+      "slug": "real-number-system-evaluate-roots-of-perfect-squares-and-cubes",
+      "orderIndex": 6,
+      "objective": "Evaluate roots of perfect squares and cubes",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Approximate square roots and cube roots using a",
+      "slug": "real-number-system-approximate-square-roots-and-cube-roots-using",
+      "orderIndex": 7,
+      "objective": "Approximate square roots and cube roots using a calculator",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "real-number-system",
+      "exam": "AMP1",
+      "name": "Place real numbers on the real number line",
+      "slug": "real-number-system-place-real-numbers-on-the-real-number",
+      "orderIndex": 8,
+      "objective": "Place real numbers on the real number line",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Perform operations with whole numbers",
+      "slug": "whole-numbers-and-integers-perform-operations-with-whole-numbers",
+      "orderIndex": 1,
+      "objective": "Perform operations with whole numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Find the factors of a whole number",
+      "slug": "whole-numbers-and-integers-find-the-factors-of-a-whole-number",
+      "orderIndex": 2,
+      "objective": "Find the factors of a whole number",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Determine whether a whole number is prime, composite",
+      "slug": "whole-numbers-and-integers-determine-whether-a-whole-number-is-prime",
+      "orderIndex": 3,
+      "objective": "Determine whether a whole number is prime, composite, or neither",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Find the prime factorization of a number",
+      "slug": "whole-numbers-and-integers-find-the-prime-factorization-of-a-number",
+      "orderIndex": 4,
+      "objective": "Find the prime factorization of a number",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Use exponents on whole numbers",
+      "slug": "whole-numbers-and-integers-use-exponents-on-whole-numbers",
+      "orderIndex": 5,
+      "objective": "Use exponents on whole numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Find the greatest common factor (GCF) for two",
+      "slug": "whole-numbers-and-integers-find-the-greatest-common-factor-gcf-for",
+      "orderIndex": 6,
+      "objective": "Find the greatest common factor (GCF) for two or more numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Find the lowest common multiple (LCM) for two",
+      "slug": "whole-numbers-and-integers-find-the-lowest-common-multiple-lcm-for",
+      "orderIndex": 7,
+      "objective": "Find the lowest common multiple (LCM) for two or more numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Use order of operations to perform calculations on",
+      "slug": "whole-numbers-and-integers-use-order-of-operations-to-perform-calculations",
+      "orderIndex": 8,
+      "objective": "Use order of operations to perform calculations on integers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "whole-numbers-and-integers",
+      "exam": "AMP1",
+      "name": "Evaluate numerical expressions using absolute value",
+      "slug": "whole-numbers-and-integers-evaluate-numerical-expressions-using-absolute-value",
+      "orderIndex": 9,
+      "objective": "Evaluate numerical expressions using absolute value",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Perform operations on fractions and mixed numbers",
+      "slug": "fractions-perform-operations-on-fractions-and-mixed-numbers",
+      "orderIndex": 1,
+      "objective": "Perform operations on fractions and mixed numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Define proper fractions, improper fractions, and mixed numbers",
+      "slug": "fractions-define-proper-fractions-improper-fractions-and-mixed",
+      "orderIndex": 2,
+      "objective": "Define proper fractions, improper fractions, and mixed numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Convert mixed numbers to improper fractions and vice",
+      "slug": "fractions-convert-mixed-numbers-to-improper-fractions-and",
+      "orderIndex": 3,
+      "objective": "Convert mixed numbers to improper fractions and vice versa",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Simplify a fraction",
+      "slug": "fractions-simplify-a-fraction",
+      "orderIndex": 4,
+      "objective": "Simplify a fraction",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Define reciprocal",
+      "slug": "fractions-define-reciprocal",
+      "orderIndex": 5,
+      "objective": "Define reciprocal",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Add and subtract proper fractions, improper fractions, and",
+      "slug": "fractions-add-and-subtract-proper-fractions-improper-fractions",
+      "orderIndex": 6,
+      "objective": "Add and subtract proper fractions, improper fractions, and mixed numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Multiply and divide proper fractions, improper fractions, and",
+      "slug": "fractions-multiply-and-divide-proper-fractions-improper-fractions",
+      "orderIndex": 7,
+      "objective": "Multiply and divide proper fractions, improper fractions, and mixed numbers",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "fractions",
+      "exam": "AMP1",
+      "name": "Perform operations on complex fractions",
+      "slug": "fractions-perform-operations-on-complex-fractions",
+      "orderIndex": 8,
+      "objective": "Perform operations on complex fractions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Change a decimal to a fraction",
+      "slug": "decimals-change-a-decimal-to-a-fraction",
+      "orderIndex": 1,
+      "objective": "Change a decimal to a fraction",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Change a decimal to a percent",
+      "slug": "decimals-change-a-decimal-to-a-percent",
+      "orderIndex": 2,
+      "objective": "Change a decimal to a percent",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Identify the base units of measure for mass",
+      "slug": "decimals-identify-the-base-units-of-measure-for",
+      "orderIndex": 3,
+      "objective": "Identify the base units of measure for mass, volume, and length",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Convert from one unit of metric measure to",
+      "slug": "decimals-convert-from-one-unit-of-metric-measure",
+      "orderIndex": 4,
+      "objective": "Convert from one unit of metric measure to another (kilo- to milli-range)",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Evaluate algebraic expressions",
+      "slug": "decimals-evaluate-algebraic-expressions",
+      "orderIndex": 5,
+      "objective": "Evaluate algebraic expressions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Write a decimal number in scientific notation, and",
+      "slug": "decimals-write-a-decimal-number-in-scientific-notation",
+      "orderIndex": 6,
+      "objective": "Write a decimal number in scientific notation, and vice versa",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "decimals",
+      "exam": "AMP1",
+      "name": "Round numbers to one or two decimal places",
+      "slug": "decimals-round-numbers-to-one-or-two-decimal",
+      "orderIndex": 7,
+      "objective": "Round numbers to one or two decimal places",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "percent",
+      "exam": "AMP1",
+      "name": "Define percent",
+      "slug": "percent-define-percent",
+      "orderIndex": 1,
+      "objective": "Define percent",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "percent",
+      "exam": "AMP1",
+      "name": "Change a percent to a fraction or decimal",
+      "slug": "percent-change-a-percent-to-a-fraction-or",
+      "orderIndex": 2,
+      "objective": "Change a percent to a fraction or decimal",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "percent",
+      "exam": "AMP1",
+      "name": "Change a fraction or decimal to a percent",
+      "slug": "percent-change-a-fraction-or-decimal-to-a",
+      "orderIndex": 3,
+      "objective": "Change a fraction or decimal to a percent",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "percent",
+      "exam": "AMP1",
+      "name": "Perform calculations using the three types of percent",
+      "slug": "percent-perform-calculations-using-the-three-types-of",
+      "orderIndex": 4,
+      "objective": "Perform calculations using the three types of percent problems",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "percent",
+      "exam": "AMP1",
+      "name": "Calculate percent increase and percent decrease",
+      "slug": "percent-calculate-percent-increase-and-percent-decrease",
+      "orderIndex": 5,
+      "objective": "Calculate percent increase and percent decrease",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "percent",
+      "exam": "AMP1",
+      "name": "Calculate unweighted and weighted averages",
+      "slug": "percent-calculate-unweighted-and-weighted-averages",
+      "orderIndex": 6,
+      "objective": "Calculate unweighted and weighted averages",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Determine whether a given number is a solution",
+      "slug": "solving-equations-determine-whether-a-given-number-is-a",
+      "orderIndex": 1,
+      "objective": "Determine whether a given number is a solution for an equation",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Use the addition property to solve an equation",
+      "slug": "solving-equations-use-the-addition-property-to-solve-an",
+      "orderIndex": 2,
+      "objective": "Use the addition property to solve an equation",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Use the division property to solve an equation",
+      "slug": "solving-equations-use-the-division-property-to-solve-an",
+      "orderIndex": 3,
+      "objective": "Use the division property to solve an equation",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Combine the addition and division properties to solve",
+      "slug": "solving-equations-combine-the-addition-and-division-properties-to",
+      "orderIndex": 4,
+      "objective": "Combine the addition and division properties to solve an equation",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Solve equations that contain brackets",
+      "slug": "solving-equations-solve-equations-that-contain-brackets",
+      "orderIndex": 5,
+      "objective": "Solve equations that contain brackets",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Solve equations that contain fractions",
+      "slug": "solving-equations-solve-equations-that-contain-fractions",
+      "orderIndex": 6,
+      "objective": "Solve equations that contain fractions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "solving-equations",
+      "exam": "AMP1",
+      "name": "Solve a proportion for an unknown value",
+      "slug": "solving-equations-solve-a-proportion-for-an-unknown-value",
+      "orderIndex": 7,
+      "objective": "Solve a proportion for an unknown value",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "formula-rearrangement",
+      "exam": "AMP1",
+      "name": "Solve an equation or formula for a given",
+      "slug": "formula-rearrangement-solve-an-equation-or-formula-for-a",
+      "orderIndex": 1,
+      "objective": "Solve an equation or formula for a given variable",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "laws-of-exponents",
+      "exam": "AMP1",
+      "name": "Perform calculations with exponents",
+      "slug": "laws-of-exponents-perform-calculations-with-exponents",
+      "orderIndex": 1,
+      "objective": "Perform calculations with exponents",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "laws-of-exponents",
+      "exam": "AMP1",
+      "name": "Simplify expressions involving zero and positive exponents",
+      "slug": "laws-of-exponents-simplify-expressions-involving-zero-and-positive-exponents",
+      "orderIndex": 2,
+      "objective": "Simplify expressions involving zero and positive exponents",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "negative-exponents",
+      "exam": "AMP1",
+      "name": "Perform calculations with negative exponents",
+      "slug": "negative-exponents-perform-calculations-with-negative-exponents",
+      "orderIndex": 1,
+      "objective": "Perform calculations with negative exponents",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "negative-exponents",
+      "exam": "AMP1",
+      "name": "Simplify expressions involving negative exponents",
+      "slug": "negative-exponents-simplify-expressions-involving-negative-exponents",
+      "orderIndex": 2,
+      "objective": "Simplify expressions involving negative exponents",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "polynomials",
+      "exam": "AMP1",
+      "name": "Define polynomials",
+      "slug": "polynomials-define-polynomials",
+      "orderIndex": 1,
+      "objective": "Define polynomials",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "polynomials",
+      "exam": "AMP1",
+      "name": "Identify monomials, binomials, and trinomials",
+      "slug": "polynomials-identify-monomials-binomials-and-trinomials",
+      "orderIndex": 2,
+      "objective": "Identify monomials, binomials, and trinomials",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "polynomials",
+      "exam": "AMP1",
+      "name": "Find the degree of a polynomial that has",
+      "slug": "polynomials-find-the-degree-of-a-polynomial-that",
+      "orderIndex": 3,
+      "objective": "Find the degree of a polynomial that has one variable",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "polynomials",
+      "exam": "AMP1",
+      "name": "Write a polynomial in descending-exponent form",
+      "slug": "polynomials-write-a-polynomial-in-descending-exponent-form",
+      "orderIndex": 4,
+      "objective": "Write a polynomial in descending-exponent form",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "polynomials",
+      "exam": "AMP1",
+      "name": "Add, subtract, multiply and divide polynomials",
+      "slug": "polynomials-add-subtract-multiply-and-divide-polynomials",
+      "orderIndex": 5,
+      "objective": "Add, subtract, multiply and divide polynomials",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "polynomials",
+      "exam": "AMP1",
+      "name": "Square a binomial",
+      "slug": "polynomials-square-a-binomial",
+      "orderIndex": 6,
+      "objective": "Square a binomial",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "factoring",
+      "exam": "AMP1",
+      "name": "Find the greatest common factor from a polynomial",
+      "slug": "factoring-find-the-greatest-common-factor-from-a",
+      "orderIndex": 1,
+      "objective": "Find the greatest common factor from a polynomial",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "factoring",
+      "exam": "AMP1",
+      "name": "Factor trinomials of the form",
+      "slug": "factoring-factor-trinomials-of-the-form",
+      "orderIndex": 2,
+      "objective": "Factor trinomials of the form $x^{2} + bx + c$",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "factoring",
+      "exam": "AMP1",
+      "name": "Factor trinomials of the form",
+      "slug": "factoring-factor-trinomials-of-the-form-2",
+      "orderIndex": 3,
+      "objective": "Factor trinomials of the form $ax^{2} + bx + c$",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "factoring",
+      "exam": "AMP1",
+      "name": "Factor a difference of squares",
+      "slug": "factoring-factor-a-difference-of-squares",
+      "orderIndex": 4,
+      "objective": "Factor a difference of squares",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "factoring",
+      "exam": "AMP1",
+      "name": "Factor by grouping",
+      "slug": "factoring-factor-by-grouping",
+      "orderIndex": 5,
+      "objective": "Factor by grouping",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "factoring",
+      "exam": "AMP1",
+      "name": "Factor a sum and a difference of cubes",
+      "slug": "factoring-factor-a-sum-and-a-difference-of",
+      "orderIndex": 6,
+      "objective": "Factor a sum and a difference of cubes",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "rational-expressions",
+      "exam": "AMP1",
+      "name": "Determine the values for which a rational algebraic",
+      "slug": "rational-expressions-determine-the-values-for-which-a-rational",
+      "orderIndex": 1,
+      "objective": "Determine the values for which a rational algebraic expression is defined",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "rational-expressions",
+      "exam": "AMP1",
+      "name": "Simplify rational algebraic expressions",
+      "slug": "rational-expressions-simplify-rational-algebraic-expressions",
+      "orderIndex": 2,
+      "objective": "Simplify rational algebraic expressions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "rational-expressions",
+      "exam": "AMP1",
+      "name": "Add, subtract, multiply and divide rational algebraic expressions",
+      "slug": "rational-expressions-add-subtract-multiply-and-divide-rational-algebraic",
+      "orderIndex": 3,
+      "objective": "Add, subtract, multiply and divide rational algebraic expressions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "rational-expressions",
+      "exam": "AMP1",
+      "name": "Find lowest common denominator of rational algebraic expressions",
+      "slug": "rational-expressions-find-lowest-common-denominator-of-rational-algebraic",
+      "orderIndex": 4,
+      "objective": "Find lowest common denominator of rational algebraic expressions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Determine the number of significant digits of an",
+      "slug": "geometry-determine-the-number-of-significant-digits-of",
+      "orderIndex": 1,
+      "objective": "Determine the number of significant digits of an approximate number",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Identify pairs of complementary angles and pairs of",
+      "slug": "geometry-identify-pairs-of-complementary-angles-and-pairs",
+      "orderIndex": 2,
+      "objective": "Identify pairs of complementary angles and pairs of supplementary angles",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Classify angles as right, acute, obtuse, or straight",
+      "slug": "geometry-classify-angles-as-right-acute-obtuse-or",
+      "orderIndex": 3,
+      "objective": "Classify angles as right, acute, obtuse, or straight",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Classify triangles as scalene, equilateral, right, or isosceles",
+      "slug": "geometry-classify-triangles-as-scalene-equilateral-right-or",
+      "orderIndex": 4,
+      "objective": "Classify triangles as scalene, equilateral, right, or isosceles",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Use the angle-sum principle to calculate unknown angles",
+      "slug": "geometry-use-the-angle-sum-principle-to-calculate",
+      "orderIndex": 5,
+      "objective": "Use the angle-sum principle to calculate unknown angles in triangles",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Use the Pythagorean Theorem to calculate the unknown",
+      "slug": "geometry-use-the-pythagorean-theorem-to-calculate-the",
+      "orderIndex": 6,
+      "objective": "Use the Pythagorean Theorem to calculate the unknown side lengths",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Find the area and perimeter of a square",
+      "slug": "geometry-find-the-area-and-perimeter-of-a",
+      "orderIndex": 7,
+      "objective": "Find the area and perimeter of a square, rectangle, triangle, and circle",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Find the volume and surface area of a",
+      "slug": "geometry-find-the-volume-and-surface-area-of",
+      "orderIndex": 8,
+      "objective": "Find the volume and surface area of a sphere, cone, cylinder, and prisms",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Recognize similar triangles and identify the corresponding parts",
+      "slug": "geometry-recognize-similar-triangles-and-identify-the-corresponding",
+      "orderIndex": 9,
+      "objective": "Recognize similar triangles and identify the corresponding parts",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "geometry",
+      "exam": "AMP1",
+      "name": "Find the missing measures in similar triangles",
+      "slug": "geometry-find-the-missing-measures-in-similar-triangles",
+      "orderIndex": 10,
+      "objective": "Find the missing measures in similar triangles",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Determine distance between two points",
+      "slug": "equation-of-the-line-determine-distance-between-two-points",
+      "orderIndex": 1,
+      "objective": "Determine distance between two points",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Determine midpoint of a line segment",
+      "slug": "equation-of-the-line-determine-midpoint-of-a-line-segment",
+      "orderIndex": 2,
+      "objective": "Determine midpoint of a line segment",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Determine slope of a line including parallel and",
+      "slug": "equation-of-the-line-determine-slope-of-a-line-including-parallel",
+      "orderIndex": 3,
+      "objective": "Determine slope of a line including parallel and perpendicular lines",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Given a line, find steepness and direction of",
+      "slug": "equation-of-the-line-given-a-line-find-steepness-and-direction",
+      "orderIndex": 4,
+      "objective": "Given a line, find steepness and direction of slope",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Graph a line given its slope and y-intercept",
+      "slug": "equation-of-the-line-graph-a-line-given-its-slope-and",
+      "orderIndex": 5,
+      "objective": "Graph a line given its slope and y-intercept, its slope and any point, or any two points on the line",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Write equation of a line from standard form",
+      "slug": "equation-of-the-line-write-equation-of-a-line-from-standard",
+      "orderIndex": 6,
+      "objective": "Write equation of a line from standard form to slope-intercept form and vice versa",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Graph a linear equation using its slope and",
+      "slug": "equation-of-the-line-graph-a-linear-equation-using-its-slope",
+      "orderIndex": 7,
+      "objective": "Graph a linear equation using its slope and y-intercept, its two intercepts, or a point on the line and the equation of a parallel or perpendicular line",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Graph horizontal and vertical lines from their equations",
+      "slug": "equation-of-the-line-graph-horizontal-and-vertical-lines-from-their",
+      "orderIndex": 8,
+      "objective": "Graph horizontal and vertical lines from their equations",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "equation-of-the-line",
+      "exam": "AMP1",
+      "name": "Find the equation of a line given slope",
+      "slug": "equation-of-the-line-find-the-equation-of-a-line-given",
+      "orderIndex": 9,
+      "objective": "Find the equation of a line given slope and y-intercept, slope and a point, two points, a point and a parallel or perpendicular line, or the graph of a line",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "systems-of-equations-and-inequalities",
+      "exam": "AMP1",
+      "name": "Determine the number of solutions for a system",
+      "slug": "systems-of-equations-and-inequalities-determine-the-number-of-solutions-for-a",
+      "orderIndex": 1,
+      "objective": "Determine the number of solutions for a system of equations",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "systems-of-equations-and-inequalities",
+      "exam": "AMP1",
+      "name": "Solve a system of linear equations in two",
+      "slug": "systems-of-equations-and-inequalities-solve-a-system-of-linear-equations-in",
+      "orderIndex": 2,
+      "objective": "Solve a system of linear equations in two variables by graphing, elimination, or substitution",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "systems-of-equations-and-inequalities",
+      "exam": "AMP1",
+      "name": "Solve a system of linear inequalities in two",
+      "slug": "systems-of-equations-and-inequalities-solve-a-system-of-linear-inequalities-in",
+      "orderIndex": 3,
+      "objective": "Solve a system of linear inequalities in two variables by graphing",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "systems-of-equations-and-inequalities",
+      "exam": "AMP1",
+      "name": "Graph linear inequalities on a number line or",
+      "slug": "systems-of-equations-and-inequalities-graph-linear-inequalities-on-a-number-line",
+      "orderIndex": 4,
+      "objective": "Graph linear inequalities on a number line or x-y plane",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Define the primary trigonometric ratios - sine, cosine",
+      "slug": "trigonometry-define-the-primary-trigonometric-ratios-sine-cosine",
+      "orderIndex": 1,
+      "objective": "Define the primary trigonometric ratios - sine, cosine, and tangent",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Use a calculator to determine the numerical values",
+      "slug": "trigonometry-use-a-calculator-to-determine-the-numerical",
+      "orderIndex": 2,
+      "objective": "Use a calculator to determine the numerical values of the sine, cosine and tangent of angles between 0 and 90 degrees",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Use a primary trigonometric ratio to calculate the",
+      "slug": "trigonometry-use-a-primary-trigonometric-ratio-to-calculate",
+      "orderIndex": 3,
+      "objective": "Use a primary trigonometric ratio to calculate the unknown length of one side of a right triangle",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Use the calculator to determine the size of",
+      "slug": "trigonometry-use-the-calculator-to-determine-the-size",
+      "orderIndex": 4,
+      "objective": "Use the calculator to determine the size of an angle when the numerical value of its sine, cosine, or tangent is given",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Use a trigonometric ratio to calculate an unknown",
+      "slug": "trigonometry-use-a-trigonometric-ratio-to-calculate-an",
+      "orderIndex": 5,
+      "objective": "Use a trigonometric ratio to calculate an unknown acute angle of a right triangle",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Define the secondary trigonometric ratios - cosecant, secant",
+      "slug": "trigonometry-define-the-secondary-trigonometric-ratios-cosecant-secant",
+      "orderIndex": 6,
+      "objective": "Define the secondary trigonometric ratios - cosecant, secant and cotangent",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Use the calculator to determine the numerical values",
+      "slug": "trigonometry-use-the-calculator-to-determine-the-numerical",
+      "orderIndex": 7,
+      "objective": "Use the calculator to determine the numerical values of the cosecant, secant, and cotangent of angles between 0 and 90 degrees",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "trigonometry",
+      "exam": "AMP1",
+      "name": "Define minutes and seconds as subdivisions of a",
+      "slug": "trigonometry-define-minutes-and-seconds-as-subdivisions-of",
+      "orderIndex": 8,
+      "objective": "Define minutes and seconds as subdivisions of a degree, and convert between them and degrees",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "data-management",
+      "exam": "AMP1",
+      "name": "Interpret data from circle graphs, histograms, bar charts",
+      "slug": "data-management-interpret-data-from-circle-graphs-histograms-bar",
+      "orderIndex": 1,
+      "objective": "Interpret data from circle graphs, histograms, bar charts, tables, scatterplots, and line graphs",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Define relations",
+      "slug": "functions-define-relations",
+      "orderIndex": 1,
+      "objective": "Define relations",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Represent relations as a set of ordered pairs",
+      "slug": "functions-represent-relations-as-a-set-of-ordered",
+      "orderIndex": 2,
+      "objective": "Represent relations as a set of ordered pairs, as a table of values, as a graph, or as an equation",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Determine the domain and range of a relation",
+      "slug": "functions-determine-the-domain-and-range-of-a",
+      "orderIndex": 3,
+      "objective": "Determine the domain and range of a relation",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Determine if a particular relation is a function",
+      "slug": "functions-determine-if-a-particular-relation-is-a",
+      "orderIndex": 4,
+      "objective": "Determine if a particular relation is a function",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Evaluate a function at a value in its",
+      "slug": "functions-evaluate-a-function-at-a-value-in",
+      "orderIndex": 5,
+      "objective": "Evaluate a function at a value in its domain",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Describe and sketch graphs of the functions given",
+      "slug": "functions-describe-and-sketch-graphs-of-the-functions",
+      "orderIndex": 6,
+      "objective": "Describe and sketch graphs of the functions given horizontal translations, vertical translations, and vertical stretch",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Given determine the coordinates of its vertex, the",
+      "slug": "functions-given-determine-the-coordinates-of-its-vertex",
+      "orderIndex": 7,
+      "objective": "Given $y = a(x-h)^{2} + k$ determine the coordinates of its vertex, the equation of the axis of symmetry, direction of opening, maximum or minimum point, its domain and range",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "functions",
+      "exam": "AMP1",
+      "name": "Change to the form",
+      "slug": "functions-change-to-the-form",
+      "orderIndex": 8,
+      "objective": "Change $y = ax^{2} + bx + c$ to the form $y = a(x-h)^{2} + k$",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "logarithms",
+      "exam": "AMP1",
+      "name": "Change expressions from exponential to logarithmic form and",
+      "slug": "logarithms-change-expressions-from-exponential-to-logarithmic-form",
+      "orderIndex": 1,
+      "objective": "Change expressions from exponential to logarithmic form and vice versa",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "logarithms",
+      "exam": "AMP1",
+      "name": "Use the laws of logarithms to rewrite expressions",
+      "slug": "logarithms-use-the-laws-of-logarithms-to-rewrite",
+      "orderIndex": 2,
+      "objective": "Use the laws of logarithms to rewrite expressions",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "logarithms",
+      "exam": "AMP1",
+      "name": "Use the calculator to find common logarithms",
+      "slug": "logarithms-use-the-calculator-to-find-common-logarithms",
+      "orderIndex": 3,
+      "objective": "Use the calculator to find common logarithms",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "logarithms",
+      "exam": "AMP1",
+      "name": "Use the laws of logarithms to solve literal",
+      "slug": "logarithms-use-the-laws-of-logarithms-to-solve",
+      "orderIndex": 4,
+      "objective": "Use the laws of logarithms to solve literal equations",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "logarithms",
+      "exam": "AMP1",
+      "name": "Change the form of logarithmic and exponential equations",
+      "slug": "logarithms-change-the-form-of-logarithmic-and-exponential",
+      "orderIndex": 5,
+      "objective": "Change the form of logarithmic and exponential equations",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "logarithms",
+      "exam": "AMP1",
+      "name": "Use the calculator to find antilogarithms",
+      "slug": "logarithms-use-the-calculator-to-find-antilogarithms",
+      "orderIndex": 6,
+      "objective": "Use the calculator to find antilogarithms",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Answer questions based on English simple-sentence descriptions, with",
+      "slug": "word-problems-answer-questions-based-on-english-simple-sentence",
+      "orderIndex": 1,
+      "objective": "Answer questions based on English simple-sentence descriptions, with or without a diagram, using the skills from all other topics",
+      "source": "study-guide"
+    },
+    {
+      "topicSlug": "formula-rearrangement",
+      "exam": "AMP1",
+      "name": "Isolate a variable that appears only once, using",
+      "slug": "formula-rearrangement-isolate-a-variable-that-appears-only-once",
+      "orderIndex": 1,
+      "objective": "Isolate a variable that appears only once, using inverse operations",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "formula-rearrangement",
+      "exam": "AMP1",
+      "name": "Rearrange a formula where the target variable is",
+      "slug": "formula-rearrangement-rearrange-a-formula-where-the-target-variable",
+      "orderIndex": 2,
+      "objective": "Rearrange a formula where the target variable is inside a bracket",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "formula-rearrangement",
+      "exam": "AMP1",
+      "name": "Rearrange a formula where the target variable is",
+      "slug": "formula-rearrangement-rearrange-a-formula-where-the-target-variable-2",
+      "orderIndex": 3,
+      "objective": "Rearrange a formula where the target variable is in a denominator",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "formula-rearrangement",
+      "exam": "AMP1",
+      "name": "Rearrange a formula involving a power or a",
+      "slug": "formula-rearrangement-rearrange-a-formula-involving-a-power-or",
+      "orderIndex": 4,
+      "objective": "Rearrange a formula involving a power or a root",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "formula-rearrangement",
+      "exam": "AMP1",
+      "name": "Rearrange a formula where the target variable appears",
+      "slug": "formula-rearrangement-rearrange-a-formula-where-the-target-variable-3",
+      "orderIndex": 5,
+      "objective": "Rearrange a formula where the target variable appears on both sides",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "laws-of-exponents",
+      "exam": "AMP1",
+      "name": "Multiply powers with the same base by adding",
+      "slug": "laws-of-exponents-multiply-powers-with-the-same-base-by",
+      "orderIndex": 1,
+      "objective": "Multiply powers with the same base by adding exponents",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "laws-of-exponents",
+      "exam": "AMP1",
+      "name": "Divide powers with the same base by subtracting",
+      "slug": "laws-of-exponents-divide-powers-with-the-same-base-by",
+      "orderIndex": 2,
+      "objective": "Divide powers with the same base by subtracting exponents",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "laws-of-exponents",
+      "exam": "AMP1",
+      "name": "Raise a power to a power by multiplying",
+      "slug": "laws-of-exponents-raise-a-power-to-a-power-by",
+      "orderIndex": 3,
+      "objective": "Raise a power to a power by multiplying exponents",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "laws-of-exponents",
+      "exam": "AMP1",
+      "name": "Apply an exponent to a product or a",
+      "slug": "laws-of-exponents-apply-an-exponent-to-a-product-or",
+      "orderIndex": 4,
+      "objective": "Apply an exponent to a product or a quotient",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "negative-exponents",
+      "exam": "AMP1",
+      "name": "Rewrite a negative exponent as a reciprocal",
+      "slug": "negative-exponents-rewrite-a-negative-exponent-as-a-reciprocal",
+      "orderIndex": 1,
+      "objective": "Rewrite a negative exponent as a reciprocal",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "negative-exponents",
+      "exam": "AMP1",
+      "name": "Simplify a fraction containing negative exponents in the",
+      "slug": "negative-exponents-simplify-a-fraction-containing-negative-exponents-in",
+      "orderIndex": 2,
+      "objective": "Simplify a fraction containing negative exponents in the numerator and denominator",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "negative-exponents",
+      "exam": "AMP1",
+      "name": "Combine the exponent laws with negative exponents in",
+      "slug": "negative-exponents-combine-the-exponent-laws-with-negative-exponents",
+      "orderIndex": 3,
+      "objective": "Combine the exponent laws with negative exponents in a single expression",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "data-management",
+      "exam": "AMP1",
+      "name": "Read a value from a bar chart, line",
+      "slug": "data-management-read-a-value-from-a-bar-chart",
+      "orderIndex": 1,
+      "objective": "Read a value from a bar chart, line graph, or table",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "data-management",
+      "exam": "AMP1",
+      "name": "Interpret a circle graph and convert between percentages",
+      "slug": "data-management-interpret-a-circle-graph-and-convert-between",
+      "orderIndex": 2,
+      "objective": "Interpret a circle graph and convert between percentages and quantities",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "data-management",
+      "exam": "AMP1",
+      "name": "Read and interpret a histogram, including class intervals",
+      "slug": "data-management-read-and-interpret-a-histogram-including-class",
+      "orderIndex": 3,
+      "objective": "Read and interpret a histogram, including class intervals",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "data-management",
+      "exam": "AMP1",
+      "name": "Describe the relationship shown by a scatterplot",
+      "slug": "data-management-describe-the-relationship-shown-by-a-scatterplot",
+      "orderIndex": 4,
+      "objective": "Describe the relationship shown by a scatterplot",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "data-management",
+      "exam": "AMP1",
+      "name": "Calculate the mean, median, mode, and range of",
+      "slug": "data-management-calculate-the-mean-median-mode-and-range",
+      "orderIndex": 5,
+      "objective": "Calculate the mean, median, mode, and range of a data set",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Translate an English sentence into an algebraic equation",
+      "slug": "word-problems-translate-an-english-sentence-into-an-algebraic",
+      "orderIndex": 1,
+      "objective": "Translate an English sentence into an algebraic equation",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Solve distance, rate, and time problems",
+      "slug": "word-problems-solve-distance-rate-and-time-problems",
+      "orderIndex": 2,
+      "objective": "Solve distance, rate, and time problems",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Solve mixture and concentration problems",
+      "slug": "word-problems-solve-mixture-and-concentration-problems",
+      "orderIndex": 3,
+      "objective": "Solve mixture and concentration problems",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Solve work-rate problems",
+      "slug": "word-problems-solve-work-rate-problems",
+      "orderIndex": 4,
+      "objective": "Solve work-rate problems",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Solve problems about consecutive integers and ages",
+      "slug": "word-problems-solve-problems-about-consecutive-integers-and-ages",
+      "orderIndex": 5,
+      "objective": "Solve problems about consecutive integers and ages",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Solve money, discount, and interest problems",
+      "slug": "word-problems-solve-money-discount-and-interest-problems",
+      "orderIndex": 6,
+      "objective": "Solve money, discount, and interest problems",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "word-problems",
+      "exam": "AMP1",
+      "name": "Solve geometry word problems involving perimeter, area, and",
+      "slug": "word-problems-solve-geometry-word-problems-involving-perimeter-area",
+      "orderIndex": 7,
+      "objective": "Solve geometry word problems involving perimeter, area, and volume",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "advanced-algebra",
+      "exam": "AMP2",
+      "name": "Simplify complex algebraic expressions involving nested radicals and",
+      "slug": "advanced-algebra-simplify-complex-algebraic-expressions-involving-nested-radical",
+      "orderIndex": 1,
+      "objective": "Simplify complex algebraic expressions involving nested radicals and rational exponents",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "advanced-algebra",
+      "exam": "AMP2",
+      "name": "Solve absolute value equations and inequalities",
+      "slug": "advanced-algebra-solve-absolute-value-equations-and-inequalities",
+      "orderIndex": 2,
+      "objective": "Solve absolute value equations and inequalities",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "advanced-algebra",
+      "exam": "AMP2",
+      "name": "Solve radical equations and identify extraneous solutions",
+      "slug": "advanced-algebra-solve-radical-equations-and-identify-extraneous-solutions",
+      "orderIndex": 3,
+      "objective": "Solve radical equations and identify extraneous solutions",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "advanced-algebra",
+      "exam": "AMP2",
+      "name": "Rationalize denominators containing radicals or binomial surds",
+      "slug": "advanced-algebra-rationalize-denominators-containing-radicals-or-binomial-surds",
+      "orderIndex": 4,
+      "objective": "Rationalize denominators containing radicals or binomial surds",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "advanced-algebra",
+      "exam": "AMP2",
+      "name": "Manipulate expressions with fractional and negative rational exponents",
+      "slug": "advanced-algebra-manipulate-expressions-with-fractional-and-negative-rational",
+      "orderIndex": 5,
+      "objective": "Manipulate expressions with fractional and negative rational exponents",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "quadratic-functions",
+      "exam": "AMP2",
+      "name": "Solve quadratic equations by factoring, completing the square",
+      "slug": "quadratic-functions-solve-quadratic-equations-by-factoring-completing-the",
+      "orderIndex": 1,
+      "objective": "Solve quadratic equations by factoring, completing the square, and the quadratic formula",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "quadratic-functions",
+      "exam": "AMP2",
+      "name": "Use the discriminant to determine the number and",
+      "slug": "quadratic-functions-use-the-discriminant-to-determine-the-number",
+      "orderIndex": 2,
+      "objective": "Use the discriminant to determine the number and nature of the roots",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "quadratic-functions",
+      "exam": "AMP2",
+      "name": "Convert between standard, vertex, and factored form of",
+      "slug": "quadratic-functions-convert-between-standard-vertex-and-factored-form",
+      "orderIndex": 3,
+      "objective": "Convert between standard, vertex, and factored form of a quadratic",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "quadratic-functions",
+      "exam": "AMP2",
+      "name": "Identify the vertex, axis of symmetry, intercepts, and",
+      "slug": "quadratic-functions-identify-the-vertex-axis-of-symmetry-intercepts",
+      "orderIndex": 4,
+      "objective": "Identify the vertex, axis of symmetry, intercepts, and range from a quadratic",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "quadratic-functions",
+      "exam": "AMP2",
+      "name": "Solve quadratic inequalities and express the solution in",
+      "slug": "quadratic-functions-solve-quadratic-inequalities-and-express-the-solution",
+      "orderIndex": 5,
+      "objective": "Solve quadratic inequalities and express the solution in interval notation",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "polynomial-functions",
+      "exam": "AMP2",
+      "name": "Determine end behaviour of a polynomial from its",
+      "slug": "polynomial-functions-determine-end-behaviour-of-a-polynomial-from",
+      "orderIndex": 1,
+      "objective": "Determine end behaviour of a polynomial from its degree and leading coefficient",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "polynomial-functions",
+      "exam": "AMP2",
+      "name": "Apply the factor theorem and remainder theorem to",
+      "slug": "polynomial-functions-apply-the-factor-theorem-and-remainder-theorem",
+      "orderIndex": 2,
+      "objective": "Apply the factor theorem and remainder theorem to find roots",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "polynomial-functions",
+      "exam": "AMP2",
+      "name": "Divide polynomials using long division and synthetic division",
+      "slug": "polynomial-functions-divide-polynomials-using-long-division-and-synthetic",
+      "orderIndex": 3,
+      "objective": "Divide polynomials using long division and synthetic division",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "polynomial-functions",
+      "exam": "AMP2",
+      "name": "Find all real and complex zeros of a",
+      "slug": "polynomial-functions-find-all-real-and-complex-zeros-of",
+      "orderIndex": 4,
+      "objective": "Find all real and complex zeros of a polynomial and state their multiplicity",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "polynomial-functions",
+      "exam": "AMP2",
+      "name": "Sketch a polynomial from its zeros, multiplicities, and",
+      "slug": "polynomial-functions-sketch-a-polynomial-from-its-zeros-multiplicities",
+      "orderIndex": 5,
+      "objective": "Sketch a polynomial from its zeros, multiplicities, and end behaviour",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "rational-functions",
+      "exam": "AMP2",
+      "name": "Determine the domain of a rational function and",
+      "slug": "rational-functions-determine-the-domain-of-a-rational-function",
+      "orderIndex": 1,
+      "objective": "Determine the domain of a rational function and identify holes",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "rational-functions",
+      "exam": "AMP2",
+      "name": "Find vertical asymptotes from the denominator's zeros",
+      "slug": "rational-functions-find-vertical-asymptotes-from-the-denominator-s",
+      "orderIndex": 2,
+      "objective": "Find vertical asymptotes from the denominator's zeros",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "rational-functions",
+      "exam": "AMP2",
+      "name": "Determine horizontal or oblique asymptotes by comparing degrees",
+      "slug": "rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing",
+      "orderIndex": 3,
+      "objective": "Determine horizontal or oblique asymptotes by comparing degrees",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "rational-functions",
+      "exam": "AMP2",
+      "name": "Find the intercepts of a rational function",
+      "slug": "rational-functions-find-the-intercepts-of-a-rational-function",
+      "orderIndex": 4,
+      "objective": "Find the intercepts of a rational function",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "rational-functions",
+      "exam": "AMP2",
+      "name": "Sketch a rational function from its asymptotes and",
+      "slug": "rational-functions-sketch-a-rational-function-from-its-asymptotes",
+      "orderIndex": 5,
+      "objective": "Sketch a rational function from its asymptotes and intercepts",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "exponential-functions",
+      "exam": "AMP2",
+      "name": "Evaluate and graph exponential functions with base and",
+      "slug": "exponential-functions-evaluate-and-graph-exponential-functions-with-base",
+      "orderIndex": 1,
+      "objective": "Evaluate and graph exponential functions with base $e$ and other bases",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "exponential-functions",
+      "exam": "AMP2",
+      "name": "Determine the domain, range, and horizontal asymptote of",
+      "slug": "exponential-functions-determine-the-domain-range-and-horizontal-asymptote",
+      "orderIndex": 2,
+      "objective": "Determine the domain, range, and horizontal asymptote of an exponential function",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "exponential-functions",
+      "exam": "AMP2",
+      "name": "Solve exponential equations by matching bases",
+      "slug": "exponential-functions-solve-exponential-equations-by-matching-bases",
+      "orderIndex": 3,
+      "objective": "Solve exponential equations by matching bases",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "exponential-functions",
+      "exam": "AMP2",
+      "name": "Apply exponential models to growth, decay, and compound",
+      "slug": "exponential-functions-apply-exponential-models-to-growth-decay-and",
+      "orderIndex": 4,
+      "objective": "Apply exponential models to growth, decay, and compound interest problems",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "exponential-functions",
+      "exam": "AMP2",
+      "name": "Describe transformations of an exponential graph",
+      "slug": "exponential-functions-describe-transformations-of-an-exponential-graph",
+      "orderIndex": 5,
+      "objective": "Describe transformations of an exponential graph",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "logarithmic-functions",
+      "exam": "AMP2",
+      "name": "Convert between exponential and logarithmic form",
+      "slug": "logarithmic-functions-convert-between-exponential-and-logarithmic-form",
+      "orderIndex": 1,
+      "objective": "Convert between exponential and logarithmic form",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "logarithmic-functions",
+      "exam": "AMP2",
+      "name": "Apply the product, quotient, and power laws of",
+      "slug": "logarithmic-functions-apply-the-product-quotient-and-power-laws",
+      "orderIndex": 2,
+      "objective": "Apply the product, quotient, and power laws of logarithms",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "logarithmic-functions",
+      "exam": "AMP2",
+      "name": "Use the change of base formula",
+      "slug": "logarithmic-functions-use-the-change-of-base-formula",
+      "orderIndex": 3,
+      "objective": "Use the change of base formula",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "logarithmic-functions",
+      "exam": "AMP2",
+      "name": "Solve logarithmic equations and check for extraneous solutions",
+      "slug": "logarithmic-functions-solve-logarithmic-equations-and-check-for-extraneous",
+      "orderIndex": 4,
+      "objective": "Solve logarithmic equations and check for extraneous solutions",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "logarithmic-functions",
+      "exam": "AMP2",
+      "name": "Determine the domain, range, and vertical asymptote of",
+      "slug": "logarithmic-functions-determine-the-domain-range-and-vertical-asymptote",
+      "orderIndex": 5,
+      "objective": "Determine the domain, range, and vertical asymptote of a logarithmic function",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "composite-inverse-functions",
+      "exam": "AMP2",
+      "name": "Form and evaluate the composition of two functions",
+      "slug": "composite-inverse-functions-form-and-evaluate-the-composition-of-two",
+      "orderIndex": 1,
+      "objective": "Form and evaluate the composition of two functions",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "composite-inverse-functions",
+      "exam": "AMP2",
+      "name": "Determine the domain of a composite function",
+      "slug": "composite-inverse-functions-determine-the-domain-of-a-composite-function",
+      "orderIndex": 2,
+      "objective": "Determine the domain of a composite function",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "composite-inverse-functions",
+      "exam": "AMP2",
+      "name": "Determine whether a function is one-to-one using the",
+      "slug": "composite-inverse-functions-determine-whether-a-function-is-one-to",
+      "orderIndex": 3,
+      "objective": "Determine whether a function is one-to-one using the horizontal line test",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "composite-inverse-functions",
+      "exam": "AMP2",
+      "name": "Find the inverse of a function algebraically",
+      "slug": "composite-inverse-functions-find-the-inverse-of-a-function-algebraically",
+      "orderIndex": 4,
+      "objective": "Find the inverse of a function algebraically",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "composite-inverse-functions",
+      "exam": "AMP2",
+      "name": "Verify that two functions are inverses by composition",
+      "slug": "composite-inverse-functions-verify-that-two-functions-are-inverses-by",
+      "orderIndex": 5,
+      "objective": "Verify that two functions are inverses by composition",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "analytic-trigonometry",
+      "exam": "AMP2",
+      "name": "Apply the Pythagorean, reciprocal, and quotient identities",
+      "slug": "analytic-trigonometry-apply-the-pythagorean-reciprocal-and-quotient-identities",
+      "orderIndex": 1,
+      "objective": "Apply the Pythagorean, reciprocal, and quotient identities",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "analytic-trigonometry",
+      "exam": "AMP2",
+      "name": "Use sum and difference identities to evaluate exact",
+      "slug": "analytic-trigonometry-use-sum-and-difference-identities-to-evaluate",
+      "orderIndex": 2,
+      "objective": "Use sum and difference identities to evaluate exact trigonometric values",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "analytic-trigonometry",
+      "exam": "AMP2",
+      "name": "Apply double angle and half angle identities",
+      "slug": "analytic-trigonometry-apply-double-angle-and-half-angle-identities",
+      "orderIndex": 3,
+      "objective": "Apply double angle and half angle identities",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "analytic-trigonometry",
+      "exam": "AMP2",
+      "name": "Verify trigonometric identities algebraically",
+      "slug": "analytic-trigonometry-verify-trigonometric-identities-algebraically",
+      "orderIndex": 4,
+      "objective": "Verify trigonometric identities algebraically",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "analytic-trigonometry",
+      "exam": "AMP2",
+      "name": "Simplify trigonometric expressions to a single function",
+      "slug": "analytic-trigonometry-simplify-trigonometric-expressions-to-a-single-function",
+      "orderIndex": 5,
+      "objective": "Simplify trigonometric expressions to a single function",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trigonometric-equations",
+      "exam": "AMP2",
+      "name": "Solve basic trigonometric equations over a given interval",
+      "slug": "trigonometric-equations-solve-basic-trigonometric-equations-over-a-given",
+      "orderIndex": 1,
+      "objective": "Solve basic trigonometric equations over a given interval",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trigonometric-equations",
+      "exam": "AMP2",
+      "name": "Solve trigonometric equations requiring factoring or an identity",
+      "slug": "trigonometric-equations-solve-trigonometric-equations-requiring-factoring-or-an",
+      "orderIndex": 2,
+      "objective": "Solve trigonometric equations requiring factoring or an identity substitution",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trigonometric-equations",
+      "exam": "AMP2",
+      "name": "Find the general solution of a trigonometric equation",
+      "slug": "trigonometric-equations-find-the-general-solution-of-a-trigonometric",
+      "orderIndex": 3,
+      "objective": "Find the general solution of a trigonometric equation",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trigonometric-equations",
+      "exam": "AMP2",
+      "name": "Use inverse trigonometric functions to solve for an",
+      "slug": "trigonometric-equations-use-inverse-trigonometric-functions-to-solve-for",
+      "orderIndex": 4,
+      "objective": "Use inverse trigonometric functions to solve for an angle",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trigonometric-equations",
+      "exam": "AMP2",
+      "name": "Solve equations involving multiple angles such as",
+      "slug": "trigonometric-equations-solve-equations-involving-multiple-angles-such-as",
+      "orderIndex": 5,
+      "objective": "Solve equations involving multiple angles such as $\\sin(2x)$",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trig-graphs-transformations",
+      "exam": "AMP2",
+      "name": "Determine the amplitude, period, phase shift, and vertical",
+      "slug": "trig-graphs-transformations-determine-the-amplitude-period-phase-shift-and",
+      "orderIndex": 1,
+      "objective": "Determine the amplitude, period, phase shift, and vertical shift of a sinusoid",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trig-graphs-transformations",
+      "exam": "AMP2",
+      "name": "Graph transformations of sine and cosine functions",
+      "slug": "trig-graphs-transformations-graph-transformations-of-sine-and-cosine-functions",
+      "orderIndex": 2,
+      "objective": "Graph transformations of sine and cosine functions",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trig-graphs-transformations",
+      "exam": "AMP2",
+      "name": "Graph the tangent function and identify its asymptotes",
+      "slug": "trig-graphs-transformations-graph-the-tangent-function-and-identify-its",
+      "orderIndex": 3,
+      "objective": "Graph the tangent function and identify its asymptotes",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trig-graphs-transformations",
+      "exam": "AMP2",
+      "name": "Write the equation of a sinusoid from its",
+      "slug": "trig-graphs-transformations-write-the-equation-of-a-sinusoid-from",
+      "orderIndex": 4,
+      "objective": "Write the equation of a sinusoid from its graph",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "trig-graphs-transformations",
+      "exam": "AMP2",
+      "name": "Convert between degree and radian measure",
+      "slug": "trig-graphs-transformations-convert-between-degree-and-radian-measure",
+      "orderIndex": 5,
+      "objective": "Convert between degree and radian measure",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "sequences-series",
+      "exam": "AMP2",
+      "name": "Identify arithmetic and geometric sequences and find the",
+      "slug": "sequences-series-identify-arithmetic-and-geometric-sequences-and-find",
+      "orderIndex": 1,
+      "objective": "Identify arithmetic and geometric sequences and find the common difference or ratio",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "sequences-series",
+      "exam": "AMP2",
+      "name": "Find the general term of an arithmetic or",
+      "slug": "sequences-series-find-the-general-term-of-an-arithmetic",
+      "orderIndex": 2,
+      "objective": "Find the general term of an arithmetic or geometric sequence",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "sequences-series",
+      "exam": "AMP2",
+      "name": "Compute the sum of a finite arithmetic or",
+      "slug": "sequences-series-compute-the-sum-of-a-finite-arithmetic",
+      "orderIndex": 3,
+      "objective": "Compute the sum of a finite arithmetic or geometric series",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "sequences-series",
+      "exam": "AMP2",
+      "name": "Determine whether an infinite geometric series converges and",
+      "slug": "sequences-series-determine-whether-an-infinite-geometric-series-converges",
+      "orderIndex": 4,
+      "objective": "Determine whether an infinite geometric series converges and find its sum",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "sequences-series",
+      "exam": "AMP2",
+      "name": "Use sigma notation to express and evaluate a",
+      "slug": "sequences-series-use-sigma-notation-to-express-and-evaluate",
+      "orderIndex": 5,
+      "objective": "Use sigma notation to express and evaluate a series",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "systems-matrices",
+      "exam": "AMP2",
+      "name": "Solve systems of three linear equations in three",
+      "slug": "systems-matrices-solve-systems-of-three-linear-equations-in",
+      "orderIndex": 1,
+      "objective": "Solve systems of three linear equations in three variables",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "systems-matrices",
+      "exam": "AMP2",
+      "name": "Perform matrix addition, subtraction, and multiplication",
+      "slug": "systems-matrices-perform-matrix-addition-subtraction-and-multiplication",
+      "orderIndex": 2,
+      "objective": "Perform matrix addition, subtraction, and multiplication",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "systems-matrices",
+      "exam": "AMP2",
+      "name": "Compute the determinant of a 2x2 and 3x3",
+      "slug": "systems-matrices-compute-the-determinant-of-a-2x2-and",
+      "orderIndex": 3,
+      "objective": "Compute the determinant of a 2x2 and 3x3 matrix",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "systems-matrices",
+      "exam": "AMP2",
+      "name": "Solve a linear system using an inverse matrix",
+      "slug": "systems-matrices-solve-a-linear-system-using-an-inverse",
+      "orderIndex": 4,
+      "objective": "Solve a linear system using an inverse matrix or Cramer's rule",
+      "source": "derived"
+    },
+    {
+      "topicSlug": "systems-matrices",
+      "exam": "AMP2",
+      "name": "Solve non-linear systems of equations",
+      "slug": "systems-matrices-solve-non-linear-systems-of-equations",
+      "orderIndex": 5,
+      "objective": "Solve non-linear systems of equations",
+      "source": "derived"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# `COPY . .` does NOT honour .gitignore, so this file is not optional.
+#
+# Without it Docker copies the workstation's node_modules — including the
+# better-sqlite3 binding compiled for macOS — over the Linux binding that
+# `npm ci` just produced, and the app dies at require("better-sqlite3") with a
+# module-version error.
+
+node_modules
+.next
+.next-*
+
+# The development database: 57 test users and orphaned attempt rows. The real
+# one is built on the volume at first provision.
+data/amp-prep.db
+data/amp-prep.db-shm
+data/amp-prep.db-wal
+
+# Source material, not redistributed.
+data/source
+
+# Local database snapshots.
+backups
+
+# Secrets never belong in an image; they are set as host secrets.
+.env
+.env.local
+.env*.local
+
+.git
+.gitignore
+.claude
+tsconfig.tsbuildinfo

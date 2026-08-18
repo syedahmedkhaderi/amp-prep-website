@@ -31,6 +31,10 @@ dist/
 !/data/generated/.gitkeep
 !/data/generated/questions.json
 !/data/generated/topics.json
+# The skill taxonomy is authored content, not a build artifact: the AMP 1
+# objectives are transcribed from the study guide and seed-skills.ts reads this
+# file, so the deployed site has no lesson structure without it.
+!/data/generated/skills.json
 
 # logs
 logs/
@@ -52,8 +56,12 @@ Thumbs.db
 *.db-shm
 *.db-wal
 
+# database snapshots from `npm run backup`
+/backups/
+
 # vercel
 .vercel
 
 # source material (not redistributed)
 /data/source/
+data/generated/questions.pre-latex.json
