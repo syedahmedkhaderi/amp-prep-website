@@ -14191,7 +14191,8 @@
       "$\\frac{1}{5}$": "Correct for the third operation.",
       "$\\frac{2}{3}$": "Correct for the fourth operation."
     },
-    "concept_summary": "Basic arithmetic operations on fractions including addition, subtraction, multiplication, and division."
+    "concept_summary": "Basic arithmetic operations on fractions including addition, subtraction, multiplication, and division.",
+    "status": "needs_review"
   },
   {
     "id": "q_ik4gjv1r3h34",
@@ -16899,8 +16900,8 @@
         "is_correct": false
       },
       {
-        "content": "$\\frac{y-x}{y+x}$",
-        "is_correct": true
+        "content": "$\\frac{x-y}{y+x}$",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -17902,11 +17903,11 @@
     "options": [
       {
         "content": "$\\frac{b+2a}{3b-4a}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "$\\frac{b+2a}{3b-4a}$",
-        "is_correct": true
+        "content": "$\\frac{2a-b}{3b-4a}$",
+        "is_correct": false
       },
       {
         "content": "$\\frac{b+2a}{4b-3a}$",
@@ -18344,24 +18345,20 @@
     "id": "q_875uba5p5q0v",
     "exam": "AMP1",
     "topic_slug": "fractions",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the complex fraction $\\frac{\\frac{3}{4} - \\frac{1}{6}}{\\frac{1}{2} + \\frac{2}{3}}$ and enter the result in the blank: $\\underline{\\quad}$",
     "options": [
       {
-        "content": "$\\frac{7}{14}$",
+        "content": "$\\frac{7}{6}$",
         "is_correct": false
       },
       {
-        "content": "$\\frac{7}{28}$",
+        "content": "$\\frac{6}{7}$",
         "is_correct": false
       },
       {
-        "content": "$\\frac{7}{14}$",
-        "is_correct": false
-      },
-      {
-        "content": "$\\frac{7}{14}$",
+        "content": "$\\frac{7}{18}$",
         "is_correct": false
       },
       {
@@ -18369,17 +18366,16 @@
         "is_correct": true
       }
     ],
-    "final_answer": "1/2",
+    "final_answer": "$\\frac{1}{2}$",
     "explanation_steps": [
       "Find a common denominator for the numerator: $\\frac{3}{4} - \\frac{1}{6} = \\frac{9}{12} - \\frac{2}{12} = \\frac{7}{12}$.",
       "Find a common denominator for the denominator: $\\frac{1}{2} + \\frac{2}{3} = \\frac{3}{6} + \\frac{4}{6} = \\frac{7}{6}$.",
       "Divide the results: $\\frac{7}{12} \\div \\frac{7}{6} = \\frac{7}{12} \\cdot \\frac{6}{7} = \\frac{6}{12} = \\frac{1}{2}$."
     ],
     "distractor_rationales": {
-      "0": "Incorrectly simplified the final fraction.",
-      "1": "Resulted from adding the denominators instead of finding a common one.",
-      "2": "Resulted from subtracting the numerators and denominators separately.",
-      "3": "Resulted from a calculation error in the denominator common factor."
+      "$\\frac{7}{6}$": "Result of adding the numerator and denominator sums instead of dividing.",
+      "$\\frac{6}{7}$": "Result of inverting the division the wrong way round.",
+      "$\\frac{7}{18}$": "Result of a common-denominator error in the top or bottom fraction."
     },
     "concept_summary": "Operations on complex fractions involving finding common denominators and multiplying by the reciprocal."
   },
@@ -21476,7 +21472,7 @@
     "options": [
       {
         "content": "27.5 pounds",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "27.4 pounds",
@@ -21487,8 +21483,8 @@
         "is_correct": false
       },
       {
-        "content": "27.5 pounds",
-        "is_correct": true
+        "content": "27.2 pounds",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -22526,7 +22522,7 @@
     "options": [
       {
         "content": "$3.5 \\times 10^2$ nm",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$3.5 \\times 10^{-16}$ nm",
@@ -22537,8 +22533,8 @@
         "is_correct": false
       },
       {
-        "content": "$3.5 \\times 10^2$ nm",
-        "is_correct": true
+        "content": "$3.5 \\times 10^{1}$ nm",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -23245,19 +23241,19 @@
     "options": [
       {
         "content": "27.80 minutes",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "27.48 minutes",
         "is_correct": false
       },
       {
-        "content": "27.80 minutes",
+        "content": "27.08 minutes",
         "is_correct": false
       },
       {
-        "content": "27.80 minutes",
-        "is_correct": true
+        "content": "28.20 minutes",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -24468,7 +24464,7 @@
     "options": [
       {
         "content": "The dosage in milligrams is $7.5 \\times 10^{-1}$ mg.",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "The dosage in milligrams is $0.75$ mg.",
@@ -24479,7 +24475,7 @@
         "is_correct": false
       },
       {
-        "content": "The dosage in milligrams is $7.5 \\times 10^{-1}$ mg.",
+        "content": "The dosage in milligrams is $7.5 \\times 10^{1}$ mg.",
         "is_correct": false
       },
       {
@@ -24494,7 +24490,7 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "The dosage in milligrams is $0.75$ mg and $750 \\times 10^{-3}$ mg.",
+    "final_answer": "The dosage in milligrams is $0.75$ mg, which equals $7.5 \\times 10^{-1}$ mg and $750 \\times 10^{-3}$ mg.",
     "explanation_steps": [
       "Recall the conversion factor between grams and milligrams: $1$ gram $= 1000$ milligrams.",
       "To convert grams to milligrams, multiply the value in grams by $1000$. So, $0.00075 \\text{ grams} \\times 1000 \\frac{\\text{milligrams}}{\\text{gram}} = 0.75$ milligrams.",
@@ -25832,7 +25828,8 @@
       "To convert a percent to a decimal, divide by 100 and remove the percent sign. For example, $50\\% \\div 100 = 0.5$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Converting between fractions, decimals, and percents."
+    "concept_summary": "Converting between fractions, decimals, and percents.",
+    "status": "needs_review"
   },
   {
     "id": "q_hj1oxjna8sij",
@@ -26493,7 +26490,7 @@
     "id": "q_x4xquzzrjcov",
     "exam": "AMP1",
     "topic_slug": "percent",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "What is $25\\%$ of $80$? \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
     "options": [
@@ -26502,15 +26499,15 @@
         "is_correct": false
       },
       {
-        "      content": "20",
+        "content": "20",
         "is_correct": true
       },
       {
-        "      content": "200",
+        "content": "200",
         "is_correct": false
       },
       {
-        "      content": "3.2",
+        "content": "3.2",
         "is_correct": false
       }
     ],
@@ -27175,7 +27172,8 @@
       "60%": "This might come from calculating the percentage of the amount saved ($600/$1000, if $1000$ was assumed as total cost) or a misinterpretation of the question.",
       "36.84 % of the remaining amount": "This is misleading. The question asks for the percentage of the total cost, not the remaining amount."
     },
-    "concept_summary": "Calculating the percentage of a total amount that represents a specific part, after finding the value of that part."
+    "concept_summary": "Calculating the percentage of a total amount that represents a specific part, after finding the value of that part.",
+    "status": "needs_review"
   },
   {
     "id": "q_00rr8bp7qgsr",
@@ -28151,15 +28149,15 @@
       },
       {
         "content": "72",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "92",
         "is_correct": false
       },
       {
-        "content": "72",
-        "is_correct": true
+        "content": "80",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -30902,7 +30900,8 @@
       "Option E": "This option incorrectly applies an increase instead of a discount and then applies the tax incorrectly.",
       "Option F": "This option incorrectly applies the tax rate as a discount. It also incorrectly matches."
     },
-    "concept_summary": "Calculating sequential percentage changes, including discounts and taxes."
+    "concept_summary": "Calculating sequential percentage changes, including discounts and taxes.",
+    "status": "needs_review"
   },
   {
     "id": "q_b9v092u0vzy6",
@@ -32108,32 +32107,24 @@
     "options": [
       {
         "content": "$x = -8$ is the solution.",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "The equation can be rewritten as $4x+2 = 3x-6$.",
         "is_correct": true
       },
       {
-        "content": "The solution to the equation is $x = -8$.",
-        "is_correct": false
-      },
-      {
         "content": "The solution to the equation is $x = -7$.",
         "is_correct": false
       },
       {
-        "content": "The solution to the equation is $x = -8$.",
-        "is_correct": false
-      },
-      {
-        "content": "The solution to the equation is $x = -7$.",
+        "content": "The equation can be rewritten as $4x+2 = 3x+6$.",
         "is_correct": false
       }
     ],
     "matches": [],
     "numeric_answer": null,
-    "final_answer": "The equation can be rewritten as $4x+2 = 3x-6$.",
+    "final_answer": "$x = -8$ is the solution, and the equation can be rewritten as $4x+2 = 3x-6$.",
     "explanation_steps": [
       "To eliminate the fractions, multiply both sides of the equation by the least common multiple of the denominators, which is 6.",
       "Multiply each term by 6: $6 \\cdot \\frac{2x+1}{3} = 6 \\cdot \\frac{x-2}{2}$",
@@ -32567,13 +32558,13 @@
     "options": [],
     "matches": [],
     "numeric_answer": {
-      "value": 3,
+      "value": 5,
       "tolerance": 0,
       "accepted": [
-        "3"
+        "5"
       ]
     },
-    "final_answer": "3",
+    "final_answer": "5",
     "explanation_steps": [
       "Distribute the 3 into the parentheses: $3x - 6 + 5 = 14$",
       "Combine the constants on the left side: $3x - 1 = 14$",
@@ -36023,7 +36014,7 @@
     "stem": "Solve the following equation for $x$: $3(2x - 4) + 5 = 2(x + 7) - 6$",
     "options": [
       {
-        "content": "$x = 3$",
+        "content": "$x = 15/4$",
         "is_correct": true
       },
       {
@@ -36042,7 +36033,7 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "3",
+    "final_answer": "$x = 15/4$",
     "explanation_steps": [
       "Distribute the constants on both sides of the equation: $6x - 12 + 5 = 2x + 14 - 6$",
       "Combine like terms on each side: $6x - 7 = 2x + 8$",
@@ -36704,19 +36695,19 @@
     "difficulty": "hard",
     "stem": "Solve for $x$ in the following equation: $\\frac{2}{3}(x - 4) - \\frac{1}{4}(2x + 5) = \\frac{1}{6}$",
     "numeric_answer": {
-      "value": 15.5,
-      "tolerance": 0.0155,
+      "value": 24.5,
+      "tolerance": 0.0245,
       "accepted": [
-        "15.5",
-        "31/2"
+        "24.5",
+        "49/2"
       ]
     },
-    "final_answer": "15.5",
+    "final_answer": "24.5",
     "explanation_steps": [
       "Multiply every term by the least common multiple of the denominators (3, 4, and 6), which is 12, to clear the fractions: $12 \\cdot \\frac{2}{3}(x - 4) - 12 \\cdot \\frac{1}{4}(2x + 5) = 12 \\cdot \\frac{1}{6}$.",
       "Simplify the expression to obtain $8(x - 4) - 3(2x + 5) = 2$.",
       "Distribute the constants: $8x - 32 - 6x - 15 = 2$, which simplifies to $2x - 47 = 2$.",
-      "Add 47 to both sides to get $2x = 49$, then divide by 2 to find $x = 24.5$ is incorrect, check arithmetic: $8x - 32 - 6x - 15 = 2 \\implies 2x - 47 = 2 \\implies 2x = 49 \\implies x = 24.5$. Let me re-verify: $8x - 32 - 6x - 15 = 2x - 47 = 2$. $2x = 49$. $x = 24.5$."
+      "Add 32 and 15 to both sides: $8x - 6x = 2 + 32 + 15$, so $2x = 49$. Divide by 2 to find $x = 24.5$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Solving linear equations involving fractions by clearing denominators and applying the distributive property."
@@ -37110,17 +37101,17 @@
         "is_correct": false
       },
       {
-        "content": "$-7$",
-        "is_correct": false
+        "content": "$-7/4$",
+        "is_correct": true
       },
       {
         "content": "$7$",
-        "is_correct": true
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "7",
+    "final_answer": "$-7/4$",
     "explanation_steps": [
       "To eliminate the fractions, find the least common multiple (LCM) of the denominators 3, 4, and 6. The LCM is 12.",
       "Multiply both sides of the equation by 12: $12 \\cdot \\left( \\frac{x}{3} - \\frac{2x-1}{4} \\right) = 12 \\cdot \\left( \\frac{x+5}{6} \\right)$",
@@ -37130,7 +37121,7 @@
       "Combine like terms on the left side: $-2x + 3 = 2x + 10$",
       "Subtract $2x$ from both sides: $-4x + 3 = 10$",
       "Subtract 3 from both sides: $-4x = 7$",
-      "Divide by -4: $x = \\frac{7}{-4}$",
+      "The solution is $x = -7/4$.",
       "The solution is $x = -7/4$."
     ],
     "distractor_rationales": {
@@ -38087,7 +38078,8 @@
       "1.8": "This could be a rounding error or a miscalculation in the final division step.",
       "7/4": "This is the correct answer expressed as a fraction, but the numeric answer is requested."
     },
-    "concept_summary": "Solving linear equations with fractions."
+    "concept_summary": "Solving linear equations with fractions.",
+    "status": "needs_review"
   },
   {
     "id": "q_kebucnzar9at",
@@ -39574,7 +39566,7 @@
     "id": "q_inmbb6s40wle",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "If the formula for the perimeter of a rectangle is given by $P = 2l + 2w$, which expression represents the width $w$ in terms of $P$ and $l$?",
     "options": [
@@ -39587,11 +39579,7 @@
         "is_correct": true
       },
       {
-        "content": "$w = \\frac{P}{2} - l$",
-        "is_correct": true
-      },
-      {
-        "content": "$w = 2P - l$",
+        "content": "$w = \\frac{P}{2} + l$",
         "is_correct": false
       },
       {
@@ -39599,15 +39587,15 @@
         "is_correct": false
       }
     ],
-    "final_answer": "w = (P - 2l) / 2",
+    "final_answer": "$w = \\frac{P - 2l}{2}$",
     "explanation_steps": [
       "Start with the original equation: $P = 2l + 2w$.",
       "Subtract $2l$ from both sides to isolate the term containing $w$: $P - 2l = 2w$.",
       "Divide both sides by $2$ to solve for $w$: $w = \\frac{P - 2l}{2}$ or $w = \\frac{P}{2} - l$."
     ],
     "distractor_rationales": {
-      "$w = P - l$": "This error occurs if the student forgets to divide the entire expression by 2 or fails to distribute the subtraction correctly.",
-      "$w = 2P - l$": "This mistake stems from incorrectly performing inverse operations, specifically multiplying instead of dividing by 2.",
+      "$w = P - l$": "This error occurs if the student forgets to divide the entire expression by 2.",
+      "$w = \\frac{P}{2} + l$": "This mistake comes from a sign error when isolating $w$.",
       "$w = P - 2l$": "This is a common error where the student fails to divide the right side by 2 after isolating the term."
     },
     "concept_summary": "Solving a literal equation for a specific variable using inverse operations."
@@ -43702,15 +43690,15 @@
       },
       {
         "content": "10 units",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "25 units",
         "is_correct": false
       },
       {
-        "content": "5 units",
-        "is_correct": true
+        "content": "20 units",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -43724,8 +43712,8 @@
     ],
     "distractor_rationales": {
       "5 units": "This is the result if one incorrectly calculates $50 \\div 10$ instead of $50 \\div 5$.",
-      "25 units": "This is the result if one incorrectly calculates $50 \\times \\frac{1}{2}$ and forgets to multiply by $r$.",
-      "10 units": "This is the result if one incorrectly calculates $50 \\times 2$ or $50 \\div \\frac{1}{2}$."
+      "25 units": "This is the result if one incorrectly calculates $50 \\times \\frac{1}{2}$ and forgets to divide by $r$.",
+      "20 units": "This is the result of dividing 50 by 2.5 instead of 5."
     },
     "concept_summary": "Rearranging formulas to solve for a specific variable."
   },
@@ -47492,24 +47480,24 @@
     "stem": "Simplify the expression: $\\frac{(3x^2y^{-3})^2}{6x^3y^4}$",
     "options": [
       {
-        "content": "$\\frac{x}{2y^{10}}$",
-        "is_correct": false
-      },
-      {
-        "content": "$\\frac{y^{10}}{2x}$",
-        "is_correct": false
-      },
-      {
-        "content": "$\\frac{x}{2y^{2}}$",
-        "is_correct": false
-      },
-      {
-        "content": "$\\frac{x}{2y^{10}}$",
+        "content": "$\\frac{3x}{2y^{10}}$",
         "is_correct": true
+      },
+      {
+        "content": "$\\frac{2y^{10}}{3x}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{3x}{2y^{2}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x}{2y^{10}}$",
+        "is_correct": false
       }
     ],
     "matches": [],
-    "final_answer": "x/(2y^10)",
+    "final_answer": "$\\frac{3x}{2y^{10}}$",
     "explanation_steps": [
       "Apply the power of a product rule $(ab)^m = a^m b^m$ and the power of a power rule $(a^m)^n = a^{mn}$: $\\frac{(3^2)(x^2)^2(y^{-3})^2}{6x^3y^4} = \\frac{9x^4y^{-6}}{6x^3y^4}$",
       "Simplify the coefficients and apply the quotient rule $\\frac{a^m}{a^n} = a^{m-n}$: $\\frac{9}{6} x^{4-3} y^{-6-4} = \\frac{3}{2} x^1 y^{-10}$",
@@ -49926,7 +49914,8 @@
       "4x^{3}y^{0}": "This is equivalent to 4x^3, which is the correct simplified form, but the notation y^0 is often treated as 1, so it is mathematically equivalent to 4x^3.",
       "4y^{0}": "Ignored the x variable entirely after the division."
     },
-    "concept_summary": "Simplification of algebraic expressions using power, product, and quotient laws of exponents."
+    "concept_summary": "Simplification of algebraic expressions using power, product, and quotient laws of exponents.",
+    "status": "needs_review"
   },
   {
     "id": "q_a8hu46lmjl7s",
@@ -51255,7 +51244,8 @@
       "x^{9}y^{6} / (8x^{4}y^{5})": "This represents the expression before fully applying the quotient rule to simplify the exponents.",
       "x^{5} + y": "This reflects the common error of misapplying exponent rules by adding variables instead of simplifying them through division."
     },
-    "concept_summary": "Simplification of algebraic expressions using the power rule, zero exponent rule, and quotient rule."
+    "concept_summary": "Simplification of algebraic expressions using the power rule, zero exponent rule, and quotient rule.",
+    "status": "needs_review"
   },
   {
     "id": "q_snc094yuul79",
@@ -51519,7 +51509,8 @@
       "$4x^{3}y^{0}$ index 1": "Wait, the correct options are 4x^3 and 4xy^0 (which is 4x^3). If the user asks for equivalent expressions, these are mathematically identical.",
       "4x^{3}y^{0}": "Incorrectly simplified exponents during the division process."
     },
-    "concept_summary": "Application of the power of a power rule, product rule, quotient rule, and the zero exponent property."
+    "concept_summary": "Application of the power of a power rule, product rule, quotient rule, and the zero exponent property.",
+    "status": "needs_review"
   },
   {
     "id": "q_pr5kmua3vtmh",
@@ -55208,28 +55199,24 @@
     "id": "q_umegkeotvnm8",
     "exam": "AMP1",
     "topic_slug": "negative-exponents",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the expression $\\frac{4x^{-2}y^{3}}{2x^{3}y^{-1}}$ and write it in the form $ax^{b}y^{c}$, where $a, b,$ and $c$ are integers. The simplified expression is $\\underline{\\quad}$.",
     "options": [
-      {
-        "content": "2x$^{-5}$y$^{4}$",
-        "is_correct": false
-      },
       {
         "content": "2x$^{-1}$y$^{2}$",
         "is_correct": false
       },
       {
-        "content": "2x$^{-5}$y$^{4}$",
+        "content": "2x$^{1}$y$^{2}$",
         "is_correct": false
       },
       {
         "content": "2x$^{-5}$y$^{4}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "2x$^{-5}$y$^{4}$",
+        "content": "2x$^{-5}$y$^{2}$",
         "is_correct": false
       }
     ],
@@ -55293,32 +55280,28 @@
     "id": "q_mhwoh8sww39f",
     "exam": "AMP1",
     "topic_slug": "negative-exponents",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the expression $\\frac{4x^{-2}y^3}{2x^3y^{-1}}$ and write it in the form $ax^by^c$. The simplified expression is $\\underline{\\quad}$.",
     "options": [
-      {
-        "content": "$2x^{-5}y^4$",
-        "is_correct": false
-      },
       {
         "content": "$2x^{-1}y^2$",
         "is_correct": false
       },
       {
-        "content": "$2x^{-5}y^4$",
+        "content": "$2x^{1}y^{4}$",
         "is_correct": false
       },
       {
         "content": "$2x^{-5}y^4$",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "$2x^{-5}y^4$",
+        "content": "$2x^{-5}y^2$",
         "is_correct": false
       }
     ],
-    "final_answer": "2x$^{-5}$y^4",
+    "final_answer": "$2x^{-5}y^4$",
     "explanation_steps": [
       "Divide the numerical coefficients: $\\frac{4}{2} = 2$.",
       "Apply the quotient rule for exponents $x^m / x^n = x^{m-n}$ for the variable $x$: $x^{-2} / x^3 = x^{-2-3} = x^{-5}$.",
@@ -56797,54 +56780,10 @@
     "id": "q_mzq3a65ecack",
     "exam": "AMP1",
     "topic_slug": "negative-exponents",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the following expression and express the result with positive exponents: $\\left(\\frac{3x^{-2}y^3}{9x^4y^{-5}}\\right)^{-2} = \\underline{\\quad}$",
     "options": [
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$9x^{12}y^{-16}$",
-        "is_correct": false
-      },
-      {
-        "content": "$\\frac{9x^{12}}{y^{16}}$",
-        "is_correct": true
-      },
       {
         "content": "$\\frac{x^{12}}{9y^{16}}$",
         "is_correct": false
@@ -56852,6 +56791,10 @@
       {
         "content": "$\\frac{3x^{12}}{y^{16}}$",
         "is_correct": false
+      },
+      {
+        "content": "$\\frac{9x^{12}}{y^{16}}$",
+        "is_correct": true
       },
       {
         "content": "$9x^{-12}y^{16}$",
@@ -56915,38 +56858,37 @@
     "id": "q_qtr0pz4ncrt3",
     "exam": "AMP1",
     "topic_slug": "negative-exponents",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the expression $\\left(\\frac{2x^{-3}y^{2}}{4x^{2}y^{-4}}\\right)^{-2}$ and express the result with positive exponents only. The simplified expression is $\\underline{\\quad}$.",
     "options": [
       {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$\\frac{1}{4}x^{10}y^{-12}$",
+        "is_correct": false
+      },
+      {
+        "content": "$4x^{10}y^{12}$",
         "is_correct": false
       },
       {
         "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
-      },
-      {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$4x^{-10}y^{-12}$",
         "is_correct": false
       }
     ],
-    "final_answer": "4x$^{10}$y$^{-12}$",
+    "final_answer": "$4x^{10}y^{-12}$",
     "explanation_steps": [
       "First, simplify the fraction inside the parentheses: $\\frac{2}{4}x^{-3-2}y^{2-(-4)} = \\frac{1}{2}x^{-5}y^{6}$.",
       "Apply the power of a quotient rule by distributing the exponent $-2$: $(\\frac{1}{2})^{-2} \\cdot (x^{-5})^{-2} \\cdot (y^{6})^{-2}$.",
       "Calculate the values: $(2^{2}) \\cdot x^{10} \\cdot y^{-12} = 4x^{10}y^{-12}$."
     ],
     "distractor_rationales": {
-      "1": "Common error of failing to invert the coefficient 1/2 when applying the negative exponent.",
-      "2": "Common error of adding the exponents instead of multiplying them by -2.",
-      "3": "Common error of neglecting to change the sign of the y exponent during simplification.",
-      "4": "Common error of miscalculating the resulting power of the leading coefficient."
+      "$\\frac{1}{4}x^{10}y^{-12}$": "Common error of failing to invert the coefficient 1/2 when applying the negative exponent.",
+      "$4x^{10}y^{12}$": "Common error of neglecting to change the sign of the y exponent during simplification.",
+      "$4x^{-10}y^{-12}$": "Common error of flipping the sign on the x exponent instead of the y exponent."
     },
     "concept_summary": "Application of negative exponent rules and power of a power rule."
   },
@@ -56954,40 +56896,37 @@
     "id": "q_b88674wtdppe",
     "exam": "AMP1",
     "topic_slug": "negative-exponents",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the expression $\\left( \\frac{2x^{-3}y^{2}}{4x^{2}y^{-4}} \\right)^{-2}$ and write your answer with positive exponents. The simplified form is ___.",
     "options": [
       {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$\\frac{1}{4}x^{10}y^{-12}$",
+        "is_correct": false
+      },
+      {
+        "content": "$4x^{10}y^{12}$",
         "is_correct": false
       },
       {
         "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
-      },
-      {
-        "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
-      },
-      {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$4x^{-10}y^{-12}$",
         "is_correct": false
       }
     ],
-    "final_answer": "4x$^{10}$y$^{-12}$",
+    "final_answer": "$4x^{10}y^{-12}$",
     "explanation_steps": [
       "Simplify the fraction inside the parentheses first: $\\frac{2}{4} = \\frac{1}{2}$, $x^{-3-2} = x^{-5}$, and $y^{2-(-4)} = y^{6}$. This yields $(\\frac{1}{2}x^{-5}y^{6})^{-2}$.",
       "Apply the power of a power rule: $(\\frac{1}{2})^{-2} \\cdot (x^{-5})^{-2} \\cdot (y^{6})^{-2}$.",
       "Calculate the exponents: $(\\frac{1}{2})^{-2} = 2^{2} = 4$, $(x^{-5})^{-2} = x^{10}$, and $(y^{6})^{-2} = y^{-12}$. The result is $4x^{10}y^{-12}$."
     ],
     "distractor_rationales": {
-      "4x^{10}y^{-12}": "This is the correct result.",
-      "option 1": "Incorrect application of the outer exponent to the coefficients or sign errors in exponent subtraction."
+      "$\\frac{1}{4}x^{10}y^{-12}$": "Incorrect application of the outer exponent to the coefficient.",
+      "$4x^{10}y^{12}$": "Sign error on the y exponent during the final simplification.",
+      "$4x^{-10}y^{-12}$": "Sign error on the x exponent during the final simplification."
     },
     "concept_summary": "Application of quotient and power rules for negative exponents."
   },
@@ -57306,43 +57245,34 @@
     "id": "q_becai3wmi1jn",
     "exam": "AMP1",
     "topic_slug": "negative-exponents",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the expression and write the result with only positive exponents: $$\\left( \\frac{2x^{-3}y^{2}}{4x^{2}y^{-4}} \\right)^{-2}$$ The final simplified expression is ___.",
     "options": [
       {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$2x^{10}y^{-12}$",
         "is_correct": false
       },
       {
-        "content": "$4x^{10}y^{-6}$",
-        "is_correct": false
-      },
-      {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$4x^{2}y^{4}$",
         "is_correct": false
       },
       {
         "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "$4x^{10}y^{-12}$",
-        "is_correct": false
-      },
-      {
-        "content": "$4x^{10}y^{-12}$",
+        "content": "$\\frac{1}{4}x^{10}y^{-12}$",
         "is_correct": false
       }
     ],
-    "final_answer": "4x$^{10}$y$^{-12}$",
+    "final_answer": "$4x^{10}y^{-12}$",
     "explanation_steps": [
       "First, simplify the expression inside the parentheses: $$\\frac{2x^{-3}y^{2}}{4x^{2}y^{-4}} = \\frac{1}{2}x^{-3-2}y^{2-(-4)} = \\frac{1}{2}x^{-5}y^{6}$$.",
       "Next, apply the outer exponent of $-2$ to the simplified internal expression: $$(\\frac{1}{2}x^{-5}y^{6})^{-2} = (\\frac{1}{2})^{-2} \\cdot (x^{-5})^{-2} \\cdot (y^{6})^{-2}$$.",
       "Finally, evaluate the powers: $2^{2} \\cdot x^{10} \\cdot y^{-12} = 4x^{10}y^{-12}$."
     ],
     "distractor_rationales": {
-      "$4x^{10}y^{-12}$": "This is the correct answer.",
       "$2x^{10}y^{-12}$": "Result of failing to square the numerical fraction coefficient correctly.",
       "$4x^{2}y^{4}$": "Result of incorrectly adding exponents instead of multiplying them by the power of -2.",
       "$\\frac{1}{4}x^{10}y^{-12}$": "Result of incorrectly treating the power of -2 on the 1/2 coefficient."
@@ -58318,7 +58248,7 @@
     "stem": "Simplify the expression $(3x^2 - 4x + 2) - (x^2 - 5x - 7)$ by writing the result in descending order. The coefficient of the $x$ term in the resulting polynomial is ___.",
     "options": [
       {
-        "content": "1",
+        "content": "-1",
         "is_correct": false
       },
       {
@@ -58338,7 +58268,7 @@
     "explanation_steps": [
       "Distribute the negative sign to each term in the second polynomial: $(3x^2 - 4x + 2) - x^2 + 5x + 7$.",
       "Group the like terms: $(3x^2 - x^2) + (-4x + 5x) + (2 + 7)$.",
-      "Simplify the expression to get $2x^2 + 1x + 9$. The coefficient of the $x$ term is 1."
+      "Simplify the expression to get $2x^2 + x + 9$. The coefficient of the $x$ term is $1$."
     ],
     "distractor_rationales": {
       "1": "The correct coefficient is 1 because -4x + 5x = 1x.",
@@ -60746,11 +60676,11 @@
     "options": [
       {
         "content": "$5x^2 - 24x + 41$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$5x^2 - 24x - 9$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$13x^2 - 24x + 41$",
@@ -60761,12 +60691,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "5x^2 - 24x - 9",
+    "final_answer": "$5x^2 - 24x + 41$",
     "explanation_steps": [
       "First, expand the squared binomial: $(3x - 4)^2 = (3x)^2 - 2(3x)(4) + 4^2 = 9x^2 - 24x + 16$.",
       "Next, expand the product of the conjugates: $(2x + 5)(2x - 5) = (2x)^2 - 5^2 = 4x^2 - 25$.",
-      "Subtract the second result from the first: $(9x^2 - 24x + 16) - (4x^2 - 25) = 9x^2 - 4x^2 - 24x + 16 + 25$.",
-      "Combine like terms to get $5x^2 - 24x + 41$ is incorrect; the final result is $5x^2 - 24x + 41$ is wrong due to sign error, correct is $5x^2 - 24x + 41$ calculation gives $5x^2 - 24x + 41$ which is actually $5x^2 - 24x + 41$ is wrong, $16 + 25 = 41$, so $5x^2 - 24x + 41$."
+      "Subtract the second result from the first: $(9x^2 - 24x + 16) - (4x^2 - 25) = 5x^2 - 24x + 41$."
     ],
     "distractor_rationales": {
       "$5x^2 - 24x + 41$": "This occurs if the student incorrectly adds 16 and 25 instead of handling the subtraction of the negative 25 correctly.",
@@ -61850,7 +61779,8 @@
       "The degree of the polynomial P(x) is 4.": "Students often miscalculate the degree when squaring terms.",
       "The polynomial P(x) is a trinomial after simplification.": "Students often fail to combine like terms correctly, leading to a count of three terms instead of five."
     },
-    "concept_summary": "Expanding products and squares of polynomials and combining like terms."
+    "concept_summary": "Expanding products and squares of polynomials and combining like terms.",
+    "status": "needs_review"
   },
   {
     "id": "q_ny8vm9dvcwmn",
@@ -62338,23 +62268,11 @@
     "options": [
       {
         "content": "$x^{2} + 3x - 4$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$x^{2} + 3x - 1$",
         "is_correct": false
-      },
-      {
-        "content": "$x^{2} + 3x - 1$ is incorrect; the correct answer is $x^{2} + 3x - 4$",
-        "is_correct": false
-      },
-      {
-        "content": "$x^{2} + 3x - 4$ is incorrect; the correct answer is $x^{2} + 3x - 1$",
-        "is_correct": false
-      },
-      {
-        "content": "$x^{2} + 3x - 4$",
-        "is_correct": true
       },
       {
         "content": "$x^{2} - 13x + 8$",
@@ -62365,7 +62283,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "x^2 + 3x - 4",
+    "final_answer": "$x^{2} + 3x - 4$",
     "explanation_steps": [
       "Distribute the constant $-2$ into the second polynomial: $-2(x^{2} - 4x + 3) = -2x^{2} + 8x - 6$.",
       "Rewrite the expression by combining the two polynomials: $(3x^{2} - 5x + 2) + (-2x^{2} + 8x - 6)$.",
@@ -62508,15 +62426,15 @@
     "stem": "Simplify the expression $(3x^2 - 2x + 5) - (2x^2 + 4x - 3) + (x - 4)^2$.",
     "options": [
       {
-        "content": "$2x^2 - 14x + 18$",
+        "content": "$2x^2 - 14x + 24$",
         "is_correct": true
       },
       {
-        "content": "$x^2 - 14x + 18$",
+        "content": "$x^2 - 14x + 24$",
         "is_correct": false
       },
       {
-        "content": "$2x^2 + 2x + 18$",
+        "content": "$2x^2 + 2x + 24$",
         "is_correct": false
       },
       {
@@ -62524,11 +62442,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "2x^2 - 14x + 18",
+    "final_answer": "$2x^2 - 14x + 24$",
     "explanation_steps": [
-      "First, distribute the negative sign in the subtraction portion: $(3x^2 - 2x + 5) - 2x^2 - 4x + 3$.",
+      "First, distribute the negative sign in the subtraction portion: $(3x^2 - 2x + 5) - 2x^2 - 4x + 3$, giving $x^2 - 6x + 8$.",
       "Next, expand the square of the binomial $(x - 4)^2 = x^2 - 8x + 16$.",
-      "Combine all terms: $(3x^2 - 2x^2 + x^2) + (-2x - 4x - 8x) + (5 + 3 + 16)$, which simplifies to $2x^2 - 14x + 18$."
+      "Combine all terms: $(x^2 - 6x + 8) + (x^2 - 8x + 16) = 2x^2 - 14x + 24$."
     ],
     "distractor_rationales": {
       "$x^2 - 14x + 18$": "This results from failing to correctly subtract the $x^2$ term (calculating $3x^2 - 2x^2$ as $x^2$ instead of $1x^2$ and adding the $x^2$ from the expansion).",
@@ -63199,18 +63117,18 @@
     "difficulty": "hard",
     "stem": "Simplify the expression by performing the indicated operations: $(2x - 3)^{2} - (x + 4)(x - 4)$. Write the resulting polynomial in descending order of exponents. What is the sum of the coefficients of the resulting polynomial?",
     "numeric_answer": {
-      "value": 11,
+      "value": 16,
       "tolerance": 0,
       "accepted": [
-        "11"
+        "16"
       ]
     },
-    "final_answer": "11",
+    "final_answer": "16",
     "explanation_steps": [
       "First, expand the squared binomial: $(2x - 3)^{2} = (2x)^{2} - 2(2x)(3) + 3^{2} = 4x^{2} - 12x + 9$.",
       "Next, expand the product of the conjugate binomials: $(x + 4)(x - 4) = x^{2} - 16$.",
       "Subtract the second result from the first: $(4x^{2} - 12x + 9) - (x^{2} - 16) = 4x^{2} - x^{2} - 12x + 9 + 16 = 3x^{2} - 12x + 25$.",
-      "Sum the coefficients of the resulting polynomial $3x^{2} - 12x + 25$: $3 + (-12) + 25 = 16 - 5 = 11$."
+      "Sum the coefficients of the resulting polynomial $3x^{2} - 12x + 25$: $3 + (-12) + 25 = 16$."
     ],
     "distractor_rationales": {
       "11": "This is the correct result of the sum of coefficients."
@@ -63369,7 +63287,8 @@
       "The constant term of the simplified polynomial is 4.": "Resulted from a sign error during the subtraction $9 - (-5)$, thinking it resulted in 4 instead of 14.",
       "The leading coefficient is -1.": "Resulted from miscalculating the linear term coefficients after distributing the negative sign."
     },
-    "concept_summary": "Polynomial simplification involving squaring binomials, distribution, and combining like terms."
+    "concept_summary": "Polynomial simplification involving squaring binomials, distribution, and combining like terms.",
+    "status": "needs_review"
   },
   {
     "id": "q_xwrpvloommqb",
@@ -67128,7 +67047,8 @@
       "(2x - 6)(x^{2} + 3x)": "This expands to $2x^{3} + 6x^{2} - 6x^{2} - 18x = 2x^{3} - 18x$, but it is not a standard factored form as it contains a binomial that can be further simplified.",
       "2x(x - 3)^{2}": "This is a common error assuming $(x-3)^{2} = x^{2} - 9$, which ignores the middle term $-6x$."
     },
-    "concept_summary": "Factoring polynomials using greatest common factor and the difference of squares identity."
+    "concept_summary": "Factoring polynomials using greatest common factor and the difference of squares identity.",
+    "status": "needs_review"
   },
   {
     "id": "q_eylma90mqdun",
@@ -68120,50 +68040,42 @@
     "id": "q_xxi7rotgz4mg",
     "exam": "AMP1",
     "topic_slug": "factoring",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Factor the following expression completely: $8x^3 - 12x^2y - 2x^2y + 3xy^2$",
     "options": [
-      {
-        "content": "$2x(4x^2 - 6xy - xy + 3y^2)$",
-        "is_correct": false
-      },
-      {
-        "content": "$x(8x^2 - 12xy - 2xy + 3y^2)$",
-        "is_correct": false
-      },
-      {
-        "content": "$2x(2x - 3y)(2x - y)$",
-        "is_correct": false
-      },
       {
         "content": "$2x(2x - 3y)(2x + y)$",
         "is_correct": false
       },
       {
-        "content": "$x(2x - 3y)(4x - y)$",
+        "content": "$x(4x-3y)(2x-y)$",
         "is_correct": false
       },
       {
-        "content": "$x(4x-3y)(2x-y)$",
+        "content": "$x(2x - 3y)(4x - y)$",
         "is_correct": true
+      },
+      {
+        "content": "$x(4x-3y)(2x+y)$",
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "x(4x-3y)(2x-y)",
+    "final_answer": "$x(2x - 3y)(4x - y)$",
     "explanation_steps": [
       "Identify the greatest common factor (GCF) of all terms. The GCF of $8x^3$, $-12x^2y$, $-2x^2y$, and $3xy^2$ is $x$.",
       "Factor out the GCF: $x(8x^2 - 12xy - 2xy + 3y^2)$.",
       "Simplify the expression inside the parentheses: $x(8x^2 - 14xy + 3y^2)$.",
-      "Factor the trinomial $8x^2 - 14xy + 3y^2$. We look for two binomials of the form $(ax+by)(cx+dy)$ such that $ac=8$, $bd=3$, and $ad+bc=-14$. The factors are $(4x - 3y)(2x - y)$.",
-      "Combine the GCF with the factored trinomial: $x(4x - 3y)(2x - y)$."
+      "Factor the trinomial $8x^2 - 14xy + 3y^2$. We look for two binomials $(ax+by)(cx+dy)$ such that $ac=8$, $bd=3$, and $ad+bc=-14$. The factors are $(2x - 3y)(4x - y)$: check $2x \\cdot 4x = 8x^2$, $2x \\cdot (-y) + (-3y) \\cdot 4x = -2xy - 12xy = -14xy$, $(-3y)(-y) = 3y^2$.",
+      "Combine the GCF with the factored trinomial: $x(2x - 3y)(4x - y)$."
     ],
     "distractor_rationales": {
-      "$2x(2x - 3y)(2x + y)$": "This option incorrectly factors out $2x$ instead of $x$ initially, and uses incorrect signs in the binomial factors.",
-      "$x(2x - 3y)(4x - y)$": "This option correctly factors out $x$ but uses incorrect binomial factors for the trinomial.",
-      "$x(4x-3y)(2x+y)$": "This option correctly factors out $x$ and has one correct binomial factor, but the sign of the second binomial factor is incorrect."
+      "$2x(2x - 3y)(2x + y)$": "This option incorrectly factors out $2x$ instead of $x$, and uses an incorrect binomial factor.",
+      "$x(4x-3y)(2x-y)$": "This option correctly factors out $x$ but pairs the wrong terms in the trinomial, giving $-10xy$ instead of $-14xy$.",
+      "$x(4x-3y)(2x+y)$": "This option correctly factors out $x$ but has an incorrect sign in the second binomial factor."
     },
     "concept_summary": "Factoring by grouping and factoring trinomials."
   },
@@ -68257,23 +68169,23 @@
       },
       {
         "content": "4",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "6",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "9",
         "is_correct": false
       }
     ],
-    "final_answer": "4",
+    "final_answer": "6",
     "explanation_steps": [
       "First, factor out the greatest common factor, which is $2x$: $2x(x^2 - 4x - 5)$.",
       "Next, factor the trinomial $x^2 - 4x - 5$ by finding two numbers that multiply to $-5$ and add to $-4$. These numbers are $-5$ and $1$.",
       "The factored form is $2x(x - 5)(x + 1)$.",
-      "Matching this to the form $2x(x - a)(x + b)$, we identify $a = 5$ and $b = -1$ is incorrect; rather, $a=5$ and $b=-1$ gives $(x-5)(x+1)$. Comparing $2x(x-5)(x+1)$ to $2x(x-a)(x+b)$, we have $a=5$ and $b=-1$. Summing them: $5 + (-1) = 4$."
+      "Matching this to the form $2x(x - a)(x + b)$, we identify $a = 5$ and $b = 1$. Summing them: $5 + 1 = 6$."
     ],
     "distractor_rationales": {
       "1": "This result comes from incorrectly identifying the factors of the constant $-5$ as $-1$ and $1$ instead of $-5$ and $1$.",
@@ -69137,18 +69049,18 @@
     "difficulty": "hard",
     "stem": "Factor the expression $2x^{4} - 18x^{2} - 8x^{3} + 72x$ completely. If the factored form is $ax(x-b)(x+c)(x-d)$, where $a, b, c, d$ are constants, find the value of $a + b + c + d$.",
     "numeric_answer": {
-      "value": 11,
+      "value": 12,
       "tolerance": 0,
       "accepted": [
-        "11"
+        "12"
       ]
     },
-    "final_answer": "11",
+    "final_answer": "12",
     "explanation_steps": [
       "Factor out the greatest common factor, $2x$, to get $2x(x^{3} - 4x^{2} - 9x + 36)$.",
       "Factor the cubic expression by grouping: $x^{2}(x - 4) - 9(x - 4) = (x^{2} - 9)(x - 4)$.",
       "Further factor the difference of squares: $2x(x - 3)(x + 3)(x - 4)$. Comparing this to $ax(x-b)(x+c)(x-d)$, we find $a=2, b=3, c=3, d=4$.",
-      "Calculate the sum $a + b + c + d = 2 + 3 + 3 + 4 = 11$."
+      "Calculate the sum $a + b + c + d = 2 + 3 + 3 + 4 = 12$."
     ],
     "distractor_rationales": {
       "11": "Correct calculation based on the factored form."
@@ -71443,15 +71355,15 @@
         "is_correct": false
       },
       {
-        "content": "$\\frac{x + 3}{x - 3}$",
-        "is_correct": false
+        "content": "1",
+        "is_correct": true
       },
       {
-        "content": "$\\frac{x + 3}{x + 2}$",
-        "is_correct": true
+        "content": "$\\frac{x + 2}{x - 3}$",
+        "is_correct": false
       }
     ],
-    "final_answer": "$\\frac{x+3}{x+2}$",
+    "final_answer": "1",
     "explanation_steps": [
       "Factor the numerator $x^{2} - 9$ as $(x-3)(x+3)$ and the denominator $x^{2} + 5x + 6$ as $(x+2)(x+3)$.",
       "Rewrite the division as multiplication by the reciprocal: $\\frac{(x-3)(x+3)}{(x+2)(x+3)} \\cdot \\frac{x+2}{x-3}$.",
@@ -76304,20 +76216,20 @@
     "stem": "A rectangle has a length of $12$ cm and a width of $5$ cm. What is the perimeter of the rectangle?",
     "options": [
       {
-        "content": "$34$ cm",
-        "is_correct": false
-      },
-      {
-        "content": "$60$ cm",
-        "is_correct": false
-      },
-      {
-        "content": "$17$ cm",
-        "is_correct": false
-      },
-      {
-        "content": "$34$ cm",
+        "content": "34 cm",
         "is_correct": true
+      },
+      {
+        "content": "60 cm",
+        "is_correct": false
+      },
+      {
+        "content": "17 cm",
+        "is_correct": false
+      },
+      {
+        "content": "30 cm",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -79041,10 +78953,6 @@
     "difficulty": "medium",
     "stem": "A right circular cylinder has a radius of $4.0$ cm and a height of $12.0$ cm. What is the total surface area of the cylinder, rounded to the nearest tenth of a square centimeter? Use $3.1416$ for $\\pi$.",
     "options": [
-      {
-        "content": "402.1 cm$^{2}$",
-        "is_true": false
-      },
       {
         "content": "402.1 cm$^{2}$",
         "is_correct": true
@@ -87101,7 +87009,7 @@
     "options": [
       {
         "content": "$y = \\frac{4}{3}x - \\frac{23}{3}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$y = -\\frac{3}{4}x - \\frac{7}{2}$",
@@ -87112,8 +87020,8 @@
         "is_correct": false
       },
       {
-        "content": "$y = \\frac{4}{3}x - \\frac{23}{3}$",
-        "is_correct": true
+        "content": "$y = -\\frac{4}{3}x - \\frac{23}{3}$",
+        "is_correct": false
       }
     ],
     "matches": [],
@@ -87710,7 +87618,8 @@
       "When a system of linear equations represents the same line, there are infinitely many solutions, as every point on the line is a solution to both equations."
     ],
     "distractor_rationales": {},
-    "concept_summary": "A system of linear equations has infinitely many solutions if the equations are dependent (represent the same line)."
+    "concept_summary": "A system of linear equations has infinitely many solutions if the equations are dependent (represent the same line).",
+    "status": "needs_review"
   },
   {
     "id": "q_h6dvofik7e1y",
@@ -95905,7 +95814,8 @@
       "The side length $AC$ is approximately $5.74$ cm.": "This result comes from incorrectly calculating $8 \\cdot \\tan(35^{\\circ})$ instead of $8 / \\tan(35^{\\circ})$.",
       "The value of $\\csc(A)$ is approximately $0.57$.": "This mistake confuses $\\csc(A)$ with $\\sin(A)$, which is approximately $0.5736$."
     },
-    "concept_summary": "Using primary and secondary trigonometric ratios to solve for side lengths in a right triangle."
+    "concept_summary": "Using primary and secondary trigonometric ratios to solve for side lengths in a right triangle.",
+    "status": "needs_review"
   },
   {
     "id": "q_19behvhsuaq4",
@@ -98015,7 +97925,8 @@
       "$\\cot(B) = 2.4$": "This is incorrect because $\\cot(B) = \\frac{\\text{adjacent}}{\\text{opposite}} = \\frac{12}{5} = 2.4$. Wait, the math shows this is actually true, let me re-evaluate... correction: The distractor was intended to be $\\cot(B) = 0.416$ or similar; given the prompt constraints, I identify this as a false statement regarding the definition of secant or cosecant inverse.",
       "$\\csc(A) = \\frac{5}{13}$": "This is a common error where students confuse the cosecant ratio with the sine ratio or invert the hypotenuse and opposite sides incorrectly."
     },
-    "concept_summary": "Application of primary and secondary trigonometric ratios in right-angled triangles."
+    "concept_summary": "Application of primary and secondary trigonometric ratios in right-angled triangles.",
+    "status": "needs_review"
   },
   {
     "id": "q_ag3o86uk7cm0",
@@ -98105,17 +98016,17 @@
     "difficulty": "hard",
     "stem": "In a right triangle $ABC$ with the right angle at $C$, the length of side $AC$ is $12.4$ cm. The angle $\\angle ABC$ is exactly $34^{\\circ} 15'$. Calculate the length of the hypotenuse $AB$ in centimeters. Round your final answer to two decimal places.",
     "numeric_answer": {
-      "value": 22.14,
-      "tolerance": 0.02214,
+      "value": 22.03,
+      "tolerance": 0.02203,
       "accepted": [
-        "22.14"
+        "22.03"
       ]
     },
-    "final_answer": "22.14",
+    "final_answer": "22.03",
     "explanation_steps": [
       "Convert the angle from degrees and minutes to decimal degrees: $34^{\\circ} 15' = 34 + \\frac{15}{60} = 34.25^{\\circ}$.",
       "Identify the trigonometric ratio: since we have the side opposite to $\\angle B$ ($AC = 12.4$) and want the hypotenuse ($AB$), use the sine ratio: $\\sin(34.25^{\\circ}) = \\frac{12.4}{AB}$.",
-      "Solve for $AB$: $AB = \\frac{12.4}{\\sin(34.25^{\\circ})}$. Calculating this gives approximately $22.1448...$, which rounds to $22.14$."
+      "Solve for $AB$: $AB = \\frac{12.4}{\\sin(34.25^{\\circ})}$. Calculating this gives approximately $22.032$, which rounds to $22.03$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Using trigonometric ratios in right triangles with conversion of degrees and minutes to decimal degrees."
@@ -98160,7 +98071,8 @@
       "The length of side $b$ is approximately $8.51$ cm.": "This result comes from incorrectly calculating $12.5 \\cdot \\tan(34.25^{\\circ})$ instead of dividing.",
       "The value of $\\csc(A)$ is approximately $0.56$.": "This result comes from incorrectly calculating $\\sin(34.25^{\\circ})$ instead of its reciprocal $\\frac{1}{\\sin(34.25^{\\circ})}$."
     },
-    "concept_summary": "Application of primary and secondary trigonometric ratios in right triangles involving degree-minute conversion."
+    "concept_summary": "Application of primary and secondary trigonometric ratios in right triangles involving degree-minute conversion.",
+    "status": "needs_review"
   },
   {
     "id": "q_shszmfp887cc",
@@ -98785,7 +98697,7 @@
         "is_correct": false
       },
       {
-        "content": "$54^{\\circ} 55$' 22''",
+        "content": "$54^{\\circ} 56$' 46''",
         "is_correct": true
       },
       {
@@ -98797,11 +98709,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "$54^{\\circ} 55$' 22''",
+    "final_answer": "$54^{\\circ} 56$' 46''",
     "explanation_steps": [
       "Identify the relationship between the known sides relative to angle $B$: $\\tan(B) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{AC}{BC} = \\frac{12.4}{8.7}$.",
       "Calculate the angle $B$ using the inverse tangent function: $B = \\arctan(\\frac{12.4}{8.7}) \\approx 54.92275^{\\circ}$.",
-      "Convert the decimal degree to degrees, minutes, and seconds: $54^{\\circ}$, then $0.92275 \\times 60 = 55.365'$, then $0.365 \\times 60 \\approx 22''$, resulting in $54^{\\circ} 55' 22''$."
+      "Convert the decimal degree to degrees, minutes, and seconds: $54^{\\circ}$, then $0.92275 \\times 60 \\approx 55.4'$; recomputing precisely, $\\arctan(12.4/8.7) = 54.9462^{\\circ}$, giving $54^{\\circ} 56' 46''$."
     ],
     "distractor_rationales": {
       "35^{\\circ} 04' 38''": "This is the value of angle A, calculated using $\\arctan(8.7/12.4)$ instead of angle B.",
@@ -98853,11 +98765,11 @@
         "correct_choice_index": 1
       },
       {
-        "left_content": "$\\tan(B)$",
+        "left_content": "$\\tan(A)$",
         "correct_choice_index": 2
       },
       {
-        "left_content": "$\\sec(A)$",
+        "left_content": "$\\tan(B)$",
         "correct_choice_index": 3
       }
     ],
@@ -98867,7 +98779,7 @@
       "0.2917",
       "3.4286"
     ],
-    "final_answer": "sin(A)=0.28, cos(A)=0.96, tan(B)=3.4286, sec(A)=1.0417",
+    "final_answer": "sin(A)=0.28, cos(A)=0.96, tan(A)=0.2917, tan(B)=3.4286",
     "explanation_steps": [
       "First, calculate the hypotenuse $c$ using the Pythagorean theorem: $c = \\sqrt{a^{2} + b^{2}} = \\sqrt{7^{2} + 24^{2}} = \\sqrt{49 + 576} = \\sqrt{625} = 25$.",
       "Calculate primary ratios: $\\sin(A) = \\frac{a}{c} = \\frac{7}{25} = 0.28$ and $\\cos(A) = \\frac{b}{c} = \\frac{24}{25} = 0.96$.",
@@ -101541,7 +101453,8 @@
       "The number of visitors increased every single day.": "The student failed to notice the decrease from Tuesday to Wednesday.",
       "The difference in visitors between the busiest day and the least busy day is 50.": "The student likely performed the subtraction $140 - 90$ using Thursday instead of the true maximum, $150$."
     },
-    "concept_summary": "Data interpretation from tables including sum, average, and range calculations."
+    "concept_summary": "Data interpretation from tables including sum, average, and range calculations.",
+    "status": "needs_review"
   },
   {
     "id": "q_excwk41zvrvm",
@@ -102038,13 +101951,13 @@
     "difficulty": "medium",
     "stem": "A local coffee shop tracked the number of cups sold daily over a 5-day period. The daily sales were 120, 145, 130, 160, and 145. If the shop wants to achieve a new 6-day average of exactly 145 cups per day, how many cups must they sell on the 6th day?",
     "numeric_answer": {
-      "value": 150,
+      "value": 170,
       "tolerance": 0,
       "accepted": [
-        "150"
+        "170"
       ]
     },
-    "final_answer": "150",
+    "final_answer": "170",
     "explanation_steps": [
       "Calculate the total number of cups needed for a 6-day average of 145: $6 \\cdot 145 = 870$.",
       "Calculate the sum of the sales from the first 5 days: $120 + 145 + 130 + 160 + 145 = 700$.",
@@ -102504,7 +102417,7 @@
     "topic_slug": "data-management",
     "type": "single_mcq",
     "difficulty": "medium",
-    "stem": "The following table shows the number of students enrolled in four different language courses at a community college. Based on the data, what is the average number of students per course?",
+    "stem": "The following table shows the number of students enrolled in four different language courses at a community college. Based on the data, what is the average number of students per course?\n\n| Course | Students |\n| :--- | :--- |\n| Spanish | 95 |\n| French | 60 |\n| German | 52 |\n| Japanese | 101 |",
     "options": [
       {
         "content": "72",
@@ -103314,11 +103227,11 @@
     "options": [
       {
         "content": "24",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "27",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "30",
@@ -103329,11 +103242,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "27",
+    "final_answer": "24",
     "explanation_steps": [
       "Identify the constant rate of change (slope) from the table: February minus January is $15 - 12 = 3$, March minus February is $18 - 15 = 3$, and April minus March is $21 - 18 = 3$.",
-      "Determine the next value in the sequence by adding the constant growth of $3$ to the April profit: $21 + 3 = 24$.",
-      "Calculate the projected profit for May by adding another $3$ to the April result, since the question asks for the projection after April: $24 + 3 = 27$."
+      "The trend is a constant increase of $3$ per month, confirmed by April ($18 + 3 = 21$).",
+      "Apply the same growth to project May from April: $21 + 3 = 24$."
     ],
     "distractor_rationales": {
       "24": "This represents the profit for April, failing to project one step further to May.",
@@ -104471,7 +104384,7 @@
     "stem": "The following table shows the annual profit (in thousands of dollars) for two retail branches over a four-year period. A regional manager determines that a branch is 'high-performing' only if its average annual profit is at least $15\\%$ higher than the average annual profit of the other branch. Which statement correctly describes the performance of the branches?\n\n| Year | Branch A ($) | Branch B ($) |\n| :--- | :--- | :--- |\n| 2020 | 120 | 100 |\n| 2021 | 135 | 110 |\n| 2022 | 145 | 130 |\n| 2023 | 160 | 140 |",
     "options": [
       {
-        "content": "Branch A is high-performing, as its average is approximately 17.5% higher than Branch B.",
+        "content": "Branch A is high-performing, as its average is approximately 16.7% higher than Branch B.",
         "is_correct": true
       },
       {
@@ -104487,11 +104400,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "Branch A is high-performing, as its average is approximately 17.5% higher than Branch B.",
+    "final_answer": "Branch A is high-performing, as its average is approximately 16.7% higher than Branch B.",
     "explanation_steps": [
       "Calculate the average profit for Branch A: $\\frac{120 + 135 + 145 + 160}{4} = \\frac{560}{4} = 140$.",
       "Calculate the average profit for Branch B: $\\frac{100 + 110 + 130 + 140}{4} = \\frac{480}{4} = 120$.",
-      "Find the percentage difference: $\\frac{140 - 120}{120} = \\frac{20}{120} = \\frac{1}{6} \\approx 0.1667$ or $16.67\\%$. Since $16.67\\% > 15\\%$, Branch A is high-performing."
+      "Find the percentage difference: $\\frac{140 - 120}{120} = \\frac{20}{120} = \\frac{1}{6} \\approx 0.1667$ or $16.7\\%$. Since $16.7\\% > 15\\%$, Branch A is high-performing."
     ],
     "distractor_rationales": {
       "Neither branch is high-performing, as the difference between their averages is less than 15%.": "Student may have miscalculated the averages or compared the total sums incorrectly.",
@@ -104562,7 +104475,8 @@
       "25": "A common error if students confuse the total sum calculation with the median.",
       "30": "Often selected if students misidentify the range as the sum of the extreme values."
     },
-    "concept_summary": "Statistical analysis of data sets including mean, median, range, and summation."
+    "concept_summary": "Statistical analysis of data sets including mean, median, range, and summation.",
+    "status": "needs_review"
   },
   {
     "id": "q_hbrqsfraii9e",
@@ -104702,7 +104616,8 @@
       "House B experienced a constant rate of change in electricity consumption over the four months.": "The student likely saw that the values are all increasing but failed to check if the increments between consecutive months are identical.",
       "The total consumption for both houses combined is 3050 kWh.": "The student likely made a simple arithmetic error in the addition of the eight individual values."
     },
-    "concept_summary": "Data interpretation involving averages, trends, and summation of tabular datasets."
+    "concept_summary": "Data interpretation involving averages, trends, and summation of tabular datasets.",
+    "status": "needs_review"
   },
   {
     "id": "q_ylowd67gj8k0",
@@ -104771,7 +104686,8 @@
       "The average revenue for the year is $145,000": "This is a common calculation error; students might sum the values incorrectly or use the wrong denominator.",
       "There is a negative correlation between the number of subscribers and revenue": "This contradicts the data, as both variables increase and decrease in tandem, indicating a positive correlation."
     },
-    "concept_summary": "Data interpretation involving ratios, rates of change, averages, and percentage change."
+    "concept_summary": "Data interpretation involving ratios, rates of change, averages, and percentage change.",
+    "status": "needs_review"
   },
   {
     "id": "q_qkihutvojiqj",
@@ -105405,25 +105321,25 @@
     "id": "q_hvzxw4xuqqhg",
     "exam": "AMP1",
     "topic_slug": "data-management",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "The following table displays the quarterly revenue (in thousands of dollars) for two retail branches over the course of one year. \n\n| Quarter | Branch A | Branch B |\n| :--- | :--- | :--- |\n| Q1 | 120 | 150 |\n| Q2 | 140 | 130 |\n| Q3 | 160 | 110 |\n| Q4 | 180 | 170 |\n\nCalculate the difference between the mean quarterly revenue of Branch A and the mean quarterly revenue of Branch B. The difference is ___ thousand dollars.",
     "options": [
       {
         "content": "5",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "10",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "15",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "20",
-        "is_true": false
+        "is_correct": false
       }
     ],
     "final_answer": "10",
@@ -114120,7 +114036,8 @@
       "The equation results in a quadratic with roots $x = 9$ and $x = -3$.": "While these are the algebraic roots of the quadratic, only one is a valid solution to the original logarithmic equation.",
       "The logarithmic form $\\log_{3}(x(x - 6)) = 3$ is equivalent to $x^{2} - 6x = 9$.": "This is a common error where the student forgets to raise the base to the power of the right side, using 9 instead of $3^{3}=27$."
     },
-    "concept_summary": "Application of the product rule for logarithms and identifying extraneous solutions."
+    "concept_summary": "Application of the product rule for logarithms and identifying extraneous solutions.",
+    "status": "needs_review"
   },
   {
     "id": "q_dodyvsjzddl3",
@@ -116171,7 +116088,8 @@
       "The value $x = -1$ is a valid solution to the original equation.": "Students often forget to check the domain of logarithmic functions, where arguments must be positive.",
       "The equation has two distinct real solutions $x = 9$ and $x = -1$.": "This reflects the failure to exclude the extraneous root resulting from the quadratic equation."
     },
-    "concept_summary": "Application of the product rule of logarithms and identification of extraneous solutions."
+    "concept_summary": "Application of the product rule of logarithms and identification of extraneous solutions.",
+    "status": "needs_review"
   },
   {
     "id": "q_ygweao3j43ok",
@@ -122613,7 +122531,8 @@
       "The maximum area occurs when $x = 10$ meters.": "Wait, this is actually true based on the math, but the prompt asks for identifying errors. Re-evaluating: Option 4 is actually true mathematically, so it should be marked as an option, but the prompt implies selecting correct statements. I will adjust the distractor logic.",
       "The maximum area occurs when x = 10 meters.": "Actually, this is a correct statement, so I will adjust the option set to ensure exactly 3 are true."
     },
-    "concept_summary": "Optimizing the area of a rectangle given a fixed perimeter constraint using quadratic functions."
+    "concept_summary": "Optimizing the area of a rectangle given a fixed perimeter constraint using quadratic functions.",
+    "status": "needs_review"
   },
   {
     "id": "q_i2y2oflu9obg",
@@ -139998,7 +139917,8 @@
       "The value $x = -1$ is a valid solution to the equation.": "Extraneous solution found by ignoring the domain restriction that logarithmic arguments must be positive.",
       "The domain restriction for the equation is $x > 0$.": "This is a partial domain restriction; the full restriction is $x > 8$ because of the $\\log_{3}(x-8)$ term."
     },
-    "concept_summary": "Properties of logarithms and domain constraints of logarithmic functions."
+    "concept_summary": "Properties of logarithms and domain constraints of logarithmic functions.",
+    "status": "needs_review"
   },
   {
     "id": "q_q3txbk773ar8",
@@ -142398,32 +142318,24 @@
     "id": "q_5yx6zgtvov2u",
     "exam": "AMP2",
     "topic_slug": "composite-inverse-functions",
-    "type": "fill_blank",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Let $f(x) = 3x - 5$ and $g(x) = x^{2} + 2$. Find the value of $(g \\circ f)(2)$, which is denoted as ___.",
     "options": [
       {
-        "content": "3",
+        "content": "13",
         "is_correct": false
       },
       {
-        "content": "11",
-        "is_correct": false
-      },
-      {
-        "content": "3",
+        "content": "-2",
         "is_correct": false
       },
       {
         "content": "3",
-        "is_correct": false
+        "is_correct": true
       },
       {
-        "content": "3",
-        "is_correct": false
-      },
-      {
-        "content": "3",
+        "content": "1",
         "is_correct": false
       }
     ],
@@ -142434,9 +142346,9 @@
       "Substitute the result into the outer function: $g(1) = (1)^{2} + 2 = 1 + 2 = 3$."
     ],
     "distractor_rationales": {
-      "11": "This is obtained by calculating $f(g(2))$ instead of $g(f(2))$.",
-      "Option 2": "Calculation error where the student squares 2 before subtracting 5.",
-      "Option 3": "Calculation error where the student multiplies $g(x)$ by $f(2)$."
+      "1": "This results from forgetting to add the $+2$ term in $g(x)$.",
+      "13": "This is obtained by calculating $f(g(2))$ instead of $g(f(2))$: $g(2) = 6$, then $f(6) = 13$.",
+      "-2": "This results from a sign error when evaluating $f(2) = 3(2) - 5$."
     },
     "concept_summary": "Evaluating composite functions by applying the inner function result to the outer function."
   },
@@ -143757,7 +143669,8 @@
       "5": "This option incorrectly calculates both the numerator of $f(g(x))$ and the denominator of $g(f(x))$.",
       "6": "This option is identical to options 1 and 2 and is thus marked correct due to repetition, indicating a flaw in the question's design rather than a unique correct mathematical statement."
     },
-    "concept_summary": "Evaluating composite functions $f(g(x))$ and $g(f(x))$."
+    "concept_summary": "Evaluating composite functions $f(g(x))$ and $g(f(x))$.",
+    "status": "needs_review"
   },
   {
     "id": "q_8xu1wu6ey45z",
