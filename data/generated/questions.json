@@ -53437,10 +53437,10 @@
       },
       {
         "content": "$x^{-2} y^3 z^4$",
-        "is_correct": false
+        "is_correct": true
       }
     ],
-    "final_answer": "Option 1 and Option 2",
+    "final_answer": "Options A, B, and E are equivalent.",
     "explanation_steps": [
       "Recall the negative exponent rule $a^{-n} = \\frac{1}{a^n}$ and $\\frac{1}{a^{-n}} = a^n$.",
       "Apply this rule to the expression: $x^{-2}$ moves to the denominator as $x^2$, and $z^{-4}$ moves to the numerator as $z^4$.",
@@ -54328,11 +54328,11 @@
     ],
     "match_choices": [
       "$\\frac{1}{x^{2}}$",
-      "$\\frac{y^{3}}{x^{2}}$",
+      "$\\frac{x^{2}}{y^{3}}$",
       "$x^{5}$",
       "$\\frac{1}{8}$"
     ],
-    "final_answer": "x$^{-2} = 1$/x^2; x^2y$^{-3}$ = x^2/y^3; x^3*x^2 = x^5; $2^{-3} = 1/8$",
+    "final_answer": "x^-2 = 1/x^2; x^2y^-3 = x^2/y^3; x^3*x^2 = x^5; 2^-3 = 1/8",
     "explanation_steps": [
       "Apply the negative exponent rule $a^{-n} = \\frac{1}{a^{n}}$ to convert expressions to their reciprocal forms.",
       "For $x^{-2}$, identify it as $\\frac{1}{x^{2}}$.",
@@ -56708,10 +56708,10 @@
       },
       {
         "content": "$\\left( \\frac{x^{5}}{2y^{-6}} \\right)^{2}$",
-        "is_correct": true
+        "is_correct": false
       }
     ],
-    "final_answer": "The equivalent expressions are $\\frac{4x^{10}}{y^{12}}$, $4x^{10}y^{-12}$, and $\\left( \\frac{x^{5}}{2y^{-6}} \\right)^{2}$.",
+    "final_answer": "The equivalent expressions are 4x^10/y^12 and 4x^10y^-12.",
     "explanation_steps": [
       "Simplify the fraction inside the parentheses first: $\\frac{2}{4} = \\frac{1}{2}$, $x^{-3-2} = x^{-5}$, and $y^{2-(-4)} = y^{6}$. This gives $(\\frac{1}{2}x^{-5}y^{6})^{-2}$.",
       "Apply the power of a power rule $(ab)^n = a^n b^n$: $(\\frac{1}{2})^{-2} \\cdot (x^{-5})^{-2} \\cdot (y^{6})^{-2}$.",
@@ -57112,7 +57112,7 @@
       },
       {
         "content": "$\\frac{x^{6}z^{2}}{4y^{4}}$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\frac{4y^{-4}z^{2}}{x^{6}}$",
@@ -57127,7 +57127,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "The equivalent expressions are $\\frac{x^{6}}{4y^{4}z^{2}}$ and $\\frac{x^{6}z^{2}}{4y^{4}}$.",
+    "final_answer": "The only equivalent expression is x^6/(4y^4z^2).",
     "explanation_steps": [
       "Apply the power of a quotient rule: $\\left( \\frac{a}{b} \\right)^{-n} = \\left( \\frac{b}{a} \\right)^{n}$, so the expression becomes $\\left( \\frac{z^{-1}}{2x^{-3}y^{2}} \\right)^{2}$.",
       "Distribute the exponent of $2$ to each term: $\\frac{(z^{-1})^{2}}{2^{2}(x^{-3})^{2}(y^{2})^{2}} = \\frac{z^{-2}}{4x^{-6}y^{4}}$.",
@@ -57148,17 +57148,17 @@
     "difficulty": "hard",
     "stem": "Simplify the following expression and evaluate it for $x = 2$ and $y = 3$: $$\\left( \\frac{x^{-2}y^3}{x^4y^{-1}} \\right)^{-2}$$",
     "numeric_answer": {
-      "value": 0.00001693,
-      "tolerance": 0.000001,
+      "value": 0.6242,
+      "tolerance": 0.001,
       "accepted": [
-        "1/59049"
+        "4096/6561"
       ]
     },
-    "final_answer": "1/59049",
+    "final_answer": "4096/6561",
     "explanation_steps": [
-      "Simplify the expression inside the parentheses: $\\frac{x^{-2}y^3}{x^4y^{-1}} = x^{-2-4}y^{3-(-1)} = x^{-6}y^4$.",
-      "Apply the outer exponent: $(x^{-6}y^4)^{-2} = x^{(-6)(-2)}y^{(4)(-2)} = x^{12}y^{-8} = \\frac{x^{12}}{y^8}$.",
-      "Substitute $x=2$ and $y=3$ into the simplified expression: $\\frac{2^{12}}{3^8} = \\frac{4096}{6561}$."
+      "Simplify inside the parentheses: x^-2y^3/(x^4y^-1) = x^{-2-4}y^{3-(-1)} = x^-6y^4.",
+      "Raise to the power -2: (x^-6y^4)^-2 = x^12y^-8 = x^12/y^8.",
+      "Substitute x=2, y=3: 2^12/3^8 = 4096/6561 ≈ 0.6242."
     ],
     "distractor_rationales": {},
     "concept_summary": "Applying the power of a power rule and quotient rule for negative integer exponents."
@@ -57172,34 +57172,34 @@
     "stem": "Simplify the following expression completely: $\\left(\\frac{x^{-3} y^{2}}{x^{2} y^{-4}}\\right)^{-2}$",
     "options": [
       {
-        "content": "$$\\frac{x^{10}}{y^{12}}$$",
+        "content": "$\\frac{x^{10}}{y^{12}}$",
         "is_correct": true
       },
       {
-        "content": "$$\\frac{y^{12}}{x^{10}}$$",
-        "is_correct": true
-      },
-      {
-        "content": "$$\\frac{y^{6}}{x^{5}}$$",
+        "content": "$\\frac{y^{12}}{x^{10}}$",
         "is_correct": false
       },
       {
-        "content": "$$\\frac{x^{5}}{y^{6}}$$",
+        "content": "$\\frac{y^{6}}{x^{5}}$",
         "is_correct": false
       },
       {
-        "content": "$$x^{10} y^{12}$$",
+        "content": "$\\frac{x^{5}}{y^{6}}$",
         "is_correct": false
       },
       {
-        "content": "$$x^{6} y^{12}$$",
+        "content": "$x^{10} y^{12}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x^{6} y^{12}$",
         "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "The correct answers are $\\frac{x^{10}}{y^{12}}$ and $\\frac{y^{12}}{x^{10}}$.",
+    "final_answer": "The correct answer is x^10/y^12.",
     "explanation_steps": [
       "Apply the quotient rule for exponents: $\\frac{a^{m}}{a^{n}} = a^{m-n}$. So, $\\frac{x^{-3}}{x^{2}} = x^{-3-2} = x^{-5}$ and $\\frac{y^{2}}{y^{-4}} = y^{2-(-4)} = y^{6}$. The expression inside the parentheses becomes $\\frac{x^{-5} y^{6}}{1}$.",
       "Apply the power of a quotient rule: $\\left(\\frac{a}{b}\\right)^{m} = \\frac{a^{m}}{b^{m}}$ and the power of a product rule: $(ab)^m = a^m b^m$. The expression is now $(x^{-5} y^{6})^{-2}$.",
@@ -57265,7 +57265,7 @@
         "is_correct": false
       },
       {
-        "content": "$\\frac{y^{11}}{2x^7}$",
+        "content": "$\\frac{2y^{11}}{x^7}$",
         "is_correct": true
       },
       {
@@ -57279,7 +57279,7 @@
     ],
     "matches": [],
     "numeric_answer": null,
-    "final_answer": "$\\frac{y^{11}}{2x^7}$",
+    "final_answer": "$\\frac{2y^{11}}{x^7}$",
     "explanation_steps": [
       "Apply the power of a product rule $(ab)^n = a^n b^n$ and the power of a power rule $(a^m)^n = a^{mn}$ to the numerator: $(2x^{-3}y^2)^3 = 2^3 (x^{-3})^3 (y^2)^3 = 8x^{-9}y^6$.",
       "Rewrite the expression with the simplified numerator: $\\frac{8x^{-9}y^6}{4x^{-2}y^{-5}}$",
@@ -57354,22 +57354,19 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": {
-      "value": 16,
+      "value": 4096,
       "tolerance": 0,
       "accepted": [
-        "16",
-        "a^10 / b^10",
-        "a$^{10}$b$^{-10}$",
-        "(a/b)$^{10}$"
+        "4096a^10/b^10",
+        "4096a^{10}b^{-10}"
       ]
     },
-    "final_answer": "a^10 / b^10",
+    "final_answer": "4096a^10/b^10",
     "explanation_steps": [
-      "First, simplify the expression inside the parentheses. Recall that $\\frac{x^m}{x^n} = x^{m-n}$ and $x^{-n} = \\frac{1}{x^n}$. So, $2^{-3} = \\frac{1}{8}$. The expression becomes $\\left(\\frac{\\frac{1}{8} a^{-2} b^{4}}{8 a^{3} b^{-1}}\\right)^{-2}$.",
-      "Combine the coefficients and the variables: $\\frac{\\frac{1}{8}}{8} = \\frac{1}{64}$, $a^{-2 - 3} = a^{-5}$, and $b^{4 - (-1)} = b^{5}$. The expression inside the parentheses is now $\\frac{1}{64} a^{-5} b^{5}$.",
-      "Apply the outer exponent of $-2$. Recall that $(x^m)^n = x^{mn}$ and $x^{-n} = \\frac{1}{x^n}$. So, $\\left(\\frac{1}{64} a^{-5} b^{5}\\right)^{-2} = (64^{-1})^{-2} (a^{-5})^{-2} (b^{5})^{-2} = 64^{2} a^{10} b^{-10}$.",
-      "Calculate $64^2$. $64^2 = 4096$. The expression is $4096 a^{10} b^{-10}$.",
-      "Rewrite the expression with positive exponents. $b^{-10} = \\frac{1}{b^{10}}$. The expression becomes $4096 \\frac{a^{10}}{b^{10}}$."
+      "Combine the coefficient: 2^-3 / 8 = (1/8) / 8 = 1/64 = 2^-6.",
+      "Combine the exponents of a: -2 - 3 = -5. Combine the exponents of b: 4 - (-1) = 5.",
+      "The expression inside the parentheses simplifies to 2^-6 a^-5 b^5.",
+      "Raise to the power -2: 2^12 a^10 b^-10 = 4096 a^10 b^-10 = 4096a^10/b^10."
     ],
     "distractor_rationales": {},
     "concept_summary": "Simplify expressions with negative exponents using the laws of exponents."
