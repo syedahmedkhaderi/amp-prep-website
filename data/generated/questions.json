@@ -100224,10 +100224,10 @@
       },
       {
         "content": "The shop sold exactly 100 cups in total.",
-        "is_correct": false
+        "is_correct": true
       }
     ],
-    "final_answer": "The average number of cups sold per hour is 25; The greatest increase in sales occurred between Hour 3 and Hour 4.",
+    "final_answer": "The average is 25 cups/hour, the greatest increase was Hour 3 to Hour 4, and the shop sold exactly 100 cups in total.",
     "explanation_steps": [
       "Calculate the total number of cups: $15 + 25 + 20 + 40 = 100$.",
       "Calculate the average: $\\frac{100 \\text{ total cups}}{4 \\text{ hours}} = 25 \\text{ cups per hour}$.",
@@ -101605,7 +101605,8 @@
       "-0.71": "Similar to 0.71, this is a possible Z-score value but incorrect for the given data.",
       "-1.12": "This value is close to some calculated Z-scores but doesn't match precisely, suggesting a potential calculation error or misinterpretation of data."
     },
-    "concept_summary": "Calculating Z-scores to measure how many standard deviations a data point is from the mean."
+    "concept_summary": "Calculating Z-scores to measure how many standard deviations a data point is from the mean.",
+    "status": "needs_review"
   },
   {
     "id": "q_v92hwkvwxy1r",
@@ -103183,7 +103184,7 @@
       },
       {
         "content": "The mean daily output of Machine B is 125 units.",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "Machine A has a greater range of output than Machine B over the 5 days.",
@@ -103198,7 +103199,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "The mean daily output of Machine A is 127 units, the mean daily output of Machine B is 127 units (Wait, recalculating: 110+115+125+140+145=635, 635/5=127. So option 2 is false. Correct options are 1, 3 (false), 4 (true), 5 (false). Correct: Option 1 and Option 4.)",
+    "final_answer": "The mean daily output of Machine A is 127 units, and the total production of Machine B over 5 days is 635 units.",
     "explanation_steps": [
       "Calculate the mean for Machine A: $\\frac{120 + 125 + 130 + 128 + 132}{5} = \\frac{635}{5} = 127$.",
       "Calculate the mean for Machine B: $\\frac{110 + 115 + 125 + 140 + 145}{5} = \\frac{635}{5} = 127$. Thus, the statement that the mean for B is 125 is incorrect.",
@@ -103373,17 +103374,19 @@
     "difficulty": "hard",
     "stem": "The following table shows the annual revenue for a company over a five-year period. Let $R_n$ represent the revenue in year $n$, where $n=1$ is the first year. The company's average growth rate $g$ is defined as the arithmetic mean of the year-over-year percentage changes. Given the data below, calculate the value of $g$ as a percentage.\n\n| Year ($n$) | Revenue (in millions) |\n| :--- | :--- |\n| 1 | 2.00 |\n| 2 | 2.50 |\n| 3 | 3.00 |\n| 4 | 4.20 |\n| 5 | 5.25 |",
     "numeric_answer": {
-      "value": 26.25,
-      "tolerance": 0.02625,
+      "value": 27.5,
+      "tolerance": 0.0275,
       "accepted": [
-        "26.25"
+        "27.5"
       ]
     },
-    "final_answer": "26.25",
+    "final_answer": "27.5",
     "explanation_steps": [
-      "Calculate the percentage change for each interval: Year 1 to 2 is $\\frac{2.5-2.0}{2.0} = 0.25$ or $25\\%$. Year 2 to 3 is $\\frac{3.0-2.5}{2.5} = 0.20$ or $20\\%$. Year 3 to 4 is $\\frac{4.2-3.0}{3.0} = 0.40$ or $40\\%$. Year 4 to 5 is $\\frac{5.25-4.2}{4.2} = 0.25$ or $25\\%$.",
-      "Find the sum of these four percentage changes: $25 + 20 + 40 + 25 = 110$.",
-      "Calculate the arithmetic mean of these changes by dividing the sum by the number of intervals, which is 4: $g = \\frac{110}{4} = 26.25$."
+      "Year 1 to 2: (2.50-2.00)/2.00 = 25%.",
+      "Year 2 to 3: (3.00-2.50)/2.50 = 20%.",
+      "Year 3 to 4: (4.20-3.00)/3.00 = 40%.",
+      "Year 4 to 5: (5.25-4.20)/4.20 = 25%.",
+      "Average of the four percentage changes: (25+20+40+25)/4 = 110/4 = 27.5%."
     ],
     "distractor_rationales": {},
     "concept_summary": "Calculation of the arithmetic mean of percentage changes over sequential data points."
@@ -103492,7 +103495,7 @@
       },
       {
         "content": "Plant C has the lowest carbon emission intensity, calculated as tonnes of $CO_2$ per MWh.",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "The average carbon footprint across all four plants is exactly 528.25 tonnes.",
@@ -103503,7 +103506,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "Plant C has the lowest carbon emission intensity; The average carbon footprint across all four plants is 528.25 tonnes.",
+    "final_answer": "The average carbon footprint across all four plants is 528.25 tonnes. (Plant D actually has the lowest intensity at 0.35 t/MWh, and Plant C has the highest at 0.42 t/MWh.)",
     "explanation_steps": [
       "Calculate the carbon emission intensity for each plant: $A = 480/1200 = 0.40$, $B = 555/1500 = 0.37$, $C = 378/900 = 0.42$, $D = 700/2000 = 0.35$.",
       "Compare intensities: Plant D has the lowest intensity ($0.35$), so the first option is false and the second option is false because C ($0.42$) is the highest.",
@@ -103524,7 +103527,7 @@
     "stem": "A manufacturing company tracks the daily defect rate of a machine over 5 days. The data follows: Monday (4.2%), Tuesday (3.8%), Wednesday (4.5%), Thursday (5.1%), and Friday (4.4%). If the company aims to reduce the defect rate by 15% from the current 5-day average by next week, the new target average defect rate must be approximately ___%.",
     "options": [
       {
-        "content": "3.78",
+        "content": "3.74",
         "is_correct": true
       },
       {
@@ -103540,11 +103543,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "3.78",
+    "final_answer": "3.74",
     "explanation_steps": [
-      "Calculate the mean of the 5-day defect rates: $\\frac{4.2 + 3.8 + 4.5 + 5.1 + 4.4}{5} = \\frac{22.0}{5} = 4.4$.",
-      "Calculate the required reduction: $4.4 \\times 0.15 = 0.66$.",
-      "Subtract the reduction from the current average to find the target: $4.4 - 0.66 = 3.78$."
+      "Calculate the current 5-day average: (4.2+3.8+4.5+5.1+4.4)/5 = 22.0/5 = 4.4%.",
+      "A 15% reduction means the new target is 85% of the current average.",
+      "New target: 4.4 * 0.85 = 3.74%."
     ],
     "distractor_rationales": {
       "4.40": "This is the current average, failing to apply the 15% reduction.",
@@ -103896,11 +103899,11 @@
     "matches": [
       {
         "left_content": "Company A",
-        "correct_choice_index": 2
+        "correct_choice_index": 0
       },
       {
         "left_content": "Company B",
-        "correct_choice_index": 0
+        "correct_choice_index": 4
       },
       {
         "left_content": "Company C",
@@ -103912,12 +103915,13 @@
       }
     ],
     "match_choices": [
-      "Has the lowest revenue per employee ratio of $30,000 per person.",
+      "Has a revenue per employee ratio of $37,500 per person.",
       "Has a revenue per employee ratio of $25,000 per person.",
       "Has a revenue per employee ratio of $37,500 per person.",
-      "Has the highest number of employees but the lowest revenue per employee at $24,000 per person."
+      "Has the highest number of employees but the lowest revenue per employee at $24,000 per person.",
+      "Has a revenue per employee ratio of $30,000 per person."
     ],
-    "final_answer": "A: 37.5, B: 30, C: 24, D: 25",
+    "final_answer": "A: $37,500/person, B: $30,000/person, C: $24,000/person (lowest, most employees), D: $25,000/person",
     "explanation_steps": [
       "Calculate the revenue per employee for each company: $A = \\frac{450}{12} = 37.5$, $B = \\frac{120}{4} = 30$, $C = \\frac{600}{25} = 24$, and $D = \\frac{250}{10} = 25$.",
       "Identify that Company A has a ratio of $37.5$ thousand, Company B has a ratio of $30$ thousand, Company C has a ratio of $24$ thousand, and Company D has a ratio of $25$ thousand.",
@@ -104249,7 +104253,7 @@
       },
       {
         "content": "Plant C has the highest emission intensity among the four plants.",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "The average energy consumption for all four plants is 675 MWh.",
@@ -104260,7 +104264,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "Plant C has the highest emission intensity and the average energy consumption is 675 MWh.",
+    "final_answer": "The average energy consumption for all four plants is 675 MWh. (Plant D actually has the highest emission intensity, at 0.35 tonnes/MWh, not Plant C.)",
     "explanation_steps": [
       "Calculate emission intensity (tonnes/MWh) for each: A = 120/450 ≈ 0.267, B = 180/600 = 0.300, C = 250/750 ≈ 0.333, D = 315/900 = 0.350.",
       "Compare intensities: Plant C (0.333) is indeed higher than A (0.267) and B (0.300), and C is the highest based on the calculated ratios.",
@@ -104428,19 +104432,17 @@
     "difficulty": "hard",
     "stem": "A manufacturing company tracks the daily output of a machine over a 5-day period. The daily outputs (in units) are as follows: Monday: 120, Tuesday: 135, Wednesday: 115, Thursday: $x$, and Friday: 140. If the average daily output for the 5-day period is exactly 132 units, calculate the value of $x$.",
     "numeric_answer": {
-      "value": 140,
+      "value": 150,
       "tolerance": 0,
       "accepted": [
-        "140"
+        "150"
       ]
     },
-    "final_answer": "140",
+    "final_answer": "150",
     "explanation_steps": [
-      "The formula for the average of 5 values is given by $\\frac{\\text{Sum of outputs}}{5} = 132$.",
-      "Calculate the sum required for the 5 days: $132 \\cdot 5 = 660$.",
-      "Set up the equation for the sum of the known and unknown values: $120 + 135 + 115 + x + 140 = 660$.",
-      "Simplify the sum of the known values: $510 + x = 660$.",
-      "Solve for $x$ by subtracting 510 from 660: $x = 660 - 510 = 140$."
+      "The total needed for an average of 132 over 5 days is 132 * 5 = 660.",
+      "The sum of the four known days is 120 + 135 + 115 + 140 = 510.",
+      "Thursday's output is 660 - 510 = 150."
     ],
     "distractor_rationales": {
       "128": "This results from using a divisor of 4 instead of 5 or miscalculating the sum.",
@@ -180075,7 +180077,7 @@
     "stem": "A frequency table lists how many pets each household owns.\n\n| Pets | Households |\n| ---: | ---: |\n| 0 | 8 |\n| 1 | 10 |\n| 2 | 6 |\n| 3 | 4 |\n\nWhat is the mean number of pets per household?",
     "options": [
       {
-        "content": "$1.25$",
+        "content": "$1.21$",
         "is_correct": true
       },
       {
@@ -180091,11 +180093,11 @@
         "is_correct": false
       }
     ],
-    "final_answer": "$1.25$",
+    "final_answer": "$1.21$",
     "explanation_steps": [
       "Multiply each pet count by how many households have it: $0 \\times 8 = 0$, $1 \\times 10 = 10$, $2 \\times 6 = 12$, $3 \\times 4 = 12$.",
       "The total number of pets is $0 + 10 + 12 + 12 = 34$.",
-      "There are $8 + 10 + 6 + 4 = 28$ households, so the mean is $34 \\div 28 = 1.25$ to two decimal places."
+      "There are $8 + 10 + 6 + 4 = 28$ households, so the mean is $34 \\div 28 \\approx 1.21$ to two decimal places."
     ],
     "distractor_rationales": {
       "1": "$1.5$ averages the four pet counts $0, 1, 2, 3$ and ignores the frequencies.",
