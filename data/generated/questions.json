@@ -32280,18 +32280,18 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": {
-      "value": 4,
+      "value": 5,
       "tolerance": 0,
       "accepted": [
-        "4"
+        "5"
       ]
     },
-    "final_answer": "4",
+    "final_answer": "5",
     "explanation_steps": [
-      "Distribute the 3 to the terms inside the parentheses: $3x + 6 - 5 = 16$",
-      "Combine the constant terms on the left side: $3x + 1 = 16$",
-      "Subtract 1 from both sides of the equation: $3x = 15$",
-      "Divide both sides by 3 to isolate $x$: $x = 5$"
+      "Distribute: 3x + 6 - 5 = 16.",
+      "Combine like terms: 3x + 1 = 16.",
+      "Subtract 1: 3x = 15.",
+      "Divide by 3: x = 5."
     ],
     "distractor_rationales": {},
     "concept_summary": "Solve linear equations by applying the distributive property and inverse operations."
@@ -32446,20 +32446,20 @@
     ],
     "matches": [
       {
-        "left_content": "$x + 7 = 15$",
+        "left_content": "x + 7 = 15",
         "correct_choice_index": 0
       },
       {
-        "left_content": "$3x = 27$",
+        "left_content": "3x = 27",
         "correct_choice_index": 1
       },
       {
-        "left_content": "$x - 5 = 3$",
-        "correct_choice_index": 2
+        "left_content": "x - 5 = 3",
+        "correct_choice_index": 3
       },
       {
         "left_content": "$ \\frac{x}{4} = 3 $",
-        "correct_choice_index": 3
+        "correct_choice_index": 2
       }
     ],
     "match_choices": [
@@ -32468,7 +32468,7 @@
       "$x = 12$",
       "$x = 8$"
     ],
-    "final_answer": "The equations $x + 7 = 15$, $3x = 27$, $x - 5 = 3$, and $ \\frac{x}{4} = 3 $ have solutions $x=8$, $x=9$, $x=8$, and $x=12$ respectively.",
+    "final_answer": "x+7=15 is x=8; 3x=27 is x=9; x-5=3 is x=8; x/4=3 is x=12",
     "explanation_steps": [
       "For $x + 7 = 15$, subtract 7 from both sides: $x + 7 - 7 = 15 - 7$, so $x = 8$.",
       "For $3x = 27$, divide both sides by 3: $ \\frac{3x}{3} = \\frac{27}{3} $, so $x = 9$.",
@@ -33338,7 +33338,7 @@
       },
       {
         "content": "$x = 1.5$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$x = 9$",
@@ -33356,7 +33356,7 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "x = 3 and x = 1.5",
+    "final_answer": "x = 3",
     "explanation_steps": [
       "Distribute the 5 on the left side of the equation: $10x - 15 = 2x + 9$.",
       "Subtract $2x$ from both sides: $10x - 2x - 15 = 2x - 2x + 9$, which simplifies to $8x - 15 = 9$.",
@@ -33463,29 +33463,29 @@
     "stem": "Solve for $x$: $5(x - 3) + 2 = 12$",
     "options": [
       {
-        "content": "$3.8$",
-        "is_correct": false
-      },
-      {
-        "content": "$1.8$",
-        "is_correct": false
-      },
-      {
-        "content": "$4.4$",
-        "is_correct": false
-      },
-      {
-        "content": "$3.4$",
+        "content": "5",
         "is_correct": true
+      },
+      {
+        "content": "1.8",
+        "is_correct": false
+      },
+      {
+        "content": "4.4",
+        "is_correct": false
+      },
+      {
+        "content": "3.4",
+        "is_correct": false
       }
     ],
     "matches": [],
-    "final_answer": "3.4",
+    "final_answer": "5",
     "explanation_steps": [
-      "Distribute the 5: $5x - 15 + 2 = 12$",
-      "Combine like terms: $5x - 13 = 12$",
-      "Add 13 to both sides: $5x = 25$",
-      "Divide by 5: $x = 5$"
+      "Distribute: 5x - 15 + 2 = 12.",
+      "Combine like terms: 5x - 13 = 12.",
+      "Add 13 to both sides: 5x = 25.",
+      "Divide by 5: x = 5."
     ],
     "distractor_rationales": {
       "3.8": "This answer arises from incorrectly adding 15 instead of subtracting it after distributing.",
@@ -33567,15 +33567,15 @@
       },
       {
         "left_content": "$4x - 5 = 3$",
-        "correct_choice_index": 3
+        "correct_choice_index": 2
       },
       {
         "left_content": "$\\frac{x}{2} + 1 = 2$",
-        "correct_choice_index": 1
+        "correct_choice_index": 2
       },
       {
         "left_content": "$2(x - 3) = 10$",
-        "correct_choice_index": 2
+        "correct_choice_index": 3
       }
     ],
     "match_choices": [
@@ -33745,7 +33745,7 @@
       },
       {
         "left_content": "$2(x + 3) = 10$",
-        "correct_choice_index": 2
+        "correct_choice_index": 0
       },
       {
         "left_content": "$\\frac{x}{3} = -1$",
@@ -33969,7 +33969,7 @@
     "options": [
       {
         "content": "$x = \\frac{17}{6}$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$x = \\frac{23}{6}$",
@@ -33986,7 +33986,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "The correct answers are $x = \\frac{17}{6}$ and $x = \\frac{11}{3}$",
+    "final_answer": "x = 11/3",
     "explanation_steps": [
       "Multiply both sides by 5 to eliminate the fraction: $2(3x - 1) = 20$.",
       "Distribute the 2 on the left side: $6x - 2 = 20$.",
@@ -35349,16 +35349,16 @@
       },
       {
         "content": "3",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "4",
-        "is_correct": false
+        "is_correct": true
       }
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "3",
+    "final_answer": "4",
     "explanation_steps": [
       "To eliminate the fractions, multiply both sides of the equation by the least common multiple of the denominators (3 and 2), which is 6.",
       "$$6 \\cdot \\left( \\frac{2x+1}{3} \\right) = 6 \\cdot \\left( \\frac{x}{2} + 1 \\right)$$",
@@ -35635,11 +35635,11 @@
       },
       {
         "content": "$x = 5$",
-        "is_correct": true
+        "is_correct": false
       },
       {
-        "content": "$x = -1$",
-        "is_correct": false
+        "content": "$x = -2$",
+        "is_correct": true
       },
       {
         "content": "$x = -5$",
@@ -35651,20 +35651,18 @@
       },
       {
         "content": "$x = \\frac{1}{4}$",
-        "is_correct": true
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "x = 5 and x = 1/4",
+    "final_answer": "x = -2",
     "explanation_steps": [
-      "To eliminate the fractions, find a common denominator for 3 and 2, which is 6. Multiply every term by 6: $6 \\cdot \\frac{2x+1}{3} = 6 \\cdot \\frac{x-2}{2} + 6 \\cdot 1$",
-      "Simplify the equation: $2(2x+1) = 3(x-2) + 6$",
-      "Distribute the numbers outside the parentheses: $4x+2 = 3x-6 + 6$",
-      "Combine like terms on the right side: $4x+2 = 3x$",
-      "Subtract $3x$ from both sides: $x+2 = 0$",
-      "Subtract 2 from both sides: $x = -2$"
+      "Multiply every term by the LCD of 3 and 2, which is 6: 2(2x+1) = 3(x-2) + 6.",
+      "Distribute: 4x + 2 = 3x - 6 + 6.",
+      "Simplify the right side: 4x + 2 = 3x.",
+      "Subtract 3x: x + 2 = 0, so x = -2."
     ],
     "distractor_rationales": {
       "1": "This is the result if the equation was $2(2x+1) = 3(x-2) - 6$ instead of $+6$. Students may incorrectly distribute the 3 to only the x term.",
@@ -35905,19 +35903,19 @@
     "options": [],
     "matches": [],
     "numeric_answer": {
-      "value": 2,
+      "value": 3.5,
       "tolerance": 0,
       "accepted": [
-        "2"
+        "3.5",
+        "7/2"
       ]
     },
-    "final_answer": "2",
+    "final_answer": "3.5",
     "explanation_steps": [
-      "Distribute the constants on both sides of the equation: $6x - 3 - 2x - 6 = 5$",
-      "Combine like terms on the left side: $(6x - 2x) + (-3 - 6) = 5$, which simplifies to $4x - 9 = 5$",
-      "Add 9 to both sides of the equation to isolate the term with $x$: $4x - 9 + 9 = 5 + 9$, which gives $4x = 14$",
-      "Divide both sides by 4 to solve for $x$: $x = \\frac{14}{4}$",
-      "Simplify the fraction: $x = \\frac{7}{2}$"
+      "Distribute: 6x - 3 - 2x - 6 = 5.",
+      "Combine like terms: 4x - 9 = 5.",
+      "Add 9: 4x = 14.",
+      "Divide by 4: x = 3.5."
     ],
     "distractor_rationales": {},
     "concept_summary": "Solving linear equations by simplifying and isolating the variable"
@@ -36373,7 +36371,8 @@
       "The equation has no solution.": "This is incorrect. The steps show a unique solution exists.",
       "If the left side of the equation were $3(x + 2) - 5$, the solution would be $x = -1/4$.": "This is incorrect. Solving $3(x+2)-5 = 7x+4$ yields $x = -3/4$, not $x = -1/4$. A common mistake might involve sign errors during simplification."
     },
-    "concept_summary": "Solving multi-step linear equations with algebraic manipulation."
+    "concept_summary": "Solving multi-step linear equations with algebraic manipulation.",
+    "status": "needs_review"
   },
   {
     "id": "q_8m07607vf86c",
@@ -36467,32 +36466,29 @@
     "stem": "Solve the following equation for $x$: $\\frac{1}{3}(x - 5) + \\frac{2}{5} = \\frac{1}{2}(x + 1)$",
     "options": [
       {
-        "content": "-50/7",
+        "content": "-53/50",
         "is_correct": false
       },
       {
-        "content": "50/7",
+        "content": "53/50",
         "is_correct": false
       },
       {
-        "content": "-7/50",
-        "is_correct": false
-      },
-      {
-        "content": "7/50",
+        "content": "-53/5",
         "is_correct": true
+      },
+      {
+        "content": "53/5",
+        "is_correct": false
       }
     ],
     "matches": [],
-    "final_answer": "7/50",
+    "final_answer": "-53/5",
     "explanation_steps": [
-      "Multiply both sides by the least common multiple of the denominators (3, 5, 2), which is 30: $30 \\cdot \\frac{1}{3}(x - 5) + 30 \\cdot \\frac{2}{5} = 30 \\cdot \\frac{1}{2}(x + 1)$",
-      "Simplify and distribute: $10(x - 5) + 12 = 15(x + 1)$",
-      "Further simplify and solve for $x$: $10x - 50 + 12 = 15x + 15$",
-      "$10x - 38 = 15x + 15$",
-      "Subtract $10x$ from both sides: $-38 = 5x + 15$",
-      "Subtract 15 from both sides: $-53 = 5x$",
-      "Divide by 5: $x = -53/5$"
+      "Multiply every term by the LCD of 3, 5, and 2, which is 30: 10(x-5) + 12 = 15(x+1).",
+      "Distribute: 10x - 50 + 12 = 15x + 15.",
+      "Combine like terms: 10x - 38 = 15x + 15.",
+      "Rearrange: -53 = 5x, so x = -53/5."
     ],
     "distractor_rationales": {
       "7/50": "This is the correct answer.",
@@ -36602,7 +36598,7 @@
         "is_correct": false
       },
       {
-        "content": "$x = \\frac{23}{7}$",
+        "content": "$x = \\frac{39}{7}$",
         "is_correct": true
       },
       {
@@ -36617,13 +36613,13 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "23/7",
+    "final_answer": "x = 39/7",
     "explanation_steps": [
-      "Multiply both sides of the equation by the least common multiple of the denominators (4, 5, and 20), which is 20, to eliminate the fractions: $20 \\left( \\frac{3(x-2)}{4} - \\frac{2(x+1)}{5} \\right) = 20 \\left( \\frac{1}{20} \\right)$",
-      "Distribute the 20 and simplify: $5 \\cdot 3(x-2) - 4 \\cdot 2(x+1) = 1$",
-      "Distribute the coefficients and combine like terms: $15(x-2) - 8(x+1) = 1 \\implies 15x - 30 - 8x - 8 = 1 \\implies 7x - 38 = 1$",
-      "Isolate the term with $x$: $7x = 1 + 38 \\implies 7x = 39$",
-      "Solve for $x$: $x = \\frac{39}{7}$"
+      "Multiply every term by the LCD of 4, 5, and 20, which is 20: 15(x-2) - 8(x+1) = 1.",
+      "Distribute: 15x - 30 - 8x - 8 = 1.",
+      "Combine like terms: 7x - 38 = 1.",
+      "Add 38 to both sides: 7x = 39.",
+      "Divide by 7: x = 39/7."
     ],
     "distractor_rationales": {
       "x = 17/7": "This is the result if the signs in the distribution step are incorrectly handled, specifically when subtracting $8(x+1)$.",
@@ -36910,21 +36906,19 @@
         "is_correct": false
       },
       {
-        "content": "$x = \\frac{1}{2}$",
+        "content": "$x = \\frac{1}{7}$",
         "is_correct": true
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "x = 1/2",
+    "final_answer": "x = 1/7",
     "explanation_steps": [
-      "Find a common denominator for the fractions, which is 6.",
-      "Multiply each term by 6 to eliminate the denominators: $6 \\cdot \\frac{2x-1}{3} + 6 \\cdot \\frac{x+2}{2} = 6 \\cdot \\frac{5}{6}$",
-      "Simplify the equation: $2(2x-1) + 3(x+2) = 5$",
-      "Distribute and combine like terms: $4x - 2 + 3x + 6 = 5$, which simplifies to $7x + 4 = 5$",
-      "Isolate the variable term: $7x = 5 - 4$, so $7x = 1$",
-      "Solve for $x$: $x = \\frac{1}{7}$"
+      "Multiply every term by the LCD of 3, 2, and 6, which is 6: 2(2x-1) + 3(x+2) = 5.",
+      "Distribute: 4x - 2 + 3x + 6 = 5.",
+      "Combine like terms: 7x + 4 = 5.",
+      "Subtract 4: 7x = 1, so x = 1/7."
     ],
     "distractor_rationales": {
       "x = 1": "This is the value of $7x$ before dividing by 7.",
@@ -37220,9 +37214,9 @@
       "x = 4",
       "x = -6",
       "x = 2",
-      "x = -3"
+      "x = -2"
     ],
-    "final_answer": "1:x=4, 2:x=-3, 3:x=-6, 4:x=2",
+    "final_answer": "x=4, x=-2, x=-6, x=2",
     "explanation_steps": [
       "For $3(x - 2) = 6$, divide by $3$ to get $x - 2 = 2$, then add $2$ to find $x = 4$.",
       "For $\\frac{x + 4}{2} = 1$, multiply by $2$ to get $x + 4 = 2$, then subtract $4$ to find $x = -3$.",
@@ -37272,18 +37266,14 @@
     "options": [
       {
         "content": "$x = \\frac{38}{11}$",
-        "is_correct": true
-      },
-      {
-        "content": "$x = \\frac{11}{38}$",
         "is_correct": false
       },
       {
-        "content": "$x = \\frac{51}{11}$",
+        "content": "$x = \\frac{11}{2}$",
         "is_correct": true
       },
       {
-        "content": "$x = \\frac{11}{51}$",
+        "content": "$x = \\frac{51}{11}$",
         "is_correct": false
       },
       {
@@ -37297,14 +37287,12 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "x = 38/11 and x = 51/11",
+    "final_answer": "x = 11/2",
     "explanation_steps": [
-      "To eliminate the fractions, find the least common multiple (LCM) of the denominators 4 and 3, which is 12. Multiply every term in the equation by 12: $12\\cdot\\frac{3(2x-1)}{4} - 12\\cdot\\frac{x+2}{3} = 12\\cdot 5$",
-      "Simplify the equation: $9(2x-1) - 4(x+2) = 60$",
-      "Distribute the terms: $18x - 9 - 4x - 8 = 60$",
-      "Combine like terms: $14x - 17 = 60$",
-      "Add 17 to both sides: $14x = 77$",
-      "Divide by 14: $x = \\frac{77}{14} = \\frac{11}{2}$"
+      "Multiply every term by the LCD of 4 and 3, which is 12: 9(2x-1) - 4(x+2) = 60.",
+      "Distribute: 18x - 9 - 4x - 8 = 60.",
+      "Combine like terms: 14x - 17 = 60.",
+      "Add 17: 14x = 77, so x = 77/14 = 11/2."
     ],
     "distractor_rationales": {
       "x = 11/38": "This might result from incorrect LCM calculation or errors in distributing the negative sign when combining terms.",
@@ -37427,7 +37415,8 @@
       "3": "Mistake in the last step, $2x=4$ is solved as $x=4$. This is a distracter for $4x-3=2x+1$. The correct answer is $x=7$.",
       "4": "Mistake in the last step, $6x=12$ is solved as $x=12$. This is a distracter for $3(2x+1)=15$. The correct answer is $x=1/2$."
     },
-    "concept_summary": "Solving linear equations using properties of equality."
+    "concept_summary": "Solving linear equations using properties of equality.",
+    "status": "needs_review"
   },
   {
     "id": "q_kjvrkdlvnd1z",
@@ -37875,8 +37864,8 @@
         "is_correct": false
       },
       {
-        "content": "$x = \\frac{17}{13}$",
-        "is_correct": false
+        "content": "$x = 1$",
+        "is_correct": true
       },
       {
         "content": "$x = \\frac{17}{19}$",
@@ -37884,21 +37873,17 @@
       },
       {
         "content": "$x = \\frac{19}{17}$",
-        "is_correct": true
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "x = 19/17",
+    "final_answer": "x = 1",
     "explanation_steps": [
-      "To eliminate the fractions, find the least common multiple (LCM) of the denominators 4, 5, and 2. The LCM is 20.",
-      "Multiply every term in the equation by 20: $$20 \\left( \\frac{3x - 1}{4} \\right) - 20 \\left( \\frac{2x + 3}{5} \\right) = 20 \\left( \\frac{x}{2} \\right) - 20(1)$$",
-      "Simplify the equation: $$5(3x - 1) - 4(2x + 3) = 10x - 20$$",
-      "Distribute the constants: $$15x - 5 - 8x - 12 = 10x - 20$$",
-      "Combine like terms on the left side: $$7x - 17 = 10x - 20$$",
-      "Isolate the x terms by subtracting $7x$ from both sides: $$-17 = 3x - 20$$",
-      "Isolate the constant terms by adding 20 to both sides: $$3 = 3x$$",
-      "Solve for x by dividing both sides by 3: $$x = 1$$"
+      "Multiply every term by the LCD of 4, 5, and 2, which is 20: 5(3x-1) - 4(2x+3) = 10x - 20.",
+      "Distribute: 15x - 5 - 8x - 12 = 10x - 20.",
+      "Combine like terms: 7x - 17 = 10x - 20.",
+      "Rearrange: 3 = 3x, so x = 1."
     ],
     "distractor_rationales": {
       "$x = \\frac{13}{17}$": "This error can occur if the LCM is incorrectly calculated or if there are sign errors during distribution or combining like terms.",
@@ -38223,7 +38208,7 @@
     "stem": "Solve the following equation for $x$: $\\frac{2(x - 3)}{5} - \\frac{x + 1}{3} = \\frac{1}{15}$. The value of $x$ is ___.",
     "options": [
       {
-        "content": "22",
+        "content": "24",
         "is_correct": true
       },
       {
@@ -38239,11 +38224,12 @@
         "is_correct": false
       }
     ],
-    "final_answer": "22",
+    "final_answer": "24",
     "explanation_steps": [
-      "To clear the fractions, multiply every term by the least common denominator, which is $15$: $15 \\cdot \\frac{2(x - 3)}{5} - 15 \\cdot \\frac{x + 1}{3} = 15 \\cdot \\frac{1}{15}$.",
-      "Simplify the expression to $3 \\cdot 2(x - 3) - 5(x + 1) = 1$, which expands to $6(x - 3) - 5(x + 1) = 1$.",
-      "Distribute the constants: $6x - 18 - 5x - 5 = 1$. Combining like terms gives $x - 23 = 1$, so adding $23$ to both sides results in $x = 22$."
+      "Multiply every term by the LCD of 5, 3, and 15, which is 15: 6(x-3) - 5(x+1) = 1.",
+      "Distribute: 6x - 18 - 5x - 5 = 1.",
+      "Combine like terms: x - 23 = 1.",
+      "Add 23 to both sides: x = 24."
     ],
     "distractor_rationales": {
       "2": "This occurs if a student incorrectly distributes the $3$ and $5$ to only the first terms inside the parentheses or makes a basic arithmetic error in the final step.",
@@ -38416,7 +38402,7 @@
     "matches": [
       {
         "left_content": "$\\frac{x+5}{2} = 0$",
-        "correct_choice_index": 3
+        "correct_choice_index": 2
       },
       {
         "left_content": "3x + 7 = 22",
@@ -38424,7 +38410,7 @@
       },
       {
         "left_content": "5(x - 2) = 0",
-        "correct_choice_index": 0
+        "correct_choice_index": 6
       },
       {
         "left_content": "4 - x = 9",
@@ -38436,7 +38422,7 @@
       },
       {
         "left_content": "2x + 3 = 5",
-        "correct_choice_index": 0
+        "correct_choice_index": 4
       }
     ],
     "match_choices": [
@@ -38445,7 +38431,8 @@
       "x = -5",
       "x = 0",
       "x = 1",
-      "x = -1"
+      "x = -1",
+      "x = 2"
     ],
     "final_answer": "Match each equation with its correct solution. For example, the equation $\\frac{x+5}{2} = 0$ matches with x = 0.",
     "explanation_steps": [
