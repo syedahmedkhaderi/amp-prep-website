@@ -20819,7 +20819,7 @@
     "options": [
       {
         "content": "3750 grams",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "37.5 grams",
@@ -20831,12 +20831,12 @@
       },
       {
         "content": "375 grams",
-        "is_correct": false
+        "is_correct": true
       }
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "3750 grams",
+    "final_answer": "375 grams",
     "explanation_steps": [
       "Recall the conversion factor between kilograms and grams: $1 \\text{ kg} = 1000 \\text{ g}$.",
       "To convert from kilograms to grams, multiply the number of kilograms by 1000.",
@@ -21348,7 +21348,7 @@
       },
       {
         "content": "0.9 liters",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "0.83 liters",
@@ -21366,7 +21366,7 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "0.8 liters or 0.9 liters",
+    "final_answer": "0.8 liters",
     "explanation_steps": [
       "To find the total liters, multiply the number of cups by the conversion factor: $3.5 \\text{ cups} \\times 0.236588 \\text{ liters/cup}$",
       "Calculate the product: $3.5 \\times 0.236588 \\approx 0.828058$ liters",
@@ -21874,7 +21874,7 @@
     "options": [
       {
         "content": "Approximately $827$ ml, $8.27 \\times 10^{2}$ ml",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "Approximately $828$ ml, $8.28 \\times 10^{2}$ ml",
@@ -21899,7 +21899,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "Approximately $827$ ml, $8.27 \\times 10^{2}$ ml OR Approximately $828$ ml, $8.28 \\times 10^{2}$ ml",
+    "final_answer": "Approximately 828 ml, 8.28 x 10^2 ml",
     "explanation_steps": [
       "To find the total milliliters of flour needed, multiply the number of cups by the milliliters per cup: $3.5 \\text{ cups} \\times 236.59 \\text{ ml/cup} = 828.065 \\text{ ml}$.",
       "Round the total milliliters to the nearest whole number: $828.065 \\text{ ml}$ rounds to $828 \\text{ ml}$. Note that $827$ ml is also considered correct due to rounding interpretation.",
@@ -21969,7 +21969,7 @@
       },
       {
         "content": "The value written in proper scientific notation is $4.56 \\times 10^{2}$.",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "As a fraction in simplest form, the value is $\\frac{228}{5}$.",
@@ -21981,10 +21981,10 @@
       },
       {
         "content": "Rounding the original decimal $0.00456$ to the nearest thousandth results in $0.005$.",
-        "is_correct": false
+        "is_correct": true
       }
     ],
-    "final_answer": "Statements 1, 2, and 3 are correct.",
+    "final_answer": "The value is 45.6, equal to 228/5, and 0.00456 rounds to 0.005 at the nearest thousandth.",
     "explanation_steps": [
       "To convert $0.00456 \\times 10^{4}$ to standard notation, move the decimal point 4 places to the right: $0.00456 \\times 10,000 = 45.6$.",
       "To write $45.6$ in scientific notation, shift the decimal 1 place to the left: $4.56 \\times 10^{1} \\times 10^{1} = 4.56 \\times 10^{2}$.",
@@ -22051,11 +22051,11 @@
       },
       {
         "content": "1.25 g",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "12.5 g",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "0.0125 g",
@@ -22064,7 +22064,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "12.5 g",
+    "final_answer": "1.25 g",
     "explanation_steps": [
       "To convert kilograms to grams, we use the conversion factor: $1 \\text{ kg} = 1000 \\text{ g}$.",
       "We need to multiply the given mass in kilograms by this conversion factor.",
@@ -22243,7 +22243,7 @@
     "options": [
       {
         "content": "The change in mass is a decrease of $247 \\text{ g}$.",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "The change in mass is a decrease of $0.247 \\text{ kg}$.",
@@ -22269,7 +22269,7 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "The change in mass is a decrease of $0.247 \\text{ kg}$, which is equal to $247.00 \\text{ g}$ or $247.0 \\text{ g}$. The change is also approximately $0.25 \\text{ kg}$.",
+    "final_answer": "The change is a decrease of 247 g (0.247 kg), also written as 247.00 g or 247.0 g, approximately 0.25 kg.",
     "explanation_steps": [
       "Calculate the change in mass: $\\text{Initial mass} - \\text{Final mass} = 1.234 \\text{ kg} - 0.987 \\text{ kg} = 0.247 \\text{ kg}$. Since the final mass is less than the initial mass, this is a decrease.",
       "Convert the change in mass from kilograms to grams. There are 1000 grams in 1 kilogram, so $0.247 \\text{ kg} \\times 1000 \\frac{\\text{g}}{\\text{kg}} = 247 \\text{ g}$.",
@@ -22486,7 +22486,7 @@
       },
       {
         "content": "Rounded to the nearest hundred-thousandth, its thickness is $0.00001$ meters.",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "Its thickness is equivalent to $\\frac{41}{5,000,000}$ meters.",
@@ -22497,7 +22497,7 @@
         "is_correct": true
       }
     ],
-    "final_answer": "Options A, D, and E are correct.",
+    "final_answer": "Options A, C, D, and E are correct.",
     "explanation_steps": [
       "The given thickness is $0.0000082$ meters.",
       "For Option A (Scientific Notation): To convert $0.0000082$ to scientific notation, we move the decimal point to the right until there is only one non-zero digit before it. Moving the decimal point 6 places to the right gives $8.2$. Since we moved it to the right, the exponent for $10$ is negative, so $0.0000082 = 8.2 \\times 10^{-6}$ meters. This statement is correct.",
@@ -22981,7 +22981,7 @@
       },
       {
         "content": "282 seconds/km",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "117 seconds/km",
@@ -22994,7 +22994,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "281 or 282 seconds/km",
+    "final_answer": "281 seconds/km",
     "explanation_steps": [
       "Convert the total race time from minutes to seconds: $23.45 \\text{ minutes} \\times 60 \\text{ seconds/minute} = 1407 \\text{ seconds}$",
       "Calculate the average pace in seconds per kilometer by dividing the total time in seconds by the race distance: $\\frac{1407 \\text{ seconds}}{5 \\text{ km}} = 281.4 \\text{ seconds/km}$",
@@ -23644,7 +23644,7 @@
     "options": [
       {
         "content": "1.233",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "1.230",
@@ -23656,18 +23656,17 @@
       },
       {
         "content": "1.23",
-        "is_correct": true
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "1.23",
+    "final_answer": "1.233",
     "explanation_steps": [
-      "Round each measurement to the nearest hundredth of a gram: $1.234$ rounds to $1.23$, $1.230$ rounds to $1.23$, and $1.235$ rounds to $1.24$.",
-      "Calculate the sum of the rounded measurements: $1.23 + 1.23 + 1.24 = 3.70$.",
-      "Calculate the average of the rounded measurements by dividing the sum by the number of measurements (3): $\\frac{3.70}{3} = 1.2333...$",
-      "Round the final average to a reasonable number of decimal places, typically matching the precision of the rounded measurements, which is hundredths of a gram: $1.2333...$ rounds to $1.23$."
+      "Round each measurement to the nearest hundredth: 1.234 -> 1.23, 1.230 -> 1.23, 1.235 -> 1.24.",
+      "Average the rounded values: (1.23 + 1.23 + 1.24) / 3 = 3.70 / 3 = 1.2333...",
+      "Rounded to three decimal places, the average is 1.233."
     ],
     "distractor_rationales": {
       "1.233": "This is the average of the original measurements without rounding, or an unrounded average of the rounded measurements.",
@@ -24022,7 +24021,8 @@
       "11.3 km/h": "This is the result of incorrectly converting 45 seconds to minutes as 0.45 instead of 0.75, leading to a total time of 23.45 minutes or 0.390833 hours.",
       "10.6 km/h": "This is the result of converting the time to minutes (23.75) and dividing the distance by that value instead of converting to hours."
     },
-    "concept_summary": "Converting units of time and calculating average speed."
+    "concept_summary": "Converting units of time and calculating average speed.",
+    "status": "needs_review"
   },
   {
     "id": "q_455zlx2yjk8u",
@@ -24751,7 +24751,7 @@
       },
       {
         "content": "$4.5 \\times 10^{-2}$ g",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$4.5 \\times 10^{2}$ g",
@@ -24759,11 +24759,11 @@
       },
       {
         "content": "$4.5 \\times 10^{4}$ g",
-        "is_correct": true
+        "is_correct": false
       }
     ],
     "matches": [],
-    "final_answer": "$4.5 \\times 10^{4}$ g",
+    "final_answer": "$4.5 \\times 10^{-2}$ g",
     "explanation_steps": [
       "First, convert the mass from kilograms to grams. Since $1$ kilogram equals $1000$ grams, multiply the given mass by $1000$: $0.0000452 \\text{ kg} \\times 1000 \\frac{\\text{g}}{\\text{kg}} = 0.0452 \\text{ g}$.",
       "Next, round the mass in grams to two significant figures. The first two significant figures are $4$ and $5$. The next digit is $2$, which is less than $5$, so we round down. The mass rounded to two significant figures is $0.045$ g.",
@@ -25113,7 +25113,7 @@
     "stem": "A scientist is studying a sample of bacteria. The initial mass of the sample is $2.5 \\times 10^{-4}$ grams. After one hour, the mass has increased by $3.7 \\times 10^{-5}$ grams. What is the new mass of the sample in grams, expressed in scientific notation, rounded to two decimal places in the significand?",
     "options": [
       {
-        "content": "$2.9 \\times 10^{-4}$",
+        "content": "$2.87 \\times 10^{-4}$",
         "is_correct": true
       },
       {
@@ -25130,7 +25130,7 @@
       }
     ],
     "matches": [],
-    "final_answer": "$2.9 \\times 10^{-4}$",
+    "final_answer": "$2.87 \\times 10^{-4}$",
     "explanation_steps": [
       "To find the new mass, add the initial mass to the increase in mass: $2.5 \\times 10^{-4} + 3.7 \\times 10^{-5}$ grams.",
       "To add numbers in scientific notation, the exponents must be the same. Rewrite $3.7 \\times 10^{-5}$ as $0.37 \\times 10^{-4}$.",
