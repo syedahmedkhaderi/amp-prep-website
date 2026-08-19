@@ -13637,11 +13637,11 @@
     "options": [
       {
         "content": "10",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "5",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\frac{10}{3}$",
@@ -13654,7 +13654,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "5",
+    "final_answer": "10",
     "explanation_steps": [
       "Find a common denominator for the numerator: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$",
       "Find a common denominator for the denominator: $\\frac{1}{4} - \\frac{1}{6} = \\frac{3}{12} - \\frac{2}{12} = \\frac{1}{12}$",
@@ -14004,21 +14004,17 @@
     "options": [],
     "matches": [],
     "numeric_answer": {
-      "value": 10,
-      "tolerance": 0,
+      "value": 3.3333,
+      "tolerance": 0.005,
       "accepted": [
-        "10",
-        "10/1",
-        "20/2"
+        "10/3"
       ]
     },
-    "final_answer": "10",
+    "final_answer": "10/3",
     "explanation_steps": [
-      "First, find a common denominator for the fractions in the numerator: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$",
-      "Now the expression is $\\frac{\\frac{5}{6}}{\\frac{1}{4}}$",
-      "Dividing by a fraction is the same as multiplying by its reciprocal: $\\frac{5}{6} \\div \\frac{1}{4} = \\frac{5}{6} \\cdot \\frac{4}{1}$",
-      "Multiply the fractions: $\\frac{5}{6} \\cdot \\frac{4}{1} = \\frac{20}{6}$",
-      "Simplify the resulting fraction: $\\frac{20}{6} = \\frac{10}{3}$"
+      "Add the fractions in the numerator: 1/2 + 1/3 = 3/6 + 2/6 = 5/6.",
+      "Divide by the denominator: (5/6) / (1/4) = 5/6 * 4/1 = 20/6.",
+      "Simplify: 20/6 = 10/3."
     ],
     "distractor_rationales": {},
     "concept_summary": "Performing operations on complex fractions involving addition and division."
@@ -14228,8 +14224,8 @@
     "stem": "Which of the following expressions are equivalent to $\\frac{\\frac{1}{2} + \\frac{1}{3}}{\\frac{1}{4}}$?",
     "options": [
       {
-        "content": "$10$",
-        "is_correct": true
+        "content": "10",
+        "is_correct": false
       },
       {
         "content": "$\\frac{5}{6} \\div \\frac{1}{4}$",
@@ -14245,13 +14241,13 @@
       },
       {
         "content": "$\\frac{1}{2} \\cdot \\frac{4}{1} + \\frac{1}{3} \\cdot \\frac{4}{1}$",
-        "is_correct": false
+        "is_correct": true
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "10 and $\\frac{\\frac{1}{2} + \\frac{1}{3}}{\\frac{1}{4}} = \\frac{5}{6} \\div \\frac{1}{4}$",
+    "final_answer": "5/6 \\div 1/4, and 1/2*4/1 + 1/3*4/1 (both equal 10/3)",
     "explanation_steps": [
       "First, find a common denominator for the fractions in the numerator: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$.",
       "The expression becomes $\\frac{\\frac{5}{6}}{\\frac{1}{4}}$.",
@@ -14987,7 +14983,7 @@
         "is_correct": false
       },
       {
-        "content": "$\\frac{13}{20}$",
+        "content": "$\\frac{17}{20}$",
         "is_correct": true
       },
       {
@@ -15001,7 +14997,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "13/20",
+    "final_answer": "$\\frac{17}{20}$",
     "explanation_steps": [
       "To add fractions, they must have a common denominator.",
       "The least common multiple of 5 and 4 is 20.",
@@ -15435,7 +15431,8 @@
       "4/3": "This is the reciprocal of the divisor, not the result of the division.",
       "12/16": "This is the result of multiplying the numerators and denominators of the original fractions, instead of performing division."
     },
-    "concept_summary": "Division of fractions and simplification of complex fractions."
+    "concept_summary": "Division of fractions and simplification of complex fractions.",
+    "status": "needs_review"
   },
   {
     "id": "q_r7gwrvbaf08k",
@@ -15680,7 +15677,7 @@
     "stem": "Simplify the complex fraction: $$ \\frac{\\frac{3}{4} - \\frac{1}{2}}{\\frac{5}{6} + \\frac{1}{3}} $$",
     "options": [
       {
-        "content": "$\\frac{3}{7}$",
+        "content": "$\\frac{3}{14}$",
         "is_correct": true
       },
       {
@@ -15698,7 +15695,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "3/7",
+    "final_answer": "$\\frac{3}{14}$",
     "explanation_steps": [
       "First, simplify the numerator: $\\frac{3}{4} - \\frac{1}{2} = \\frac{3}{4} - \\frac{2}{4} = \\frac{1}{4}$.",
       "Next, simplify the denominator: $\\frac{5}{6} + \\frac{1}{3} = \\frac{5}{6} + \\frac{2}{6} = \\frac{7}{6}$.",
@@ -15833,7 +15830,7 @@
         "22/15"
       ]
     },
-    "final_answer": "14/15",
+    "final_answer": "22/15",
     "explanation_steps": [
       "First, find a common denominator for the fractions inside the parentheses: $\\frac{3}{4} + \\frac{1}{6} = \\frac{9}{12} + \\frac{2}{12} = \\frac{11}{12}$.",
       "Next, represent the division as multiplication by the reciprocal: $\\frac{11}{12} \\div \\frac{5}{8} = \\frac{11}{12} \\cdot \\frac{8}{5}$.",
@@ -15854,15 +15851,15 @@
     "options": [
       {
         "content": "$\\frac{1}{2} + \\frac{1}{3}$",
-        "is_correct": false
-      },
-      {
-        "content": "$1 \\frac{1}{4} - \\frac{1}{2}$",
         "is_correct": true
       },
       {
-        "content": "$\\frac{5}{6} \\div \\frac{2}{3}$",
+        "content": "$1 \\frac{1}{4} - \\frac{1}{2}$",
         "is_correct": false
+      },
+      {
+        "content": "$\\frac{5}{6} \\div \\frac{2}{3}$",
+        "is_correct": true
       },
       {
         "content": "$(\\frac{2}{3})^2$",
@@ -15870,19 +15867,19 @@
       },
       {
         "content": "$\\frac{7}{8} - \\frac{1}{4}$",
-        "is_correct": true
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
     "numeric_answer": null,
-    "final_answer": "The expressions $1 \\frac{1}{4} - \\frac{1}{2}$ and $\\frac{7}{8} - \\frac{1}{4}$ both simplify to values greater than $\\frac{3}{4}$.",
+    "final_answer": "1/2+1/3 = 5/6 and 5/6÷2/3 = 5/4, both greater than 3/4.",
     "explanation_steps": [
-      "Simplify the first expression: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$. Since $\\frac{5}{6} = \\frac{10}{12}$ and $\\frac{3}{4} = \\frac{9}{12}$, $\\frac{5}{6} > \\frac{3}{4}$. This option should be true.",
-      "Simplify the second expression: $1 \\frac{1}{4} - \\frac{1}{2} = \\frac{5}{4} - \\frac{2}{4} = \\frac{3}{4}$. This is equal to $\\frac{3}{4}$, not greater than $\\frac{3}{4}$. This option should be false.",
-      "Simplify the third expression: $\\frac{5}{6} \\div \\frac{2}{3} = \\frac{5}{6} \\cdot \\frac{3}{2} = \\frac{15}{12} = \\frac{5}{4}$. Since $\\frac{5}{4} = \\frac{10}{8}$ and $\\frac{3}{4} = \\frac{6}{8}$, $\\frac{5}{4} > \\frac{3}{4}$. This option should be true.",
-      "Simplify the fourth expression: $(\\frac{2}{3})^2 = \\frac{4}{9}$. Since $\\frac{4}{9} = \\frac{16}{36}$ and $\\frac{3}{4} = \\frac{27}{36}$, $\\frac{4}{9} < \\frac{3}{4}$. This option should be false.",
-      "Simplify the fifth expression: $\\frac{7}{8} - \\frac{1}{4} = \\frac{7}{8} - \\frac{2}{8} = \\frac{5}{8}$. Since $\\frac{5}{8} = \\frac{5}{8}$ and $\\frac{3}{4} = \\frac{6}{8}$, $\\frac{5}{8} < \\frac{3}{4}$. This option should be false."
+      "1/2 + 1/3 = 5/6 ≈ 0.833, which is greater than 3/4 = 0.75.",
+      "1 1/4 - 1/2 = 3/4 exactly, which is NOT strictly greater than 3/4.",
+      "5/6 ÷ 2/3 = 5/6 × 3/2 = 5/4 = 1.25, which is greater than 3/4.",
+      "(2/3)^2 = 4/9 ≈ 0.444, which is less than 3/4.",
+      "7/8 - 1/4 = 5/8 = 0.625, which is less than 3/4."
     ],
     "distractor_rationales": {
       "$\\frac{1}{2} + \\frac{1}{3}$": "A student might incorrectly think $\\frac{5}{6}$ is not greater than $\\frac{3}{4}$ by miscalculating or having a weak number sense.",
@@ -15984,8 +15981,8 @@
     "stem": "Simplify the complex fraction: $\\frac{\\frac{2}{3} + \\frac{1}{2}}{\\frac{5}{6} - \\frac{1}{3}} = $ ___",
     "options": [
       {
-        "content": "12/7",
-        "is_correct": false
+        "content": "7/3",
+        "is_correct": true
       },
       {
         "content": "7/12",
@@ -15993,7 +15990,7 @@
       },
       {
         "content": "12/5",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "5/12",
@@ -16002,7 +15999,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "12/5",
+    "final_answer": "7/3",
     "explanation_steps": [
       "Find a common denominator for the numerator: $\\frac{2}{3} + \\frac{1}{2} = \\frac{4}{6} + \\frac{3}{6} = \\frac{7}{6}$",
       "Find a common denominator for the denominator: $\\frac{5}{6} - \\frac{1}{3} = \\frac{5}{6} - \\frac{2}{6} = \\frac{3}{6}$",
@@ -16192,11 +16189,11 @@
     "options": [
       {
         "content": "$\\frac{14}{7}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$\\frac{7}{4}$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\frac{14}{5}$",
@@ -16209,7 +16206,7 @@
     ],
     "matches": [],
     "match_choices": [],
-    "final_answer": "7/4",
+    "final_answer": "$\\frac{14}{7}$",
     "explanation_steps": [
       "First, find a common denominator for the numerator: $\\frac{2}{3} + \\frac{1}{2} = \\frac{4}{6} + \\frac{3}{6} = \\frac{7}{6}$.",
       "Next, find a common denominator for the denominator: $\\frac{5}{6} - \\frac{1}{4} = \\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$.",
@@ -16975,7 +16972,7 @@
     "options": [
       {
         "content": "$\\frac{1}{14}$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\frac{1}{2}$",
@@ -16983,14 +16980,14 @@
       },
       {
         "content": "$\\frac{3}{14}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$\\frac{5}{14}$",
         "is_correct": false
       }
     ],
-    "final_answer": "1/14",
+    "final_answer": "$\\frac{3}{14}$",
     "explanation_steps": [
       "Simplify the numerator: $\\frac{3}{4} - \\frac{1}{2} = \\frac{3}{4} - \\frac{2}{4} = \\frac{1}{4}$.",
       "Simplify the denominator: $\\frac{5}{6} + \\frac{1}{3} = \\frac{5}{6} + \\frac{2}{6} = \\frac{7}{6}$.",
@@ -17063,14 +17060,13 @@
     "options": [],
     "matches": [],
     "numeric_answer": {
-      "value": 0.6,
+      "value": 0.3,
       "tolerance": 0.005,
       "accepted": [
-        "3/5",
-        "0.6"
+        "3/10"
       ]
     },
-    "final_answer": "3/5",
+    "final_answer": "3/10",
     "explanation_steps": [
       "First, simplify the numerator: $$ \\frac{3}{4} - \\frac{1}{2} = \\frac{3}{4} - \\frac{2}{4} = \\frac{1}{4} $$",
       "Next, simplify the denominator: $$ \\frac{2}{3} + \\frac{1}{6} = \\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6} $$",
@@ -18640,7 +18636,8 @@
       "II and III only": "Students may incorrectly handle the subtraction within the denominator of II or make an error in the division and multiplication of III.",
       "I, II, and IV only": "This option assumes multiple calculation errors across different expressions."
     },
-    "concept_summary": "Simplifying complex fractions and performing order of operations on fractions."
+    "concept_summary": "Simplifying complex fractions and performing order of operations on fractions.",
+    "status": "needs_review"
   },
   {
     "id": "q_offmekk79o63",
@@ -18796,13 +18793,13 @@
     "difficulty": "hard",
     "stem": "Simplify the following complex fraction to a single fraction in simplest form: $$\\frac{\\frac{2}{3} - \\frac{1}{4}}{\\frac{5}{6} + \\frac{1}{2}}$$",
     "numeric_answer": {
-      "value": 0.375,
+      "value": 0.3125,
       "tolerance": 0.005,
       "accepted": [
-        "3/8"
+        "5/16"
       ]
     },
-    "final_answer": "3/8",
+    "final_answer": "5/16",
     "explanation_steps": [
       "First, simplify the numerator by finding a common denominator for $\\frac{2}{3} - \\frac{1}{4}$. The common denominator is $12$, so $\\frac{8}{12} - \\frac{3}{12} = \\frac{5}{12}$.",
       "Next, simplify the denominator by finding a common denominator for $\\frac{5}{6} + \\frac{1}{2}$. The common denominator is $6$, so $\\frac{5}{6} + \\frac{3}{6} = \\frac{8}{6}$, which simplifies to $\\frac{4}{3}$.",
@@ -19232,7 +19229,7 @@
     "matches": [
       {
         "left_content": "$\\frac{3}{4} \\div (\\frac{1}{2} + \\frac{1}{3})$",
-        "correct_choice_index": 0
+        "correct_choice_index": 4
       },
       {
         "left_content": "$2 \\frac{1}{2} - \\frac{3}{4} \\cdot \\frac{2}{3}$",
@@ -19251,9 +19248,10 @@
       "$1 \\frac{1}{10}$",
       "$2$",
       "$2$",
-      "$1$"
+      "$1$",
+      "$\\frac{9}{10}$"
     ],
-    "final_answer": "1: 9/10, 2: 2, 3: 2, 4: 1",
+    "final_answer": "9/10, 2, 2, 1",
     "explanation_steps": [
       "For the first expression, $\\frac{3}{4} \\div (\\frac{3}{6} + \\frac{2}{6}) = \\frac{3}{4} \\div \\frac{5}{6} = \\frac{3}{4} \\cdot \\frac{6}{5} = \\frac{18}{20} = \\frac{9}{10}$.",
       "For the second, $2 \\frac{1}{2} - (\\frac{3}{4} \\cdot \\frac{2}{3}) = \\frac{5}{2} - \\frac{1}{2} = 2$.",
