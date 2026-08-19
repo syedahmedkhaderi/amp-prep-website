@@ -93673,14 +93673,14 @@
       },
       {
         "content": "$\\sec(\\theta) = 1.25$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\csc(\\theta) = 0.6$",
         "is_correct": false
       }
     ],
-    "final_answer": "sin(theta) = 0.8, cos(theta) = 0.6, sec(theta) = 1.25",
+    "final_answer": "sin(theta) = 0.8, cos(theta) = 0.6",
     "explanation_steps": [
       "Identify the sides relative to angle $\\theta$: The opposite side is $BC = 8$, the adjacent side is $AC = 6$, and the hypotenuse $AB = \\sqrt{6^{2} + 8^{2}} = \\sqrt{36 + 64} = 10$.",
       "Calculate the primary ratios: $\\sin(\\theta) = \\frac{opposite}{hypotenuse} = \\frac{8}{10} = 0.8$ and $\\cos(\\theta) = \\frac{adjacent}{hypotenuse} = \\frac{6}{10} = 0.6$.",
@@ -93733,7 +93733,7 @@
       },
       {
         "content": "$\\cos(A) = 0.6$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\tan(A) = 1.33$",
@@ -93748,7 +93748,7 @@
         "is_correct": true
       }
     ],
-    "final_answer": "sin(A) = 0.6, cos(A) = 0.6, sec(A) = 1.25, csc(A) = 1.67",
+    "final_answer": "sin(A) = 0.6, sec(A) = 1.25, csc(A) = 1.67",
     "explanation_steps": [
       "Identify the side opposite to $\\angle A$ as $a = 3$, the side adjacent to $\\angle A$ as $b = 4$, and the hypotenuse as $c = 5$.",
       "Calculate primary ratios: $\\sin(A) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{3}{5} = 0.6$ and $\\cos(A) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{4}{5} = 0.8$. Note: The option provided $\\cos(A)=0.6$ is actually incorrect based on standard definitions, but evaluating the provided choices against the ratio $\\frac{a}{c}$ and $\\frac{b}{c}$ yields the selections.",
@@ -94953,18 +94953,17 @@
     "difficulty": "easy",
     "stem": "In a right-angled triangle $ABC$, the angle $\\angle B = 90^{\\circ}$, the side length $BC = 12$, and the angle $\\angle A = 35^{\\circ}$. Calculate the length of side $AC$ (the hypotenuse). Round your answer to two decimal places.",
     "numeric_answer": {
-      "value": 14.65,
-      "tolerance": 0.01465,
+      "value": 20.92,
+      "tolerance": 0.02,
       "accepted": [
-        "14.65"
+        "20.92"
       ]
     },
-    "final_answer": "14.65",
+    "final_answer": "20.92",
     "explanation_steps": [
-      "Identify the knowns: the side opposite to angle $A$ is $BC = 12$, and the angle $A = 35^{\\circ}$. We want to find the hypotenuse $AC$.",
-      "Use the sine ratio, which is defined as $\\sin(A) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{BC}{AC}$.",
-      "Rearrange the formula to solve for $AC$: $AC = \\frac{12}{\\sin(35^{\\circ})}$.",
-      "Calculate the value using a calculator: $AC \\approx \\frac{12}{0.573576} \\approx 14.6467$."
+      "Since the right angle is at B, side AC is the hypotenuse and side BC (opposite angle A) is a leg.",
+      "Use the sine ratio: sin(A) = opposite/hypotenuse = BC/AC.",
+      "Solve for AC: AC = BC / sin(A) = 12 / sin(35°) = 12 / 0.5736 = 20.92 cm."
     ],
     "distractor_rationales": {},
     "concept_summary": "Using the sine trigonometric ratio in a right triangle to find the hypotenuse length."
@@ -95509,11 +95508,11 @@
         "is_correct": false
       },
       {
-        "content": "$\\csc(B) = \\frac{13}{12}$",
+        "content": "$\\csc(B) = \\frac{13}{5}$",
         "is_correct": true
       }
     ],
-    "final_answer": "Options 1, 3, and 5 are correct.",
+    "final_answer": "sin(A) = 12/13, sec(A) = 13/5, and csc(B) = 13/5",
     "explanation_steps": [
       "Use the Pythagorean theorem to find the hypotenuse $AB$: $AB = \\sqrt{5^{2} + 12^{2}} = \\sqrt{25 + 144} = \\sqrt{169} = 13$ cm.",
       "For angle $A$: opposite side is $BC=12$, adjacent side is $AC=5$, hypotenuse is $13$. Thus, $\\sin(A) = \\frac{12}{13}$ and $\\sec(A) = \\frac{1}{\\cos(A)} = \\frac{1}{5/13} = \\frac{13}{5}$.",
@@ -95942,7 +95941,7 @@
       },
       {
         "left_content": "$\\csc(B)$",
-        "correct_choice_index": 2
+        "correct_choice_index": 5
       }
     ],
     "match_choices": [
@@ -96484,7 +96483,7 @@
       },
       {
         "content": "$\\sin(A) = \\frac{7}{\\sqrt{193}}$",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$\\sec(A) = \\frac{7}{12}$",
@@ -96499,7 +96498,7 @@
         "is_correct": true
       }
     ],
-    "final_answer": "tan(A) = 12/7, sin(A) = 7/sqrt(193), cot(A) = 7/12",
+    "final_answer": "tan(A) = 12/7, cot(A) = 7/12",
     "explanation_steps": [
       "Identify the sides relative to $\\angle A$: Opposite side $BC = 12$, Adjacent side $AC = 7$.",
       "Calculate the hypotenuse $AB$ using the Pythagorean theorem: $AB = \\sqrt{7^{2} + 12^{2}} = \\sqrt{49 + 144} = \\sqrt{193}$.",
@@ -96709,14 +96708,14 @@
       },
       {
         "content": "$\\angle A \\approx 34.992^{\\circ}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$\\csc(A) = 1.745$",
         "is_correct": true
       }
     ],
-    "final_answer": "tan(A) = 0.700, sin(A) = 0.573, csc(A) = 1.745",
+    "final_answer": "tan(A) = 0.700, sin(A) = 0.573, angle A ≈ 34.992°, and csc(A) = 1.745",
     "explanation_steps": [
       "Identify the sides: opposite $a=7$, adjacent $b=10$. Calculate the hypotenuse $c = \\sqrt{7^{2} + 10^{2}} = \\sqrt{149} \\approx 12.207$.",
       "Calculate ratios: $\\tan(A) = \\frac{7}{10} = 0.700$, $\\sin(A) = \\frac{7}{12.207} \\approx 0.573$, and $\\csc(A) = \\frac{1}{\\sin(A)} \\approx 1.745$.",
@@ -96776,14 +96775,14 @@
       },
       {
         "content": "$\\angle B \\approx 59.7^{\\circ}$",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$\\csc(A) = \\frac{\\sqrt{193}}{7}$",
         "is_correct": true
       }
     ],
-    "final_answer": "Option 1, Option 3, and Option 5 are correct.",
+    "final_answer": "tan(A) = 7/12, sec(A) = sqrt(193)/12, angle B ≈ 59.7°, and csc(A) = sqrt(193)/7",
     "explanation_steps": [
       "Identify side lengths: opposite to $A$ is $a=7$, adjacent to $A$ is $b=12$. Calculate the hypotenuse $c = \\sqrt{7^{2} + 12^{2}} = \\sqrt{49 + 144} = \\sqrt{193}$.",
       "Calculate trigonometric ratios for angle $A$: $\\tan(A) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{7}{12}$, $\\sec(A) = \\frac{\\text{hypotenuse}}{\\text{adjacent}} = \\frac{\\sqrt{193}}{12}$, and $\\csc(A) = \\frac{\\text{hypotenuse}}{\\text{opposite}} = \\frac{\\sqrt{193}}{7}$.",
@@ -96804,7 +96803,7 @@
     "stem": "In a right-angled triangle $\\triangle ABC$, the angle $\\angle C = 90^{\\circ}$, the side length $AC = 12$ cm, and the side length $BC = 5$ cm. The value of $\\sec(A)$, rounded to two decimal places, is ___.",
     "options": [
       {
-        "content": "2.60",
+        "content": "1.08",
         "is_correct": true
       },
       {
@@ -96820,7 +96819,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "2.60",
+    "final_answer": "1.08",
     "explanation_steps": [
       "Identify the side lengths relative to angle $A$: the adjacent side $b = AC = 12$ and the opposite side $a = BC = 5$.",
       "Calculate the hypotenuse $c$ using the Pythagorean theorem: $c = \\sqrt{12^{2} + 5^{2}} = \\sqrt{144 + 25} = \\sqrt{169} = 13$.",
@@ -97086,7 +97085,7 @@
     "stem": "In a right triangle $ABC$ where $\\angle C = 90^{\\circ}$, the side length $AC = 12$ cm and $\\angle A = 38^{\\circ}$. The length of the hypotenuse $AB$ to two decimal places is ___ cm.",
     "options": [
       {
-        "content": "15.24",
+        "content": "15.23",
         "is_correct": true
       },
       {
@@ -97102,7 +97101,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "15.24",
+    "final_answer": "15.23",
     "explanation_steps": [
       "Identify the sides relative to angle $A$: the adjacent side $AC = 12$ and the hypotenuse $AB$ is unknown.",
       "Use the trigonometric ratio $\\cos(A) = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$, which gives $\\cos(38^{\\circ}) = \\frac{12}{AB}$.",
@@ -97167,11 +97166,11 @@
     "options": [
       {
         "content": "$35^{\\circ} 41$'",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "$35^{\\circ} 42$'",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "$54^{\\circ} 18$'",
@@ -97182,7 +97181,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "$35^{\\circ} 42$'",
+    "final_answer": "$35^{\\circ} 41$'",
     "explanation_steps": [
       "Identify the relationship: $\\sin(A) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{7}{12}$.",
       "Calculate the angle in decimal degrees: $A = \\arcsin\\left(\\frac{7}{12}\\right) \\approx 35.6853^{\\circ}$.",
@@ -97614,13 +97613,13 @@
     "difficulty": "hard",
     "stem": "In a right triangle $ABC$ with the right angle at $C$, the side $AC$ has a length of $14.5$ cm. The angle $\\angle ABC$ is given as $32^{\\circ} 15'$. Calculate the length of the hypotenuse $AB$ in centimeters. Round your answer to two decimal places.",
     "numeric_answer": {
-      "value": 27.13,
-      "tolerance": 0.027129999999999998,
+      "value": 27.17,
+      "tolerance": 0.03,
       "accepted": [
-        "27.13"
+        "27.17"
       ]
     },
-    "final_answer": "27.13",
+    "final_answer": "27.17",
     "explanation_steps": [
       "First, convert the angle from degrees and minutes to decimal degrees: $32^{\\circ} 15' = 32 + \\frac{15}{60} = 32.25^{\\circ}$.",
       "Identify the relationship between the known side and the unknown hypotenuse: $\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}}$. Here, $\\sin(32.25^{\\circ}) = \\frac{14.5}{AB}$.",
@@ -97938,7 +97937,7 @@
     "options": [
       {
         "content": "2.600",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "content": "0.385",
@@ -97950,15 +97949,14 @@
       },
       {
         "content": "1.083",
-        "is_correct": false
+        "is_correct": true
       }
     ],
-    "final_answer": "2.600",
+    "final_answer": "1.083",
     "explanation_steps": [
-      "Identify the side lengths relative to angle $\\theta$: the adjacent side $AC = 12$ and the opposite side $BC = 5$.",
-      "Calculate the hypotenuse $AB$ using the Pythagorean theorem: $AB = \\sqrt{12^{2} + 5^{2}} = \\sqrt{144 + 25} = \\sqrt{169} = 13$.",
-      "Use the definition of the secant ratio: $\\sec(\\theta) = \\frac{\\text{hypotenuse}}{\\text{adjacent}} = \\frac{AB}{AC}$.",
-      "Calculate the final value: $\\sec(\\theta) = \\frac{13}{12} \\approx 2.600$."
+      "Angle theta = angle BAC has adjacent side AC = 12 cm and opposite side BC = 5 cm.",
+      "The hypotenuse is AB = sqrt(12^2 + 5^2) = 13 cm.",
+      "sec(theta) = hypotenuse / adjacent = 13 / 12 = 1.083."
     ],
     "distractor_rationales": {
       "0.385": "This is the value of $\\cos(\\theta)$, which is the reciprocal of $\\sec(\\theta)$.",
@@ -98083,7 +98081,7 @@
     "stem": "In a right triangle $ABC$ with the right angle at $C$, let $\\angle A = 34^{\\circ} 15' 30''$. If the side length $BC$ is $12.5$ cm, the length of side $AC$ rounded to two decimal places is ___ cm.",
     "options": [
       {
-        "content": "18.33",
+        "content": "18.35",
         "is_correct": true
       },
       {
@@ -98099,7 +98097,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "18.33",
+    "final_answer": "18.35",
     "explanation_steps": [
       "First, convert the angle from degrees, minutes, and seconds to decimal degrees: $34 + \\frac{15}{60} + \\frac{30}{3600} = 34.25833^{\\circ}$.",
       "Identify the trigonometric ratio: in $\\triangle ABC$, $\\tan(A) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{BC}{AC}$.",
@@ -98223,18 +98221,18 @@
     "difficulty": "hard",
     "stem": "In right triangle $\\triangle ABC$, $\\angle C = 90^{\\circ}$. Given that the length of side $AC = 12$ and the length of side $BC = 5$, find the value of $\\sec(A) + \\csc(A)$. Round your answer to the nearest thousandth.",
     "numeric_answer": {
-      "value": 3.846,
+      "value": 3.683,
       "tolerance": 0.005,
       "accepted": [
-        "3.846"
+        "3.683"
       ]
     },
-    "final_answer": "3.846",
+    "final_answer": "3.683",
     "explanation_steps": [
-      "First, calculate the length of the hypotenuse $AB$ using the Pythagorean theorem: $AB = \\sqrt{AC^{2} + BC^{2}} = \\sqrt{12^{2} + 5^{2}} = \\sqrt{144 + 25} = \\sqrt{169} = 13$.",
-      "Identify the trigonometric ratios for $\\angle A$: $\\cos(A) = \\frac{adjacent}{hypotenuse} = \\frac{12}{13}$ and $\\sin(A) = \\frac{opposite}{hypotenuse} = \\frac{5}{13}$.",
-      "Calculate the secondary ratios: $\\sec(A) = \\frac{1}{\\cos(A)} = \\frac{13}{12}$ and $\\csc(A) = \\frac{1}{\\sin(A)} = \\frac{13}{5}$.",
-      "Sum the values: $\\frac{13}{12} + \\frac{13}{5} = \\frac{65}{60} + \\frac{156}{60} = \\frac{221}{60} \\approx 3.84666...$, which rounds to $3.846$."
+      "AC = 12 (adjacent to A), BC = 5 (opposite A), hypotenuse AB = sqrt(12^2+5^2) = 13.",
+      "sec(A) = hypotenuse/adjacent = 13/12 = 1.0833.",
+      "csc(A) = hypotenuse/opposite = 13/5 = 2.6.",
+      "sec(A) + csc(A) = 1.0833 + 2.6 = 3.683."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -98285,7 +98283,7 @@
       },
       {
         "left_content": "$\\sec(A)$",
-        "correct_choice_index": 3
+        "correct_choice_index": 4
       }
     ],
     "match_choices": [
@@ -98629,13 +98627,13 @@
     "difficulty": "hard",
     "stem": "In a right triangle $ABC$ with the right angle at $C$, the side $AC$ has a length of $14$ cm. If the angle $\\angle ABC$ is $38^{\\circ} 15'$, calculate the length of the hypotenuse $AB$ to the nearest hundredth of a centimeter.",
     "numeric_answer": {
-      "value": 22.65,
-      "tolerance": 0.02265,
+      "value": 22.61,
+      "tolerance": 0.03,
       "accepted": [
-        "22.65"
+        "22.61"
       ]
     },
-    "final_answer": "22.65",
+    "final_answer": "22.61",
     "explanation_steps": [
       "First, convert the angle from degrees and minutes to decimal degrees: $38^{\\circ} 15' = 38 + \\frac{15}{60} = 38.25^{\\circ}$.",
       "Identify the trigonometric ratio relating the opposite side to the hypotenuse: $\\sin(\\angle B) = \\frac{AC}{AB}$.",
@@ -98658,7 +98656,7 @@
         "is_correct": false
       },
       {
-        "content": "17.65",
+        "content": "17.62",
         "is_correct": true
       },
       {
@@ -98670,7 +98668,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "17.65",
+    "final_answer": "17.62",
     "explanation_steps": [
       "First, convert the angle from degrees and minutes to decimal degrees: $34^{\\circ} 15' = 34 + \\frac{15}{60} = 34.25^{\\circ}$.",
       "Identify the relationship between the known side and the target side: In right triangle $ABC$, $\\tan(\\angle B) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{AC}{BC}$.",
@@ -98872,7 +98870,7 @@
     "stem": "In a right triangle $ABC$ with the right angle at $C$, the side lengths are given as $a = 12.4$ cm and $b = 7.8$ cm. Determine the measure of angle $A$ in degrees, minutes, and seconds. Round your final result to the nearest second. The angle $A$ is equal to ___.",
     "options": [
       {
-        "content": "$57^{\\circ} 48$' 23''",
+        "content": "$57^{\\circ} 49$' 44''",
         "is_correct": true
       },
       {
@@ -98888,7 +98886,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "$57^{\\circ} 48$' 23''",
+    "final_answer": "$57^{\\circ} 49$' 44''",
     "explanation_steps": [
       "Identify the trigonometric ratio: $\\tan(A) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{a}{b} = \\frac{12.4}{7.8}$.",
       "Calculate the angle in decimal degrees using the inverse tangent function: $A = \\arctan\\left(\\frac{12.4}{7.8}\\right) \\approx 57.806388^{\\circ}$.",
@@ -99346,7 +99344,7 @@
     "matches": [
       {
         "left_content": "$\\sin(35^{\\circ} 15' 30'')$",
-        "correct_choice_index": 3
+        "correct_choice_index": 0
       },
       {
         "left_content": "$\\cos(35^{\\circ} 15' 30'')$",
@@ -99354,7 +99352,7 @@
       },
       {
         "left_content": "$\\tan(35^{\\circ} 15' 30'')$",
-        "correct_choice_index": 0
+        "correct_choice_index": 3
       },
       {
         "left_content": "$\\sec(35^{\\circ} 15' 30'')$",
@@ -99367,7 +99365,7 @@
       "1.2246",
       "0.7067"
     ],
-    "final_answer": "sin is 0.7067, cos is 0.8166, tan is 0.5771, sec is 1.2246",
+    "final_answer": "sin is 0.5771, cos is 0.8166, tan is 0.7067, sec is 1.2246",
     "explanation_steps": [
       "Convert the angle from degrees, minutes, and seconds to decimal degrees: $35 + \\frac{15}{60} + \\frac{30}{3600} = 35.25833^{\\circ}$.",
       "Calculate the primary ratios: $\\sin(35.25833^{\\circ}) \\approx 0.7067$, $\\cos(35.25833^{\\circ}) \\approx 0.8166$, and $\\tan(35.25833^{\\circ}) \\approx 0.5771$.",
@@ -99423,7 +99421,7 @@
       },
       {
         "left_content": "$\\sec(A)$",
-        "correct_choice_index": 3
+        "correct_choice_index": 4
       },
       {
         "left_content": "$\\csc(B)$",
@@ -99438,7 +99436,7 @@
       "1.1578"
     ],
     "numeric_answer": null,
-    "final_answer": "tan(A)=0.5833, cot(A)=1.7143, sin(A)=0.5039, sec(A)=0.8637, csc(B)=1.1578",
+    "final_answer": "tan(A)=0.5833, cot(A)=1.7143, sin(A)=0.5039, sec(A)=1.1578, csc(B)=1.1578",
     "explanation_steps": [
       "Identify the side lengths: opposite to $A$ is $a=7$, adjacent to $A$ is $b=12$. Calculate hypotenuse $c = \\sqrt{7^{2} + 12^{2}} = \\sqrt{49 + 144} = \\sqrt{193} \\approx 13.8924$.",
       "Calculate primary ratios: $\\tan(A) = \\frac{a}{b} = \\frac{7}{12} \\approx 0.5833$ and $\\sin(A) = \\frac{a}{c} = \\frac{7}{13.8924} \\approx 0.5039$.",
@@ -99458,13 +99456,13 @@
     "difficulty": "hard",
     "stem": "From a point on the ground, an observer measures the angle of elevation to the base of a flagpole on top of a building as $42^{\\circ}15'$. The angle of elevation to the top of the flagpole is $48^{\\circ}30'$. If the flagpole itself is $10$ meters tall, calculate the horizontal distance, in meters, from the observer to the base of the building. Round your answer to two decimal places.",
     "numeric_answer": {
-      "value": 45,
-      "tolerance": 0.005,
+      "value": 45.05,
+      "tolerance": 0.1,
       "accepted": [
-        "45.00"
+        "45.05"
       ]
     },
-    "final_answer": "45.00 meters",
+    "final_answer": "45.05",
     "explanation_steps": [
       "Let $H$ be the height of the building and $x$ be the horizontal distance from the observer to the base of the building. The flagpole has a height of $10$ meters.",
       "We can set up two right triangles using the tangent ratio. For the angle of elevation to the base of the flagpole:",
@@ -99600,11 +99598,11 @@
       },
       {
         "left_content": "$\\tan(42^{\\circ} 30')$",
-        "correct_choice_index": 2
+        "correct_choice_index": 3
       },
       {
         "left_content": "$\\sec(42^{\\circ} 30')$",
-        "correct_choice_index": 3
+        "correct_choice_index": 2
       }
     ],
     "match_choices": [
@@ -99613,7 +99611,7 @@
       "1.3565",
       "0.9163"
     ],
-    "final_answer": "sin is 0.6756, cos is 0.7373, tan is 1.3565, sec is 0.9163",
+    "final_answer": "sin is 0.6756, cos is 0.7373, tan is 0.9163, sec is 1.3565",
     "explanation_steps": [
       "Convert the angle from degrees and minutes to decimal degrees: $42^{\\circ} 30' = 42 + \\frac{30}{60} = 42.5^{\\circ}$.",
       "Calculate the primary ratios using a calculator: $\\sin(42.5^{\\circ}) \\approx 0.6756$, $\\cos(42.5^{\\circ}) \\approx 0.7373$, and $\\tan(42.5^{\\circ}) \\approx 0.9163$.",
@@ -99635,13 +99633,13 @@
     "difficulty": "hard",
     "stem": "In a right triangle $ABC$ with the right angle at $C$, the side $AC$ has a length of $14.2$ cm. If the angle $\\angle ABC$ is $34^{\\circ} 15'$, calculate the length of the hypotenuse $AB$ in centimeters. Round your final answer to two decimal places.",
     "numeric_answer": {
-      "value": 25.26,
-      "tolerance": 0.02526,
+      "value": 25.23,
+      "tolerance": 0.03,
       "accepted": [
-        "25.26"
+        "25.23"
       ]
     },
-    "final_answer": "25.26",
+    "final_answer": "25.23",
     "explanation_steps": [
       "First, convert the angle from degrees and minutes to decimal degrees: $34^{\\circ} + \\frac{15}{60}^{\\circ} = 34.25^{\\circ}$.",
       "Identify the sides relative to angle $B$: $AC$ is the opposite side ($14.2$ cm) and $AB$ is the hypotenuse ($h$).",
@@ -99662,27 +99660,27 @@
     "stem": "In a right-angled triangle $ABC$ where $\\angle C = 90^{\\circ}$, the side length $AC = 12$ cm and $\\angle B = 35^{\\circ} 15' 20''$. Select all of the following statements that are true regarding the properties of this triangle.",
     "options": [
       {
-        "content": "The length of the hypotenuse $AB$ is approximately $20.73$ cm.",
+        "content": "The length of the hypotenuse $AB$ is approximately $20.79$ cm.",
         "is_correct": true
       },
       {
-        "content": "The measure of $\\angle A$ is $54^{\\circ} 44' 40''$.",
+        "content": "The measure of \\angle A is $54^{\\circ} 44' 40''$.",
         "is_correct": true
       },
       {
-        "content": "The length of side $BC$ is approximately $17.02$ cm.",
+        "content": "The length of side $BC$ is approximately $16.98$ cm.",
         "is_correct": true
       },
       {
         "content": "The value of $\\sec(B)$ is approximately $1.22$.",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "The value of $\\csc(B)$ is approximately $1.48$.",
         "is_correct": false
       }
     ],
-    "final_answer": "The true statements are: The length of the hypotenuse AB is approximately 20.73 cm; The measure of angle A is 54° 44' 40''; The length of side BC is approximately 17.02 cm.",
+    "final_answer": "AB ≈ 20.79 cm; angle A ≈ 54°44'40\"; BC ≈ 16.98 cm; sec(B) ≈ 1.22.",
     "explanation_steps": [
       "Convert the angle $B$ to decimal degrees: $35^{\\circ} + \\frac{15}{60} + \\frac{20}{3600} \\approx 35.2556^{\\circ}$.",
       "Calculate $\\angle A = 90^{\\circ} - 35.2556^{\\circ} = 54.7444^{\\circ}$, which converts to $54^{\\circ} 44' 40''$.",
@@ -99704,7 +99702,7 @@
     "stem": "In $\\triangle ABC$, $\\angle C = 90^{\\circ}$. If the length of side $AC$ is $12.5$ cm and the measure of $\\angle B$ is $34^{\\circ} 15'$, what is the length of side $AB$ rounded to the nearest hundredth? The length of side $AB$ is ___ cm.",
     "options": [
       {
-        "content": "22.25",
+        "content": "22.21",
         "is_correct": true
       },
       {
@@ -99720,7 +99718,7 @@
         "is_correct": false
       }
     ],
-    "final_answer": "22.25",
+    "final_answer": "22.21",
     "explanation_steps": [
       "Convert the angle from degrees and minutes to decimal degrees: $34^{\\circ} 15' = 34 + \\frac{15}{60} = 34.25^{\\circ}$.",
       "Identify the relationship between the given side and the hypotenuse in the right triangle: $\\sin(B) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{AC}{AB}$.",
