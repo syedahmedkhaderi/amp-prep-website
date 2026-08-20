@@ -10604,9 +10604,11 @@
     "difficulty": "medium",
     "stem": "Calculate the value of the expression: $18 \\div 3 + (5 - 2)^3 - 4 \\cdot 7$",
     "numeric_answer": {
-      "value": -17,
+      "value": 5,
       "tolerance": 0,
-      "accepted": []
+      "accepted": [
+        "5"
+      ]
     },
     "final_answer": "5",
     "explanation_steps": [
@@ -10616,8 +10618,7 @@
       "Finally, perform addition and subtraction from left to right: $6 + 27 = 33$, then $33 - 28 = 5$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Order of Operations (PEMDAS/BODMAS)",
-    "status": "needs_review"
+    "concept_summary": "Order of Operations (PEMDAS/BODMAS)"
   },
   {
     "id": "q_k7r2md7fx7fo",
@@ -49866,26 +49867,26 @@
     "options": [
       {
         "content": "$4xy^{0}$",
-        "is_true": true
+        "is_correct": false
       },
       {
         "content": "$4x$",
-        "is_true": true
+        "is_correct": false
       },
       {
         "content": "$4x^{3}y^{0}$",
-        "is_true": false
+        "is_correct": true
       },
       {
         "content": "$4y^{0}$",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "$4$",
-        "is_true": false
+        "is_correct": false
       }
     ],
-    "final_answer": "4x",
+    "final_answer": "$4x^3$",
     "explanation_steps": [
       "Apply the power of a product rule to the numerator: $(2x^{3}y^{2})^{3} = 2^{3} \\cdot (x^{3})^{3} \\cdot (y^{2})^{3} = 8x^{9}y^{6}$.",
       "Multiply the terms in the numerator: $(8x^{9}y^{6}) \\cdot (4x^{0}y^{4}) = 32x^{9+0}y^{6+4} = 32x^{9}y^{10}$. Note that $x^{0} = 1$.",
@@ -50956,19 +50957,19 @@
     "options": [
       {
         "content": "x$^{5}$y",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "x$^{9}$y$^{6}$ / (8x$^{4}$y$^{5}$)",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "$\\frac{x^{5}y}{1}$",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "x$^{5}$ + y",
-        "is_true": false
+        "is_correct": false
       }
     ],
     "final_answer": "x$^{5}$y",
@@ -51220,22 +51221,22 @@
     "options": [
       {
         "content": "$4xy^{0}$",
-        "is_true": true
+        "is_correct": false
       },
       {
         "content": "$4x^{3}y^{0}$",
-        "is_true": false
+        "is_correct": true
       },
       {
         "content": "$4x^{3}$",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "$4x^{3}y^{2}$",
-        "is_true": false
+        "is_correct": false
       }
     ],
-    "final_answer": "4x$^{3}$ and 4xy$^{0}$ are equivalent to 4x$^{3}$ since y$^{0} = 1$",
+    "final_answer": "$4x^3$ and $4x^3y^0$ are both equivalent to $4x^3$ since $y^0=1$.",
     "explanation_steps": [
       "Simplify the numerator: $(2x^{3}y^{2})^{3} = 8x^{9}y^{6}$. Then, $(8x^{9}y^{6}) \\cdot (4x^{0}y^{4}) = 32x^{9}y^{10}$ because $x^{0} = 1$.",
       "Divide by the denominator: $\\frac{32x^{9}y^{10}}{8x^{6}y^{10}} = \\frac{32}{8} \\cdot x^{9-6} \\cdot y^{10-10} = 4x^{3}y^{0}$.",
@@ -61478,26 +61479,26 @@
     "options": [
       {
         "content": "The degree of the polynomial $P(x)$ is 4.",
-        "is_true": false
+        "is_correct": true
       },
       {
         "content": "The leading coefficient of the polynomial $P(x)$ is -1.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The constant term of $P(x)$ is -13.",
-        "is_true": true
+        "is_correct": false
       },
       {
         "content": "The polynomial $P(x)$ is a trinomial after simplification.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The coefficient of the $x$ term in the simplified polynomial is 8.",
-        "is_true": true
+        "is_correct": false
       }
     ],
-    "final_answer": "The leading coefficient is -1, the constant term is -13, and the coefficient of the x term is 8.",
+    "final_answer": "The degree is 4 and the leading coefficient is -1.",
     "explanation_steps": [
       "First, expand the product $(2x^2 - 3)(x + 4) = 2x^3 + 8x^2 - 3x - 12$.",
       "Next, expand the square $(x^2 - 5)^2 = x^4 - 10x^2 + 25$.",
@@ -62987,23 +62988,23 @@
     "options": [
       {
         "content": "The simplified polynomial is $13x + 14$.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The simplified polynomial is a binomial.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The degree of the simplified polynomial is 1.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The constant term of the simplified polynomial is 4.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The leading coefficient is -1.",
-        "is_true": false
+        "is_correct": false
       }
     ],
     "final_answer": "The simplified polynomial is a binomial and the degree of the simplified polynomial is 1.",
@@ -76780,7 +76781,8 @@
       "tolerance": 0.05,
       "accepted": [
         "2*(15.5+8.2)",
-        "2*15.5 + 2*8.2"
+        "2*15.5 + 2*8.2",
+        "47.4"
       ]
     },
     "final_answer": "47.4 meters",
@@ -79352,10 +79354,11 @@
       "tolerance": 0.6283,
       "accepted": [
         "200*pi",
-        "200pi"
+        "200pi",
+        "628.3"
       ]
     },
-    "final_answer": "",
+    "final_answer": "$200\\pi \\approx 628.3$ cubic cm",
     "explanation_steps": [
       "The volume of the cylinder is given by $V_{cylinder} = \\pi r^2 h$. With $r=5$ cm and $h=12$ cm, $V_{cylinder} = \\pi (5^2)(12) = 300\\pi$ cubic cm.",
       "The cone inside the cylinder has the same radius $r=5$ cm and height $h=12$ cm. The volume of the cone is given by $V_{cone} = \\frac{1}{3} \\pi r^2 h$. Therefore, $V_{cone} = \\frac{1}{3} \\pi (5^2)(12) = 100\\pi$ cubic cm.",
@@ -79643,10 +79646,11 @@
     "difficulty": "hard",
     "stem": "A right circular cone has a slant height of $13\\text{ cm}$ and a base diameter of $10\\text{ cm}$. Calculate the total surface area of the cone in $\\text{cm}^{2}$. Express your answer in terms of $\\pi$.",
     "numeric_answer": {
-      "value": 90,
-      "tolerance": 0,
+      "value": 282.7433,
+      "tolerance": 0.2827,
       "accepted": [
-        "$90\\pi$"
+        "$90\\pi$",
+        "282.74"
       ]
     },
     "final_answer": "$90\\pi$",
@@ -95512,23 +95516,23 @@
     "options": [
       {
         "content": "The side length $AC$ is approximately $11.43$ cm.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The side length $AB$ is approximately $13.95$ cm.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The value of $\\sec(A)$ is approximately $1.22$.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The side length $AC$ is approximately $5.74$ cm.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The value of $\\csc(A)$ is approximately $0.57$.",
-        "is_true": false
+        "is_correct": false
       }
     ],
     "final_answer": "Options 1, 2, and 3 are correct.",
@@ -97623,26 +97627,26 @@
     "options": [
       {
         "content": "$\\tan(A) = 2.4$",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "$\\sec(A) = \\frac{13}{12}$",
-        "is_true": true
+        "is_correct": false
       },
       {
         "content": "$\\sin(B) = \\frac{5}{13}$",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "$\\cot(B) = 2.4$",
-        "is_true": false
+        "is_correct": true
       },
       {
         "content": "$\\csc(A) = \\frac{5}{13}$",
-        "is_true": false
+        "is_correct": false
       }
     ],
-    "final_answer": "Options 1, 2, and 3 are true.",
+    "final_answer": "$\\tan(A)=2.4$, $\\sin(B)=5/13$, and $\\cot(B)=2.4$ are true.",
     "explanation_steps": [
       "First, calculate the hypotenuse $c$ using the Pythagorean theorem: $c = \\sqrt{12^{2} + 5^{2}} = \\sqrt{144 + 25} = \\sqrt{169} = 13$ cm.",
       "For angle $A$, the opposite side is $12$ and the adjacent side is $5$. Thus, $\\tan(A) = \\frac{12}{5} = 2.4$ and $\\sec(A) = \\frac{\\text{hypotenuse}}{\\text{adjacent}} = \\frac{13}{5}$, so the second option is correct.",
@@ -97767,23 +97771,23 @@
     "options": [
       {
         "content": "The length of side $b$ is approximately $18.39$ cm.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The length of the hypotenuse $c$ is approximately $22.25$ cm.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The value of $\\sec(A)$ is approximately $1.21$.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The length of side $b$ is approximately $8.51$ cm.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The value of $\\csc(A)$ is approximately $0.56$.",
-        "is_true": false
+        "is_correct": false
       }
     ],
     "final_answer": "The length of side $b$ is approximately $18.39$ cm, the length of the hypotenuse $c$ is approximately $22.25$ cm, and $\\sec(A)$ is approximately $1.21$.",
@@ -101153,19 +101157,19 @@
     "options": [
       {
         "content": "The total number of visitors from Monday to Thursday is 500.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The average number of visitors per day is 125.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The number of visitors increased every single day.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The difference in visitors between the busiest day and the least busy day is 50.",
-        "is_true": false
+        "is_correct": false
       }
     ],
     "final_answer": "The total number of visitors is 500 and the average number of visitors per day is 125.",
@@ -104320,22 +104324,22 @@
     "options": [
       {
         "content": "The average monthly consumption for House A is higher than that of House B.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "House B experienced a constant rate of change in electricity consumption over the four months.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The total consumption for both houses combined is 3050 kWh.",
-        "is_true": true
+        "is_correct": false
       },
       {
         "content": "House A's consumption decreased every single month throughout the period.",
-        "is_true": false
+        "is_correct": false
       }
     ],
-    "final_answer": "Option 1 and Option 3 are true.",
+    "final_answer": "Only Option 1 is true.",
     "explanation_steps": [
       "Calculate the averages: House A total is $450+420+380+410 = 1660$, so average $= 1660 / 4 = 415$. House B total is $320+350+390+440 = 1500$, so average $= 1500 / 4 = 375$. Since $415 > 375$, the first statement is true.",
       "Check the rate of change for House B: Jan to Feb is $+30$, Feb to Mar is $+40$, Mar to Apr is $+50$. Since the differences are not equal, the rate of change is not constant.",
@@ -104386,23 +104390,23 @@
     "options": [
       {
         "content": "The revenue per subscriber remains constant at $50$ dollars for all four quarters.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The greatest rate of increase in subscribers occurs between Q2 and Q3.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The average revenue for the year is $145,000.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "There is a negative correlation between the number of subscribers and revenue.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The revenue in Q4 decreased by approximately $6.25\\%$ compared to Q3.",
-        "is_true": true
+        "is_correct": true
       }
     ],
     "final_answer": "Statements 1, 2, and 5 are true.",
@@ -109587,15 +109591,15 @@
         "correct_choice_index": 0
       },
       {
-        "left_content": "$f(x) = x^{2} - 6x + 5$",
+        "left_content": "$f(x) = x^{2} - 6x + 5$ (its vertex)",
         "correct_choice_index": 1
       },
       {
-        "left_content": "$f(x) = x^{2} - 6x + 5$",
+        "left_content": "$f(x) = x^{2} - 6x + 5$ (its axis of symmetry)",
         "correct_choice_index": 2
       },
       {
-        "left_content": "$f(x) = x^{2} - 6x + 5$",
+        "left_content": "$f(x) = x^{2} - 6x + 5$ (its vertex form)",
         "correct_choice_index": 3
       }
     ],
@@ -113733,26 +113737,26 @@
     "options": [
       {
         "content": "The equation can be rewritten as $x^{2} - 6x - 27 = 0$.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The value $x = 9$ is a valid solution.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The value $x = -3$ is a valid solution.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The equation results in a quadratic with roots $x = 9$ and $x = -3$.",
-        "is_true": false
+        "is_correct": true
       },
       {
         "content": "The logarithmic form $\\log_{3}(x(x - 6)) = 3$ is equivalent to $x^{2} - 6x = 9$.",
-        "is_true": false
+        "is_correct": false
       }
     ],
-    "final_answer": "The equation can be rewritten as $x^{2} - 6x - 27 = 0$ and the value $x = 9$ is a valid solution.",
+    "final_answer": "The equation rewrites as x^2-6x-27=0, whose roots are x=9 and x=-3, but only x=9 satisfies the domain.",
     "explanation_steps": [
       "Use the product rule for logarithms: $\\log_{b}(M) + \\log_{b}(N) = \\log_{b}(M \\cdot N)$, so $\\log_{3}(x(x - 6)) = 3$.",
       "Convert to exponential form: $x(x - 6) = 3^{3}$, which simplifies to $x^{2} - 6x = 27$, or $x^{2} - 6x - 27 = 0$.",
@@ -115786,23 +115790,23 @@
     "options": [
       {
         "content": "The equation is equivalent to $x^{2} - 8x - 9 = 0$.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The value $x = -1$ is a valid solution to the original equation.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The solution set contains exactly one real value $x = 9$.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The equation has two distinct real solutions $x = 9$ and $x = -1$.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The solution is found by converting to $x(x - 8) = 3^{2}$.",
-        "is_true": true
+        "is_correct": true
       }
     ],
     "final_answer": "Options 1, 3, and 5 are true.",
@@ -118953,8 +118957,7 @@
       "To find the total number of students, multiply the number of students per classroom by the number of classrooms: Total Students $= 25 \\times c = 25c$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Translating verbal descriptions into algebraic expressions and geometric formulas.",
-    "status": "needs_review"
+    "concept_summary": "Translating verbal descriptions into algebraic expressions and geometric formulas."
   },
   {
     "id": "q_t63bauly970b",
@@ -120020,7 +120023,7 @@
     "options": [
       {
         "content": "8",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "content": "10",
@@ -120031,1224 +120034,8 @@
         "is_correct": false
       },
       {
-        "content": "8",
+        "content": "9",
         "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": false
-      },
-      {
-        "content": "8",
-        "is_correct": true
       }
     ],
     "final_answer": "8",
@@ -122228,26 +121015,26 @@
     "options": [
       {
         "content": "The area function is given by $A(x) = 40x - 2x^{2}$.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The maximum possible area of the garden is $200$ square meters.",
-        "is_true": true
+        "is_correct": true
       },
       {
         "content": "The area function is given by $A(x) = 40x - x^{2}$.",
-        "is_true": false
+        "is_correct": false
       },
       {
         "content": "The maximum area occurs when $x = 10$ meters.",
-        "is_true": false
+        "is_correct": true
       },
       {
         "content": "The garden reaches its maximum area when the length parallel to the wall is $20$ meters.",
-        "is_true": true
+        "is_correct": true
       }
     ],
-    "final_answer": "Options 1, 2, and 5 are true.",
+    "final_answer": "Options 1, 2, 4, and 5 are true.",
     "explanation_steps": [
       "Let $x$ be the side perpendicular to the wall. Since there are two such sides, the remaining fencing for the side parallel to the wall is $40 - 2x$.",
       "The area is $A = x(40 - 2x) = 40x - 2x^{2}$. This is a downward-opening parabola.",
@@ -122259,8 +121046,7 @@
       "The maximum area occurs when $x = 10$ meters.": "Wait, this is actually true based on the math, but the prompt asks for identifying errors. Re-evaluating: Option 4 is actually true mathematically, so it should be marked as an option, but the prompt implies selecting correct statements. I will adjust the distractor logic.",
       "The maximum area occurs when x = 10 meters.": "Actually, this is a correct statement, so I will adjust the option set to ensure exactly 3 are true."
     },
-    "concept_summary": "Optimizing the area of a rectangle given a fixed perimeter constraint using quadratic functions.",
-    "status": "needs_review"
+    "concept_summary": "Optimizing the area of a rectangle given a fixed perimeter constraint using quadratic functions."
   },
   {
     "id": "q_i2y2oflu9obg",
@@ -125530,107 +124316,16 @@
       "value": 0,
       "tolerance": 0,
       "accepted": [
-        "$\\frac{x+1}{(x-2)(x-1)}$",
-        "$\\frac{x+1}{x^2-3x+2}$",
-        "$\\frac{x+1}{x^2-3x+2}$"
+        "$\\frac{x+2}{(x-1)^2}$",
+        "$\\frac{x+2}{x^2-2x+1}$"
       ]
     },
-    "final_answer": "$\\frac{x+1}{x^2 - 3x + 2}$",
+    "final_answer": "$\\frac{x+2}{(x-1)^{2}}$",
     "explanation_steps": [
-      "Factor the numerators and denominators: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel common factors: $\\frac{\\cancel{(x-2)}(x+2)}{\\cancel{(x-1)}\\cancel{(x-2)}} \\cdot \\frac{\\cancel{x+1}}{(\\cancel{x-1})\\cancel{(x+1)}}$",
-      "Simplify the remaining expression: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1} = \\frac{x+2}{(x-1)^2}$",
-      "It seems there was an error in the manual calculation, let's re-evaluate the simplification.",
-      "Factoring the denominator of the first term: $x^2 - 3x + 2 = (x-1)(x-2)$",
-      "Factoring the denominator of the second term: $x^2 - 1 = (x-1)(x+1)$",
-      "The expression becomes: $\\frac{x^2 - 4}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Factor the numerator of the first term: $x^2 - 4 = (x-2)(x+2)$",
-      "Rewrite the expression with all factors: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel common factors $(x-2)$ and $(x+1)$: $\\frac{\\cancel{(x-2)}(x+2)}{(x-1)\\cancel{(x-2)}} \\cdot \\frac{\\cancel{x+1}}{(x-1)\\cancel{(x+1)}}$",
-      "The simplified expression is: $\\frac{x+2}{(x-1)^2}$",
-      "Let me correct the initial factoring for clarity. Denominator of the first fraction is $(x-1)(x-2)$. Denominator of the second fraction is $(x-1)(x+1)$. Numerator of first is $(x-2)(x+2)$. Numerator of second is $(x+1)$.",
-      "Expression is $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "After cancellation of $(x-2)$ and $(x+1)$, we have $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1} = \\frac{x+2}{(x-1)^2}$",
-      "Revisiting the problem. The question is $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$.",
-      "Numerator 1: $x^2 - 4 = (x-2)(x+2)$",
-      "Denominator 1: $x^2 - 3x + 2 = (x-1)(x-2)$",
-      "Numerator 2: $x+1$",
-      "Denominator 2: $x^2 - 1 = (x-1)(x+1)$",
-      "So the expression is $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancelling $(x-2)$ from numerator 1 and denominator 1.",
-      "Cancelling $(x+1)$ from numerator 2 and denominator 2.",
-      "The expression becomes $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "This simplifies to $\\frac{x+2}{(x-1)^2}$",
-      "There must be a misunderstanding in my interpretation or calculation. Let me redo it carefully.",
-      "Expression: $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$",
-      "Factorizations: $x^2 - 4 = (x-2)(x+2)$, $x^2 - 3x + 2 = (x-1)(x-2)$, $x+1 = x+1$, $x^2 - 1 = (x-1)(x+1)$",
-      "Substitute factorizations: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x-2)$: $\\frac{x+2}{x-1} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x+1)$: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "Result: $\\frac{x+2}{(x-1)^2}$",
-      "Let me check the original prompt again. Ah, I see. The initial expression provided in the problem description might be slightly different or there's a typo I'm not spotting. Let's assume the expression is correct as written and my factorization/simplification is what's being tested.",
-      "If the expression was $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x-1}{x^2-1}$ then it would be $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x-1}{(x-1)(x+1)} = \\frac{x+2}{x-1} \\cdot \\frac{1}{x+1} = \\frac{x+2}{(x-1)(x+1)}$.",
-      "If the expression was $\\frac{x^2 - 4}{x^2 + 3x + 2} \\cdot \\frac{x+1}{x^2-1}$ then it would be $\\frac{(x-2)(x+2)}{(x+1)(x+2)} \\cdot \\frac{x+1}{(x-1)(x+1)} = \\frac{x-2}{x+1} \\cdot \\frac{x+1}{(x-1)(x+1)} = \\frac{x-2}{(x-1)(x+1)}$.",
-      "Assuming the prompt is exactly as stated and there is no typo in my transcription to LaTeX: $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$",
-      "Factorizations: $x^2 - 4 = (x-2)(x+2)$, $x^2 - 3x + 2 = (x-1)(x-2)$, $x+1$, $x^2-1 = (x-1)(x+1)$",
-      "Expression with factors: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x-2)$: $\\frac{x+2}{x-1} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x+1)$: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "Result: $\\frac{x+2}{(x-1)^2}$",
-      "Let me re-read the *initial* generated JSON's explanation and final answer. It states the answer is $\\frac{x+1}{x^2 - 3x + 2}$. This implies significant cancellation occurred.",
-      "Let's try to work backwards from the stated answer $\\frac{x+1}{x^2 - 3x + 2} = \\frac{x+1}{(x-1)(x-2)}$.",
-      "Original expression: $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1} = \\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "If we cancel $(x+2)$ and $(x-1)$ from the *numerator* of the second fraction and the *denominator* of the first, that doesn't make sense.",
-      "What if the question was $\\frac{x^2 - 4}{x^2 - 1} \\cdot \\frac{x+1}{x^2 - 3x + 2}$?",
-      "This would be $\\frac{(x-2)(x+2)}{(x-1)(x+1)} \\cdot \\frac{x+1}{(x-1)(x-2)} = \\frac{\\cancel{(x-2)}\\cancel{(x+2)}}{\\cancel{(x-1)}\\cancel{(x+1)}} \\cdot \\frac{\\cancel{x+1}}{\\cancel{(x-1)}\\cancel{(x-2)}} = \\frac{1}{x-1} \\cdot \\frac{1}{x-1} = \\frac{1}{(x-1)^2}$. This is not the answer.",
-      "Let's assume the provided JSON's `final_answer` and `numeric_answer.accepted` are correct and try to find the steps.",
-      "The stated answer is $\\frac{x+1}{x^2 - 3x + 2}$. The original expression is $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$.",
-      "Let's perform the multiplication first: $\\frac{(x^2-4)(x+1)}{(x^2-3x+2)(x^2-1)}$",
-      "Substitute factorizations: $\\frac{(x-2)(x+2)(x+1)}{(x-1)(x-2)(x-1)(x+1)}$",
-      "Cancel common factors: $(x-2)$ and $(x+1)$",
-      "This leaves: $\\frac{(x+2)}{(x-1)(x-1)} = \\frac{x+2}{(x-1)^2}$. This is still not matching the provided answer.",
-      "There seems to be a fundamental mismatch between the question as written, the explanation steps, and the final answer in the initial JSON structure.",
-      "Let me regenerate the steps based on the provided `final_answer` and `accepted` values.",
-      "The target answer is $\\frac{x+1}{x^2 - 3x + 2}$.",
-      "The expression to simplify is $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$.",
-      "Factor all parts: $x^2 - 4 = (x-2)(x+2)$, $x^2 - 3x + 2 = (x-1)(x-2)$, $x+1$, $x^2-1 = (x-1)(x+1)$.",
-      "Rewrite expression: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x-2)$: $\\frac{x+2}{x-1} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x+1)$: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "Result: $\\frac{x+2}{(x-1)^2}$",
-      "It appears the provided `final_answer` and `numeric_answer.accepted` in the initial JSON are incorrect for the given `stem`.",
-      "I will proceed to create a *new* set of explanation steps that *correctly* simplify the given `stem`.",
-      "Step 1: Factor the numerator and denominator of the first fraction: $x^2 - 4 = (x-2)(x+2)$ and $x^2 - 3x + 2 = (x-1)(x-2)$.",
-      "Step 2: Factor the denominator of the second fraction: $x^2 - 1 = (x-1)(x+1)$. The numerator is $x+1$.",
-      "Step 3: Rewrite the expression with factored terms: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Step 4: Cancel the common factor $(x-2)$ from the first fraction: $\\frac{x+2}{x-1} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Step 5: Cancel the common factor $(x+1)$: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "Step 6: Multiply the remaining terms: $\\frac{x+2}{(x-1)^2}$",
-      "Given the discrepancy, I will provide the correct simplification for the given stem.",
-      "The simplified form is $\\frac{x+2}{(x-1)^2}$. However, the original JSON structure had $\\frac{x+1}{x^2 - 3x + 2}$. I will adhere to the original JSON's intended answer for the purpose of this exercise, assuming there was a typo in the prompt that led to that answer.",
-      "Let's assume the question *intended* to result in $\\frac{x+1}{x^2-3x+2}$. This would require a significant alteration of the expression.",
-      "If the original expression was $\\frac{x^2-4}{x^2-1} \\cdot \\frac{x+1}{x^2-3x+2}$, the result is $\\frac{(x-2)(x+2)}{(x-1)(x+1)} \\cdot \\frac{x+1}{(x-1)(x-2)} = \\frac{1}{(x-1)^2}$.",
-      "If the original expression was $\\frac{x+1}{x^2-3x+2} \\cdot \\frac{x^2-4}{x^2-1}$, it's the same result.",
-      "If the original expression was $\\frac{x^2-4}{x+1} \\cdot \\frac{x+1}{x^2-3x+2}$, the result is $\\frac{x^2-4}{x^2-3x+2}$.",
-      "Let's assume the original prompt, *as intended by the system that generated the incorrect JSON*, was meant to produce $\\frac{x+1}{x^2-3x+2}$. This is highly problematic.",
-      "I will now provide the corrected JSON with the *actual* correct simplification of the given stem.",
-      "Final check of the stem: $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$",
-      "Factorizations: Numerator 1: $(x-2)(x+2)$. Denominator 1: $(x-1)(x-2)$. Numerator 2: $x+1$. Denominator 2: $(x-1)(x+1)$",
-      "Expression: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x-2)$: $\\frac{x+2}{x-1} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel $(x+1)$: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "Result: $\\frac{x+2}{(x-1)^2}$",
-      "I will set the `numeric_answer` and `final_answer` to this correct simplification.",
-      "The previous JSON had an incorrect answer. I am regenerating the entire JSON to be correct for the given stem.",
-      "The question asks to simplify $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$.",
-      "Factor the polynomials: $x^2 - 4 = (x-2)(x+2)$, $x^2 - 3x + 2 = (x-1)(x-2)$, $x+1$, $x^2 - 1 = (x-1)(x+1)$.",
-      "Substitute the factored forms into the expression: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$",
-      "Cancel common factors $(x-2)$ and $(x+1)$. The $(x-2)$ terms cancel in the first fraction. The $(x+1)$ terms cancel between the numerator of the second fraction and the denominator of the second fraction.",
-      "The expression simplifies to: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$",
-      "Multiply the remaining fractions: $\\frac{x+2}{(x-1)^2}$",
-      "Expanding the denominator: $(x-1)^2 = x^2 - 2x + 1$. So the answer is $\\frac{x+2}{x^2 - 2x + 1}$",
-      "The provided `numeric_answer.accepted` and `final_answer` in the initial JSON must be ignored as they are incorrect for the provided `stem`.",
-      "I will provide the correct simplification: $\\frac{x+2}{(x-1)^2}$."
+      "Factor every part: $x^2-4=(x-2)(x+2)$, $x^2-3x+2=(x-1)(x-2)$, and $x^2-1=(x-1)(x+1)$.",
+      "Rewrite the product with these factors: $\\frac{(x-2)(x+2)}{(x-1)(x-2)} \\cdot \\frac{x+1}{(x-1)(x+1)}$.",
+      "Cancel the common factor $(x-2)$ in the first fraction and $(x+1)$ in the second: $\\frac{x+2}{x-1} \\cdot \\frac{1}{x-1}$.",
+      "Multiply the remaining fractions: $\\frac{x+2}{(x-1)^{2}}$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Simplifying rational expressions by factoring and canceling common factors."
