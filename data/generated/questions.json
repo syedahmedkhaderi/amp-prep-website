@@ -3768,13 +3768,13 @@
     "difficulty": "medium",
     "stem": "Consider the expression $\\sqrt[3]{125} + \\sqrt{81} - \\sqrt[3]{-27}$. What is the value of this expression?",
     "numeric_answer": {
-      "value": 25,
+      "value": 17,
       "tolerance": 0,
       "accepted": [
-        "25"
+        "17"
       ]
     },
-    "final_answer": "",
+    "final_answer": "17",
     "explanation_steps": [
       "Evaluate the cube root of 125: $\\sqrt[3]{125} = 5$ because $5^3 = 125$.",
       "Evaluate the square root of 81: $\\sqrt{81} = 9$ because $9^2 = 81$.",
@@ -5752,7 +5752,7 @@
         "is_correct": false
       },
       {
-        "content": "$3.8\\sqrt{2}$",
+        "content": "$6\\sqrt{2} - 4\\sqrt{10}$",
         "is_correct": true
       },
       {
@@ -5761,45 +5761,11 @@
       }
     ],
     "matches": [],
-    "final_answer": "5.37",
+    "final_answer": "$6\\sqrt{2} - 4\\sqrt{10} \\approx -4.2$",
     "explanation_steps": [
-      "First, simplify each radical term: $\\sqrt{10}$ is already in simplest form. $\\sqrt{72} = \\sqrt{36 \\cdot 2} = 6\\sqrt{2}$. $\\sqrt{250} = \\sqrt{25 \\cdot 10} = 5\\sqrt{10}$.",
-      "Substitute the simplified radicals back into the expression for $N$: $N = \\sqrt{10} + 6\\sqrt{2} - 5\\sqrt{10}$.",
-      "Combine like terms: $N = (1 - 5)\\sqrt{10} + 6\\sqrt{2} = -4\\sqrt{10} + 6\\sqrt{2}$.",
-      "Approximate the value of $N$ using a calculator: $\\sqrt{10} \\approx 3.162$ and $\\sqrt{2} \\approx 1.414$. So, $N \\approx -4(3.162) + 6(1.414) = -12.648 + 8.484 = -4.164$.",
-      "There seems to be an error in the provided options. Let's re-evaluate the question. The question asks for the value of N rounded to the nearest tenth. Let's recompute. $N = \\sqrt{10} + \\sqrt{72} - \\sqrt{250} \\approx 3.162 + 8.485 - 15.811 \\approx -4.164$.",
-      "Let's assume the question intended for the answer to be expressed in terms of radicals, and then approximated. However, the options provided are of the form $a\\sqrt{b}$. Let's check if any option, when approximated, matches. Option 1: $10.2\\sqrt{2} \\approx 14.43$. Option 2: $2.1\\sqrt{10} \\approx 6.65$. Option 3: $3.8\\sqrt{2} \\approx 5.37$. Option 4: $5.9\\sqrt{5} \\approx 13.19$.",
-      "It appears there is a significant discrepancy between the calculated value of $N$ and the provided options. Let's re-examine the simplification of the radicals. $N = \\sqrt{10} + 6\\sqrt{2} - 5\\sqrt{10} = 6\\sqrt{2} - 4\\sqrt{10}$.",
-      "Let's calculate the value of $6\\sqrt{2} - 4\\sqrt{10} \\approx 6(1.414) - 4(3.162) \\approx 8.484 - 12.648 \\approx -4.164$.",
-      "Given the provided options and the problem statement, it is highly probable there is an error in the question's formulation or the options provided. However, if we are forced to choose the closest approximation among the options, none seem directly related to -4.164. Let's assume there's a typo in the question and it should lead to one of the options. If we consider $N = \\sqrt{10} + \\sqrt{72} + \\sqrt{250}$, then $N \\approx 3.162 + 8.485 + 15.811 \\approx 27.458$. No match.",
-      "Let's consider another possibility: perhaps the numbers under the square root were intended to produce a result that simplifies to one of the options. For instance, if $N$ was meant to be $3.8\\sqrt{2}$, its approximate value is $5.37$. Let's check if any manipulation could lead to this. If $N = \\sqrt{72} + \\sqrt{32} - \\sqrt{50} = 6\\sqrt{2} + 4\\sqrt{2} - 5\\sqrt{2} = 5\\sqrt{2}$, this is not $3.8\\sqrt{2}$ either.",
-      "Let's assume the question is asking for an approximation of $N$ and the options are approximations. The calculated value is $N \\approx -4.164$. None of the options are negative. There must be an error in the question or options.",
-      "If we ignore the negative sign and consider the absolute value, $|N| \\approx 4.164$. Still no option is close.",
-      "Let's assume the question meant to ask for a different expression. If we were to find a value that *is* approximately $3.8\\sqrt{2} \\approx 5.37$, we might look for numbers that result in this. For example, $\\sqrt{29} \\approx 5.385$. This does not relate to the original expression.",
-      "Given the strict instructions to provide a correct answer and explanation, and the clear inconsistency, I cannot definitively select a correct option based on the provided stem and options. However, if forced to reverse-engineer the provided 'correct' answer ($3.8\\sqrt{2}$), it implies a value around 5.37. The original expression yields approximately -4.164. There is a fundamental error.",
-      "Let's assume, hypothetically, that the question was designed such that the answer is $3.8\\sqrt{2}$. To achieve this, the original expression would need to evaluate to approximately 5.37. The current expression does not.",
-      "For the sake of providing a JSON structure as requested, I will proceed by assuming there was a typo and the question intended to yield $3.8\\sqrt{2}$ as the answer. The numeric answer will be based on this assumption. $3.8\\sqrt{2} \\approx 5.37$. The steps below will reflect an attempt to justify this answer, acknowledging the initial discrepancy.",
-      "Let's assume the expression was intended to be something like $\\sqrt{72} + \\sqrt{18} - \\sqrt{8} = 6\\sqrt{2} + 3\\sqrt{2} - 2\\sqrt{2} = 7\\sqrt{2} \\approx 9.9$. Still not matching.",
-      "Let's re-examine the original calculation. $N = \\sqrt{10} + \\sqrt{72} - \\sqrt{250} = \\sqrt{10} + 6\\sqrt{2} - 5\\sqrt{10} = 6\\sqrt{2} - 4\\sqrt{10}$.",
-      "If the question meant $\\sqrt{100} + \\sqrt{72} - \\sqrt{250} = 10 + 6\\sqrt{2} - 5\\sqrt{10} \\approx 10 + 8.485 - 15.811 \\approx 2.674$.",
-      "If the question meant $\\sqrt{10} + \\sqrt{72} - \\sqrt{25} = \\sqrt{10} + 6\\sqrt{2} - 5 \\approx 3.162 + 8.485 - 5 \\approx 6.647$.",
-      "If the question meant $\\sqrt{10} + \\sqrt{72} - \\sqrt{2500} = \\sqrt{10} + 6\\sqrt{2} - 50 \\approx 3.162 + 8.485 - 50 \\approx -38.353$.",
-      "Given the options, it is most likely that the question has a typo and was intended to result in a positive value. If we consider the option $3.8\\sqrt{2}$, its value is approximately $5.37$. The original calculation yields $N \\approx -4.164$. Due to this significant discrepancy, it's impossible to provide a correct explanation for the given options. However, to fulfill the request, I will use the approximate value of the intended correct answer.",
-      "Let's assume the question intended to ask for the value of $M = \\sqrt{18} + \\sqrt{32} + \\sqrt{8} = 3\\sqrt{2} + 4\\sqrt{2} + 2\\sqrt{2} = 9\\sqrt{2} \\approx 12.7$.",
-      "Let's assume the question intended to ask for the value of $P = \\sqrt{50} + \\sqrt{72} - \\sqrt{8} = 5\\sqrt{2} + 6\\sqrt{2} - 2\\sqrt{2} = 9\\sqrt{2} \\approx 12.7$.",
-      "Final attempt to align with option $3.8\\sqrt{2} \\approx 5.37$. Let's hypothesize the expression was meant to be $N = \\sqrt{72} - \\sqrt{10} + \\sqrt{250}$. This would be $6\\sqrt{2} - \\sqrt{10} + 5\\sqrt{10} = 6\\sqrt{2} + 4\\sqrt{10} \\approx 8.485 + 12.649 = 21.134$. Still no match.",
-      "Let's assume the expression was $N = \\sqrt{72} + \\sqrt{10} - \\sqrt{250}$. This would be $6\\sqrt{2} + \\sqrt{10} - 5\\sqrt{10} = 6\\sqrt{2} - 4\\sqrt{10} \\approx 8.485 - 12.649 = -4.164$. This is the original expression.",
-      "Let's assume the expression was $N = \\sqrt{72} - \\sqrt{250} + \\sqrt{10}$. This is the same as the previous.",
-      "Let's assume the expression was $N = \\sqrt{72} + \\sqrt{250} - \\sqrt{10}$. This would be $6\\sqrt{2} + 5\\sqrt{10} - \\sqrt{10} = 6\\sqrt{2} + 4\\sqrt{10} \\approx 8.485 + 12.649 = 21.134$.",
-      "Given the provided solution is $3.8\\sqrt{2}$, which approximates to $5.37$, and the original expression evaluates to approximately $-4.164$, there is a significant error in the problem statement or options. To proceed, I will state the calculated value and explain why it does not match.",
-      "The value of $N = \\sqrt{10} + \\sqrt{72} - \\sqrt{250}$ simplifies to $6\\sqrt{2} - 4\\sqrt{10}$.",
-      "Calculating the approximate value: $N \\approx 6(1.4142) - 4(3.1623) \\approx 8.4853 - 12.6492 \\approx -4.1639$.",
-      "The closest option in magnitude, ignoring the sign, is $3.8\\sqrt{2} \\approx 5.37$. This suggests a substantial error in the question's design.",
-      "If we assume the question intended to ask for the value of an expression that *does* result in $3.8\\sqrt{2}$, we cannot deduce that expression from the given information.",
-      "Therefore, the correct numeric answer based on the literal interpretation of the problem is approximately $-4.16$. Since this is not reflected in the options, and I must provide a valid JSON, I will use the numeric value of the selected option and highlight the inconsistency in the explanation.",
-      "The numeric answer based on the selected option $3.8\\sqrt{2}$ is approximately $5.37$.",
-      "The steps above show the simplification of the given expression leads to $6\\sqrt{2} - 4\\sqrt{10} \\approx -4.164$. This value does not match any of the options.",
-      "The option $3.8\\sqrt{2}$ is approximately $5.37$. The absolute difference between the calculated value and this option is $|-4.164 - 5.37| = 9.534$, which is very large."
+      "Simplify each radical: $\\sqrt{72} = \\sqrt{36 \\cdot 2} = 6\\sqrt{2}$ and $\\sqrt{250} = \\sqrt{25 \\cdot 10} = 5\\sqrt{10}$.",
+      "Substitute back: $N = \\sqrt{10} + 6\\sqrt{2} - 5\\sqrt{10} = 6\\sqrt{2} - 4\\sqrt{10}$.",
+      "Approximate: $6(1.414) - 4(3.162) \\approx 8.485 - 12.649 \\approx -4.16$."
     ],
     "distractor_rationales": {
       "10.2*sqrt(2)": "Students might incorrectly simplify $\\sqrt{250}$ as $10\\sqrt{2}$ and combine it with $6\\sqrt{2}$ incorrectly, or make a sign error.",
@@ -114779,20 +114745,20 @@
     "difficulty": "medium",
     "stem": "Solve for $x$ in the equation $\\log_{3}(x-2) + \\log_{3}(x+4) = 2$.",
     "numeric_answer": {
-      "value": 5,
-      "tolerance": 0,
+      "value": 3.2426,
+      "tolerance": 0.005,
       "accepted": [
-        "5"
+        "-1+3*sqrt(2)",
+        "3.2426"
       ]
     },
-    "final_answer": "",
+    "final_answer": "$-1 + 3\\sqrt{2}$",
     "explanation_steps": [
-      "Combine the logarithms using the product rule: $\\log_{3}((x-2)(x+4)) = 2$.",
-      "Expand the expression inside the logarithm: $\\log_{3}(x^{2} + 4x - 2x - 8) = 2$, which simplifies to $\\log_{3}(x^{2} + 2x - 8) = 2$.",
-      "Convert the logarithmic equation to exponential form: $x^{2} + 2x - 8 = 3^{2}$.",
-      "Simplify and rearrange into a quadratic equation: $x^{2} + 2x - 8 = 9$, so $x^{2} + 2x - 17 = 0$.",
-      "Solve the quadratic equation. Using the quadratic formula $x = \\frac{-b \\pm \\sqrt{b^{2}-4ac}}{2a}$ with $a=1$, $b=2$, and $c=-17$, we get $x = \\frac{-2 \\pm \\sqrt{2^{2}-4(1)(-17)}}{2(1)} = \\frac{-2 \\pm \\sqrt{4+68}}{2} = \\frac{-2 \\pm \\sqrt{72}}{2} = \\frac{-2 \\pm 6\\sqrt{2}}{2} = -1 \\pm 3\\sqrt{2}$.",
-      "Check for extraneous solutions. The arguments of logarithms must be positive. For $x = -1 + 3\\sqrt{2}$, $x-2 = -3 + 3\\sqrt{2} > 0$ and $x+4 = 3 + 3\\sqrt{2} > 0$. For $x = -1 - 3\\sqrt{2}$, $x-2 = -3 - 3\\sqrt{2} < 0$, so this solution is extraneous. Thus, the only valid solution is $x = -1 + 3\\sqrt{2}$."
+      "Combine the logarithms: $\\log_3((x-2)(x+4)) = 2$.",
+      "Convert to exponential form: $(x-2)(x+4) = 3^2 = 9$.",
+      "Expand and simplify: $x^2 + 2x - 8 = 9$, so $x^2 + 2x - 17 = 0$.",
+      "Apply the quadratic formula: $x = \\frac{-2 \\pm \\sqrt{4+68}}{2} = -1 \\pm 3\\sqrt{2}$.",
+      "The domain requires $x > 2$, so only $x = -1 + 3\\sqrt{2} \\approx 3.24$ is valid."
     ],
     "distractor_rationales": {
       "$-1 - 3\\sqrt{2}$": "This is an extraneous solution that arises from not checking the domain of the logarithmic functions.",
@@ -115502,13 +115468,13 @@
     "difficulty": "hard",
     "stem": "Solve the following equation for $x$ to the nearest tenth: $\\log_2(x^2 - 4) - \\log_2(x-2) = 3$",
     "numeric_answer": {
-      "value": 10,
+      "value": 6,
       "tolerance": 0.05,
       "accepted": [
-        "10"
+        "6"
       ]
     },
-    "final_answer": "",
+    "final_answer": "6",
     "explanation_steps": [
       "Use the quotient rule for logarithms: $\\log_2\\left(\\frac{x^2 - 4}{x - 2}\\right) = 3$.",
       "Factor the numerator and simplify the expression inside the logarithm: $\\frac{x^2 - 4}{x - 2} = \\frac{(x-2)(x+2)}{x-2} = x+2$. So the equation becomes $\\log_2(x+2) = 3$.",
@@ -116330,17 +116296,20 @@
     "difficulty": "hard",
     "stem": "Solve for $x$ in the equation $\\log_{3}(x + 7) + \\log_{3}(x - 3) = 2$.",
     "numeric_answer": {
-      "value": 4,
-      "tolerance": 0,
+      "value": 3.8309,
+      "tolerance": 0.005,
       "accepted": [
-        "4"
+        "-2+sqrt(34)",
+        "3.8309"
       ]
     },
-    "final_answer": "4",
+    "final_answer": "$-2 + \\sqrt{34}$",
     "explanation_steps": [
-      "Apply the product rule for logarithms: $\\log_{b}(M) + \\log_{b}(N) = \\log_{b}(M \\cdot N)$. The equation becomes $\\log_{3}((x + 7)(x - 3)) = 2$.",
-      "Convert the logarithmic equation into its exponential form: $(x + 7)(x - 3) = 3^{2}$, which simplifies to $x^{2} + 4x - 21 = 9$.",
-      "Set the quadratic equation to zero: $x^{2} + 4x - 30 = 0$ is incorrect. Re-evaluating: $x^{2} + 4x - 21 - 9 = 0$ gives $x^{2} + 4x - 30 = 0$. Using the quadratic formula $x = \\frac{-4 \\pm \\sqrt{16 - 4(1)(-30)}}{2} = \\frac{-4 \\pm \\sqrt{136}}{2}$. Wait, checking calculation: $(x+7)(x-3) = x^2+4x-21=9 \\implies x^2+4x-30=0$. Re-calculating: $x^2 + 4x - 21 = 9 \\implies x^2 + 4x - 30 = 0$. Solving $x^2+4x-30=0$: $x = \\frac{-4 \\pm \\sqrt{16 + 120}}{2} = \\frac{-4 \\pm \\sqrt{136}}{2} = -2 \\pm \\sqrt{34}$. Since $x-3 > 0$, $x > 3$. Thus $x = -2 + \\sqrt{34} \\approx 3.83$. Let's re-verify: $\\log_3(x+7)+\\log_3(x-3)=2$. If $x=4$, $\\log_3(11)+\\log_3(1) = \\log_3(11) \\neq 2$. Let's solve $x^2+4x-21=9$ again. $x^2+4x-30=0$. Ah, the question intended $\\log_3(x+5)+\\log_3(x-3)=2$. If $x=4$, $\\log_3(9)+\\log_3(1)=2$. Correcting step: $(x+5)(x-3)=9 \\implies x^2+2x-15=9 \\implies x^2+2x-24=0 \\implies (x+6)(x-4)=0$. Since $x>3$, $x=4$."
+      "Combine the logarithms: $\\log_3((x+7)(x-3)) = 2$.",
+      "Convert to exponential form: $(x+7)(x-3) = 3^2 = 9$.",
+      "Expand and simplify: $x^2 + 4x - 21 = 9$, so $x^2 + 4x - 30 = 0$.",
+      "Apply the quadratic formula: $x = \\frac{-4 \\pm \\sqrt{16+120}}{2} = -2 \\pm \\sqrt{34}$.",
+      "The domain requires $x > 3$, so only $x = -2 + \\sqrt{34} \\approx 3.83$ is valid."
     ],
     "distractor_rationales": {
       "none": "This is a numeric input question."
@@ -116745,15 +116714,15 @@
     "topic_slug": "logarithms",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "Solve the following equation for $x$: $\\log_{3}(x + 7) + \\log_{3}(x + 5) = 1$. Enter the value of $x$. If there are multiple solutions, enter only the positive solution.",
+    "stem": "Solve the following equation for $x$: $\\log_{3}(x + 7) + \\log_{3}(x + 5) = 1$. Enter the value of $x$ that satisfies the domain of the original equation.",
     "numeric_answer": {
-      "value": -2,
+      "value": -4,
       "tolerance": 0,
       "accepted": [
-        "-2"
+        "-4"
       ]
     },
-    "final_answer": "-2",
+    "final_answer": "-4",
     "explanation_steps": [
       "Apply the product rule for logarithms: $\\log_{3}((x + 7)(x + 5)) = 1$.",
       "Convert the logarithmic equation to exponential form: $(x + 7)(x + 5) = 3^{1}$.",
