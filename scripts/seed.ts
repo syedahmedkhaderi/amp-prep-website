@@ -222,8 +222,8 @@ function seed() {
   const insertQ = db.prepare(
     `INSERT INTO questions
      (id, exam_id, topic_id, type, stem, difficulty, points, explanation_steps,
-      final_answer, distractor_rationales, concept_summary, source, status, is_free)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      final_answer, distractor_rationales, concept_summary, source, status, is_free, skill_id)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   );
   const insertOpt = db.prepare(
     "INSERT INTO question_options (id, question_id, content, is_correct, order_index) VALUES (?, ?, ?, ?, ?)"
@@ -296,7 +296,8 @@ function seed() {
         // A retired duplicate keeps its own status so it stays distinguishable
         // from a question a human still needs to look at.
         q.status === "retired" ? "retired" : reviewReason ? "needs_review" : "published",
-        reviewReason ? 0 : isFree ? 1 : 0
+        reviewReason ? 0 : isFree ? 1 : 0,
+        q.skill_id || null
       );
 
       // Options

@@ -19,6 +19,7 @@ export interface CreateAttemptInput {
   examCode: ExamCode;
   mode: "practice" | "mock";
   topicSlug?: string;
+  skillId?: string;
   questionCount?: number;
   isPro: boolean;
   paperId?: string;
@@ -91,6 +92,7 @@ export function createAttempt(input: CreateAttemptInput): CreatedAttempt {
       if (topic) topicId = topic.id;
       questions = getQuestions({
         topicId: topicId || undefined,
+        skillId: input.skillId,
         examCode: input.examCode,
         isFree: input.isPro ? undefined : true,
         limit: input.questionCount || 10,

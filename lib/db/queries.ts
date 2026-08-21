@@ -17,7 +17,7 @@ const MAX_QUESTION_LIMIT = 200;
 const EXAM_COLUMNS = "id, code, title, description, duration_minutes, total_questions";
 const TOPIC_COLUMNS = "id, exam_id, name, slug, order_index, description";
 const QUESTION_COLUMNS = `
-  q.id, q.exam_id, q.topic_id, q.type, q.stem, q.difficulty, q.points,
+  q.id, q.exam_id, q.topic_id, q.skill_id, q.type, q.stem, q.difficulty, q.points,
   q.final_answer, q.explanation_steps, q.distractor_rationales,
   q.concept_summary, q.source, q.status, q.is_free, q.created_at
 `;
@@ -80,6 +80,7 @@ export function getTopicBySlug(slug: string): Topic | null {
 
 export function getQuestions(opts: {
   topicId?: string;
+  skillId?: string;
   examCode?: ExamCode;
   status?: string;
   isFree?: boolean;
@@ -96,6 +97,10 @@ export function getQuestions(opts: {
   if (opts.topicId) {
     conditions.push("q.topic_id = ?");
     params.push(opts.topicId);
+  }
+  if (opts.skillId) {
+    conditions.push("q.skill_id = ?");
+    params.push(opts.skillId);
   }
   if (opts.examCode) {
     conditions.push("e.code = ?");
@@ -528,6 +533,7 @@ function rowToQuestion(
     id: row.id,
     examId: row.exam_id,
     topicId: row.topic_id,
+    skillId: row.skill_id,
     type: row.type,
     stem: row.stem,
     difficulty: row.difficulty,

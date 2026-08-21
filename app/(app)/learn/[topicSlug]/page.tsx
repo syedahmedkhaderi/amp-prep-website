@@ -55,7 +55,7 @@ export default async function LearnTopicPage({ params }: { params: Promise<{ top
                 >
                   {done ? "✓" : i + 1}
                 </span>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <h2 className={`font-medium ${lesson ? "text-ink" : "text-ink-light"}`}>{skill.name}</h2>
                   <p className="mt-0.5 text-xs text-ink-soft">{skill.objective}</p>
                   {!lesson && <p className="mt-1 text-xs text-ink-light">Lesson coming soon</p>}
@@ -66,16 +66,24 @@ export default async function LearnTopicPage({ params }: { params: Promise<{ top
 
           return (
             <li key={skill.id}>
-              {lesson ? (
+              <div className="flex items-stretch gap-2">
+                {lesson ? (
+                  <Link
+                    href={`/learn/${topic.slug}/${lesson.slug}`}
+                    className="block flex-1 rounded-xl border border-surface-border bg-white p-4 transition-colors hover:border-brand-600"
+                  >
+                    {body}
+                  </Link>
+                ) : (
+                  <div className="flex-1 rounded-xl border border-dashed border-surface-border bg-surface p-4">{body}</div>
+                )}
                 <Link
-                  href={`/learn/${topic.slug}/${lesson.slug}`}
-                  className="block rounded-xl border border-surface-border bg-white p-4 transition-colors hover:border-brand-600"
+                  href={`/practice/start/${topic.slug}?skillId=${skill.id}`}
+                  className="flex shrink-0 items-center rounded-xl border border-surface-border px-3 text-xs font-medium text-ink-soft transition-colors hover:border-brand-600 hover:text-brand-deep"
                 >
-                  {body}
+                  Practice this skill
                 </Link>
-              ) : (
-                <div className="rounded-xl border border-dashed border-surface-border bg-surface p-4">{body}</div>
-              )}
+              </div>
             </li>
           );
         })}

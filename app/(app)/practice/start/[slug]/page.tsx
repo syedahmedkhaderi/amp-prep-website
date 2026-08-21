@@ -4,8 +4,15 @@ import { getTopicBySlug } from "@/lib/db/queries";
 import { createAttempt } from "@/lib/attempts";
 import { getEntitlements } from "@/lib/entitlements";
 
-export default async function PracticeStartPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PracticeStartPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ skillId?: string }>;
+}) {
   const { slug } = await params;
+  const query = searchParams ? await searchParams : {};
   const user = await getCurrentUser();
   if (!user) redirect("/signin");
 
@@ -24,6 +31,7 @@ export default async function PracticeStartPage({ params }: { params: Promise<{ 
       examCode: topic.examCode || "AMP1",
       mode: "practice",
       topicSlug: slug,
+      skillId: query.skillId,
       questionCount: 10,
       isPro: entitlements.isPro,
     });
