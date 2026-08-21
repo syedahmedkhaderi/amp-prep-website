@@ -330,21 +330,47 @@ export function verifyLessons(lessons: LessonSource[], validSkillSlugs: Set<stri
   return problems;
 }
 
+// Mirrors scripts/seed.ts's heldForReview(), which decides at seed time
+// whether a question is actually served to students. Duplicated rather than
+// imported: seed.ts runs a destructive seed() call at module load with no
+// require.main guard, so importing it would reseed the real database as a
+// side effect of running this offline content gate. Keep this in sync with
+// seed.ts if that logic ever changes.
+const SELF_CORRECTION =
+  /\bWait\b|\bwait,|Re-evaluating|Recalculating|Correction:|let me recheck|I made an error/i;
+const PLAIN_NUMBER = /^[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$/;
+
+function isPublished(q: any): boolean {
+  if (q.status === "needs_review" || q.status === "retired") return false;
+  const prose = [...(q.explanation_steps || []), q.concept_summary || ""].join(" ");
+  if (SELF_CORRECTION.test(prose)) return false;
+  const na = q.numeric_answer;
+  if (
+    q.type === "numeric" &&
+    na &&
+    na.value === 0 &&
+    (na.accepted || []).some((a: any) => !PLAIN_NUMBER.test(String(a).trim()))
+  ) {
+    return false;
+  }
+  return true;
+}
+
 async function main() {
   const fs = await import("fs");
   const path = await import("path");
-  const Database = (await import("better-sqlite3")).default;
 
   const skillsFile = JSON.parse(
     fs.readFileSync(path.resolve(process.cwd(), "data/generated/skills.json"), "utf-8")
   );
   const validSkills = new Set<string>(skillsFile.skills.map((s: any) => s.slug));
 
-  const db = new Database(path.resolve(process.cwd(), "data/amp-prep.db"), { readonly: true });
-  const published = new Set<string>(
-    (db.prepare("SELECT id FROM questions WHERE status = 'published'").all() as { id: string }[]).map((r) => r.id)
+  const questionsFile = JSON.parse(
+    fs.readFileSync(path.resolve(process.cwd(), "data/generated/questions.json"), "utf-8")
   );
-  db.close();
+  const published = new Set<string>(
+    questionsFile.filter(isPublished).map((q: any) => q.id)
+  );
 
   const problems = verifyLessons(allLessons, validSkills, published);
 
