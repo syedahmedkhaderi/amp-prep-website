@@ -37,7 +37,7 @@ export function Checkpoint({ question }: { question: ClientSafeQuestion }) {
     if (!canSubmit || pending) return;
     setPending(true);
     setError(null);
-    const response = isNumeric ? typed.trim() : selected;
+    const response = isNumeric ? { value: typed.trim() } : { optionId: selected };
     const result = await gradeCheckpointAction(question.id, response);
     setPending(false);
     if (!result.ok) {
