@@ -79,12 +79,19 @@ describe("question bank", () => {
     expect(offenders).toEqual([]);
   });
 
-  it("renders every question without a KaTeX parse error", () => {
-    const broken = questions
-      .map((q) => ({ id: String(q.id), failures: checkQuestion(q) }))
-      .filter((r) => r.failures.length > 0)
-      .map((r) => `${r.id} [${r.failures[0].path}] ${r.failures[0].message}`);
+  // The bank has grown to ~4,800 questions; rendering every one through KaTeX
+  // reliably exceeds vitest's 5s default on a GitHub Actions runner (it fits
+  // locally on a faster machine, which is why this only showed up in CI).
+  it(
+    "renders every question without a KaTeX parse error",
+    () => {
+      const broken = questions
+        .map((q) => ({ id: String(q.id), failures: checkQuestion(q) }))
+        .filter((r) => r.failures.length > 0)
+        .map((r) => `${r.id} [${r.failures[0].path}] ${r.failures[0].message}`);
 
-    expect(broken).toEqual([]);
-  });
+      expect(broken).toEqual([]);
+    },
+    30000
+  );
 });
