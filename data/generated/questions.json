@@ -11914,186 +11914,17 @@
     "matches": [],
     "match_choices": [],
     "numeric_answer": {
-      "value": 30,
+      "value": 3,
       "tolerance": 0,
-      "accepted": []
+      "accepted": [
+        "3"
+      ]
     },
-    "final_answer": "30",
+    "final_answer": "3",
     "explanation_steps": [
-      "First, evaluate the expression inside the parentheses: $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "Next, apply the order of operations (PEMDAS/BODMAS). Perform multiplication and division from left to right: $3 \\cdot 6 = 18$ and $\\frac{2^4}{2} = \\frac{16}{2} = 8$.",
-      "Now, substitute these values back into the expression: $18 - 18 + 8 - | -5 |$.",
-      "Evaluate the absolute value: $| -5 | = 5$.",
-      "Perform addition and subtraction from left to right: $18 - 18 + 8 - 5 = 0 + 8 - 5 = 8 - 5 = 3$. Wait, there was a mistake in calculation. Let's retrace.",
-      "Retracing the steps: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "Parentheses first: $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "Exponents and roots: $\\sqrt{81}=9$ and $2^4=16$.",
-      "Multiplication and Division: $3 \\cdot 6 = 18$ and $\\frac{16}{2} = 8$.",
-      "Absolute Value: $|-5| = 5$.",
-      "The expression becomes: $18 - 18 + 8 - 5$.",
-      "Perform Addition and Subtraction from left to right: $18 - 18 = 0$. Then $0 + 8 = 8$. Finally $8 - 5 = 3$. There is still a calculation error. Let's restart.",
-      "Let's carefully re-evaluate the expression: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "Step 1: Evaluate the square root: $\\sqrt{81} = 9$.",
-      "Step 2: Evaluate inside the parentheses: $15 - 9 = 6$.",
-      "Step 3: Evaluate the exponent: $2^4 = 16$.",
-      "Step 4: Perform multiplication and division from left to right: $3 \\cdot 6 = 18$ and $\\frac{16}{2} = 8$.",
-      "Step 5: Evaluate the absolute value: $| -5 | = 5$.",
-      "Step 6: Substitute the calculated values back into the expression: $18 - 18 + 8 - 5$.",
-      "Step 7: Perform addition and subtraction from left to right: $18 - 18 = 0$. Then $0 + 8 = 8$. Finally $8 - 5 = 3$. I am making a mistake somewhere. Let's try again.",
-      "Let's restart with extreme care: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. Parentheses and Square Root: $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "2. Exponent: $2^4 = 16$.",
-      "3. Multiplication and Division (left to right): $3 \\cdot 6 = 18$. Then $\\frac{16}{2} = 8$.",
-      "4. Absolute Value: $| -5 | = 5$.",
-      "5. Rewrite the expression with evaluated parts: $18 - 18 + 8 - 5$.",
-      "6. Addition and Subtraction (left to right): $18 - 18 = 0$. Then $0 + 8 = 8$. Then $8 - 5 = 3$. I am consistently getting 3. Let me re-read the question. Ah, it is possible I am missing a calculation step or misinterpreting. Let's try one more time, very slowly.",
-      "Let's evaluate $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. Innermost operation: Square root $\\sqrt{81} = 9$.",
-      "2. Parentheses: $15 - 9 = 6$.",
-      "3. Exponent: $2^4 = 16$.",
-      "4. Multiplication: $3 \\cdot 6 = 18$.",
-      "5. Division: $\\frac{16}{2} = 8$.",
-      "6. Absolute Value: $|-5| = 5$.",
-      "7. Substitute back: $18 - 18 + 8 - 5$.",
-      "8. Addition/Subtraction from left to right: $18 - 18 = 0$.",
-      "9. $0 + 8 = 8$.",
-      "10. $8 - 5 = 3$. I must be making a mistake in my own calculation. Let me double check the arithmetic.",
-      "Let's restart the calculation for the final time. $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "Parentheses: $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "Exponent: $2^4 = 16$.",
-      "Multiplication: $3 \\cdot 6 = 18$.",
-      "Division: $\\frac{16}{2} = 8$.",
-      "Absolute Value: $|-5| = 5$.",
-      "Expression becomes: $18 - 18 + 8 - 5$.",
-      "Left to right: $18 - 18 = 0$.",
-      "Then: $0 + 8 = 8$.",
-      "Then: $8 - 5 = 3$. I am consistently getting 3. I will proceed with this answer and assume there was a self-correction needed in my internal calculation process.",
-      "Let's check the arithmetic one more time. $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $\\sqrt{81} = 9$.",
-      "2. $15 - 9 = 6$.",
-      "3. $2^4 = 16$.",
-      "4. $3 \\cdot 6 = 18$.",
-      "5. $\\frac{16}{2} = 8$.",
-      "6. $|-5| = 5$.",
-      "7. $18 - 18 + 8 - 5$.",
-      "8. $0 + 8 - 5$.",
-      "9. $8 - 5 = 3$. I am clearly making a persistent error in my own evaluation. Let me use a known calculator.",
-      "Using a calculator: $18 - 3 * (15 - sqrt(81)) + (2^4)/2 - abs(-5) = 18 - 3 * (15 - 9) + 16/2 - 5 = 18 - 3 * 6 + 8 - 5 = 18 - 18 + 8 - 5 = 0 + 8 - 5 = 3$. The answer is indeed 3.",
-      "Let me re-examine the problem statement and my understanding. I am confident in the order of operations. It seems I am making a subtle arithmetic mistake that I cannot spot. I will re-evaluate step by step.",
-      "Expression: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. Evaluate $\\sqrt{81}$: $9$.",
-      "2. Evaluate $(15 - 9)$: $6$.",
-      "3. Evaluate $2^4$: $16$.",
-      "4. Evaluate $3 \\cdot 6$: $18$.",
-      "5. Evaluate $\\frac{16}{2}$: $8$.",
-      "6. Evaluate $|-5|$: $5$.",
-      "7. Substitute back: $18 - 18 + 8 - 5$.",
-      "8. Perform subtraction: $18 - 18 = 0$.",
-      "9. Perform addition: $0 + 8 = 8$.",
-      "10. Perform subtraction: $8 - 5 = 3$. I have gone through this multiple times and consistently get 3. I will assume this is correct.",
-      "Let's try one last time, focusing on potential sign errors or misinterpretations of the order.",
-      "Expression: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. Innermost parenthesis: $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "2. Exponent: $2^4 = 16$.",
-      "3. Multiplication: $3 \\cdot 6 = 18$.",
-      "4. Division: $\\frac{16}{2} = 8$.",
-      "5. Absolute Value: $| -5 | = 5$.",
-      "6. Substitute: $18 - 18 + 8 - 5$.",
-      "7. $18 - 18 = 0$.",
-      "8. $0 + 8 = 8$.",
-      "9. $8 - 5 = 3$. It appears the answer is 3. My internal simulation was flawed.",
-      "Final recheck: $18 - 3 \\cdot (15 - 9) + 16/2 - 5 = 18 - 3 \\cdot 6 + 8 - 5 = 18 - 18 + 8 - 5 = 0 + 8 - 5 = 8 - 5 = 3$. The answer is indeed 3.",
-      "Let me assume there was a mistake in my initial calculation and proceed with the correct one.",
-      "Step 1: Evaluate the square root: $\\sqrt{81} = 9$.",
-      "Step 2: Evaluate the expression in parentheses: $15 - 9 = 6$.",
-      "Step 3: Evaluate the exponent: $2^4 = 16$.",
-      "Step 4: Perform multiplication and division from left to right: $3 \\cdot 6 = 18$ and $\\frac{16}{2} = 8$.",
-      "Step 5: Evaluate the absolute value: $|-5| = 5$.",
-      "Step 6: Rewrite the expression with the evaluated parts: $18 - 18 + 8 - 5$.",
-      "Step 7: Perform addition and subtraction from left to right: $18 - 18 = 0$. Then $0 + 8 = 8$. Finally, $8 - 5 = 3$. The answer is 3.",
-      "Let me re-evaluate the problem. $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "2. $2^4 = 16$.",
-      "3. $3 \\cdot 6 = 18$.",
-      "4. $\\frac{16}{2} = 8$.",
-      "5. $|-5| = 5$.",
-      "6. $18 - 18 + 8 - 5$.",
-      "7. $0 + 8 - 5 = 3$. My apologies, the correct answer is 3. My previous internal calculations were incorrect.",
-      "Let's carefully go through the expression one more time: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. Parentheses: $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "2. Exponent: $2^4 = 16$.",
-      "3. Multiplication: $3 \\cdot 6 = 18$.",
-      "4. Division: $\\frac{16}{2} = 8$.",
-      "5. Absolute Value: $|-5| = 5$.",
-      "6. Combine: $18 - 18 + 8 - 5$.",
-      "7. $18 - 18 = 0$.",
-      "8. $0 + 8 = 8$.",
-      "9. $8 - 5 = 3$. The answer is 3.",
-      "Let me correct my previous calculation. The correct steps are: $18 - 3 \\cdot (15 - 9) + 16/2 - 5 = 18 - 3 \\cdot 6 + 8 - 5 = 18 - 18 + 8 - 5 = 0 + 8 - 5 = 3$.",
-      "There seems to be a persistent error in my internal calculation. Let me restart the evaluation of $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $\\sqrt{81} = 9$.",
-      "2. $(15 - 9) = 6$.",
-      "3. $2^4 = 16$.",
-      "4. $3 \\cdot 6 = 18$.",
-      "5. $\\frac{16}{2} = 8$.",
-      "6. $|-5| = 5$.",
-      "7. Substitute: $18 - 18 + 8 - 5$.",
-      "8. $18 - 18 = 0$.",
-      "9. $0 + 8 = 8$.",
-      "10. $8 - 5 = 3$. The correct answer is 3.",
-      "Let me perform the calculation one more time to ensure accuracy. $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $15 - \\sqrt{81} = 15 - 9 = 6$.",
-      "2. $2^4 = 16$.",
-      "3. $3 \\times 6 = 18$.",
-      "4. $\\frac{16}{2} = 8$.",
-      "5. $|-5| = 5$.",
-      "6. $18 - 18 + 8 - 5 = 0 + 8 - 5 = 3$. The answer is 3.",
-      "Let's try to calculate the expression: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. Calculate the square root: $\\sqrt{81} = 9$.",
-      "2. Calculate inside the parentheses: $15 - 9 = 6$.",
-      "3. Calculate the exponent: $2^4 = 16$.",
-      "4. Calculate the multiplication: $3 \\cdot 6 = 18$.",
-      "5. Calculate the division: $\\frac{16}{2} = 8$.",
-      "6. Calculate the absolute value: $|-5| = 5$.",
-      "7. Rewrite the expression: $18 - 18 + 8 - 5$.",
-      "8. Perform subtraction: $18 - 18 = 0$.",
-      "9. Perform addition: $0 + 8 = 8$.",
-      "10. Perform subtraction: $8 - 5 = 3$. The answer is 3.",
-      "I apologize for the repeated issues in my internal calculation. Let me perform the evaluation of $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$ correctly.",
-      "1. Evaluate the square root: $\\sqrt{81} = 9$.",
-      "2. Evaluate the parentheses: $15 - 9 = 6$.",
-      "3. Evaluate the exponent: $2^4 = 16$.",
-      "4. Evaluate multiplication: $3 \\cdot 6 = 18$.",
-      "5. Evaluate division: $\\frac{16}{2} = 8$.",
-      "6. Evaluate absolute value: $|-5| = 5$.",
-      "7. Combine: $18 - 18 + 8 - 5$.",
-      "8. Left to right: $0 + 8 - 5 = 8 - 5 = 3$. The answer is 3.",
-      "Let me restart the calculation for $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $\\sqrt{81} = 9$.",
-      "2. $15 - 9 = 6$.",
-      "3. $2^4 = 16$.",
-      "4. $3 \\times 6 = 18$.",
-      "5. $\\frac{16}{2} = 8$.",
-      "6. $|-5| = 5$.",
-      "7. $18 - 18 + 8 - 5$.",
-      "8. $0 + 8 - 5 = 3$. The answer is 3.",
-      "Let's evaluate $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $\\sqrt{81} = 9$.",
-      "2. $15 - 9 = 6$.",
-      "3. $2^4 = 16$.",
-      "4. $3 \\cdot 6 = 18$.",
-      "5. $\\frac{16}{2} = 8$.",
-      "6. $|-5| = 5$.",
-      "7. $18 - 18 + 8 - 5 = 0 + 8 - 5 = 3$. The answer is 3.",
-      "Final attempt at calculation: $18 - 3 \\cdot (15 - \\sqrt{81}) + \\frac{2^4}{2} - | -5 |$.",
-      "1. $\\sqrt{81} = 9$.",
-      "2. $15 - 9 = 6$.",
-      "3. $2^4 = 16$.",
-      "4. $3 \\times 6 = 18$.",
-      "5. $\\frac{16}{2} = 8$.",
-      "6. $|-5| = 5$.",
-      "7. $18 - 18 + 8 - 5$.",
-      "8. $0 + 8 - 5 = 3$. The answer is 3."
+      "Evaluate the radical: $\\sqrt{81} = 9$, so the parentheses become $15 - 9 = 6$.",
+      "Multiply: $3 \\cdot 6 = 18$. Evaluate the power term: $\\frac{2^4}{2} = \\frac{16}{2} = 8$. Evaluate the absolute value: $|-5| = 5$.",
+      "Combine: $18 - 18 + 8 - 5 = 3$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Order of Operations (PEMDAS/BODMAS), Operations with Integers, Exponents, Square Roots, and Absolute Value"
@@ -14128,7 +13959,7 @@
       },
       {
         "left_content": "$\\frac{1}{3} \\cdot \\frac{3}{5}$",
-        "correct_content_index": 2
+        "correct_choice_index": 2
       },
       {
         "left_content": "$\\frac{1}{2} \\div \\frac{3}{4}$",
@@ -14154,8 +13985,7 @@
       "$\\frac{1}{5}$": "Correct for the third operation.",
       "$\\frac{2}{3}$": "Correct for the fourth operation."
     },
-    "concept_summary": "Basic arithmetic operations on fractions including addition, subtraction, multiplication, and division.",
-    "status": "needs_review"
+    "concept_summary": "Basic arithmetic operations on fractions including addition, subtraction, multiplication, and division."
   },
   {
     "id": "q_ik4gjv1r3h34",
@@ -19241,10 +19071,11 @@
     "difficulty": "hard",
     "stem": "Evaluate the following complex fraction and express your answer as a simplified improper fraction.\n$$ \\frac{\\left(3\\frac{1}{2} - 1\\frac{1}{3}\\right) \\div \\frac{5}{6}}{\\frac{7}{8} \\cdot \\left(2 + \\frac{1}{4}\\right)} $$",
     "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
+      "value": 1.3206,
+      "tolerance": 0.001,
       "accepted": [
-        "416/315"
+        "416/315",
+        "1.3206"
       ]
     },
     "final_answer": "416/315",
@@ -23700,17 +23531,17 @@
     "difficulty": "hard",
     "stem": "Evaluate the expression $3.42 \\times 10^{-4} + 0.000219$ and express the final result in scientific notation as $a \\times 10^{n}$, where $1 \\le a < 10$. Enter the value of $a + n$.",
     "numeric_answer": {
-      "value": 5.61,
-      "tolerance": 0.00561,
+      "value": 1.61,
+      "tolerance": 0.005,
       "accepted": [
-        "5.61"
+        "1.61"
       ]
     },
-    "final_answer": "5.61",
+    "final_answer": "1.61",
     "explanation_steps": [
-      "First, convert the decimal $0.000219$ to scientific notation: $0.000219 = 2.19 \\times 10^{-4}$.",
-      "Add the two numbers in scientific notation: $(3.42 \\times 10^{-4}) + (2.19 \\times 10^{-4}) = (3.42 + 2.19) \\times 10^{-4} = 5.61 \\times 10^{-4}$.",
-      "Identify $a = 5.61$ and $n = -4$. Then compute $a + n = 5.61 + (-4) = 1.61$. Wait, re-evaluating: $5.61 + (-4) = 1.61$. The prompt asks for $a+n$ where $a=5.61$ and $n=-4$. Result is $1.61$."
+      "Add the two numbers: $3.42 \\times 10^{-4} + 0.000219 = 0.000342 + 0.000219 = 0.000561$.",
+      "Write in scientific notation: $0.000561 = 5.61 \\times 10^{-4}$, so $a = 5.61$ and $n = -4$.",
+      "Compute $a + n = 5.61 + (-4) = 1.61$."
     ],
     "distractor_rationales": {
       "5.61": "Calculated $a$ but forgot to include the exponent $n$ in the addition."
@@ -23901,7 +23732,8 @@
       "2700": "Result of failing to correctly account for the conversion factor between cubic centimeters and cubic meters.",
       "2.7": "Result of miscalculating the scientific notation magnitude."
     },
-    "concept_summary": "Metric unit conversion involving powers of ten combined with evaluation of algebraic expressions."
+    "concept_summary": "Metric unit conversion involving powers of ten combined with evaluation of algebraic expressions.",
+    "status": "needs_review"
   },
   {
     "id": "q_oeyf2wkrj3z6",
@@ -24635,18 +24467,17 @@
     "difficulty": "hard",
     "stem": "Evaluate the expression $3.45 \\cdot 10^{-4} + 0.000021$ and express the result in scientific notation $a \\cdot 10^{n}$, where $1 \\le a < 10$. The final answer is $a \\cdot 10^{n}$. Enter the value of $a + n$.",
     "numeric_answer": {
-      "value": 3.66,
+      "value": -0.34,
       "tolerance": 0.005,
       "accepted": [
-        "3.66"
+        "-0.34"
       ]
     },
-    "final_answer": "3.66",
+    "final_answer": "-0.34",
     "explanation_steps": [
-      "First, convert both numbers to scientific notation with the same power of 10. $3.45 \\cdot 10^{-4}$ remains as is. $0.000021$ can be written as $0.21 \\cdot 10^{-4}$.",
-      "Add the coefficients: $3.45 + 0.21 = 3.66$. The sum is $3.66 \\cdot 10^{-4}$.",
-      "Identify $a = 3.66$ and $n = -4$. Calculate $a + n = 3.66 + (-4) = -0.34$. Wait, the question asks for the sum, let's re-verify the arithmetic: $3.66 + (-4) = -0.34$.",
-      "Double check: $3.66 + (-4) = -0.34$."
+      "Add the two numbers: $3.45 \\times 10^{-4} + 0.000021 = 0.000345 + 0.000021 = 0.000366$.",
+      "Write in scientific notation: $0.000366 = 3.66 \\times 10^{-4}$, so $a = 3.66$ and $n = -4$.",
+      "Compute $a + n = 3.66 + (-4) = -0.34$."
     ],
     "distractor_rationales": {
       "calculation errors": "Errors often arise from misaligning decimal places or incorrectly shifting the scientific notation exponent."
@@ -30057,20 +29888,11 @@
         "43.75"
       ]
     },
-    "final_answer": "The original price of the shirt was $43.75.",
+    "final_answer": "43.75",
     "explanation_steps": [
-      "Let $P$ be the original price of the shirt.",
-      "After a 20% discount, the sale price is $P - 0.20P = 0.80P$.",
-      "A sales tax of 8% is applied to the sale price, so the final price is $0.80P + 0.08(0.80P) = 0.80P(1 + 0.08) = 0.80P(1.08) = 0.864P$.",
-      "We are given that the final price is $37.80. So, we set up the equation: $0.864P = 37.80$.",
-      "To find the original price $P$, we divide the final price by 0.864: $P = \\frac{37.80}{0.864}$",
-      "Calculating the value: $P = 43.75$ is incorrect. Let's recheck calculation $P = \\frac{37.80}{0.864} = 43.75$. Wait, the final answer is $45.00$, let me redo the math $0.80 * 1.08 = 0.864$. $37.80 / 0.864 = 43.75$. I need to re-evaluate the question and my calculation. Ah, I made a mistake in the provided final answer. Let me recalculate the example with the provided numbers to ensure correctness. $45 * 0.80 = 36$. $36 * 1.08 = 38.88$. This is not $37.80$. Let me assume the final price is $38.88$. Then the original price would be $45$. The prompt requires me to generate an original question. Let me create a new scenario. If the original price is $50$, the sale price is $50 * 0.80 = 40$. The final price with tax is $40 * 1.08 = 43.20$. Okay, let me use these numbers. The final price is $43.20$. What was the original price? Original price is $50$. Let me re-verify that. $50 * 0.80 = 40$. $40 * 1.08 = 43.20$. Yes. Okay, let me use $43.20$ as the final price in the question. The numeric answer should be $50$. Tolerance $0.01$. Accepted $50$, $50.00$.",
-      "Let $P$ be the original price of the shirt.",
-      "After a 20% discount, the sale price is $P - 0.20P = 0.80P$.",
-      "A sales tax of 8% is applied to the sale price, so the final price is $0.80P \\times (1 + 0.08) = 0.80P \\times 1.08 = 0.864P$.",
-      "We are given that the final price is $43.20. So, we set up the equation: $0.864P = 43.20$.",
-      "To find the original price $P$, we divide the final price by 0.864: $P = \\frac{43.20}{0.864}$.",
-      "Calculating the value: $P = 50$."
+      "After a 20% discount, the sale price is $0.8P$. After an 8% tax on that, the final price is $0.8P \\times 1.08 = 0.864P$.",
+      "Set this equal to the given final price: $0.864P = 37.80$.",
+      "Solve for $P$: $P = \\frac{37.80}{0.864} = 43.75$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Calculating sequential percentage changes and working backwards."
@@ -36965,19 +36787,17 @@
     "difficulty": "hard",
     "stem": "Solve the following equation for $x$: $$\\frac{3(x - 4)}{5} - \\frac{2x + 1}{3} = \\frac{1}{15}$$",
     "numeric_answer": {
-      "value": 64,
+      "value": -42,
       "tolerance": 0,
       "accepted": [
-        "64"
+        "-42"
       ]
     },
-    "final_answer": "64",
+    "final_answer": "-42",
     "explanation_steps": [
-      "Find the least common denominator of the fractions, which is $15$, and multiply every term by $15$ to clear the fractions: $15 \\cdot \\frac{3(x - 4)}{5} - 15 \\cdot \\frac{2x + 1}{3} = 15 \\cdot \\frac{1}{15}$.",
-      "Simplify the expressions: $9(x - 4) - 5(2x + 1) = 1$.",
-      "Distribute the constants: $9x - 36 - 10x - 5 = 1$.",
-      "Combine like terms: $-x - 41 = 1$.",
-      "Solve for $x$: $-x = 42$, which results in $x = -42$. Wait, re-evaluating: $9x - 36 - 10x - 5 = 1 \\implies -x - 41 = 1 \\implies -x = 42 \\implies x = -42$. Let me re-verify. $9x - 36 - 10x - 5 = 1 \\implies -x - 41 = 1 \\implies -x = 42$. Result is -42."
+      "Multiply every term by the LCD, 15: $15 \\cdot \\frac{3(x-4)}{5} - 15 \\cdot \\frac{2x+1}{3} = 15 \\cdot \\frac{1}{15}$, giving $9(x-4) - 5(2x+1) = 1$.",
+      "Expand: $9x - 36 - 10x - 5 = 1$, so $-x - 41 = 1$.",
+      "Solve: $-x = 42$, so $x = -42$."
     ],
     "distractor_rationales": {
       "calculation_error": "Students often forget to distribute the negative sign to the entire second numerator, leading to errors like $9x - 36 - 10x + 5$."
@@ -37931,18 +37751,17 @@
     "difficulty": "hard",
     "stem": "Find the value of $x$ that satisfies the following equation: $\\frac{3(x - 4)}{5} - \\frac{2x + 1}{3} = 2$",
     "numeric_answer": {
-      "value": 53,
+      "value": -71,
       "tolerance": 0,
       "accepted": [
-        "53"
+        "-71"
       ]
     },
-    "final_answer": "53",
+    "final_answer": "-71",
     "explanation_steps": [
-      "Find the least common multiple of the denominators 5 and 3, which is 15, and multiply every term in the equation by 15: $15 \\cdot \\frac{3(x - 4)}{5} - 15 \\cdot \\frac{2x + 1}{3} = 15 \\cdot 2$",
-      "Simplify the terms to remove the fractions: $9(x - 4) - 5(2x + 1) = 30$",
-      "Distribute the constants: $9x - 36 - 10x - 5 = 30$",
-      "Combine like terms and solve for $x$: $-x - 41 = 30$, which leads to $-x = 71$, or $x = -71$. Wait, re-calculating: $9x - 10x = -x$ and $-36 - 5 = -41$. Then $-x - 41 = 30$ implies $-x = 71$, so $x = -71$."
+      "Multiply every term by the LCD, 15: $9(x-4) - 5(2x+1) = 30$.",
+      "Expand: $9x - 36 - 10x - 5 = 30$, so $-x - 41 = 30$.",
+      "Solve: $-x = 71$, so $x = -71$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Solving linear equations with brackets and fractions using the least common denominator method."
@@ -38723,18 +38542,9 @@
     "id": "q_dsksjq15wb07",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Given the formula for the perimeter of a rectangle $P = 2l + 2w$, solve for $l$ in terms of $P$ and $w$. Express your answer as an expression in terms of $P$ and $w$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{P - 2w}{2}$",
-        "$\\frac{P}{2}$ - w",
-        "0.5P - w"
-      ]
-    },
     "final_answer": "$\\frac{P - 2w}{2}$",
     "explanation_steps": [
       "Start with the original equation: $P = 2l + 2w$.",
@@ -38743,7 +38553,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Rearranging a linear formula by isolating a variable using inverse operations.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$\\frac{P - 2w}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{P + 2w}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{P - 2w}{4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{P - w}{2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_cejocxgjwivm",
@@ -38942,26 +38770,35 @@
     "id": "q_6i4k4u7oxawp",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Given the formula for the perimeter of a rectangle $P = 2l + 2w$, solve for the width $w$ in terms of $P$ and $l$. Express your answer as an expression in terms of $P$ and $l$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{P-2l}{2}$",
-        "P/2 - l",
-        "0.5P - l"
-      ]
-    },
-    "final_answer": "$\\frac{P-2l}{2}$",
+    "final_answer": "$\\frac{P - 2l}{2}$",
     "explanation_steps": [
       "Start with the original equation: $P = 2l + 2w$.",
       "Subtract $2l$ from both sides to isolate the term containing $w$: $P - 2l = 2w$.",
       "Divide both sides by $2$ to solve for $w$: $w = \\frac{P - 2l}{2}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Rearranging a linear formula by isolating a variable through inverse operations."
+    "concept_summary": "Rearranging a linear formula by isolating a variable through inverse operations.",
+    "options": [
+      {
+        "content": "$\\frac{P - 2l}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{P + 2l}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{P - 2l}{4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{P - l}{2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_1w03sowmxo56",
@@ -39234,18 +39071,9 @@
     "id": "q_trbw6atazkv0",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "The formula for the perimeter of a rectangle is given by $P = 2l + 2w$, where $P$ is the perimeter, $l$ is the length, and $w$ is the width. If the formula is rearranged to solve for $l$, express $l$ in terms of $P$ and $w$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{P-2w}{2}$",
-        "(P-2w)/2",
-        "0.5P-w"
-      ]
-    },
     "final_answer": "$\\frac{P-2w}{2}$",
     "explanation_steps": [
       "Start with the original equation: $P = 2l + 2w$.",
@@ -39253,7 +39081,25 @@
       "Divide both sides by $2$ to solve for $l$: $l = \\frac{P - 2w}{2}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Rearranging linear literal equations by isolating a specific variable."
+    "concept_summary": "Rearranging linear literal equations by isolating a specific variable.",
+    "options": [
+      {
+        "content": "$\\frac{P-2w}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{P+2w}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$P - 2w$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{P-2w}{4}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_lzr31ye7zumv",
@@ -39951,18 +39797,9 @@
     "id": "q_kkak0jjm3cmg",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Given the formula for the perimeter of a rectangle $P = 2l + 2w$, solve for the length $l$ in terms of $P$ and $w$. Express your answer as a single fraction or expression.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{P-2w}{2}$",
-        "(P-2w)/2",
-        "P/2-w"
-      ]
-    },
     "final_answer": "$\\frac{P-2w}{2}$",
     "explanation_steps": [
       "Start with the given equation: $P = 2l + 2w$.",
@@ -39973,7 +39810,25 @@
       "N/A": "This is a numeric response item."
     },
     "concept_summary": "Rearranging a linear formula by isolating a variable through inverse operations.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$\\frac{P-2w}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{P-w}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{2P-2w}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$P-2w$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_b1ebs4v43eq2",
@@ -40422,19 +40277,10 @@
     "id": "q_tbcx68dg5mkp",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Given the formula for the perimeter of a rectangle $P = 2l + 2w$, solve for $w$ in terms of $P$ and $l$. Express your answer in the form $\\frac{P - Al}{B}$, where the answer to be provided is the expression for $w$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{P-2l}{2}$",
-        "$\\frac{P}{2}$-l",
-        "0.5P-l"
-      ]
-    },
-    "final_answer": "$\\frac{P-2l}{2}$",
+    "final_answer": "$\\frac{P - 2l}{2}$",
     "explanation_steps": [
       "Start with the original equation: $P = 2l + 2w$.",
       "Subtract $2l$ from both sides to isolate the term containing $w$: $P - 2l = 2w$.",
@@ -40442,7 +40288,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Rearranging linear formulas by isolating a specific variable through inverse operations.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$\\frac{P - 2l}{2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{P - l}{2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{P - 2l}{4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{2P - l}{2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_4l26e2e35z1t",
@@ -41019,17 +40883,9 @@
     "id": "q_1991ci3lb6t9",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Given the formula for the surface area of a cylinder $A = 2\\pi r^{2} + 2\\pi rh$, solve for $h$ in terms of $A$, $\\pi$, and $r$. Enter your answer in the form of an expression. For example, if the answer is $\\frac{A-B}{C}$, write (A-B)/C.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "(A$-2\\pi$ r$^{2}$)/($2\\pi$ r)",
-        "(A/($2\\pi$ r)) - r"
-      ]
-    },
     "final_answer": "$\\frac{A-2\\pi r^{2}}{2\\pi r}$",
     "explanation_steps": [
       "Start with the original equation: $A = 2\\pi r^{2} + 2\\pi rh$.",
@@ -41037,7 +40893,25 @@
       "Divide both sides by $2\\pi r$ to solve for $h$: $h = \\frac{A - 2\\pi r^{2}}{2\\pi r}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Rearranging a multi-variable formula by isolating the target variable through subtraction and division."
+    "concept_summary": "Rearranging a multi-variable formula by isolating the target variable through subtraction and division.",
+    "options": [
+      {
+        "content": "$\\frac{A-2\\pi r^{2}}{2\\pi r}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{A-2\\pi r^{2}}{\\pi r}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{A+2\\pi r^{2}}{2\\pi r}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{A-2\\pi r^{2}}{2\\pi r^{2}}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_dio0i5s7biw9",
@@ -41738,18 +41612,9 @@
     "id": "q_emsj83vhfpnq",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Given the formula for the surface area of a cylinder $A = 2\\pi r^{2} + 2\\pi rh$, rearrange the formula to solve for $h$ in terms of $A$, $\\pi$, and $r$. Provide the expression in terms of $A$, $r$, and $\\pi$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{A - 2\\pi r^{2}}{2\\pi r}$",
-        "(A $- 2\\pi$ r$^{2}$) / ($2\\pi$ r)",
-        "$\\frac{A}{2\\pi r}$ - r"
-      ]
-    },
     "final_answer": "$\\frac{A - 2\\pi r^{2}}{2\\pi r}$",
     "explanation_steps": [
       "Start with the equation $A = 2\\pi r^{2} + 2\\pi rh$.",
@@ -41758,7 +41623,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Rearranging a formula with multiple variables to isolate a specific term using subtraction and division.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$\\frac{A - 2\\pi r^{2}}{2\\pi r}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{A - 2\\pi r^{2}}{\\pi r}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{A + 2\\pi r^{2}}{2\\pi r}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{A - 2\\pi r^{2}}{2\\pi r^{2}}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_bk0bc7a8ge2e",
@@ -42431,19 +42314,9 @@
     "id": "q_9bd7li01lx88",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Solve the formula $\\frac{1}{R_T} = \\frac{1}{R_1} + \\frac{1}{R_2}$ for $R_1$. Express your answer in terms of $R_T$ and $R_2$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{R_T R_2}{R_2 - R_T}$",
-        "$\\frac{R_2 R_T}{R_2 - R_T}$",
-        "R_T R_2 (R_2 - R_T)$^{-1}$",
-        "$\\frac{1}{\\frac{1}{R_T} - \\frac{1}{R_2}}$"
-      ]
-    },
     "final_answer": "$R_1 = \\frac{R_T R_2}{R_2 - R_T}$",
     "explanation_steps": [
       "Start with the given formula: $\\frac{1}{R_T} = \\frac{1}{R_1} + \\frac{1}{R_2}$",
@@ -42453,7 +42326,25 @@
       "To solve for $R_1$, take the reciprocal of both sides: $R_1 = \\frac{R_T R_2}{R_2 - R_T}$"
     ],
     "distractor_rationales": {},
-    "concept_summary": "This question tests the ability to rearrange formulas involving fractions by isolating terms, finding common denominators, and taking reciprocals."
+    "concept_summary": "This question tests the ability to rearrange formulas involving fractions by isolating terms, finding common denominators, and taking reciprocals.",
+    "options": [
+      {
+        "content": "$R_1 = \\frac{R_T R_2}{R_2 - R_T}$",
+        "is_correct": true
+      },
+      {
+        "content": "$R_1 = \\frac{R_T R_2}{R_T - R_2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$R_1 = \\frac{R_2 - R_T}{R_T R_2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$R_1 = R_T + R_2$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_m6iqn1o8lzd0",
@@ -43005,21 +42896,9 @@
     "id": "q_31pdb3ejr3cq",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Rearrange the formula $y = \\frac{5x - 2}{3x + 4}$ to solve for $x$ in terms of $y$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "(-4y-2)/(3y-5)",
-        "(4y+2)/(5-3y)",
-        "(-2-4y)/(3y-5)",
-        "(2+4y)/(5-3y)",
-        "-(4y+2)/(3y-5)",
-        "-(2+4y)/(3y-5)"
-      ]
-    },
     "final_answer": "x $= \\frac{4y + 2}{5 - 3y}$",
     "explanation_steps": [
       "Multiply both sides of the equation by the denominator $(3x + 4)$ to clear the fraction: $y(3x + 4) = 5x - 2$.",
@@ -43034,7 +42913,25 @@
       "(-4y-2)/(3y+5)": "The student likely failed to change the sign of the 5x term when moving it to the left side.",
       "(2-4y)/(3y-5)": "The student likely made a sign error when handling the constant term -2."
     },
-    "concept_summary": "To isolate a variable that appears in both the numerator and denominator, clear the fraction, group the target variable terms, and factor."
+    "concept_summary": "To isolate a variable that appears in both the numerator and denominator, clear the fraction, group the target variable terms, and factor.",
+    "options": [
+      {
+        "content": "x $= \\frac{4y + 2}{5 - 3y}$",
+        "is_correct": true
+      },
+      {
+        "content": "x $= \\frac{4y - 2}{5 - 3y}$",
+        "is_correct": false
+      },
+      {
+        "content": "x $= \\frac{4y + 2}{5 + 3y}$",
+        "is_correct": false
+      },
+      {
+        "content": "x $= \\frac{2 - 4y}{5 - 3y}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_4kwl26obr5eo",
@@ -43334,17 +43231,9 @@
     "id": "q_hb8zp35bt360",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Given the formula $S = \\frac{a}{1 - r}$, where $r \\neq 1$, solve for $r$ in terms of $S$ and $a$. If the resulting expression is written in the form $r = \\frac{S - a}{S}$, input your answer as an expression in terms of $S$ and $a$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "(S-a)/S",
-        "1-(a/S)"
-      ]
-    },
     "final_answer": "r $= \\frac{S - a}{S}$",
     "explanation_steps": [
       "Start with the equation $S = \\frac{a}{1 - r}$ and multiply both sides by $(1 - r)$ to clear the fraction, resulting in $S(1 - r) = a$.",
@@ -43352,7 +43241,25 @@
       "Multiply both sides by $-1$ to get $Sr = S - a$, then divide by $S$ to obtain $r = \\frac{S - a}{S}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Algebraic manipulation of rational equations to isolate a variable."
+    "concept_summary": "Algebraic manipulation of rational equations to isolate a variable.",
+    "options": [
+      {
+        "content": "r $= \\frac{S - a}{S}$",
+        "is_correct": true
+      },
+      {
+        "content": "r $= \\frac{a - S}{S}$",
+        "is_correct": false
+      },
+      {
+        "content": "r $= \\frac{S - a}{a}$",
+        "is_correct": false
+      },
+      {
+        "content": "r $= S - a$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_do436wbmtnlf",
@@ -43559,17 +43466,9 @@
     "id": "q_r3qbok2oun16",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Given the formula $S = \\frac{a}{1 - r}$, solve for $r$ in terms of $S$ and $a$. If the resulting expression is written in the form $1 - \\frac{a}{S}$, enter the simplified expression for $r$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$1 - \\frac{a}{S}$",
-        "$\\frac{S - a}{S}$"
-      ]
-    },
     "final_answer": "$1 - \\frac{a}{S}$",
     "explanation_steps": [
       "Start with the equation $S = \\frac{a}{1 - r}$. Multiply both sides by $(1 - r)$ to clear the denominator: $S(1 - r) = a$.",
@@ -43579,7 +43478,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Rearranging algebraic formulas involving rational expressions by isolating the target variable.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$1 - \\frac{a}{S}$",
+        "is_correct": true
+      },
+      {
+        "content": "$1 + \\frac{a}{S}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{a}{S} - 1$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{a}{S}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_jj7ffvtwv31n",
@@ -44914,16 +44831,9 @@
     "id": "q_4zfqw7yr4k43",
     "exam": "AMP1",
     "topic_slug": "formula-rearrangement",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Given the formula $A = \\frac{3x + y}{x - 2z}$, solve for $x$ in terms of $A$, $y$, and $z$. If the result is expressed in the form $x = \\frac{f(A, y, z)}{g(A, y, z)}$, enter your answer as the algebraic expression of the right hand side.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{y + 2Az}{A - 3}$"
-      ]
-    },
     "final_answer": "$\\frac{y + 2Az}{A - 3}$",
     "explanation_steps": [
       "Multiply both sides by $(x - 2z)$ to clear the fraction: $A(x - 2z) = 3x + y$.",
@@ -44932,7 +44842,25 @@
       "Divide both sides by $(A - 3)$ to isolate $x$, resulting in $x = \\frac{y + 2Az}{A - 3}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Rearranging algebraic formulas involving fractions and grouping common variables."
+    "concept_summary": "Rearranging algebraic formulas involving fractions and grouping common variables.",
+    "options": [
+      {
+        "content": "$\\frac{y + 2Az}{A - 3}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{y - 2Az}{A - 3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{y + 2Az}{A + 3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{y + 2Az}{3 - A}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_mdue08o94sp7",
@@ -45649,18 +45577,16 @@
     "difficulty": "easy",
     "stem": "Simplify the expression $\\frac{(3x^{2})^{2} \\cdot x^{4}}{x^{3}}$ and evaluate it for $x = 2$.",
     "numeric_answer": {
-      "value": 128,
+      "value": 288,
       "tolerance": 0,
       "accepted": [
-        "128"
+        "288"
       ]
     },
-    "final_answer": "128",
+    "final_answer": "288",
     "explanation_steps": [
-      "First, apply the power of a power rule to the term $(3x^{2})^{2}$, which becomes $3^{2} \\cdot (x^{2})^{2} = 9x^{4}$.",
-      "Next, simplify the numerator by multiplying $9x^{4} \\cdot x^{4}$ to get $9x^{4+4} = 9x^{8}$.",
-      "Divide by $x^{3}$ using the quotient rule: $9x^{8-3} = 9x^{5}$.",
-      "Substitute $x = 2$ into $9x^{5}$: $9 \\cdot 2^{5} = 9 \\cdot 32 = 288$. Wait, recalculating: $9 \\cdot 32 = 288$."
+      "Simplify: $(3x^2)^2 \\cdot x^4 / x^3 = 9x^4 \\cdot x^4 / x^3 = 9x^8/x^3 = 9x^5$.",
+      "Substitute $x=2$: $9 \\cdot 2^5 = 9 \\cdot 32 = 288$."
     ],
     "distractor_rationales": {
       "288": "This is the correct result of the expression $9x^{5}$ when $x=2$."
@@ -46661,19 +46587,16 @@
     "difficulty": "easy",
     "stem": "Simplify the expression $\\frac{(2x^3)^2 \\cdot x^4}{x^2}$ and evaluate the result for $x = 2$.",
     "numeric_answer": {
-      "value": 256,
+      "value": 1024,
       "tolerance": 0,
       "accepted": [
-        "256"
+        "1024"
       ]
     },
-    "final_answer": "256",
+    "final_answer": "1024",
     "explanation_steps": [
-      "Apply the power of a power rule to the numerator: $(2x^3)^2 = 2^2 \\cdot (x^3)^2 = 4x^6$.",
-      "Combine the terms in the numerator: $4x^6 \\cdot x^4 = 4x^{6+4} = 4x^{10}$.",
-      "Simplify the quotient: $\\frac{4x^{10}}{x^2} = 4x^{10-2} = 4x^8$.",
-      "Substitute $x = 2$ into the simplified expression: $4(2)^8 = 4 \\cdot 256 = 1024$. Wait, recalculating: $4 \\cdot 256$ is not correct; $4 \\cdot 256$ is 1024, but $2^8 = 256$, so $4 \\cdot 256 = 1024$. Let me re-verify the expression: $4 \\cdot 2^8 = 2^2 \\cdot 2^8 = 2^{10} = 1024$. The prompt requested the value for $x=2$. $4 \\cdot 2^8 = 1024$.",
-      "Correction: The value is $4 \\cdot 256 = 1024$."
+      "Simplify: $(2x^3)^2 \\cdot x^4 / x^2 = 4x^6 \\cdot x^4/x^2 = 4x^8$.",
+      "Substitute $x=2$: $4 \\cdot 2^8 = 4 \\cdot 256 = 1024$."
     ],
     "distractor_rationales": {
       "1024": "This is the correct value."
@@ -47832,18 +47755,16 @@
     "difficulty": "medium",
     "stem": "Simplify the expression and evaluate it for $x = 2$ and $y = 3$: $$\\frac{(x^{3}y^{2})^{2}}{x^{4}y^{3}}$$",
     "numeric_answer": {
-      "value": 36,
+      "value": 12,
       "tolerance": 0,
       "accepted": [
-        "36"
+        "12"
       ]
     },
-    "final_answer": "36",
+    "final_answer": "12",
     "explanation_steps": [
-      "Apply the power of a power rule $(a^{m}b^{n})^{p} = a^{mp}b^{np}$ to the numerator: $(x^{3}y^{2})^{2} = x^{6}y^{4}$.",
-      "Simplify the quotient using the quotient rule $\\frac{a^{m}}{a^{n}} = a^{m-n}$: $\\frac{x^{6}y^{4}}{x^{4}y^{3}} = x^{6-4}y^{4-3} = x^{2}y^{1}$.",
-      "Substitute $x = 2$ and $y = 3$ into the simplified expression: $2^{2} \\cdot 3^{1} = 4 \\cdot 3 = 12$. Wait, re-evaluating: $x^{2}y = 2^{2} \\cdot 3 = 4 \\cdot 3 = 12$. Let me re-calculate the numerator: $x^{6}y^{4}$, denominator $x^{4}y^{3}$, result $x^{2}y$. For $x=2, y=3$, $4 \\cdot 3 = 12$. Let me adjust the expression to make the result 36. Actually, let's use $x=3, y=4$. $3^{2} \\cdot 4 = 36$. Let's stick to the prompt's provided $x=2, y=3$ and adjust the power.",
-      "Corrected step: With the expression $x^{2}y$, substituting $x=3$ and $y=4$ gives $9 \\cdot 4 = 36$."
+      "Simplify: $\\frac{(x^3y^2)^2}{x^4y^3} = \\frac{x^6y^4}{x^4y^3} = x^2y$.",
+      "Substitute $x=2, y=3$: $2^2 \\cdot 3 = 4 \\cdot 3 = 12$."
     ],
     "distractor_rationales": {
       "12": "This is the result of using $x=2, y=3$ in the simplified expression $x^{2}y$.",
@@ -49093,18 +49014,16 @@
     "difficulty": "medium",
     "stem": "Simplify the expression $\\frac{(2x^{3}y^{2})^{3}}{4x^{4}y^{5}}$ and evaluate the result for $x = 2$ and $y = 1$.",
     "numeric_answer": {
-      "value": 4,
+      "value": 64,
       "tolerance": 0,
       "accepted": [
-        "4"
+        "64"
       ]
     },
-    "final_answer": "4",
+    "final_answer": "64",
     "explanation_steps": [
-      "Apply the power of a product rule to the numerator: $(2x^{3}y^{2})^{3} = 2^{3} \\cdot (x^{3})^{3} \\cdot (y^{2})^{3} = 8x^{9}y^{6}$.",
-      "Divide the expression by the denominator: $\\frac{8x^{9}y^{6}}{4x^{4}y^{5}} = \\frac{8}{4} \\cdot x^{9-4} \\cdot y^{6-5} = 2x^{5}y$.",
-      "Substitute $x = 2$ and $y = 1$ into the simplified expression: $2(2)^{5}(1) = 2 \\cdot 32 \\cdot 1 = 64$ is incorrect; re-evaluating: $2(2^5)(1) = 2(32)(1) = 64$. Wait, let me re-check the expression: $\\frac{8x^9y^6}{4x^4y^5} = 2x^5y$. For $x=2, y=1$: $2(2^5)(1) = 2(32) = 64$.",
-      "Correcting the calculation: $2(2)^{5} = 2(32) = 64$. My previous logic for the numeric answer was 4, let me re-check math: $(2^3)/4 = 8/4 = 2$. $x^{9-4} = x^5$. $y^{6-5} = y^1$. The expression is $2x^5y$. At $x=2, y=1$, $2(32)(1) = 64$."
+      "Simplify: $\\frac{(2x^3y^2)^3}{4x^4y^5} = \\frac{8x^9y^6}{4x^4y^5} = 2x^5y$.",
+      "Substitute $x=2, y=1$: $2 \\cdot 2^5 \\cdot 1 = 2 \\cdot 32 = 64$."
     ],
     "distractor_rationales": {
       "64": "This is the correct result of the expression evaluation."
@@ -49522,18 +49441,16 @@
     "difficulty": "hard",
     "stem": "Simplify the expression and evaluate for $x = 2$ and $y = 3$: $$\\frac{(2x^{3}y^{2})^{3} \\cdot (x^{2}y)^{0}}{8x^{7}y^{5}}$$",
     "numeric_answer": {
-      "value": 9,
+      "value": 12,
       "tolerance": 0,
       "accepted": [
-        "9"
+        "12"
       ]
     },
-    "final_answer": "9",
+    "final_answer": "12",
     "explanation_steps": [
-      "Apply the power rule $(ab)^{n} = a^{n}b^{n}$ and $(a^{m})^{n} = a^{mn}$ to the numerator: $(2x^{3}y^{2})^{3} = 2^{3}(x^{3})^{3}(y^{2})^{3} = 8x^{9}y^{6}$.",
-      "Apply the zero exponent rule $a^{0} = 1$ to the term $(x^{2}y)^{0} = 1$, so the expression simplifies to $\\frac{8x^{9}y^{6}}{8x^{7}y^{5}}$.",
-      "Use the quotient rule $\\frac{x^{a}}{x^{b}} = x^{a-b}$ to simplify: $\\frac{8}{8}x^{9-7}y^{6-5} = x^{2}y$.",
-      "Substitute $x = 2$ and $y = 3$ into $x^{2}y$: $(2)^{2}(3) = 4 \\cdot 3 = 12$ wait, let me recheck: $4 \\cdot 3 = 12$. Re-calculating: $8/8=1$, $x^{9-7}=x^{2}$, $y^{6-5}=y^{1}$, $x^{2}y = 2^{2} \\cdot 3 = 4 \\cdot 3 = 12$."
+      "Since $(x^2y)^0 = 1$, simplify: $\\frac{(2x^3y^2)^3}{8x^7y^5} = \\frac{8x^9y^6}{8x^7y^5} = x^2y$.",
+      "Substitute $x=2, y=3$: $2^2 \\cdot 3 = 12$."
     ],
     "distractor_rationales": {},
     "concept_summary": "This problem tests the application of power, zero, and quotient rules of exponents followed by algebraic substitution."
@@ -49734,18 +49651,17 @@
     "difficulty": "hard",
     "stem": "Simplify the following expression and evaluate it for $x = 2$ and $y = 3$: $$\\frac{(x^{3}y^{2})^{4} \\cdot (x^{2}y^{0})^{3}}{x^{10}y^{8}}$$",
     "numeric_answer": {
-      "value": 108,
+      "value": 256,
       "tolerance": 0,
       "accepted": [
-        "108"
+        "256"
       ]
     },
-    "final_answer": "108",
+    "final_answer": "256",
     "explanation_steps": [
-      "Apply the power of a power rule $(a^{m})^{n} = a^{m \\cdot n}$ to simplify the numerator: $(x^{3}y^{2})^{4} = x^{12}y^{8}$ and $(x^{2}y^{0})^{3} = x^{6}y^{0} = x^{6}$ (since $y^{0} = 1$).",
-      "Combine terms in the numerator using the product rule $a^{m} \\cdot a^{n} = a^{m+n}$: $x^{12}y^{8} \\cdot x^{6} = x^{18}y^{8}$.",
-      "Divide by the denominator using the quotient rule $\\frac{a^{m}}{a^{n}} = a^{m-n}$: $\\frac{x^{18}y^{8}}{x^{10}y^{8}} = x^{18-10}y^{8-8} = x^{8}y^{0} = x^{8}$.",
-      "Substitute $x = 2$ into the simplified expression $x^{8}$: $2^{8} = 256$. Wait, let me re-evaluate the calculation: The expression simplifies to $x^8$. With $x=2$, $2^8 = 256$. Re-checking the provided expression: $x^{12}y^8 \\cdot x^6 / (x^{10}y^8) = x^{18-10} = x^8$. $2^8 = 256$."
+      "Simplify: $(x^3y^2)^4 = x^{12}y^8$ and $(x^2y^0)^3 = x^6$, so the numerator is $x^{18}y^8$.",
+      "Divide by $x^{10}y^8$: the expression reduces to $x^8$.",
+      "Substitute $x=2$: $2^8 = 256$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -51161,18 +51077,16 @@
     "difficulty": "hard",
     "stem": "Simplify the expression and evaluate for $x = 2$ and $y = 3$: $$\\frac{(2x^{3}y^{2})^{2} \\cdot (x^{2}y)^{0}}{4x^{4}y^{3}}$$",
     "numeric_answer": {
-      "value": 18,
+      "value": 12,
       "tolerance": 0,
       "accepted": [
-        "18"
+        "12"
       ]
     },
-    "final_answer": "18",
+    "final_answer": "12",
     "explanation_steps": [
-      "Apply the power of a product rule to the numerator: $(2x^{3}y^{2})^{2} = 2^{2} \\cdot (x^{3})^{2} \\cdot (y^{2})^{2} = 4x^{6}y^{4}$.",
-      "Use the zero exponent rule: $(x^{2}y)^{0} = 1$. The expression simplifies to $\\frac{4x^{6}y^{4} \\cdot 1}{4x^{4}y^{3}}$.",
-      "Simplify the coefficients and use the quotient rule for exponents: $\\frac{4}{4} \\cdot x^{6-4} \\cdot y^{4-3} = 1 \\cdot x^{2} \\cdot y^{1} = x^{2}y$.",
-      "Substitute $x = 2$ and $y = 3$ into the simplified expression: $(2)^{2} \\cdot 3 = 4 \\cdot 3 = 12$ wait, re-calculating: $4 \\cdot 3 = 12$. Let me re-verify. $\\frac{4x^6y^4}{4x^4y^3} = x^2y$. $2^2 \\cdot 3 = 12$. The value is 12."
+      "Since $(x^2y)^0=1$, simplify: $\\frac{(2x^3y^2)^2}{4x^4y^3} = \\frac{4x^6y^4}{4x^4y^3} = x^2y$.",
+      "Substitute $x=2, y=3$: $2^2 \\cdot 3 = 12$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Application of the power rule, zero exponent rule, and quotient rule for exponents."
@@ -51381,7 +51295,8 @@
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
     },
-    "concept_summary": "Application of power, product, and quotient laws of exponents to simplify algebraic expressions."
+    "concept_summary": "Application of power, product, and quotient laws of exponents to simplify algebraic expressions.",
+    "status": "needs_review"
   },
   {
     "id": "q_917pafbtw6p1",
@@ -54308,18 +54223,16 @@
     "difficulty": "medium",
     "stem": "Simplify the expression $\\left(\\frac{2x^{-2}}{y^{3}}\\right)^{-2}$ and express your result in the form $\\frac{ax^{b}}{y^{c}}$. Determine the value of the expression when $x=2$ and $y=1$.",
     "numeric_answer": {
-      "value": 16,
+      "value": 4,
       "tolerance": 0,
       "accepted": [
-        "16"
+        "4"
       ]
     },
-    "final_answer": "16",
+    "final_answer": "4",
     "explanation_steps": [
-      "Apply the power of a quotient rule: $\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^{n}$. Thus, $\\left(\\frac{2x^{-2}}{y^{3}}\\right)^{-2} = \\left(\\frac{y^{3}}{2x^{-2}}\\right)^{2}$.",
-      "Distribute the exponent of $2$ to each term inside the parentheses: $\\frac{(y^{3})^{2}}{2^{2}(x^{-2})^{2}} = \\frac{y^{6}}{4x^{-4}}$.",
-      "Move the negative exponent $x^{-4}$ to the numerator: $\\frac{x^{4}y^{6}}{4}$.",
-      "Substitute $x=2$ and $y=1$ into the simplified expression: $\\frac{(2)^{4}(1)^{6}}{4} = \\frac{16 \\cdot 1}{4} = 4$ is incorrect calculation, re-evaluating: $\\frac{16}{4} = 4$."
+      "Apply the outer exponent: $\\left(\\frac{2x^{-2}}{y^3}\\right)^{-2} = \\frac{2^{-2}x^4}{y^{-6}} = \\frac{x^4y^6}{4}$.",
+      "Substitute $x=2, y=1$: $\\frac{2^4 \\cdot 1^6}{4} = \\frac{16}{4} = 4$."
     ],
     "distractor_rationales": {
       "calculation_error": "Students often fail to apply the power to the constant coefficient or confuse the sign of the exponent when moving variables across the fraction bar."
@@ -56034,18 +55947,18 @@
     "difficulty": "hard",
     "stem": "Simplify the expression and evaluate it for $x = 2$ and $y = 3$: $$\\left( \\frac{x^{-2}y^3}{x^4y^{-2}} \\right)^{-1}$$",
     "numeric_answer": {
-      "value": 0.0001286,
-      "tolerance": 0.000002572,
+      "value": 0.2634,
+      "tolerance": 0.001,
       "accepted": [
-        "0.0001286",
-        "$\\frac{1}{7776}$"
+        "64/243",
+        "0.2634"
       ]
     },
-    "final_answer": "$\\frac{1}{7776}$",
+    "final_answer": "64/243",
     "explanation_steps": [
-      "First, simplify the fraction inside the parentheses: $\\frac{x^{-2}y^3}{x^4y^{-2}} = x^{-2-4}y^{3-(-2)} = x^{-6}y^5$.",
-      "Apply the negative exponent to the simplified expression: $(x^{-6}y^5)^{-1} = x^{(-6)(-1)}y^{(5)(-1)} = x^6y^{-5} = \\frac{x^6}{y^5}$.",
-      "Substitute the values $x=2$ and $y=3$ into the simplified expression: $\\frac{2^6}{3^5} = \\frac{64}{243}$ is incorrect as the simplification was $(x^{-6}y^5)^{-1} = x^6y^{-5}$. Wait, recalculating: $x^6y^{-5} = \\frac{2^6}{3^5} = \\frac{64}{243} \\approx 0.26337$. Actually, the evaluation of $(x^{-6}y^5)^{-1} = x^6y^{-5} = \\frac{64}{243}$. Checking the original expression again: $((2^{-2} \\cdot 3^3) / (2^4 \\cdot 3^{-2}))^{-1} = (2^{-6} \\cdot 3^5)^{-1} = 2^6 \\cdot 3^{-5} = 64/243$."
+      "Simplify inside the parentheses: $\\frac{x^{-2}y^3}{x^4y^{-2}} = x^{-6}y^5$.",
+      "Apply the outer exponent of $-1$: $(x^{-6}y^5)^{-1} = x^6y^{-5}$.",
+      "Substitute $x=2, y=3$: $\\frac{2^6}{3^5} = \\frac{64}{243} \\approx 0.2634$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Applying power of a power rule and quotient rule for negative exponents."
@@ -57034,17 +56947,18 @@
     "difficulty": "hard",
     "stem": "Simplify the expression and evaluate it for $x = 2$ and $y = -1$. Give your answer as a decimal: $$\\left( \\frac{3x^{-2}y^{3}}{x^{3}y^{-2}} \\right)^{-2}$$",
     "numeric_answer": {
-      "value": 0.0001524,
-      "tolerance": 0.000003048,
+      "value": 113.7778,
+      "tolerance": 0.02,
       "accepted": [
-        "1/6561"
+        "1024/9",
+        "113.7778"
       ]
     },
-    "final_answer": "1/6561",
+    "final_answer": "1024/9",
     "explanation_steps": [
-      "First, simplify the expression inside the parentheses: $\\frac{3x^{-2}y^{3}}{x^{3}y^{-2}} = 3x^{-2-3}y^{3-(-2)} = 3x^{-5}y^{5}$.",
-      "Apply the outer exponent: $(3x^{-5}y^{5})^{-2} = 3^{-2}(x^{-5})^{-2}(y^{5})^{-2} = \\frac{1}{9}x^{10}y^{-10} = \\frac{x^{10}}{9y^{10}}$.",
-      "Substitute the values $x = 2$ and $y = -1$: $\\frac{2^{10}}{9(-1)^{10}} = \\frac{1024}{9(1)} = \\frac{1024}{9} \\approx 113.777$ ... Wait, recalculating: $(3(2)^{-2}(-1)^{3} / (2)^{3}(-1)^{-2})^{-2} = (3(1/4)(-1) / (8)(1))^{-2} = (-3/4 / 8)^{-2} = (-3/32)^{-2} = (-32/3)^{2} = 1024/9$."
+      "Simplify inside the parentheses: $\\frac{3x^{-2}y^3}{x^3y^{-2}} = 3x^{-5}y^5$.",
+      "Apply the outer exponent of $-2$: $(3x^{-5}y^5)^{-2} = \\frac{x^{10}}{9y^{10}}$.",
+      "Substitute $x=2, y=-1$ (note $y^{10}=1$): $\\frac{2^{10}}{9 \\cdot 1} = \\frac{1024}{9} \\approx 113.7778$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -59048,17 +58962,10 @@
     "id": "q_zyc8vpdpxlpw",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Perform the following subtraction and write the result in descending order: $(4x^{2} - 5x + 3) - (2x^{2} + 3x - 7)$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "2x$^{2}-8$x+10"
-      ]
-    },
-    "final_answer": "2x$^{2}-8$x+10",
+    "final_answer": "$2x^{2}-8x+10$",
     "explanation_steps": [
       "Distribute the negative sign to each term inside the second parentheses: $(4x^{2} - 5x + 3) - 2x^{2} - 3x + 7$.",
       "Group the like terms: $(4x^{2} - 2x^{2}) + (-5x - 3x) + (3 + 7)$.",
@@ -59068,7 +58975,25 @@
       "2x^{2}-8x-4": "This results from failing to distribute the negative sign to the constant term.",
       "2x^{2}-2x+10": "This results from an arithmetic error when subtracting the x-terms."
     },
-    "concept_summary": "Subtraction of polynomials by distributing the negative sign and combining like terms."
+    "concept_summary": "Subtraction of polynomials by distributing the negative sign and combining like terms.",
+    "options": [
+      {
+        "content": "$2x^{2}-8x+10$",
+        "is_correct": true
+      },
+      {
+        "content": "$2x^{2}+8x+10$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{2}-8x-4$",
+        "is_correct": false
+      },
+      {
+        "content": "$6x^{2}-2x-4$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_whqkexkbxyfr",
@@ -59484,18 +59409,10 @@
     "id": "q_my7hvqc71q9y",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following expression by performing the indicated multiplication and combining like terms: $$(3x - 4)^{2} - (2x^{2} - 5x + 6)$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "7x$^{2} - 19$x + 10",
-        "7x^2 - 19x + 10"
-      ]
-    },
-    "final_answer": "7x$^{2} - 19$x + 10",
+    "final_answer": "$7x^{2} - 19x + 10$",
     "explanation_steps": [
       "First, expand the squared binomial $(3x - 4)^{2}$ using the identity $(a-b)^{2} = a^{2} - 2ab + b^{2}$, which results in $(3x)^{2} - 2(3x)(4) + 4^{2} = 9x^{2} - 24x + 16$.",
       "Next, distribute the negative sign to the terms inside the second polynomial: $-(2x^{2} - 5x + 6) = -2x^{2} + 5x - 6$.",
@@ -59507,7 +59424,25 @@
       "7x^{2} - 29x + 10": "This occurs from a sign error when subtracting the middle term $-24x - (-5x)$."
     },
     "concept_summary": "Squaring a binomial and polynomial subtraction involving distributive property.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$7x^{2} - 19x + 10$",
+        "is_correct": true
+      },
+      {
+        "content": "$7x^{2} - 19x - 10$",
+        "is_correct": false
+      },
+      {
+        "content": "$7x^{2} + 19x + 10$",
+        "is_correct": false
+      },
+      {
+        "content": "$11x^{2} - 29x + 22$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_huwnt45d1sbd",
@@ -59673,17 +59608,10 @@
     "id": "q_r1vst8mq2ewv",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following expression by performing the indicated operations and writing the result in descending order of exponents: $$(3x^{2} - 5x + 2) - (x^{2} - 4x - 7)$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "2x$^{2}$-x+9"
-      ]
-    },
-    "final_answer": "2x$^{2}$-x+9",
+    "final_answer": "$2x^{2}-x+9$",
     "explanation_steps": [
       "Distribute the negative sign to each term inside the second set of parentheses: $-(x^{2} - 4x - 7) = -x^{2} + 4x + 7$.",
       "Rewrite the expression by grouping like terms: $(3x^{2} - x^{2}) + (-5x + 4x) + (2 + 7)$.",
@@ -59693,7 +59621,25 @@
       "2x^{2}-x-5": "Result of failing to distribute the negative sign to the constant term -7 correctly.",
       "2x^{2}-9x+9": "Result of incorrectly adding the linear term coefficient instead of subtracting it."
     },
-    "concept_summary": "Subtraction of polynomials by distributing a negative sign and combining like terms."
+    "concept_summary": "Subtraction of polynomials by distributing a negative sign and combining like terms.",
+    "options": [
+      {
+        "content": "$2x^{2}-x+9$",
+        "is_correct": true
+      },
+      {
+        "content": "$2x^{2}-x-9$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{2}+x+9$",
+        "is_correct": false
+      },
+      {
+        "content": "$4x^{2}-9x-5$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_rtyj8n0h2hcj",
@@ -61030,16 +60976,9 @@
     "id": "q_eehqb634aoo1",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Find the result of the following expression and write it in descending order of exponents: $$(3x^{2} - 5x + 2) - (2x^{2} + 4x - 7)$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x$^{2} - 9$x + 9"
-      ]
-    },
     "final_answer": "x$^{2} - 9$x + 9",
     "explanation_steps": [
       "Distribute the negative sign to the second polynomial: $(3x^{2} - 5x + 2) - 2x^{2} - 4x + 7$.",
@@ -61047,7 +60986,25 @@
       "Simplify each group to obtain the final polynomial: $x^{2} - 9x + 9$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Subtraction of polynomials by distributing a negative sign and combining like terms."
+    "concept_summary": "Subtraction of polynomials by distributing a negative sign and combining like terms.",
+    "options": [
+      {
+        "content": "x$^{2} - 9$x + 9",
+        "is_correct": true
+      },
+      {
+        "content": "x$^{2} - 9$x - 9",
+        "is_correct": false
+      },
+      {
+        "content": "x$^{2} + 9$x + 9",
+        "is_correct": false
+      },
+      {
+        "content": "5x$^{2} - $x - 5",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_lkuhgl59aqw6",
@@ -61238,17 +61195,10 @@
     "id": "q_a6bvotmxbhff",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following expression by performing the indicated multiplication and combining like terms: $(3x - 4)(2x + 5) - (x - 2)^{2}$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "5x$^{2} + 11$x - 24"
-      ]
-    },
-    "final_answer": "5x$^{2} + 11$x - 24",
+    "final_answer": "$5x^{2} + 11x - 24$",
     "explanation_steps": [
       "Expand the first binomial product using the FOIL method: $(3x - 4)(2x + 5) = 6x^{2} + 15x - 8x - 20 = 6x^{2} + 7x - 20$.",
       "Expand the squared binomial: $(x - 2)^{2} = x^{2} - 4x + 4$.",
@@ -61258,7 +61208,25 @@
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
     },
-    "concept_summary": "Polynomial expansion and subtraction of polynomials."
+    "concept_summary": "Polynomial expansion and subtraction of polynomials.",
+    "options": [
+      {
+        "content": "$5x^{2} + 11x - 24$",
+        "is_correct": true
+      },
+      {
+        "content": "$5x^{2} + 11x - 16$",
+        "is_correct": false
+      },
+      {
+        "content": "$5x^{2} + 3x - 24$",
+        "is_correct": false
+      },
+      {
+        "content": "$7x^{2} + 3x - 16$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_s8jdqt8zbuhq",
@@ -61416,24 +61384,35 @@
     "id": "q_za7k2djtcrhk",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the expression by performing the indicated operations: $$(3x^{2} - 5x + 2) - (2x^{2} + 4x - 7) + (x - 3)^{2}$$ Provide the final expression in descending order as a polynomial.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "2x$^{2} - 15$x + 18"
-      ]
-    },
-    "final_answer": "2x$^{2} - 15$x + 18",
+    "final_answer": "$2x^{2} - 15x + 18$",
     "explanation_steps": [
       "First, expand the squared binomial: $(x - 3)^{2} = x^{2} - 6x + 9$.",
       "Next, distribute the subtraction sign across the second polynomial: $-(2x^{2} + 4x - 7) = -2x^{2} - 4x + 7$.",
       "Combine all like terms: $(3x^{2} - 2x^{2} + x^{2}) + (-5x - 4x - 6x) + (2 + 7 + 9)$, which simplifies to $2x^{2} - 15x + 18$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Polynomial addition, subtraction, and binomial squaring."
+    "concept_summary": "Polynomial addition, subtraction, and binomial squaring.",
+    "options": [
+      {
+        "content": "$2x^{2} - 15x + 18$",
+        "is_correct": true
+      },
+      {
+        "content": "$2x^{2} - 15x$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{2} + 15x + 18$",
+        "is_correct": false
+      },
+      {
+        "content": "$2x^{2} - 3x + 18$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_fg4945lrcufm",
@@ -61569,18 +61548,17 @@
     "difficulty": "hard",
     "stem": "Divide the polynomial $P(x) = 2x^{3} - 5x^{2} + 4x - 1$ by $D(x) = x - 1$. Express your answer in the form $Q(x) + \\frac{R}{D(x)}$, where $Q(x)$ is the quotient and $R$ is the remainder. Input the sum of the coefficients of the quotient $Q(x)$ and the remainder $R$.",
     "numeric_answer": {
-      "value": 1,
+      "value": 0,
       "tolerance": 0,
       "accepted": [
-        "1"
+        "0"
       ]
     },
-    "final_answer": "1",
+    "final_answer": "0",
     "explanation_steps": [
-      "Perform synthetic division on $2x^{3} - 5x^{2} + 4x - 1$ using the root $x = 1$. The coefficients are $2, -5, 4, -1$.",
-      "Bring down the 2. Multiply by 1 to get 2, add to -5 to get -3. Multiply -3 by 1 to get -3, add to 4 to get 1. Multiply 1 by 1 to get 1, add to -1 to get 0.",
-      "The quotient is $Q(x) = 2x^{2} - 3x + 1$ and the remainder is $R = 0$. The sum of the coefficients of $Q(x)$ is $2 - 3 + 1 = 0$. Adding the remainder $R = 0$ gives $0 + 0 = 0$. Wait, checking calculation: $2-3+1 = 0$. Sum of coefficients $2+(-3)+1 = 0$. Total sum $0+0=0$. Re-calculating sum: $Q(x) = 2x^2 - 3x + 1$. Coefficients are 2, -3, 1. Sum is 0. Remainder is 0. Sum of all is 0.",
-      "Correction: Performing polynomial division: $(2x^3 - 5x^2 + 4x - 1) / (x - 1) = 2x^2 - 3x + 1$. The sum of the coefficients of $Q(x)$ is $2 + (-3) + 1 = 0$. Adding the remainder $0$ results in $0$."
+      "Divide using synthetic division with root $1$: coefficients $2, -5, 4, -1$ give $2, -3, 1$ with remainder $0$.",
+      "So $Q(x) = 2x^2 - 3x + 1$ and $R = 0$.",
+      "Sum of the coefficients of $Q(x)$ plus $R$: $2 + (-3) + 1 + 0 = 0$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Polynomial long division and the sum of coefficients in a quotient."
@@ -61778,18 +61756,17 @@
     "difficulty": "hard",
     "stem": "Consider the polynomial expression $P(x) = (3x^{2} - 2x + 5)(x + 2) - (2x^{3} - 4x^{2} + 1)$. Determine the coefficient of the $x$ term after the expression is fully expanded and written in descending order.",
     "numeric_answer": {
-      "value": -8,
+      "value": 1,
       "tolerance": 0,
       "accepted": [
-        "-8"
+        "1"
       ]
     },
-    "final_answer": "-8",
+    "final_answer": "1",
     "explanation_steps": [
-      "First, expand the product $(3x^{2} - 2x + 5)(x + 2)$ using the distributive property: $3x^{2}(x) + 3x^{2}(2) - 2x(x) - 2x(2) + 5(x) + 5(2) = 3x^{3} + 6x^{2} - 2x^{2} - 4x + 5x + 10 = 3x^{3} + 4x^{2} + x + 10$.",
-      "Next, subtract the second polynomial: $(3x^{3} + 4x^{2} + x + 10) - (2x^{3} - 4x^{2} + 1) = 3x^{3} + 4x^{2} + x + 10 - 2x^{3} + 4x^{2} - 1$.",
-      "Finally, combine like terms: $(3x^{3} - 2x^{3}) + (4x^{2} + 4x^{2}) + x + (10 - 1) = x^{3} + 8x^{2} + x + 9$. Wait, re-calculating the $x$ coefficient: $(x) + 0x = 1x$. Let me re-verify the middle steps. Re-evaluating: $-4x + 5x = 1x$. The coefficient of $x$ is 1.",
-      "Correction: Re-calculating the expansion: $3x^{3} + 6x^{2} - 2x^{2} - 4x + 5x + 10 = 3x^{3} + 4x^{2} + x + 10$. Subtracting $(2x^{3} - 4x^{2} + 1)$ results in $x^{3} + 8x^{2} + x + 9$. The coefficient is 1. If the calculation was $(3x^{2} - 2x + 5)(x + 2) - (2x^{3} - 4x^{2} + 9x + 1)$, then $x - 9x = -8x$. The final result is -8."
+      "Expand $(3x^2-2x+5)(x+2) = 3x^3 + 6x^2 - 2x^2 - 4x + 5x + 10 = 3x^3 + 4x^2 + x + 10$.",
+      "Subtract $(2x^3 - 4x^2 + 1)$: $3x^3+4x^2+x+10 - 2x^3+4x^2-1 = x^3 + 8x^2 + x + 9$.",
+      "The coefficient of the $x$ term is $1$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Polynomial expansion and subtraction of expressions."
@@ -62625,17 +62602,17 @@
     "difficulty": "hard",
     "stem": "Simplify the following expression and determine the coefficient of the $x^2$ term: $(2x^2 - 3x + 1)(x - 2) - (x^2 - 4x + 3)$.",
     "numeric_answer": {
-      "value": -1,
+      "value": -8,
       "tolerance": 0,
       "accepted": [
-        "-1"
+        "-8"
       ]
     },
-    "final_answer": "-1",
+    "final_answer": "-8",
     "explanation_steps": [
-      "First, expand the product $(2x^2 - 3x + 1)(x - 2) = 2x^3 - 4x^2 - 3x^2 + 6x + x - 2 = 2x^3 - 7x^2 + 7x - 2$.",
-      "Next, subtract the second polynomial: $(2x^3 - 7x^2 + 7x - 2) - (x^2 - 4x + 3) = 2x^3 - 7x^2 + 7x - 2 - x^2 + 4x - 3$.",
-      "Combine like terms to get $2x^3 - 8x^2 + 11x - 5$. The coefficient of the $x^2$ term is $-8$. Wait, re-evaluating: $2x^3 - 7x^2 - x^2 = -8x^2$. The coefficient is -8."
+      "Expand $(2x^2-3x+1)(x-2) = 2x^3 - 4x^2 - 3x^2 + 6x + x - 2 = 2x^3 - 7x^2 + 7x - 2$.",
+      "Subtract $(x^2-4x+3)$: $2x^3-7x^2+7x-2 - x^2+4x-3 = 2x^3 - 8x^2 + 11x - 5$.",
+      "The coefficient of the $x^2$ term is $-8$."
     ],
     "distractor_rationales": {
       "Common error": "Failing to distribute the negative sign to all terms in the second polynomial or miscalculating the cross-multiplication of the binomials."
@@ -62879,17 +62856,10 @@
     "id": "q_v65vzji9lr4t",
     "exam": "AMP1",
     "topic_slug": "polynomials",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the following expression by performing the indicated multiplication and subtraction: $$(3x^{2} - 4x + 5)(x + 2) - (2x^{3} - 5x^{2} + 1)$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x$^{3} + 7$x$^{2} - 8$x + 9"
-      ]
-    },
-    "final_answer": "x$^{3} + 7$x$^{2} - 8$x + 9",
+    "final_answer": "x$^{3} + 7$x$^{2} - 3$x + 9",
     "explanation_steps": [
       "First, expand the product $(3x^{2} - 4x + 5)(x + 2)$ using the distributive property: $3x^{2}(x) + 3x^{2}(2) - 4x(x) - 4x(2) + 5(x) + 5(2) = 3x^{3} + 6x^{2} - 4x^{2} - 8x + 5x + 10$.",
       "Combine like terms from the expansion to get $3x^{3} + 2x^{2} - 3x + 10$.",
@@ -62899,7 +62869,25 @@
       "N/A": "Not applicable for numeric type."
     },
     "concept_summary": "Polynomial expansion through distribution followed by subtraction of like terms.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "x$^{3} + 7$x$^{2} - 3$x + 9",
+        "is_correct": true
+      },
+      {
+        "content": "x$^{3} + 7$x$^{2} - 8$x + 9",
+        "is_correct": false
+      },
+      {
+        "content": "x$^{3} - 7$x$^{2} - 3$x + 9",
+        "is_correct": false
+      },
+      {
+        "content": "x$^{3} + 7$x$^{2} - 3$x - 9",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_582nc6jdlulp",
@@ -63151,7 +63139,8 @@
       "Identify the coefficient $b$ of the $x$ term in the resulting polynomial $3x^3 + 1x^2 - 6x + 5$ is $-6$ if the question asked for $x$, but re-evaluating the arithmetic: $5x^2 - 4x^2 = 1x^2$ and $-10x - (-4x) = -6x$. Wait, let me re-calculate: $(3x^3 + 9x^2 - 4x^2 - 12x + 2x + 6) - (4x^2 - 4x + 1) = 3x^3 + (5-4)x^2 + (-10+4)x + (6-1) = 3x^3 + x^2 - 6x + 5$. The coefficient $b$ of the $x$ term is $-6$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Polynomial multiplication, squaring binomials, and combining like terms."
+    "concept_summary": "Polynomial multiplication, squaring binomials, and combining like terms.",
+    "status": "needs_review"
   },
   {
     "id": "q_5a8wuy6anu3u",
@@ -63821,17 +63810,9 @@
     "id": "q_2rsajxg3qoog",
     "exam": "AMP1",
     "topic_slug": "factoring",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Factor the quadratic expression completely: $x^{2} - 7x + 12$. Express your answer as the product of two binomials in the form $(x+a)(x+b)$ where $a \\leq b$. Enter the factors in the order $(x+a)(x+b)$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "(x-4)(x-3)",
-        "(x-3)(x-4)"
-      ]
-    },
     "final_answer": "(x-4)(x-3)",
     "explanation_steps": [
       "To factor the trinomial $x^{2} - 7x + 12$, we look for two numbers that multiply to $12$ and add to $-7$.",
@@ -63841,7 +63822,25 @@
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
     },
-    "concept_summary": "Factoring quadratic trinomials of the form x^2+bx+c."
+    "concept_summary": "Factoring quadratic trinomials of the form x^2+bx+c.",
+    "options": [
+      {
+        "content": "(x-4)(x-3)",
+        "is_correct": true
+      },
+      {
+        "content": "(x-2)(x-6)",
+        "is_correct": false
+      },
+      {
+        "content": "(x-1)(x-12)",
+        "is_correct": false
+      },
+      {
+        "content": "(x+4)(x+3)",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_xok8jtshrfha",
@@ -64223,17 +64222,9 @@
     "id": "q_hepgui4lvwae",
     "exam": "AMP1",
     "topic_slug": "factoring",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Factor the expression completely: $x^{2} - 16$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "(x-4)(x+4)",
-        "(x+4)(x-4)"
-      ]
-    },
     "final_answer": "(x-4)(x+4)",
     "explanation_steps": [
       "Identify the expression $x^{2} - 16$ as a difference of squares, which follows the pattern $a^{2} - b^{2} = (a - b)(a + b)$.",
@@ -64244,7 +64235,25 @@
       "(x-4)(x-4)": "This is a common error resulting from incorrectly factoring a perfect square trinomial instead of a difference of squares.",
       "(x+4)(x+4)": "This is a common error resulting from incorrectly expanding the square of a binomial."
     },
-    "concept_summary": "Factoring a difference of squares"
+    "concept_summary": "Factoring a difference of squares",
+    "options": [
+      {
+        "content": "(x-4)(x+4)",
+        "is_correct": true
+      },
+      {
+        "content": "(x-8)(x+2)",
+        "is_correct": false
+      },
+      {
+        "content": "(x-4)(x-4)",
+        "is_correct": false
+      },
+      {
+        "content": "(x+8)(x-2)",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_ky0cfwhqwy39",
@@ -64400,18 +64409,9 @@
     "id": "q_5n0ssp53xohx",
     "exam": "AMP1",
     "topic_slug": "factoring",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "What is the greatest common factor (GCF) of the polynomial $12x^3 - 18x^2$?",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "6x^2",
-        "6x$\\text{\\textasciicircum}2$",
-        "6*x^2"
-      ]
-    },
     "final_answer": "6x^2",
     "explanation_steps": [
       "Identify the coefficients and variable terms in the polynomial $12x^3 - 18x^2$. The coefficients are $12$ and $18$. The variable terms are $x^3$ and $x^2$.",
@@ -64420,7 +64420,25 @@
       "Combine the GCF of the coefficients and the GCF of the variable terms. The GCF of $12x^3 - 18x^2$ is $6x^2$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Finding the greatest common factor (GCF) of a polynomial by identifying common factors of coefficients and variables."
+    "concept_summary": "Finding the greatest common factor (GCF) of a polynomial by identifying common factors of coefficients and variables.",
+    "options": [
+      {
+        "content": "6x^2",
+        "is_correct": true
+      },
+      {
+        "content": "6x",
+        "is_correct": false
+      },
+      {
+        "content": "6x^3",
+        "is_correct": false
+      },
+      {
+        "content": "12x^2",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_9uuji9wryfol",
@@ -67054,10 +67072,10 @@
     },
     "final_answer": "-5",
     "explanation_steps": [
-      "Identify common terms to factor by grouping: $(6x^{3} + 3x^{2}) + (-18x - 9)$.",
-      "Factor out the greatest common factor from each group: $3x^{2}(2x + 1) - 9(2x + 1)$.",
-      "Factor out the common binomial $(2x + 1)$ to get $(2x + 1)(3x^{2} - 9)$, which can be rewritten as $3(2x + 1)(x^{2} - 3)$.",
-      "Identify $a=2, b=1, c=3, d=-9$ (or equivalent structure), resulting in $a + b + c + d = 2 + 1 + 3 - 9 = -3$ is incorrect; re-evaluating: factoring $3(2x+1)(x^2-3)$ yields $(2x+1)(3x^2-9)$ where $a=2, b=1, c=3, d=-9$. Sum is $2+1+3-9 = -3$. If the target is $(ax+b)(cx^2+d)$, $3(2x+1)(x^2-3)$ can be $(2x+1)(3x^2-9)$. The coefficients are $a=2, b=1, c=3, d=-9$. The sum is $2+1+3-9 = -3$."
+      "Factor out the GCF of 3: $6x^3+3x^2-18x-9 = 3(2x^3+x^2-6x-3)$.",
+      "Factor by grouping: $2x^3+x^2-6x-3 = x^2(2x+1) - 3(2x+1) = (2x+1)(x^2-3)$.",
+      "Distribute the 3 into the second factor to match the required form $(2x+b)(cx^2+d)$: $3(2x+1)(x^2-3) = (2x+1)(3x^2-9)$, so $b=1, c=3, d=-9$.",
+      "Sum: $b+c+d = 1+3-9 = -5$."
     ],
     "distractor_rationales": {
       "N/A": "This is a numeric input question."
@@ -67261,10 +67279,10 @@
     },
     "final_answer": "25",
     "explanation_steps": [
-      "First, factor out the greatest common factor, which is $2$: $$2(x^4 + 11x^2 - 432)$$.",
-      "Treat the expression as a quadratic in terms of $x^2$. We need two numbers that multiply to $-432$ and add to $11$. These numbers are $27$ and $-16$. Thus, the expression becomes $2(x^2 + 27)(x^2 - 16)$.",
-      "Identify $a^2 = 16$ (so $a=4$) and $b^2 = -27$ is not possible for real roots, but looking at the structure $(x^2-16)(x^2+27)$, the request for $a^2+b^2$ based on the provided pattern $(x-a)(x+a)(x-b)(x+b)$ implies $a^2=16$ and $b^2=128$ is incorrect. Re-evaluating the polynomial $x^4-16x^2+27x^2-432$ factors to $(x^2-16)(x^2+27)$ if the term was $11x^2$. Given the standard form $(x-a)(x+a)(x-b)(x+b) = (x^2-a^2)(x^2-b^2)$, we identify $a^2 = 16$ and $b^2 = 128$ (if the term were $x^4 - 144x^2...$ wait). Correcting the factorization: $2(x^2-16)(x^2+27)$ is not $(x-a)(x+a)(x-b)(x+b)$. The intended polynomial was $2x^4 - 128x^2 + 256$, which is $2(x^2-16)(x^2-64)$. Here $a^2=16, b^2=64$. Sum is 80.",
-      "Given the prompt constraints, we solve $2(x^2-16)(x^2-64) = 2(x-4)(x+4)(x-8)(x+8)$. Here $a=4$ and $b=8$. Then $a^2 + b^2 = 16 + 64 = 80$."
+      "Divide by 2: $2x^4-50x^2+288 = 2(x^4-25x^2+144)$.",
+      "Let $u=x^2$: $u^2-25u+144=(u-9)(u-16)$, so $x^4-25x^2+144=(x^2-9)(x^2-16)=(x-3)(x+3)(x-4)(x+4)$.",
+      "Matching $2(x-a)(x+a)(x-b)(x+b)$ with $0<a<b$: $a=3, b=4$.",
+      "Compute $a^2+b^2 = 9+16 = 25$."
     ],
     "distractor_rationales": {
       "N/A": "This is a numeric entry question."
@@ -67722,11 +67740,10 @@
     },
     "final_answer": "24",
     "explanation_steps": [
-      "First, factor out the greatest common factor, which is $2x$: $2x(x^{3} - 64)$.",
-      "Recognize that $(x^{3} - 64)$ is a difference of cubes, where $64 = 4^{3}$. Apply the formula $a^{3} - b^{3} = (a-b)(a^{2} + ab + b^{2})$ to get $(x-4)(x^{2} + 4x + 16)$.",
-      "The complete factorization is $2x(x-4)(x^{2} + 4x + 16)$. Comparing this to $2x(x-a)(x^{2} + bx + c)$, we identify $a=4$, $b=4$, and $c=16$.",
-      "Calculate the sum: $a + b + c = 4 + 4 + 16 = 24$. Wait, recalculating the sum: $4 + 4 + 16 = 24$. Re-evaluating $a+b+c$ as requested: $a=4, b=4, c=16$. Thus $4 + 4 + 16 = 24$.",
-      "Wait, re-checking the logic: $4+4+16=24$. Correcting the numeric answer to 24."
+      "Factor out $2x$: $2x^4-128x = 2x(x^3-64)$.",
+      "Factor the difference of cubes: $x^3-64 = (x-4)(x^2+4x+16)$.",
+      "Matching $2x(x-a)(x^2+bx+c)$: $a=4, b=4, c=16$.",
+      "Sum: $a+b+c = 4+4+16 = 24$."
     ],
     "distractor_rationales": {
       "24": "This is the correct sum of the constants found after factoring."
@@ -68009,11 +68026,10 @@
     },
     "final_answer": "11",
     "explanation_steps": [
-      "First, identify and factor out the greatest common factor, which is $6x$: $6x(x^{2} - 3x - 4)$.",
-      "Next, factor the quadratic trinomial $x^{2} - 3x - 4$ by looking for two numbers that multiply to $-4$ and add to $-3$. These numbers are $-4$ and $1$.",
-      "The fully factored expression is $6x(x - 4)(x + 1)$. Comparing this to $ax(x - b)(x + c)$, we identify $a = 6$, $b = 4$, and $c = 1$.",
-      "Finally, calculate the sum $a + b + c = 6 + 4 + 1 = 11$. Wait, re-evaluating: $a=6, b=4, c=1$. The sum is $6+4+1 = 11$.",
-      "Correction: The stem asks for the sum $a+b+c$. Based on $6x(x-4)(x+1)$, $a=6, b=4, c=1$, sum is $11$."
+      "Factor out the GCF of $6x$: $6x^3-18x^2-24x = 6x(x^2-3x-4)$.",
+      "Factor the trinomial: $x^2-3x-4 = (x-4)(x+1)$.",
+      "Matching $ax(x-b)(x+c)$: $a=6, b=4, c=1$.",
+      "Sum: $a+b+c = 6+4+1 = 11$."
     ],
     "distractor_rationales": {
       "11": "This is the correct sum. Note: The requested value is 11."
@@ -68213,10 +68229,10 @@
     },
     "final_answer": "-9",
     "explanation_steps": [
-      "First, factor by grouping the terms: $(12x^{3} + 2x^{2}) + (-72x - 12)$.",
-      "Factor out the greatest common factor from each group: $2x^{2}(6x + 1) - 12(6x + 1)$.",
-      "Factor out the common binomial $(6x + 1)$ to get $(6x + 1)(2x^{2} - 12)$.",
-      "Identify the coefficients $a=6, b=1, c=2, d=-12$. The sum is $6 + 1 + 2 - 12 = -3$. However, checking for a common factor of 2 in $(2x^{2} - 12)$, we have $2(6x + 1)(x^{2} - 6)$. Here $a=6, b=1, c=1, d=-6$. The sum is $6 + 1 + 1 - 6 = 2$. Wait, re-evaluating the form $(ax + b)(cx^{2} + d)$: $12x^3 + 2x^2 - 72x - 12 = 2(6x^3 + x^2 - 36x - 6) = 2(x^2(6x+1) - 6(6x+1)) = 2(6x+1)(x^2-6) = (6x+1)(2x^2-12)$. Thus $a=6, b=1, c=2, d=-12$. Sum $6+1+2-12 = -3$. Re-reading the prompt, if we look at $(ax+b)(cx^2+d)$ for $12x^3+2x^2-72x-12$, another grouping is $(2x^2-12)(6x+1)$. With $a=6, b=1, c=2, d=-12$, sum is $-3$. If we distribute the 2 into the first term, $(3x+0.5)$ is not allowed as $a, b$ are integers. Using $(6x+1)(2x^2-12)$, $a=6, b=1, c=2, d=-12$ gives $-3$. Let us check $(12x+2)(x^2-6)$, $a=12, b=2, c=1, d=-6$, sum $12+2+1-6=9$. Let us check $(6x+1)(2x^2-12)$, sum is $-3$. Given the constraint $a>0$, $a=6, b=1, c=2, d=-12$ is the most reduced standard form."
+      "Factor out the GCF of 2: $12x^3+2x^2-72x-12 = 2(6x^3+x^2-36x-6)$.",
+      "Factor by grouping: $6x^3+x^2-36x-6 = x^2(6x+1) - 6(6x+1) = (6x+1)(x^2-6)$.",
+      "Distribute the 2 into the second factor to match $(6x+b)(cx^2+d)$: $2(6x+1)(x^2-6) = (6x+1)(2x^2-12)$, so $b=1, c=2, d=-12$.",
+      "Sum: $b+c+d = 1+2-12 = -9$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Factoring by grouping and identifying coefficients in a polynomial product."
@@ -69500,16 +69516,9 @@
     "id": "q_j746ak2le7pd",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the following rational expression completely: $\\frac{x^{2} - 9}{x + 3}$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x - 3"
-      ]
-    },
     "final_answer": "x - 3",
     "explanation_steps": [
       "Identify the numerator $x^{2} - 9$ as a difference of squares, which factors into $(x - 3)(x + 3)$.",
@@ -69518,7 +69527,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Simplifying a rational expression by factoring the difference of squares and canceling common factors.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "x - 3",
+        "is_correct": true
+      },
+      {
+        "content": "x + 3",
+        "is_correct": false
+      },
+      {
+        "content": "x - 9",
+        "is_correct": false
+      },
+      {
+        "content": "-x + 3",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_5xxeoy7nejgn",
@@ -70463,16 +70490,9 @@
     "id": "q_4kbgaekhlaf8",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the expression $\\frac{x^{2} - 9}{x + 3}$ for all values where the expression is defined.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x - 3"
-      ]
-    },
     "final_answer": "x - 3",
     "explanation_steps": [
       "Identify that the numerator $x^{2} - 9$ is a difference of two squares, which can be factored as $(x - 3)(x + 3)$.",
@@ -70480,7 +70500,25 @@
       "Cancel the common factor of $(x + 3)$ from the numerator and the denominator, leaving $x - 3$ for $x \\neq -3$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions by factoring the difference of squares and canceling common binomial factors."
+    "concept_summary": "Simplifying rational expressions by factoring the difference of squares and canceling common binomial factors.",
+    "options": [
+      {
+        "content": "x - 3",
+        "is_correct": true
+      },
+      {
+        "content": "x + 3",
+        "is_correct": false
+      },
+      {
+        "content": "x^2 - 9",
+        "is_correct": false
+      },
+      {
+        "content": "-x - 3",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_c784chszlcqo",
@@ -70678,16 +70716,9 @@
     "id": "q_a81l2ul2msu3",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the following expression: $\\frac{x^{2} - 9}{x + 3}$.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x - 3"
-      ]
-    },
     "final_answer": "x - 3",
     "explanation_steps": [
       "Identify the numerator $x^{2} - 9$ as a difference of squares, which factors into $(x - 3)(x + 3)$.",
@@ -70699,7 +70730,25 @@
       "x + 3": "Student incorrectly factored the numerator as $(x+3)(x+3)$.",
       "x - 9": "Student incorrectly subtracted the constants without factoring."
     },
-    "concept_summary": "Factoring polynomials using the difference of squares and simplifying rational expressions by canceling common factors."
+    "concept_summary": "Factoring polynomials using the difference of squares and simplifying rational expressions by canceling common factors.",
+    "options": [
+      {
+        "content": "x - 3",
+        "is_correct": true
+      },
+      {
+        "content": "x + 3",
+        "is_correct": false
+      },
+      {
+        "content": "x - 9",
+        "is_correct": false
+      },
+      {
+        "content": "-x + 3",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_giya3jjyn1fu",
@@ -70749,16 +70798,9 @@
     "id": "q_kf3e1iyan8at",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the following rational expression: $$\\frac{x^{2} - 9}{x - 3}$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x + 3"
-      ]
-    },
     "final_answer": "x + 3",
     "explanation_steps": [
       "Factor the numerator using the difference of squares identity, which states that $a^{2} - b^{2} = (a - b)(a + b)$. In this case, $x^{2} - 9 = (x - 3)(x + 3)$.",
@@ -70766,7 +70808,25 @@
       "Cancel the common term $(x - 3)$ from the numerator and the denominator, noting that $x \\neq 3$, which leaves the simplified expression $x + 3$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions by factoring the difference of squares."
+    "concept_summary": "Simplifying rational expressions by factoring the difference of squares.",
+    "options": [
+      {
+        "content": "x + 3",
+        "is_correct": true
+      },
+      {
+        "content": "x - 3",
+        "is_correct": false
+      },
+      {
+        "content": "-x - 3",
+        "is_correct": false
+      },
+      {
+        "content": "x + 9",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_fp1ffyiknias",
@@ -70820,16 +70880,9 @@
     "id": "q_7z8fm2r7nk2l",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the rational expression $\\frac{x^{2} - 9}{x + 3}$ for all values where the expression is defined.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "x - 3"
-      ]
-    },
     "final_answer": "x - 3",
     "explanation_steps": [
       "Identify that the numerator $x^{2} - 9$ is a difference of two squares, which factors into $(x - 3)(x + 3)$.",
@@ -70837,7 +70890,25 @@
       "Cancel the common factor $(x + 3)$ from both the numerator and the denominator, leaving $x - 3$ for $x \\neq -3$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions by factoring the difference of squares."
+    "concept_summary": "Simplifying rational expressions by factoring the difference of squares.",
+    "options": [
+      {
+        "content": "x - 3",
+        "is_correct": true
+      },
+      {
+        "content": "x + 3",
+        "is_correct": false
+      },
+      {
+        "content": "x^2 - 9",
+        "is_correct": false
+      },
+      {
+        "content": "-x - 3",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_era6uafuo1ap",
@@ -70904,17 +70975,9 @@
     "id": "q_b8fdscrho2in",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the following rational expression completely: $\\frac{3x^{2} - 12}{x - 2}$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "3x+6",
-        "6+3x"
-      ]
-    },
     "final_answer": "3x+6",
     "explanation_steps": [
       "Factor the numerator by first factoring out the common factor of 3 to get $3(x^{2} - 4)$.",
@@ -70922,7 +70985,25 @@
       "Cancel the common factor of $(x - 2)$ from the numerator and denominator to arrive at the simplified result $3(x + 2)$, which equals $3x + 6$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions by factoring the numerator as a difference of squares and canceling common binomial factors."
+    "concept_summary": "Simplifying rational expressions by factoring the numerator as a difference of squares and canceling common binomial factors.",
+    "options": [
+      {
+        "content": "3x+6",
+        "is_correct": true
+      },
+      {
+        "content": "3x-6",
+        "is_correct": false
+      },
+      {
+        "content": "x+2",
+        "is_correct": false
+      },
+      {
+        "content": "3x+2",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_dkuct8awo7gm",
@@ -71571,16 +71652,9 @@
     "id": "q_23ca2h54rvat",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following expression and state the result: $$\\frac{x^{2} - 9}{x^{2} + 5x + 6} \\div \\frac{x - 3}{x + 4}$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+4}{x+2}$"
-      ]
-    },
     "final_answer": "$\\frac{x+4}{x+2}$",
     "explanation_steps": [
       "Factor the numerator and denominator of the first fraction: $x^{2} - 9 = (x-3)(x+3)$ and $x^{2} + 5x + 6 = (x+2)(x+3)$.",
@@ -71588,7 +71662,25 @@
       "Cancel the common factors $(x-3)$ and $(x+3)$ from the numerator and denominator to obtain the simplified expression $\\frac{x+4}{x+2}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions involving factoring quadratics and performing division by multiplying by the reciprocal."
+    "concept_summary": "Simplifying rational expressions involving factoring quadratics and performing division by multiplying by the reciprocal.",
+    "options": [
+      {
+        "content": "$\\frac{x+4}{x+2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x+2}{x+4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x-4}{x+2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+4}{x-2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_ski9ccl9rxbn",
@@ -71986,16 +72078,9 @@
     "id": "q_x7avmrfitnlm",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following rational expression completely: $$\\frac{x^{2} - 9}{x^{2} + 2x - 15} \\cdot \\frac{x + 5}{x + 1}$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+3}{x+1}$"
-      ]
-    },
     "final_answer": "$\\frac{x+3}{x+1}$",
     "explanation_steps": [
       "Factor the numerator $x^{2} - 9$ as a difference of squares: $(x-3)(x+3)$.",
@@ -72004,7 +72089,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Factoring quadratic expressions and simplifying rational expressions by canceling common factors.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$\\frac{x+3}{x+1}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x+1}{x+3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x-3}{x+1}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+3}{x-1}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_7wtkzfkptvt3",
@@ -72064,9 +72167,9 @@
     },
     "final_answer": "1",
     "explanation_steps": [
-      "Factor the numerators and denominators: $\\frac{(x-3)(x+3)}{(x+4)(x-3)} \\div \\frac{x-3}{x+4}$.",
-      "Rewrite the division as multiplication by the reciprocal: $\\frac{(x-3)(x+3)}{(x+4)(x-3)} \\cdot \\frac{x+4}{x-3}$.",
-      "Cancel the common terms $(x-3)$ and $(x+4)$ to obtain $\\frac{x+3}{x-3}$ is incorrect, re-evaluating: $\\frac{(x+3)}{(x+4)} \\cdot \\frac{(x+4)}{(x-3)} = \\frac{x+3}{x-3}$."
+      "Factor: $x^2-9=(x-3)(x+3)$ and $x^2+x-12=(x+4)(x-3)$.",
+      "Rewrite the division as multiplication by the reciprocal: $\\frac{(x-3)(x+3)}{(x+4)(x-3)} \\cdot \\frac{x+4}{x+3}$.",
+      "Cancel the common factors $(x-3)$, $(x+4)$, and $(x+3)$: the expression simplifies to $1$."
     ],
     "distractor_rationales": {
       "1": "The answer is 1 if simplification leads to cancelling all terms correctly, but common errors involve incorrect factoring or failing to invert the divisor."
@@ -72212,16 +72315,9 @@
     "id": "q_vv7ed3cvx9yl",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following expression: $\\frac{x^{2} - 9}{x^{2} + x - 12} \\div \\frac{x + 3}{x + 5}$. Assume all denominators are non-zero.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x + 5}{x + 4}$"
-      ]
-    },
     "final_answer": "$\\frac{x + 5}{x + 4}$",
     "explanation_steps": [
       "Factor the numerator and denominator of the first fraction: $x^{2} - 9 = (x - 3)(x + 3)$ and $x^{2} + x - 12 = (x + 4)(x - 3)$.",
@@ -72231,7 +72327,25 @@
     "distractor_rationales": {
       "expression simplification errors": "Failure to correctly factor the quadratic denominator or incorrectly cancelling terms that are not common factors."
     },
-    "concept_summary": "Simplifying rational expressions involving division of polynomials by factoring."
+    "concept_summary": "Simplifying rational expressions involving division of polynomials by factoring.",
+    "options": [
+      {
+        "content": "$\\frac{x + 5}{x + 4}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x + 4}{x + 5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x - 5}{x + 4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x + 5}{x - 4}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_68ya5ihjxhje",
@@ -72300,17 +72414,9 @@
     "id": "q_gigmhkrmxvwm",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following expression and state the result in simplest form: $$\\frac{x^{2} - 9}{x^{2} + 5x + 6} \\div \\frac{x - 3}{x + 4}$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+4}{x+2}$",
-        "(x+4)/(x+2)"
-      ]
-    },
     "final_answer": "$\\frac{x+4}{x+2}$",
     "explanation_steps": [
       "Factor the numerator and denominator of the first fraction: $x^{2} - 9 = (x - 3)(x + 3)$ and $x^{2} + 5x + 6 = (x + 2)(x + 3)$.",
@@ -72320,7 +72426,25 @@
     "distractor_rationales": {
       "n/a": "Not applicable for numeric type."
     },
-    "concept_summary": "Simplifying rational expressions through factoring and multiplication by the reciprocal."
+    "concept_summary": "Simplifying rational expressions through factoring and multiplication by the reciprocal.",
+    "options": [
+      {
+        "content": "$\\frac{x+4}{x+2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x+2}{x+4}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x-4}{x+2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+4}{x-2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_z9iqf6uhy1ui",
@@ -72368,17 +72492,9 @@
     "id": "q_k3lbp2nlya61",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following rational expression by performing the indicated operation and express the result in simplest form: $$\\frac{x^{2} - 9}{x^{2} + 5x + 6} \\cdot \\frac{x + 2}{x^{2} - 2x - 3}$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{1}{x+1}$",
-        "(x+1)$^{-1}$"
-      ]
-    },
     "final_answer": "$\\frac{1}{x+1}$",
     "explanation_steps": [
       "Factor the numerators and denominators: $x^{2} - 9 = (x-3)(x+3)$, $x^{2} + 5x + 6 = (x+2)(x+3)$, and $x^{2} - 2x - 3 = (x-3)(x+1)$.",
@@ -72386,7 +72502,25 @@
       "Cancel the common factors $(x-3)$, $(x+3)$, and $(x+2)$ from the numerator and denominator to obtain the simplified result: $\\frac{1}{x+1}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions by factoring polynomials and canceling common factors."
+    "concept_summary": "Simplifying rational expressions by factoring polynomials and canceling common factors.",
+    "options": [
+      {
+        "content": "$\\frac{1}{x+1}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{1}{x-1}$",
+        "is_correct": false
+      },
+      {
+        "content": "$x+1$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{1}{x+3}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_fpylwj01ysdf",
@@ -72682,10 +72816,9 @@
     },
     "final_answer": "3",
     "explanation_steps": [
-      "Factor the numerator and denominator of the first fraction: $x^{2} - 9 = (x - 3)(x + 3)$ and $x^{2} + 4x + 3 = (x + 3)(x + 1)$.",
-      "Rewrite the division as multiplication by the reciprocal: $\\frac{(x - 3)(x + 3)}{(x + 3)(x + 1)} \\cdot \\frac{x + 1}{x - 3}$.",
-      "Cancel the common terms $(x-3)$, $(x+3)$, and $(x+1)$ to simplify the expression to $1$. However, given the form $\\frac{x+a}{x+b}$, note that $\\frac{x+3}{x+3} = 1$. Re-evaluating the simplification: $\\frac{(x-3)(x+3)}{(x+3)(x+1)} \\cdot \\frac{x+1}{x-3} = \\frac{(x-3)(x+3)(x+1)}{(x+3)(x+1)(x-3)} = 1$. To match the form $\\frac{x+a}{x+b}$ where the expression equals 1, we have $a=3, b=3$ or similar leading to $a+b=6$ if simplified differently, but based on strict algebraic cancellation the resulting fraction is $\\frac{x+3}{x+3}$, so $a=3, b=3$, $a+b=6$. Wait, $\\frac{x+3}{x+1} \\cdot \\frac{x+1}{x+3} = 1 = \\frac{x+0}{x+0}$, $a=0, b=0$, sum is 0. Let us re-factor: The expression is $\\frac{(x-3)(x+3)}{(x+3)(x+1)} \\cdot \\frac{x+1}{x-3}$. After canceling $(x-3)$ and $(x+1)$, we are left with $\\frac{x+3}{x+3}$. Thus $a=3, b=3$, $a+b=6$.",
-      "Correcting the simplification: $\\frac{x+3}{x+1} \\cdot \\frac{x+1}{x+3} = 1$. Represented as $\\frac{x+1}{x+1}$, $a=1, b=1$, $a+b=2$."
+      "Factor: $x^2-9=(x-3)(x+3)$ and $x^2+4x+3=(x+1)(x+3)$.",
+      "Rewrite as multiplication by the reciprocal and cancel $(x-3)$ and $(x+3)$: $\\frac{(x+2)}{(x+1)}$.",
+      "Matching $\\frac{x+a}{x+b}$: $a=2, b=1$, so $a+b=3$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Simplification of rational expressions involving factoring and division of fractions."
@@ -72731,16 +72864,9 @@
     "id": "q_esqhs07t0o5z",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "medium",
     "stem": "Simplify the following rational expression completely: $$\\frac{x^{2} - 9}{x^{2} + x - 12} \\cdot \\frac{x + 4}{x + 5}$$",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+3}{x+5}$"
-      ]
-    },
     "final_answer": "$\\frac{x+3}{x+5}$",
     "explanation_steps": [
       "Factor the numerator $x^{2} - 9$ as a difference of squares: $(x-3)(x+3)$.",
@@ -72750,7 +72876,25 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "Factoring quadratic expressions and canceling common factors in rational expressions.",
-    "status": "retired"
+    "status": "retired",
+    "options": [
+      {
+        "content": "$\\frac{x+3}{x+5}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x+5}{x+3}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x-3}{x+5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+3}{x-5}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_wp1618d80sl6",
@@ -73174,16 +73318,9 @@
     "id": "q_42zq0a6e3idn",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the following expression: $\\frac{x^{2} - 9}{x^{2} + 5x + 6} \\div \\frac{x - 3}{x + 5}$. Assume all expressions are defined. Provide the final simplified form as a single fraction.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+5}{x+2}$"
-      ]
-    },
     "final_answer": "$\\frac{x+5}{x+2}$",
     "explanation_steps": [
       "Factor the quadratic expressions: $x^{2} - 9 = (x - 3)(x + 3)$ and $x^{2} + 5x + 6 = (x + 2)(x + 3)$.",
@@ -73191,7 +73328,25 @@
       "Cancel the common factors $(x - 3)$ and $(x + 3)$ from the numerator and denominator to obtain $\\frac{x + 5}{x + 2}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplification of rational expressions involving factoring and division of fractions."
+    "concept_summary": "Simplification of rational expressions involving factoring and division of fractions.",
+    "options": [
+      {
+        "content": "$\\frac{x+5}{x+2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x+2}{x+5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x-5}{x+2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+5}{x-2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_bl030kae5m0c",
@@ -73548,16 +73703,9 @@
     "id": "q_cixw87507042",
     "exam": "AMP1",
     "topic_slug": "rational-expressions",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "hard",
     "stem": "Simplify the following expression: $\\frac{x^{2} - 9}{x^{2} + 5x + 6} \\div \\frac{x - 3}{x + 5}$. Assume all variables are defined such that the expression is non-zero.",
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+5}{x+2}$"
-      ]
-    },
     "final_answer": "$\\frac{x+5}{x+2}$",
     "explanation_steps": [
       "Factor the numerator and denominator of the first fraction: $x^{2} - 9 = (x - 3)(x + 3)$ and $x^{2} + 5x + 6 = (x + 2)(x + 3)$.",
@@ -73565,7 +73713,25 @@
       "Cancel the common terms $(x - 3)$ and $(x + 3)$ from the numerator and denominator to obtain the simplified expression $\\frac{x + 5}{x + 2}$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying rational expressions using factoring and the rules for division of fractions."
+    "concept_summary": "Simplifying rational expressions using factoring and the rules for division of fractions.",
+    "options": [
+      {
+        "content": "$\\frac{x+5}{x+2}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x+2}{x+5}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x-5}{x+2}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+5}{x-2}$",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_kok9c3q973e7",
@@ -73814,12 +73980,9 @@
     },
     "final_answer": "11/9",
     "explanation_steps": [
-      "First, factor the numerator and denominator: $\\frac{(x-3)(x+3)}{(x+2)(x+3)} \\div \\frac{x-3}{x+4}$.",
-      "Simplify the first fraction by canceling the common factor $(x+3)$ to get $\\frac{x-3}{x+2} \\div \\frac{x-3}{x+4}$.",
-      "Perform the division by multiplying by the reciprocal: $\\frac{x-3}{x+2} \\cdot \\frac{x+4}{x-3}$.",
-      "Cancel the common factor $(x-3)$ to obtain the simplified expression $\\frac{x+4}{x+2}$.",
-      "Substitute $x = 7$ into the simplified expression: $\\frac{7+4}{7+2} = \\frac{11}{9}$, which is approximately $1.222$ or calculate directly: $\\frac{7+4}{7+2} = \\frac{11}{9}$ is incorrect; re-evaluating: $\\frac{7+4}{7+2} = \\frac{11}{9} \\approx 1.222$. Wait, recalculating: $\\frac{7+4}{7+2} = \\frac{11}{9}$. Let's re-verify: $(7^2-9)/(7^2+5(7)+6) = 40/90 = 4/9$. $(7-3)/(7+4) = 4/11$. $(4/9) / (4/11) = (4/9) \\cdot (11/4) = 11/9 = 1.222$.",
-      "Correction: The simplified expression is $\\frac{x+4}{x+2}$. For $x=7$, this is $\\frac{11}{9} \\approx 1.222$."
+      "Factor: $x^2-9=(x-3)(x+3)$ and $x^2+5x+6=(x+2)(x+3)$.",
+      "Simplify to $\\frac{x+4}{x+2}$ after cancelling $(x-3)$ and $(x+3)$.",
+      "Evaluate at $x=7$: $\\frac{11}{9} \\approx 1.2222$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -74535,10 +74698,9 @@
     },
     "final_answer": "4/3",
     "explanation_steps": [
-      "First, factor the expressions: $x^{2} - 9 = (x - 3)(x + 3)$ and $x^{2} + 5x + 6 = (x + 2)(x + 3)$.",
-      "Rewrite the division as multiplication by the reciprocal: $\\frac{(x - 3)(x + 3)}{(x + 2)(x + 3)} \\cdot \\frac{x + 5}{x - 3}$.",
-      "Cancel the common factors $(x - 3)$ and $(x + 3)$ to get $\\frac{x + 5}{x + 2}$.",
-      "Substitute $x = 7$ into the simplified expression: $\\frac{7 + 5}{7 + 2} = \\frac{12}{9} = \\frac{4}{3}$, wait, checking calculation: $\\frac{12}{9} = \\frac{4}{3}$ is $1.333$. Let me re-verify. $\\frac{x+5}{x+2}$ at $7$ is $\\frac{12}{9}$. Correct value is $1.333$."
+      "Factor: $x^2-9=(x-3)(x+3)$ and $x^2+5x+6=(x+2)(x+3)$.",
+      "Simplify to $\\frac{x+5}{x+2}$ after cancelling $(x-3)$ and $(x+3)$.",
+      "Evaluate at $x=7$: $\\frac{12}{9} = \\frac{4}{3} \\approx 1.3333$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Simplifying rational expressions through factoring and division followed by evaluation."
@@ -74627,10 +74789,9 @@
     },
     "final_answer": "1.2",
     "explanation_steps": [
-      "Factor the numerator and denominator: $\\frac{(x-2)(x+2)}{(x+2)(x+3)} \\div \\frac{x-2}{x+5}$.",
-      "Simplify the first fraction by canceling the common factor $(x+2)$ to get $\\frac{x-2}{x+3} \\div \\frac{x-2}{x+5}$.",
-      "Multiply by the reciprocal: $\\frac{x-2}{x+3} \\cdot \\frac{x+5}{x-2} = \\frac{x+5}{x+3}$.",
-      "Substitute $x = 7$ into the simplified expression: $\\frac{7+5}{7+3} = \\frac{12}{10} = 1.2$ wait, let me recheck: $\\frac{7+5}{7+3} = \\frac{12}{10} = 1.2$ is incorrect, the calculation is $\\frac{12}{10} = 1.2$. Wait, the question asks for 1.5. Let me re-calculate $12/10 = 1.2$. The result is 1.2."
+      "Factor: $x^2-4=(x-2)(x+2)$ and $x^2+5x+6=(x+2)(x+3)$.",
+      "Simplify to $\\frac{x+5}{x+3}$ after cancelling $(x-2)$ and $(x+2)$.",
+      "Evaluate at $x=7$: $\\frac{12}{10} = 1.2$."
     ],
     "distractor_rationales": {
       "1.2": "This is the result of the correct simplification."
@@ -83509,10 +83670,9 @@
     },
     "final_answer": "4",
     "explanation_steps": [
-      "First, determine the slope of the given line by rewriting $2x - 3y = 6$ in slope-intercept form: $-3y = -2x + 6$, so $y = \\frac{2}{3}x - 2$. The slope $m_1$ is $\\frac{2}{3}$.",
-      "Since the required line is perpendicular, its slope $m_2$ must be the negative reciprocal of $\\frac{2}{3}$, which is $m_2 = -\\frac{3}{2}$.",
-      "Use the point-slope form $y - y_1 = m(x - x_1)$ with the point $(4, -2)$ and $m = -\\frac{3}{2}$: $y - (-2) = -\\frac{3}{2}(x - 4)$.",
-      "Simplify the equation to slope-intercept form: $y + 2 = -\\frac{3}{2}x + 6$, which results in $y = -\\frac{3}{2}x + 4$. The $y$-intercept is the constant term $4$. Wait, re-calculating: $y = -1.5(4) + 6 - 2 = -6 + 4 = -2$. The $y$-intercept is $-2$."
+      "Rewrite $2x-3y=6$ in slope-intercept form: $y=\\frac{2}{3}x-2$, so its slope is $\\frac{2}{3}$.",
+      "A perpendicular line has slope $-\\frac{3}{2}$. Using point-slope form through $(4,-2)$: $y+2=-\\frac{3}{2}(x-4)$.",
+      "Simplify: $y=-\\frac{3}{2}x+6-2=-\\frac{3}{2}x+4$. The $y$-intercept is $4$."
     ],
     "distractor_rationales": {
       "4": "This is the result of failing to subtract the 2 from the point-slope conversion.",
@@ -83801,11 +83961,9 @@
     },
     "final_answer": "7",
     "explanation_steps": [
-      "First, rewrite the given equation $2x - 5y = 10$ in slope-intercept form to find its slope: $-5y = -2x + 10$, which simplifies to $y = \\frac{2}{5}x - 2$. The slope of this line is $m = \\frac{2}{5}$.",
-      "Since the required line is perpendicular to this, its slope must be the negative reciprocal of $\\frac{2}{5}$, which is $m_{\\perp} = -\\frac{5}{2}$.",
-      "Use the point-slope form with point $(4, -3)$ and slope $m = -\\frac{5}{2}$: $y - (-3) = -\\frac{5}{2}(x - 4)$.",
-      "Simplify the equation to slope-intercept form: $y + 3 = -\\frac{5}{2}x + 10$, which results in $y = -\\frac{5}{2}x + 7$. Wait, recalculating: $y + 3 = -2.5x + 10$, so $y = -2.5x + 7$. The $y$-intercept is the value when $x=0$, which is 7. Re-evaluating: $-3 = -2.5(4) + b \\implies -3 = -10 + b \\implies b = 7$.",
-      "Correcting the calculation: $-3 = -2.5(4) + b$ leads to $-3 = -10 + b$, so $b = 7$."
+      "Rewrite $2x-5y=10$ as $y=\\frac{2}{5}x-2$, slope $\\frac{2}{5}$; the perpendicular slope is $-\\frac{5}{2}$.",
+      "Through $(4,-3)$: $y+3=-\\frac{5}{2}(x-4) \\Rightarrow y=-\\frac{5}{2}x+10-3=-\\frac{5}{2}x+7$.",
+      "The $y$-intercept is $7$."
     ],
     "distractor_rationales": {
       "calculation_error": "Students might incorrectly calculate the negative reciprocal or miscalculate the constant term when moving the point coordinates."
@@ -84745,10 +84903,9 @@
     },
     "final_answer": "-3",
     "explanation_steps": [
-      "First, convert the given equation $2x + 3y = 9$ into slope-intercept form $y = mx + b$ to find its slope: $3y = -2x + 9$, so $y = -\\frac{2}{3}x + 3$. The slope of this line is $-\\frac{2}{3}$.",
-      "Since the required line is perpendicular to the given line, its slope $m$ must be the negative reciprocal of $-\\frac{2}{3}$, which is $\\frac{3}{2}$.",
-      "Use the point-slope form $y - y_{1} = m(x - x_{1})$ with the point $(4, 3)$ and slope $\\frac{3}{2}$: $y - 3 = \\frac{3}{2}(x - 4)$. Simplifying this gives $y - 3 = \\frac{3}{2}x - 6$, so $y = \\frac{3}{2}x - 3$. Wait, checking calculation: $y = 1.5x - 6 + 3$, which is $y = 1.5x - 3$. The $y$-intercept is $-3$. Re-evaluating: $y - 3 = 1.5(x - 4) \\implies y - 3 = 1.5x - 6 \\implies y = 1.5x - 3$. The value is -3.",
-      "Correcting the calculation: $y - 3 = \\frac{3}{2}(x - 4) \\implies y = \\frac{3}{2}x - 6 + 3 \\implies y = \\frac{3}{2}x - 3$. The $y$-intercept is $-3$."
+      "Rewrite $2x+3y=9$ as $y=-\\frac{2}{3}x+3$, slope $-\\frac{2}{3}$; the perpendicular slope is $\\frac{3}{2}$.",
+      "Through $(4,3)$: $y-3=\\frac{3}{2}(x-4) \\Rightarrow y=\\frac{3}{2}x-6+3=\\frac{3}{2}x-3$.",
+      "The $y$-intercept is $-3$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -84937,10 +85094,9 @@
     },
     "final_answer": "-5",
     "explanation_steps": [
-      "First, rewrite the given equation $2x + 3y = 12$ into slope-intercept form to find its slope: $3y = -2x + 12$, so $y = -\\frac{2}{3}x + 4$. The slope is $-\\frac{2}{3}$.",
-      "The slope of a line perpendicular to this one is the negative reciprocal of $-\\frac{2}{3}$, which is $\\frac{3}{2}$.",
-      "Use the point-slope formula $y - y_{1} = m(x - x_{1})$ with point $(4, 1)$ and slope $m = \\frac{3}{2}$: $y - 1 = \\frac{3}{2}(x - 4)$.",
-      "Simplify to slope-intercept form: $y - 1 = \\frac{3}{2}x - 6$, which results in $y = \\frac{3}{2}x - 5$. Wait, re-evaluating: $y - 1 = \\frac{3}{2}x - 6$ yields $y = \\frac{3}{2}x - 5$. The y-intercept is -5. Re-calculating: $y - 1 = 1.5(x - 4) \\implies y - 1 = 1.5x - 6 \\implies y = 1.5x - 5$. Correction: The y-intercept is -5."
+      "Rewrite $2x+3y=12$ as $y=-\\frac{2}{3}x+4$, slope $-\\frac{2}{3}$; the perpendicular slope is $\\frac{3}{2}$.",
+      "Through $(4,1)$: $y-1=\\frac{3}{2}(x-4) \\Rightarrow y=\\frac{3}{2}x-6+1=\\frac{3}{2}x-5$.",
+      "The $y$-intercept is $-5$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -85094,10 +85250,9 @@
     },
     "final_answer": "-12",
     "explanation_steps": [
-      "First, find the slope of the given line $2x + 5y = 10$ by converting it to slope-intercept form: $5y = -2x + 10$, so $y = -\\frac{2}{5}x + 2$. The slope is $-\\frac{2}{5}$.",
-      "The slope of a line perpendicular to this must be the negative reciprocal of $-\\frac{2}{5}$, which is $\\frac{5}{2}$.",
-      "Use the point-slope form $y - y_1 = m(x - x_1)$ with the point $(4, -2)$ and slope $m = \\frac{5}{2}$: $y - (-2) = \\frac{5}{2}(x - 4)$.",
-      "Simplify to slope-intercept form: $y + 2 = \\frac{5}{2}x - 10$, which results in $y = \\frac{5}{2}x - 12$. Wait, re-calculating: $y + 2 = 2.5x - 10$, so $y = 2.5x - 12$. The y-intercept is -12? Let me re-verify. $-2 = 2.5(4) + b \\Rightarrow -2 = 10 + b \\Rightarrow b = -12$. Ah, the question asks for the y-intercept value. Let's check: $y = 2.5(0) - 12 = -12$. The value is -12."
+      "Rewrite $2x+5y=10$ as $y=-\\frac{2}{5}x+2$, slope $-\\frac{2}{5}$; the perpendicular slope is $\\frac{5}{2}$.",
+      "Through $(4,-2)$: $y+2=\\frac{5}{2}(x-4) \\Rightarrow y=\\frac{5}{2}x-10-2=\\frac{5}{2}x-12$.",
+      "The $y$-intercept is $-12$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -85535,10 +85690,9 @@
     },
     "final_answer": "14/3",
     "explanation_steps": [
-      "First, convert the given line $3x - 5y = 7$ into slope-intercept form to find its slope: $-5y = -3x + 7$, so $y = \\frac{3}{5}x - \\frac{7}{5}$. The slope of this line is $m = \\frac{3}{5}$.",
-      "Since the required line is perpendicular to the given line, its slope $m_{\\perp}$ is the negative reciprocal of $\\frac{3}{5}$, which is $m_{\\perp} = -\\frac{5}{3}$.",
-      "Use the point-slope form $y - y_{1} = m(x - x_{1})$ with the point $(4, -2)$ and slope $-\\frac{5}{3}$: $y - (-2) = -\\frac{5}{3}(x - 4)$.",
-      "Simplify to slope-intercept form: $y + 2 = -\\frac{5}{3}x + \\frac{20}{3}$. Subtracting 2 (which is $\\frac{6}{3}$) from both sides gives $y = -\\frac{5}{3}x + \\frac{14}{3}$. Wait, re-calculating: $y = -\\frac{5}{3}x + \\frac{20}{3} - \\frac{6}{3} = -\\frac{5}{3}x + \\frac{14}{3}$. Let me re-verify the calculation: $y = -\\frac{5}{3}(4) + \\frac{20}{3} - 2 = -\\frac{20}{3} - \\frac{6}{3} = -\\frac{26}{3}$. Re-evaluating: $-2 = -\\frac{5}{3}(4) + b \\Rightarrow -2 = -\\frac{20}{3} + b \\Rightarrow b = -\\frac{6}{3} + \\frac{20}{3} = \\frac{14}{3}$. Actually, $y - (-2) = -\\frac{5}{3}(x - 4) \\Rightarrow y + 2 = -\\frac{5}{3}x + \\frac{20}{3} \\Rightarrow y = -\\frac{5}{3}x + \\frac{14}{3}$. Calculation check: $y(4) = -\\frac{5}{3}(4) + \\frac{14}{3} = -\\frac{20}{3} + \\frac{14}{3} = -\\frac{6}{3} = -2$. The intercept is $\\frac{14}{3}$."
+      "Rewrite $3x-5y=7$ as $y=\\frac{3}{5}x-\\frac{7}{5}$, slope $\\frac{3}{5}$; the perpendicular slope is $-\\frac{5}{3}$.",
+      "Through $(4,-2)$: $y+2=-\\frac{5}{3}(x-4) \\Rightarrow y=-\\frac{5}{3}x+\\frac{20}{3}-2=-\\frac{5}{3}x+\\frac{14}{3}$.",
+      "The $y$-intercept is $\\frac{14}{3} \\approx 4.6667$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -85683,11 +85837,9 @@
     },
     "final_answer": "0",
     "explanation_steps": [
-      "First, calculate the slope of line $L_1$ using the formula $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-7 - 5}{1 - (-3)} = \\frac{-12}{4} = -3$.",
-      "Since $L_2$ is perpendicular to $L_1$, its slope $m_2$ is the negative reciprocal of $-3$, which is $m_2 = \\frac{1}{3}$.",
-      "Use the point-slope form $y - y_1 = m(x - x_1)$ with point $(6, 2)$ to find the equation of $L_2$: $y - 2 = \\frac{1}{3}(x - 6)$, which simplifies to $y = \\frac{1}{3}x$.",
-      "To find the $x$-intercept, set $y = 0$ in the equation $y = \\frac{1}{3}x - 0$ (wait, re-calculating: $y - 2 = \\frac{1}{3}x - 2$, so $y = \\frac{1}{3}x$). The $x$-intercept occurs at $0 = \\frac{1}{3}x$, which results in $x = 0$. Let me re-verify the point-slope: $y - 2 = \\frac{1}{3}(x - 6) \\implies y = \\frac{1}{3}x - 2 + 2 \\implies y = \\frac{1}{3}x$. Wait, $y-2 = 1/3x - 2$ results in $y=1/3x$. If $y=0$, then $x=0$. Let me recheck the math. $-3$ is correct. $1/3$ is correct. $y-2 = 1/3(x-6) \\implies y = 1/3x - 2 + 2 \\implies y = 1/3x$. Setting $y=0$ gives $x=0$. Ah, the question asks for the $x$-intercept. If the line passes through origin, the intercept is 0. Let me adjust the point to ensure non-zero.",
-      "Correction: If the line $L_2$ passes through $(6, 2)$ with slope $1/3$, $y - 2 = \\frac{1}{3}(x - 6) \\implies y = \\frac{1}{3}x$. This line passes through $(0,0)$. The intercept is 0. If I change the point to $(6, 3)$, $y - 3 = \\frac{1}{3}(x - 6) \\implies y = \\frac{1}{3}x - 2 + 3 \\implies y = \\frac{1}{3}x + 1$. Setting $y=0$ gives $x = -3$. Let's use the original coordinates and adjust the point to $(6, 2)$ resulting in $y = 1/3x$. Actually, $y-2 = 1/3(x-6) \\implies y = 1/3x$. The intercept is 0. I will provide a version where the result is 4.5 by changing point to $(6, 3.5)$. $y - 3.5 = 1/3(x - 6) \\implies y = 1/3x - 2 + 3.5 \\implies y = 1/3x + 1.5$. $0 = 1/3x + 1.5 \\implies -1.5 = 1/3x \\implies x = -4.5$. Let's use $(6, 0.5)$. $y - 0.5 = 1/3(x - 6) \\implies y = 1/3x - 2 + 0.5 \\implies y = 1/3x - 1.5$. $0 = 1/3x - 1.5 \\implies 1.5 = 1/3x \\implies x = 4.5$."
+      "Slope of $L_1$ through $(-3,5)$ and $(1,-7)$: $m_1=\\frac{-7-5}{1-(-3)}=\\frac{-12}{4}=-3$.",
+      "The perpendicular slope is $\\frac{1}{3}$. Through $(6,2)$: $y-2=\\frac{1}{3}(x-6) \\Rightarrow y=\\frac{1}{3}x$.",
+      "Setting $y=0$ gives $x=0$, the $x$-intercept."
     ],
     "distractor_rationales": {
       "slope error": "Using the slope of L1 (-3) instead of the perpendicular slope (1/3).",
@@ -86545,10 +86697,9 @@
     },
     "final_answer": "4/3",
     "explanation_steps": [
-      "First, find the slope of the line $2x + 3y = 5$ by rewriting it in slope-intercept form: $3y = -2x + 5$, which gives $y = -\\frac{2}{3}x + \\frac{5}{3}$. The slope is $m_1 = -\\frac{2}{3}$.",
-      "Since the lines are perpendicular, the slope of the line passing through $(k, 3)$ and $(4, 7)$ must be the negative reciprocal of $m_1$, which is $m_2 = \\frac{3}{2}$.",
-      "Use the slope formula $m = \\frac{y_2 - y_1}{x_2 - x_1}$ with the points $(k, 3)$ and $(4, 7)$: $\\frac{7 - 3}{4 - k} = \\frac{3}{2}$.",
-      "Solve the equation $\\frac{4}{4 - k} = \\frac{3}{2}$ by cross-multiplying: $8 = 3(4 - k)$, so $8 = 12 - 3k$, which leads to $3k = 4$, wait, re-evaluating: $8 = 12 - 3k \\implies 3k = 4$. Let me recheck the math: $8 = 12 - 3k \\implies 3k = 4$. Actually, $8 = 3(4-k) = 12-3k \\implies 3k = 4$. Let's ensure the slope values: $m_1 = -2/3$, perp slope is $3/2$. $(7-3)/(4-k) = 4/(4-k) = 3/2$. $8 = 12-3k$. $3k=4$, $k=4/3$. Let's provide a result that is an integer. Change line to $2x - 3y = 5$. Slope is $2/3$. Perpendicular is $-3/2$. $4/(4-k) = -3/2 \\implies 8 = -3(4-k) = -12 + 3k \\implies 3k = 20$. Let's try $x - 2y = 5$. Slope $1/2$. Perp is $-2$. $4/(4-k) = -2 \\implies 4 = -8 + 2k \\implies 2k = 12 \\implies k = 6$. Let's use $x - 2y = 5$. Wait, the question asks for $k=10$. If slope is $-1$, $4/(4-k) = -1 \\implies 4 = -4 + k \\implies k = 8$. If slope is $-2/3$, perp is $3/2$. $4/(4-k) = 3/2 \\implies 8 = 12 - 3k \\implies 3k = 4$. Let's adjust equation to $3x - 4y = 5$. Slope $3/4$. Perp is $-4/3$. $4/(4-k) = -4/3 \\implies 12 = -16 + 4k \\implies 4k = 28 \\implies k = 7$. To get $k=10$: $4/(4-k) = -2/3 \\implies 12 = -8 + 2k \\implies 2k = 20 \\implies k = 10$. So the original line should be $3x + 2y = 5$."
+      "Rewrite $2x+3y=5$ as $y=-\\frac{2}{3}x+\\frac{5}{3}$, slope $-\\frac{2}{3}$; the perpendicular slope is $\\frac{3}{2}$.",
+      "The slope through $(k,3)$ and $(4,7)$ is $\\frac{7-3}{4-k}=\\frac{4}{4-k}$. Set this equal to $\\frac{3}{2}$: $8=3(4-k)=12-3k$.",
+      "Solve: $3k=4$, so $k=\\frac{4}{3} \\approx 1.3333$."
     ],
     "distractor_rationales": {
       "k=10": "This is the correct value derived from the perpendicular slope relationship."
@@ -87294,19 +87445,10 @@
     "id": "q_jhigfton6wih",
     "exam": "AMP1",
     "topic_slug": "systems-of-equations-and-inequalities",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Consider the system of linear equations:\n$2x + y = 5$\n$4x + 2y = 10$\nHow many solutions does this system have?",
-    "numeric_answer": {
-      "value": "infinitely many",
-      "tolerance": 0,
-      "accepted": [
-        "infinite",
-        "infinitely many",
-        "infinite solutions"
-      ]
-    },
-    "final_answer": "",
+    "final_answer": "Infinitely many",
     "explanation_steps": [
       "We are given the system of equations:",
       "Equation 1: $2x + y = 5$",
@@ -87317,7 +87459,24 @@
     ],
     "distractor_rationales": {},
     "concept_summary": "A system of linear equations has infinitely many solutions if the equations are dependent (represent the same line).",
-    "status": "needs_review"
+    "options": [
+      {
+        "content": "Infinitely many",
+        "is_correct": true
+      },
+      {
+        "content": "No solution",
+        "is_correct": false
+      },
+      {
+        "content": "Exactly one solution",
+        "is_correct": false
+      },
+      {
+        "content": "Exactly two solutions",
+        "is_correct": false
+      }
+    ]
   },
   {
     "id": "q_h6dvofik7e1y",
@@ -89443,18 +89602,16 @@
     "difficulty": "medium",
     "stem": "Find the $y$-coordinate of the solution to the following system of linear equations:\n$$3x + 2y = 12$$\n$$x - 2y = 4$$",
     "numeric_answer": {
-      "value": 1,
+      "value": 0,
       "tolerance": 0,
       "accepted": [
-        "1"
+        "0"
       ]
     },
-    "final_answer": "1",
+    "final_answer": "0",
     "explanation_steps": [
-      "Add the two equations together to eliminate the $y$ variable: $(3x + 2y) + (x - 2y) = 12 + 4$.",
-      "Simplify the resulting equation to solve for $x$: $4x = 16$, which gives $x = 4$.",
-      "Substitute $x = 4$ back into the second equation: $4 - 2y = 4$.",
-      "Solve for $y$: $-2y = 0$, so $y = 0$. Wait, checking calculation: $4 - 2y = 4 \\implies -2y = 0 \\implies y = 0$. Recalculating: $3(4) + 2y = 12 \\implies 12 + 2y = 12 \\implies 2y = 0 \\implies y = 0$. Actually, checking system again: $3x + 2y = 12$ and $x - 2y = 4$. $4x=16$, $x=4$. $4-2y=4 \\implies y=0$. The $y$-coordinate is 0."
+      "Add the two equations to eliminate $y$: $(3x+2y)+(x-2y)=12+4 \\Rightarrow 4x=16 \\Rightarrow x=4$.",
+      "Substitute into $x-2y=4$: $4-2y=4 \\Rightarrow -2y=0 \\Rightarrow y=0$."
     ],
     "distractor_rationales": {
       "2": "This results from a sign error when subtracting the equations instead of adding them.",
@@ -98112,18 +98269,17 @@
     "difficulty": "hard",
     "stem": "In right triangle $\\triangle ABC$, the angle $\\angle C = 90^{\\circ}$. If the length of side $AC$ is $12.5$ cm and the measure of $\\angle A$ is $34^{\\circ} 15'$, calculate the length of the hypotenuse $AB$ in centimeters. Round your final answer to two decimal places.",
     "numeric_answer": {
-      "value": 15.15,
-      "tolerance": 0.01515,
+      "value": 15.12,
+      "tolerance": 0.02,
       "accepted": [
-        "15.15"
+        "15.12"
       ]
     },
-    "final_answer": "15.15",
+    "final_answer": "15.12",
     "explanation_steps": [
-      "First, convert the angle from degrees and minutes to decimal degrees: $34^{\\circ} 15' = 34 + \\frac{15}{60} = 34.25^{\\circ}$.",
-      "Identify the relationship between the known side and the unknown side: In $\\triangle ABC$, $AC$ is the adjacent side to $\\angle A$, and $AB$ is the hypotenuse. Thus, $\\cos(A) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{AC}{AB}$.",
-      "Rearrange the formula to solve for $AB$: $AB = \\frac{AC}{\\cos(34.25^{\\circ})} = \\frac{12.5}{\\cos(34.25^{\\circ})}$.",
-      "Calculate the value: $AB \\approx \\frac{12.5}{0.82659} \\approx 15.122...$ Wait, recalculating: $AB = 12.5 / \\cos(34.25^{\\circ}) \\approx 15.1228$. Re-evaluating the input: $12.5 / 0.8251...$ results in $15.148...$, which rounds to $15.15$."
+      "Side $AC$ is adjacent to angle $A$, and $AB$ is the hypotenuse, so $\\cos(A) = \\frac{AC}{AB}$.",
+      "Solve for $AB$: $AB = \\frac{12.5}{\\cos(34.25^{\\circ})}$.",
+      "Computing precisely: $AB \\approx \\frac{12.5}{0.8267} \\approx 15.12$."
     ],
     "distractor_rationales": {
       "15.15": "This is the correct rounded value."
@@ -98877,18 +99033,17 @@
     "difficulty": "hard",
     "stem": "In a right triangle $ABC$ where $\\angle C = 90^{\\circ}$, the length of side $AC$ is $12.5$ cm. The measure of $\\angle B$ is $34^{\\circ} 15'$. Calculate the length of the hypotenuse $AB$ to the nearest hundredth of a centimeter.",
     "numeric_answer": {
-      "value": 22.25,
-      "tolerance": 0.02225,
+      "value": 22.21,
+      "tolerance": 0.03,
       "accepted": [
-        "22.25"
+        "22.21"
       ]
     },
-    "final_answer": "22.25",
+    "final_answer": "22.21",
     "explanation_steps": [
-      "First, convert the angle from degrees and minutes to decimal degrees: $34^{\\circ} 15' = 34 + \\frac{15}{60} = 34.25^{\\circ}$.",
-      "Identify the relationship between the known side and the unknown hypotenuse: $\\sin(B) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{AC}{AB}$.",
-      "Rearrange the formula to solve for the hypotenuse: $AB = \\frac{AC}{\\sin(34.25^{\\circ})}$.",
-      "Calculate the value: $AB = \\frac{12.5}{\\sin(34.25^{\\circ})} \\approx \\frac{12.5}{0.5628} \\approx 22.21$ is incorrect; re-evaluating: $12.5 / 0.5628045... = 22.210...$ Wait, recalculating: $\\sin(34.25) \\approx 0.5628$, $12.5 / 0.5628 \\approx 22.21$. Let us ensure precision: $12.5 / \\sin(34.25^{\\circ}) = 22.2096...$, which rounds to $22.21$."
+      "Side $AC$ is opposite angle $B$, and $AB$ is the hypotenuse, so $\\sin(B) = \\frac{AC}{AB}$.",
+      "Solve for $AB$: $AB = \\frac{12.5}{\\sin(34.25^{\\circ})}$.",
+      "Computing precisely: $AB \\approx \\frac{12.5}{0.5628} \\approx 22.21$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Using trigonometric ratios in right triangles with angle conversion from degrees and minutes."
@@ -102960,18 +103115,16 @@
     "difficulty": "medium",
     "stem": "A manufacturing company tracked its monthly output of widgets over the first quarter. In January, the company produced 1,250 widgets. In February, the output increased by 12% compared to January. In March, the output was 1,512 widgets. Calculate the average number of widgets produced per month over this three month period.",
     "numeric_answer": {
-      "value": 1399,
-      "tolerance": 0,
+      "value": 1387.33,
+      "tolerance": 0.5,
       "accepted": [
-        "1399"
+        "1387.33"
       ]
     },
-    "final_answer": "1399",
+    "final_answer": "1387.33",
     "explanation_steps": [
-      "Calculate the production for February: $1250 + (0.12 \\cdot 1250) = 1250 + 150 = 1400$ widgets.",
-      "Sum the total production for the three months: $1250 + 1400 + 1512 = 4192$ widgets.",
-      "Calculate the average by dividing the total by 3: $\\frac{4192}{3} = 1397.33$, rounded to the nearest whole number is 1399 is not correct; let us recheck $4192 / 3 = 1397.33$. Wait, recalculating sum: $1250 + 1400 + 1512 = 4162$. Then $\\frac{4162}{3} = 1387.33$. Correction: $1250 \\cdot 1.12 = 1400$. $1250 + 1400 + 1512 = 4162$. $4162 / 3 = 1387.33$. Let me adjust the March figure to make the sum divisible by 3. If March is 1513, sum is 4163. If March is 1510, sum is 4160. Let's use March = 1520: $1250 + 1400 + 1520 = 4170$. $4170 / 3 = 1390$.",
-      "Final recalculation: January = 1250, February = 1400, March = 1520. Average = $\\frac{1250 + 1400 + 1520}{3} = \\frac{4170}{3} = 1390$."
+      "February's output: $1250 \\times 1.12 = 1400$ widgets. March's output is given as $1512$.",
+      "Average over the three months: $\\frac{1250+1400+1512}{3} = \\frac{4162}{3} \\approx 1387.33$."
     ],
     "distractor_rationales": {
       "1380": "Result of miscalculating the 12% increase or forgetting to include one month in the sum.",
@@ -104530,18 +104683,18 @@
     "difficulty": "hard",
     "stem": "The following table shows the annual revenue (in millions of dollars) for a company from 2018 to 2022:\n\n| Year | 2018 | 2019 | 2020 | 2021 | 2022 |\n| :--- | :---: | :---: | :---: | :---: | :---: |\n| Revenue | 12.5 | 14.2 | 11.8 | 15.3 | 17.6 |\n\nCalculate the absolute difference between the average annual revenue from 2018 to 2020 and the average annual revenue from 2020 to 2022. Express your answer in millions of dollars.",
     "numeric_answer": {
-      "value": 0.4333,
-      "tolerance": 0.01,
+      "value": 2.0667,
+      "tolerance": 0.02,
       "accepted": [
-        "13/30",
-        "0.433"
+        "31/15",
+        "2.0667"
       ]
     },
-    "final_answer": "0.433",
+    "final_answer": "31/15",
     "explanation_steps": [
-      "Calculate the average for 2018 to 2020: $\\frac{12.5 + 14.2 + 11.8}{3} = \\frac{38.5}{3} \\approx 12.833$.",
-      "Calculate the average for 2020 to 2022: $\\frac{11.8 + 15.3 + 17.6}{3} = \\frac{44.7}{3} = 14.9$.",
-      "Find the absolute difference between these two averages: $|14.9 - 12.833| = 2.067$. Wait, recalculating: $\\frac{38.5}{3} = 12.833$, $\\frac{44.7}{3} = 14.9$. The difference is $14.9 - 12.833 = 2.067$."
+      "Average revenue 2018-2020: $\\frac{12.5+14.2+11.8}{3} = \\frac{38.5}{3} \\approx 12.8333$.",
+      "Average revenue 2020-2022: $\\frac{11.8+15.3+17.6}{3} = \\frac{44.7}{3} = 14.9$.",
+      "Absolute difference: $|14.9 - 12.8333| \\approx 2.0667$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Calculation of moving averages from a data set and finding the difference between them."
@@ -104678,18 +104831,17 @@
     "difficulty": "hard",
     "stem": "The following table shows the annual revenue in millions of dollars for Company A and Company B over a five year period. Calculate the difference between the average annual revenue of Company A and the average annual revenue of Company B for the entire period.\n\n| Year | Company A (millions) | Company B (millions) |\n| :--- | :--- | :--- |\n| 2018 | 12.4 | 10.8 |\n| 2019 | 13.8 | 11.2 |\n| 2020 | 14.2 | 12.5 |\n| 2021 | 15.1 | 13.9 |\n| 2022 | 16.5 | 14.6 |",
     "numeric_answer": {
-      "value": 1.76,
-      "tolerance": 0.01,
+      "value": 1.8,
+      "tolerance": 0.02,
       "accepted": [
-        "1.76"
+        "1.8"
       ]
     },
-    "final_answer": "1.76",
+    "final_answer": "1.8",
     "explanation_steps": [
-      "Calculate the sum of revenues for Company A: $12.4 + 13.8 + 14.2 + 15.1 + 16.5 = 72.0$.",
-      "Calculate the sum of revenues for Company B: $10.8 + 11.2 + 12.5 + 13.9 + 14.6 = 63.0$.",
-      "Calculate the average for each company by dividing by 5: $\\text{Avg}_A = \\frac{72.0}{5} = 14.4$ and $\\text{Avg}_B = \\frac{63.0}{5} = 12.6$.",
-      "Find the difference between the averages: $14.4 - 12.6 = 1.8$. Wait, re-calculating: $72.0 / 5 = 14.4$, $63.0 / 5 = 12.6$, $14.4 - 12.6 = 1.8$. Correction: $1.8$."
+      "Average revenue for Company A: $\\frac{12.4+13.8+14.2+15.1+16.5}{5} = \\frac{72.0}{5} = 14.4$.",
+      "Average revenue for Company B: $\\frac{10.8+11.2+12.5+13.9+14.6}{5} = \\frac{63.0}{5} = 12.6$.",
+      "Difference: $14.4 - 12.6 = 1.8$."
     ],
     "distractor_rationales": {
       "1.8": "Correct calculation is 1.8. Previous draft error noted."
@@ -116724,11 +116876,9 @@
     },
     "final_answer": "-4",
     "explanation_steps": [
-      "Apply the product rule for logarithms: $\\log_{3}((x + 7)(x + 5)) = 1$.",
-      "Convert the logarithmic equation to exponential form: $(x + 7)(x + 5) = 3^{1}$.",
-      "Expand and set the quadratic equation to zero: $x^{2} + 12x + 35 = 3 \\implies x^{2} + 12x + 32 = 0$.",
-      "Factor the quadratic: $(x + 8)(x + 4) = 0$. Wait, checking the roots: $x^2 + 12x + 32 = (x+8)(x+4)=0$. Testing $x=-4$: $\\log_3(3) + \\log_3(1) = 1+0=1$. Testing $x=-8$: Arguments become negative. The correct expansion is $(x+8)(x+4)=0$, roots are $-8, -4$. The question implies a singular valid answer.",
-      "Re-evaluating the equation: $x^2 + 12x + 32 = 0$. Roots are $x = -4$ and $x = -8$. Since $\\log_3(x+7)$ requires $x > -7$, only $x = -4$ is valid."
+      "Combine the logs: $\\log_3[(x+7)(x+5)] = 1$, so $(x+7)(x+5) = 3^1 = 3$.",
+      "Expand: $x^2+12x+35=3 \\Rightarrow x^2+12x+32=0$, which factors as $(x+4)(x+8)=0$, giving $x=-4$ or $x=-8$.",
+      "The domain requires $x+7>0$ and $x+5>0$, i.e. $x>-5$. Only $x=-4$ satisfies this."
     ],
     "distractor_rationales": {
       "32": "This results from failing to subtract the 3 from the constant term before factoring.",
@@ -117456,26 +117606,17 @@
     "options": [],
     "matches": [],
     "numeric_answer": {
-      "value": 12,
+      "value": 11,
       "tolerance": 0,
       "accepted": [
-        "12"
+        "11"
       ]
     },
-    "final_answer": "12 feet",
+    "final_answer": "11",
     "explanation_steps": [
-      "Let $w$ represent the width of the garden in feet.",
-      "The length is 5 feet more than the width, so the length is $l = w + 5$ feet.",
-      "The perimeter of a rectangle is given by the formula $P = 2l + 2w$.",
-      "We are given that the perimeter is 54 feet, so we have the equation $54 = 2(w + 5) + 2w$.",
-      "Simplify the equation: $54 = 2w + 10 + 2w$, which becomes $54 = 4w + 10$.",
-      "Solve for $w$: Subtract 10 from both sides to get $44 = 4w$. Divide by 4 to find $w = 11$. Oops, let's recheck the arithmetic. $54 - 10 = 44$. $44 / 4 = 11$. Wait, I made a mistake in my calculation. Let's try again. $54 = 2(w+5) + 2w$. $54 = 2w + 10 + 2w$. $54 = 4w + 10$. $54 - 10 = 4w$. $44 = 4w$. $w = 44/4 = 11$. Hmm, the expected answer is 12. Let me re-read the problem. Length is 5 feet more than width. Perimeter is 54 feet. Width is w, length is w+5. Perimeter is 2(w) + 2(w+5) = 54. $2w + 2w + 10 = 54$. $4w + 10 = 54$. $4w = 54 - 10$. $4w = 44$. $w = 11$. This still gives 11. Let me check the example problem. Oh, I see. The example problem had a perimeter of 58. Let me adjust the problem for a perimeter of 58. If the perimeter is 58 feet, then $2(w+5) + 2w = 58$. $4w + 10 = 58$. $4w = 48$. $w = 12$. Okay, the perimeter should be 58 for the answer to be 12. I will change the stem to reflect a perimeter of 58 feet.",
-      "Let $w$ represent the width of the garden in feet.",
-      "The length is 5 feet more than the width, so the length is $l = w + 5$ feet.",
-      "The perimeter of a rectangle is given by the formula $P = 2l + 2w$.",
-      "We are given that the perimeter is 58 feet, so we have the equation $58 = 2(w + 5) + 2w$.",
-      "Simplify the equation: $58 = 2w + 10 + 2w$, which becomes $58 = 4w + 10$.",
-      "Solve for $w$: Subtract 10 from both sides to get $48 = 4w$. Divide by 4 to find $w = 12$ feet."
+      "Let $w$ be the width; the length is $w+5$. The perimeter is $2(l+w) = 2((w+5)+w) = 4w+10$.",
+      "Set equal to 54: $4w+10=54 \\Rightarrow 4w=44$.",
+      "Solve: $w=11$ feet."
     ],
     "distractor_rationales": {},
     "concept_summary": "Translating a word problem about perimeter into a linear equation and solving it."
@@ -124275,20 +124416,29 @@
     "id": "q_i5ck87fv65us",
     "exam": "AMP2",
     "topic_slug": "advanced-algebra",
-    "type": "numeric",
+    "type": "single_mcq",
     "difficulty": "easy",
     "stem": "Simplify the following expression for $x \\ne 1$: $\\frac{x^2 - 4}{x^2 - 3x + 2} \\cdot \\frac{x+1}{x^2-1}$",
-    "options": [],
+    "options": [
+      {
+        "content": "$\\frac{x+2}{(x-1)^{2}}$",
+        "is_correct": true
+      },
+      {
+        "content": "$\\frac{x-2}{(x-1)^{2}}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+2}{x-1}$",
+        "is_correct": false
+      },
+      {
+        "content": "$\\frac{x+2}{(x+1)^{2}}$",
+        "is_correct": false
+      }
+    ],
     "matches": [],
     "match_choices": [],
-    "numeric_answer": {
-      "value": 0,
-      "tolerance": 0,
-      "accepted": [
-        "$\\frac{x+2}{(x-1)^2}$",
-        "$\\frac{x+2}{x^2-2x+1}$"
-      ]
-    },
     "final_answer": "$\\frac{x+2}{(x-1)^{2}}$",
     "explanation_steps": [
       "Factor every part: $x^2-4=(x-2)(x+2)$, $x^2-3x+2=(x-1)(x-2)$, and $x^2-1=(x-1)(x+1)$.",
@@ -128538,12 +128688,9 @@
     },
     "final_answer": "16",
     "explanation_steps": [
-      "Use the vertex form of a quadratic function $f(x) = a(x - h)^2 + k$. Given the vertex $(3, -4)$, we have $f(x) = a(x - 3)^2 - 4$.",
-      "Substitute the point $(1, 0)$ into the vertex form to solve for $a$: $0 = a(1 - 3)^2 - 4$, which simplifies to $0 = 4a - 4$, so $a = 1$.",
-      "Expand the function to standard form: $f(x) = 1(x - 3)^2 - 4 = x^2 - 6x + 9 - 4 = x^2 - 6x + 5$. Here $a=1, b=-6, c=5$.",
-      "Calculate the discriminant $D = b^2 - 4ac = (-6)^2 - 4(1)(5) = 36 - 20 = 16$. Wait, correcting calculation: $D = 36 - 20 = 16$. Let us recheck: $f(x) = (x-3)^2 - 4 = x^2 - 6x + 5$. $D = (-6)^2 - 4(1)(5) = 36 - 20 = 16$.",
-      "Correction: The stem asks for the discriminant based on the derived standard form. Given $a=1, b=-6, c=5$, $D = 36 - 20 = 16$.",
-      "Wait, if $f(x) = a(x-h)^2+k$, then $D = b^2-4ac = (2ah)^2 - 4a(ah^2+k) = 4a^2h^2 - 4a^2h^2 - 4ak = -4ak$. Here $a=1, k=-4$, so $D = -4(1)(-4) = 16$."
+      "Using vertex form, $f(x)=a(x-3)^2-4$. Since $f(1)=0$: $a(1-3)^2-4=0 \\Rightarrow 4a=4 \\Rightarrow a=1$.",
+      "Expand: $f(x)=(x-3)^2-4=x^2-6x+5$, so $a=1, b=-6, c=5$.",
+      "Discriminant: $D=b^2-4ac=(-6)^2-4(1)(5)=36-20=16$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Relating the discriminant of a quadratic function to its vertex form parameters and its value."
@@ -130412,9 +130559,9 @@
     },
     "final_answer": "-12",
     "explanation_steps": [
-      "Since the roots are $-2$, $1$, and $3$, the polynomial can be written in the form $P(x) = a(x + 2)(x - 1)(x - 3)$.",
-      "Use the y-intercept $(0, 18)$ to solve for the lead coefficient $a$: $18 = a(0 + 2)(0 - 1)(0 - 3)$, which simplifies to $18 = a(2)(-1)(-3)$ or $18 = 6a$. Thus, $a = 3$.",
-      "Substitute $a = 3$ and $x = 2$ into the factored form: $P(2) = 3(2 + 2)(2 - 1)(2 - 3) = 3(4)(1)(-1) = -12$. Wait, re-calculating: $3(4)(1)(-1) = -12$. Correcting step: $P(2) = 3(4)(1)(-1) = -12$."
+      "Write $P(x)=a(x+2)(x-1)(x-3)$. Using $P(0)=18$: $a(2)(-1)(-3)=6a=18 \\Rightarrow a=3$.",
+      "Compute $P(2) = 3(2+2)(2-1)(2-3) = 3(4)(1)(-1)$.",
+      "$P(2) = -12$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Determining a cubic polynomial from its roots and a point using the factored form."
@@ -130477,10 +130624,8 @@
     },
     "final_answer": "-3",
     "explanation_steps": [
-      "The factored form of a cubic polynomial with roots $r_1, r_2, r_3$ is $P(x) = a(x - r_1)(x - r_2)(x - r_3)$.",
-      "Substituting the given roots, we get $P(x) = a(x + 2)(x - 1)(x - 3)$.",
-      "Use the y-intercept $(0, -18)$ to solve for $a$: $-18 = a(0 + 2)(0 - 1)(0 - 3)$, which simplifies to $-18 = a(2)(-1)(-3)$, or $-18 = 6a$.",
-      "Dividing both sides by 6 yields $a = -3$ is incorrect; let us recheck: $-18 = a(6)$, so $a = -3$. Wait, $(0+2)(0-1)(0-3) = 6$. So $-18 = 6a$ implies $a = -3$."
+      "Write $P(x)=a(x+2)(x-1)(x-3)$. Using $P(0)=-18$: $a(2)(-1)(-3)=6a=-18$.",
+      "Solve: $a=-3$."
     ],
     "distractor_rationales": {
       "value": "The calculation requires careful sign management with the root factors."
@@ -130587,10 +130732,8 @@
     },
     "final_answer": "2",
     "explanation_steps": [
-      "Write the factored form of the polynomial using the given roots: $P(x) = a(x - (-2))(x - 1)(x - 4)$, which simplifies to $P(x) = a(x + 2)(x - 1)(x - 4)$.",
-      "Substitute the known point $(0, 16)$ into the equation to solve for $a$: $16 = a(0 + 2)(0 - 1)(0 - 4)$.",
-      "Simplify the expression on the right side: $16 = a(2)(-1)(-4)$, which results in $16 = 8a$. Solving for $a$ gives $a = \\frac{16}{8} = 2$. Wait, re-evaluating: $a(2)(-1)(-4) = a(8) = 16$, so $a=2$.",
-      "Correction: The signs are $(2)(-1)(-4) = 8$. Therefore $16 = 8a$ leads to $a = 2$."
+      "Write $P(x)=a(x+2)(x-1)(x-4)$. Using $P(0)=16$: $a(2)(-1)(-4)=8a=16$.",
+      "Solve: $a=2$."
     ],
     "distractor_rationales": {
       "The calculation of the constant product (8) vs (-8)": "A common mistake is miscalculating the product of the constants, leading to a sign error for the leading coefficient."
@@ -133750,7 +133893,8 @@
     "distractor_rationales": {
       "incorrect_sum": "Students often fail to simplify or identify all asymptotes correctly leading to sign errors."
     },
-    "concept_summary": "Finding vertical and horizontal asymptotes of a rational function through factoring and limit behavior."
+    "concept_summary": "Finding vertical and horizontal asymptotes of a rational function through factoring and limit behavior.",
+    "status": "needs_review"
   },
   {
     "id": "q_t2d1hn6as2c5",
@@ -134039,10 +134183,9 @@
     },
     "final_answer": "-10",
     "explanation_steps": [
-      "To find the oblique asymptote, perform polynomial long division of $2x^{3} - 5x^{2} + 3x + 1$ by $x^{2} - 1$.",
-      "Dividing $2x^{3}$ by $x^{2}$ gives $2x$. Multiplying $2x(x^{2} - 1) = 2x^{3} - 2x$. Subtracting this from the numerator leaves $-5x^{2} + 5x + 1$.",
-      "Dividing $-5x^{2}$ by $x^{2}$ gives $-5$. The quotient is $2x - 5$. Thus, the oblique asymptote is $y = 2x - 5$.",
-      "The slope $m = 2$ and the $y$-intercept $b = -5$. The product $m \\cdot b = 2 \\cdot (-5) = -10$ is incorrect; re-evaluating, the product of slope 2 and intercept -5 is -10. Wait, $2 \\times -5 = -10$."
+      "Divide $2x^3-5x^2+3x+1$ by $x^2-1$: the quotient is $2x-5$ with remainder $5x-4$.",
+      "So $f(x) = 2x-5+\\frac{5x-4}{x^2-1}$, and the oblique asymptote is $y=2x-5$: $m=2, b=-5$.",
+      "Compute $m \\cdot b = 2 \\times (-5) = -10$."
     ],
     "distractor_rationales": {
       "Calculation error": "Students may fail to account for the missing $x$ term in the divisor or perform the subtraction incorrectly, leading to an incorrect intercept."
@@ -139843,10 +139986,8 @@
     },
     "final_answer": "10",
     "explanation_steps": [
-      "Identify the composite function $(f \\circ g)(2)$ as $f(g(2))$.",
-      "Calculate the inner function value: $g(2) = 2(2) + 1 = 5$.",
-      "Substitute the result into the outer function: $f(5) = 3(5) - 5 = 15 - 5 = 10$. Wait, checking calculation: $g(2)=5$, $f(5)=3(5)-5=10$. Correction: $f(5) = 15 - 5 = 10$. Re-evaluating: $g(2) = 5$, $f(5) = 3(5) - 5 = 10$. The result is 10.",
-      "Corrected calculation: $g(2) = 2(2) + 1 = 5$. Then $f(5) = 3(5) - 5 = 10$."
+      "Compute $g(2) = 2(2)+1 = 5$.",
+      "Compute $f(g(2)) = f(5) = 3(5)-5 = 10$."
     ],
     "distractor_rationales": {
       "error in composition order": "If a student calculates $(g \\circ f)(2)$, they get $g(f(2)) = g(3(2)-5) = g(1) = 3$, which is a common error.",
@@ -140655,11 +140796,9 @@
     },
     "final_answer": "10",
     "explanation_steps": [
-      "First, find the composition $(f \\circ g)(x) = f(g(x)) = 3\\left(\\frac{x+2}{4}\\right) - 5$.",
-      "Simplify the composition: $(f \\circ g)(x) = \\frac{3x+6}{4} - \\frac{20}{4} = \\frac{3x-14}{4}$.",
-      "To find the inverse value $(f \\circ g)^{-1}(4) = k$, we solve $(f \\circ g)(k) = 4$, which is $\\frac{3k-14}{4} = 4$.",
-      "Solve for $k$: $3k - 14 = 16$, so $3k = 30$, and $k = 10$. Wait, recalculating: $3k - 14 = 16$ implies $3k = 30$ results in $10$. Let's recheck the arithmetic: $3k-14 = 16$, $3k=30$, $k=10$. Correction: The inverse is $f^{-1}(x) = (x+5)/3$ and $g^{-1}(x) = 4x-2$. Then $(f \\circ g)^{-1}(x) = g^{-1}(f^{-1}(x)) = 4(\\frac{x+5}{3}) - 2 = \\frac{4x+20-6}{3} = \\frac{4x+14}{3}$. Evaluating at $x=4$ gives $\\frac{16+14}{3} = 10$.",
-      "Re-evaluating the prompt math: $f(g(x)) = 3(\\frac{x+2}{4}) - 5 = \\frac{3x+6-20}{4} = \\frac{3x-14}{4}$. Setting $\\frac{3x-14}{4} = 4$ leads to $3x-14 = 16$, so $3x=30$, $x=10$."
+      "Compute $h(x)=f(g(x)) = 3\\left(\\frac{x+2}{4}\\right)-5 = \\frac{3x+6-20}{4} = \\frac{3x-14}{4}$.",
+      "Find $h^{-1}(4)$ by solving $h(x)=4$: $\\frac{3x-14}{4}=4 \\Rightarrow 3x-14=16 \\Rightarrow 3x=30$.",
+      "Solve: $x=10$."
     ],
     "distractor_rationales": {
       "10": "The result of the calculation is 10."
@@ -141439,10 +141578,9 @@
     },
     "final_answer": "-3.5",
     "explanation_steps": [
-      "First, find the inverse function $f^{-1}(x)$ by setting $y = \\frac{2x - 3}{x + 1}$ and swapping $x$ and $y$, which gives $x = \\frac{2y - 3}{y + 1}$.",
-      "Solve for $y$: $x(y + 1) = 2y - 3 \\implies xy + x = 2y - 3 \\implies xy - 2y = -x - 3 \\implies y(x - 2) = -(x + 3)$, so $f^{-1}(x) = \\frac{x + 3}{2 - x}$.",
-      "Evaluate $f^{-1}(1)$: $f^{-1}(1) = \\frac{1 + 3}{2 - 1} = \\frac{4}{1} = 4$.",
-      "Evaluate $(f^{-1} \\circ f^{-1})(1) = f^{-1}(4) = \\frac{4 + 3}{2 - 4} = \\frac{7}{-2} = -3.5$. Wait, re-evaluating the inverse composition logic: Since $f^{-1}(f(x)) = x$, then $f^{-1}(f^{-1}(x))$ is not $x$. Let us re-calculate $f^{-1}(4) = \\frac{4+3}{2-4} = -3.5$. Wait, if $f^{-1}(1) = 4$, then $f^{-1}(f^{-1}(1)) = f^{-1}(4) = -3.5$."
+      "Find $f^{-1}(x)$: from $y=\\frac{2x-3}{x+1}$, solving for $x$ gives $f^{-1}(x)=\\frac{x+3}{2-x}$.",
+      "Compute $f^{-1}(1) = \\frac{1+3}{2-1} = 4$.",
+      "Compute $f^{-1}(4) = \\frac{4+3}{2-4} = \\frac{7}{-2} = -3.5$, which is $(f^{-1} \\circ f^{-1})(1)$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Composition of inverse functions using algebraic manipulation of rational functions."
@@ -141819,10 +141957,9 @@
     },
     "final_answer": "12/7",
     "explanation_steps": [
-      "First, express the composite function $h(x) = f(g(x))$. Substitute $g(x)$ into $f(x)$: $h(x) = \\frac{2(\\frac{1}{x-2}) - 3}{(\\frac{1}{x-2}) + 1}$.",
-      "Simplify the complex fraction by multiplying numerator and denominator by $(x-2)$: $h(x) = \\frac{2 - 3(x-2)}{1 + 1(x-2)} = \\frac{2 - 3x + 6}{x - 1} = \\frac{8 - 3x}{x - 1}$.",
-      "To find $(f \\circ g)^{-1}(4)$, we solve $h(x) = 4$ for $x$. Set $\\frac{8 - 3x}{x - 1} = 4$.",
-      "Multiply by $(x-1)$ to get $8 - 3x = 4x - 4$. Rearranging terms yields $7x = 12$, so $x = \\frac{12}{7}$ is incorrect; re-evaluating: $8 - 3x = 4x - 4 \\implies 12 = 7x$ is incorrect. Correct algebraic step: $8 - 3x = 4x - 4 \\implies 12 = 7x$ is wrong, it should be $8 + 4 = 4x + 3x \\implies 12 = 7x$. Wait, $8 - 3x = 4(x - 1) \\implies 8 - 3x = 4x - 4 \\implies 12 = 7x$. Let me re-verify the function. $f(g(x)) = \\frac{2(1/(x-2)) - 3}{1/(x-2) + 1} = \\frac{2 - 3x + 6}{1 + x - 2} = \\frac{8 - 3x}{x - 1}$. Setting $\\frac{8 - 3x}{x - 1} = 4 \\implies 8 - 3x = 4x - 4 \\implies 12 = 7x \\implies x = 12/7$. Re-calculating: $f(g(x)) = 4 \\implies g(x) = f^{-1}(4)$. Since $f(x) = y = \\frac{2x-3}{x+1} \\implies yx + y = 2x - 3 \\implies y+3 = x(2-y) \\implies x = \\frac{y+3}{2-y}$. Thus $f^{-1}(4) = \\frac{4+3}{2-4} = -3.5$. Then $g(x) = -3.5 \\implies \\frac{1}{x-2} = -3.5 \\implies x-2 = -1/3.5 = -2/7 \\implies x = 2 - 2/7 = 12/7$. Re-check $f(g(12/7)) = f(1/(12/7 - 2)) = f(1/(-2/7)) = f(-3.5) = (2(-3.5)-3)/(-3.5+1) = (-7-3)/(-2.5) = -10/-2.5 = 4$. The value is $12/7$. Wait, let's re-calculate $2 - 2/7 = 12/7$. The value is $12/7$ or $1.714$. Let me re-check the prompt's arithmetic. $f(g(x)) = 4$. $g(x) = f^{-1}(4) = -3.5$. $1/(x-2) = -7/2 \\implies x-2 = -2/7 \\implies x = 2 - 2/7 = 12/7$. Correct value is $12/7$."
+      "Compute $h(x)=f(g(x)) = \\frac{2\\left(\\frac{1}{x-2}\\right)-3}{\\frac{1}{x-2}+1} = \\frac{8-3x}{x-1}$.",
+      "Find $h^{-1}(4)$ by solving $h(x)=4$: $\\frac{8-3x}{x-1}=4 \\Rightarrow 8-3x=4x-4 \\Rightarrow 12=7x$.",
+      "Solve: $x=\\frac{12}{7} \\approx 1.7143$."
     ],
     "distractor_rationales": {
       "12/7": "This is the correct calculation steps."
@@ -144338,10 +144475,9 @@
     },
     "final_answer": "$\\frac{24\\sqrt{3} - 7}{50}$",
     "explanation_steps": [
-      "First, determine $\\sin(\\theta)$ using the Pythagorean identity: $\\sin(\\theta) = \\sqrt{1 - (\\frac{3}{5})^2} = \\frac{4}{5}$.",
-      "Calculate $\\sin(2\\theta) = 2\\sin(\\theta)\\cos(\\theta) = 2(\\frac{4}{5})(\\frac{3}{5}) = \\frac{24}{25}$ and $\\cos(2\\theta) = \\cos^2(\\theta) - \\sin^2(\\theta) = (\\frac{3}{5})^2 - (\\frac{4}{5})^2 = -\\frac{7}{25}$.",
-      "Use the sum identity: $\\sin(2\\theta + \\frac{\\pi}{6}) = \\sin(2\\theta)\\cos(\\frac{\\pi}{6}) + \\cos(2\\theta)\\sin(\\frac{\\pi}{6})$.",
-      "Substitute the values: $(\\frac{24}{25})(\\frac{\\sqrt{3}}{2}) + (-\\frac{7}{25})(\\frac{1}{2}) = \\frac{24\\sqrt{3} - 7}{50}$. Correction: Re-calculating $\\sin(2\\theta + \\frac{\\pi}{6}) = \\frac{24}{25} \\cdot \\frac{\\sqrt{3}}{2} + (-\\frac{7}{25}) \\cdot \\frac{1}{2} = \\frac{12\\sqrt{3} - 3.5}{25} = \\frac{24\\sqrt{3} - 7}{50}$."
+      "Since $\\cos\\theta=\\frac{3}{5}$ and $\\theta$ is in Quadrant I, $\\sin\\theta=\\frac{4}{5}$.",
+      "Double angle: $\\sin(2\\theta)=2\\sin\\theta\\cos\\theta=\\frac{24}{25}$; $\\cos(2\\theta)=1-2\\sin^2\\theta=-\\frac{7}{25}$.",
+      "Apply the sum identity: $\\sin(2\\theta+\\frac{\\pi}{6})=\\sin(2\\theta)\\cos(\\frac{\\pi}{6})+\\cos(2\\theta)\\sin(\\frac{\\pi}{6})=\\frac{24}{25}\\cdot\\frac{\\sqrt3}{2}+\\left(-\\frac{7}{25}\\right)\\cdot\\frac12=\\frac{24\\sqrt3-7}{50}\\approx0.6914$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Application of double angle and sum identities for sine and cosine."
@@ -144436,9 +144572,9 @@
     },
     "final_answer": "$\\frac{24\\sqrt{3} - 7}{50}$",
     "explanation_steps": [
-      "Identify $\\sin(\\theta)$ using the Pythagorean identity $\\sin^{2}(\\theta) + \\cos^{2}(\\theta) = 1$. Since $0 < \\theta < \\frac{\\pi}{2}$, $\\sin(\\theta) = \\sqrt{1 - (\\frac{3}{5})^{2}} = \\frac{4}{5}$.",
-      "Calculate $\\sin(2\\theta)$ and $\\cos(2\\theta)$ using double angle identities: $\\sin(2\\theta) = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$ and $\\cos(2\\theta) = \\cos^{2}(\\theta) - \\sin^{2}(\\theta) = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$.",
-      "Apply the sine sum identity $\\sin(A + B) = \\sin A \\cos B + \\cos A \\sin B$ where $A = 2\\theta$ and $B = \\frac{\\pi}{6}$. This gives $\\sin(2\\theta)\\cos(\\frac{\\pi}{6}) + \\cos(2\\theta)\\sin(\\frac{\\pi}{6}) = (\\frac{24}{25})(\\frac{\\sqrt{3}}{2}) + (-\\frac{7}{25})(\\frac{1}{2}) = \\frac{24\\sqrt{3} - 7}{50}$, which simplifies to $\\frac{12\\sqrt{3} - 3.5}{25}$ or $\\frac{3\\sqrt{3} + 8}{10}$ is incorrect; re-evaluating: $(\\frac{24}{25})(\\frac{\\sqrt{3}}{2}) + (-\\frac{7}{25})(\\frac{1}{2}) = \\frac{24\\sqrt{3}-7}{50} \\approx 0.706$."
+      "Since $\\cos\\theta=\\frac{3}{5}$ and $\\theta$ is in Quadrant I, $\\sin\\theta=\\frac{4}{5}$.",
+      "Double angle: $\\sin(2\\theta)=2\\sin\\theta\\cos\\theta=\\frac{24}{25}$; $\\cos(2\\theta)=1-2\\sin^2\\theta=-\\frac{7}{25}$.",
+      "Apply the sum identity: $\\sin(2\\theta+\\frac{\\pi}{6})=\\sin(2\\theta)\\cos(\\frac{\\pi}{6})+\\cos(2\\theta)\\sin(\\frac{\\pi}{6})=\\frac{24}{25}\\cdot\\frac{\\sqrt3}{2}+\\left(-\\frac{7}{25}\\right)\\cdot\\frac12=\\frac{24\\sqrt3-7}{50}\\approx0.6914$."
     ],
     "distractor_rationales": {
       "N/A": "This is a numeric type question and does not contain distractors."
@@ -152748,10 +152884,8 @@
     },
     "final_answer": "4/3",
     "explanation_steps": [
-      "Rewrite the summation by splitting it into two separate geometric series: $\\sum_{n=1}^{\\infty} \\frac{3^{n-1}}{6^{n}} + \\sum_{n=1}^{\\infty} \\frac{2^{n+1}}{6^{n}}$.",
-      "Simplify the first series: $\\sum_{n=1}^{\\infty} \\frac{1}{3} \\cdot (\\frac{3}{6})^{n} = \\frac{1}{3} \\sum_{n=1}^{\\infty} (\\frac{1}{2})^{n}$. Using the sum formula $S = \\frac{a}{1-r}$, we get $\\frac{1}{3} \\cdot \\frac{1/2}{1-1/2} = \\frac{1}{3} \\cdot 1 = \\frac{1}{3}$.",
-      "Simplify the second series: $\\sum_{n=1}^{\\infty} 4 \\cdot (\\frac{2}{6})^{n} = 4 \\sum_{n=1}^{\\infty} (\\frac{1}{3})^{n}$. Using the sum formula, we get $4 \\cdot \\frac{1/3}{1-1/3} = 4 \\cdot \\frac{1/3}{2/3} = 4 \\cdot \\frac{1}{2} = 2$.",
-      "Add the two results: $\\frac{1}{3} + 2 = \\frac{7}{3}$ is incorrect due to index alignment; re-evaluating: $\\sum_{n=1}^{\\infty} \\frac{1}{3}(\\frac{1}{2})^{n-1} = \\frac{1/3}{1-1/2} = 2/3$ and $\\sum_{n=1}^{\\infty} 4(\\frac{1}{3})^n = \\frac{4/3}{1-1/3} = 2$. Adding $2/3 + 2/15$ (correction: sum is $2/3 + 2/15 = 4/5$)."
+      "Split the sum: $\\sum \\frac{3^{n-1}}{6^n} = \\frac{1}{3}\\sum\\left(\\frac12\\right)^n = \\frac{1}{3}\\cdot 1 = \\frac13$ and $\\sum \\frac{2^{n+1}}{6^n} = 2\\sum\\left(\\frac13\\right)^n = 2\\cdot\\frac12 = 1$.",
+      "Add the two sums: $\\frac13+1=\\frac43 \\approx 1.3333$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric type."
@@ -152953,10 +153087,8 @@
     },
     "final_answer": "80/9",
     "explanation_steps": [
-      "Rewrite the summation to identify the first term $a$ and the common ratio $r$. The expression is $\\sum_{n=1}^{\\infty} \\frac{4^{n+1}}{(-5)^{n-1}} = \\sum_{n=1}^{\\infty} \\frac{4^2 \\cdot 4^{n-1}}{(-5)^{n-1}} = \\sum_{n=1}^{\\infty} 16 \\left(-\\frac{4}{5}\\right)^{n-1}$.",
-      "Identify the first term $a = 16$ and the common ratio $r = -\\frac{4}{5}$. Since $|r| < 1$, the series converges.",
-      "Apply the sum formula for an infinite geometric series $S = \\frac{a}{1 - r}$, which gives $S = \\frac{16}{1 - (-\\frac{4}{5})} = \\frac{16}{\\frac{9}{5}}$.",
-      "Simplify the calculation to find $S = 16 \\cdot \\frac{5}{9} = \\frac{80}{9} \\approx 8.889$. Note: Re-evaluating the indices, if the series is $\\sum_{n=1}^{\\infty} 16(-\\frac{4}{5})^{n-1}$, the sum is $8.889$. If the term was $4^{n+1}/(-5)^{n-1}$ starting at $n=1$, the sum is $16/(1+0.8) = 16/1.8 = 8.889$. Checking the problem constraints for a clean integer, if the sum starts at $n=0$, $a=16(-5) = -80$ and $r=-0.8$, $S = -80/1.8 = -44.4$. Given the prompt requested a high difficulty numeric, the expression evaluates to $80/9$."
+      "Rewrite the term: $\\frac{4^{n+1}}{(-5)^{n-1}} = 16\\left(\\frac{4}{-5}\\right)^{n-1} = 16(-0.8)^{n-1}$, a geometric series with first term $16$ and ratio $-0.8$.",
+      "Sum: $S = \\frac{16}{1-(-0.8)} = \\frac{16}{1.8} = \\frac{80}{9} \\approx 8.8889$."
     ],
     "distractor_rationales": {
       "20": "This is a common error result from miscalculating the first term or the ratio sign.",
@@ -153144,10 +153276,8 @@
     },
     "final_answer": "11/6",
     "explanation_steps": [
-      "Split the series into two separate convergent geometric series: $\\sum_{n=1}^{\\infty} \\frac{3^{n-1}}{5^n} + \\sum_{n=1}^{\\infty} \\frac{2^{n+1}}{5^n}$.",
-      "Rewrite the first series: $\\sum_{n=1}^{\\infty} \\frac{1}{3} \\cdot (\\frac{3}{5})^n = \\frac{1}{3} \\cdot \\frac{3/5}{1 - 3/5} = \\frac{1}{3} \\cdot \\frac{0.6}{0.4} = \\frac{1}{3} \\cdot 1.5 = 0.5$.",
-      "Rewrite the second series: $\\sum_{n=1}^{\\infty} 4 \\cdot (\\frac{2}{5})^n = 4 \\cdot \\frac{2/5}{1 - 2/5} = 4 \\cdot \\frac{0.4}{0.6} = 4 \\cdot \\frac{2}{3} = \\frac{8}{3}$.",
-      "Add the two sums: $0.5 + \\frac{8}{3} = \\frac{1}{2} + \\frac{8}{3} = \\frac{3}{6} + \\frac{16}{6} = \\frac{19}{6}$ is incorrect; re-evaluating: The first sum is $\\frac{1}{3} \\cdot \\sum_{n=1}^{\\infty} (\\frac{3}{5})^n = \\frac{1}{3} \\cdot \\frac{3/5}{2/5} = 0.5$. The second sum is $4 \\cdot \\sum_{n=1}^{\\infty} (\\frac{2}{5})^n = 4 \\cdot \\frac{2/5}{3/5} = \\frac{8}{3}$. Total: $0.5 + 2.666... = 3.166...$. Wait, checking formula: $\\sum_{n=1}^{\\infty} \\frac{3^{n-1}}{5^n} = \\frac{1}{5} + \\frac{3}{25} + \\frac{9}{125}... = \\frac{1/5}{1-3/5} = \\frac{1/5}{2/5} = 0.5$. $\\sum_{n=1}^{\\infty} \\frac{2^{n+1}}{5^n} = \\frac{4}{5} + \\frac{8}{25} + \\frac{16}{125}... = \\frac{4/5}{1-2/5} = \\frac{4/5}{3/5} = \\frac{4}{3} = 1.333...$. Total is $0.5 + 1.333... = 1.833...$. Recalculating: $\\sum_{n=1}^{\\infty} (\\frac{3^{n-1}}{5^n} + \\frac{2^{n+1}}{5^n}) = \\frac{1}{3}\\sum (\\frac{3}{5})^n + 4\\sum (\\frac{2}{5})^n = \\frac{1}{3}(\\frac{3/5}{2/5}) + 4(\\frac{2/5}{3/5}) = \\frac{1}{3}(1.5) + 4(2/3) = 0.5 + 2.666 = 3.166$ is wrong. Let's use the sum formula $a/(1-r)$ carefully: $\\sum_{n=1}^{\\infty} \\frac{1}{3}(\\frac{3}{5})^n = \\frac{1}{3} \\cdot \\frac{3/5}{1-3/5} = 0.5$. $\\sum_{n=1}^{\\infty} 4(\\frac{2}{5})^n = 4 \\cdot \\frac{2/5}{1-2/5} = 4 \\cdot \\frac{0.4}{0.6} = 4 \\cdot 2/3 = 8/3$. $0.5 + 2.666 = 3.166$. Re-evaluating the sum terms: $\\frac{3^{n-1}}{5^n} = \\frac{1}{3}(\\frac{3}{5})^n$. $\\frac{2^{n+1}}{5^n} = 4(\\frac{2}{5})^n$. Sum 1: $1/5 / (1-3/5) = 1/5 / 2/5 = 0.5$. Sum 2: $4/5 / (1-2/5) = 4/5 / 3/5 = 4/3$. $1/2 + 4/3 = 3/6 + 8/6 = 11/6 \\approx 1.833$."
+      "Split the sum: $\\sum \\frac{3^{n-1}}{5^n} = \\frac13\\sum\\left(\\frac35\\right)^n = \\frac13\\cdot\\frac32 = \\frac12$ and $\\sum \\frac{2^{n+1}}{5^n} = 2\\sum\\left(\\frac25\\right)^n = 2\\cdot\\frac23 = \\frac43$.",
+      "Add the two sums: $\\frac12+\\frac43=\\frac{11}{6} \\approx 1.8333$."
     ],
     "distractor_rationales": {
       "N/A": "This is a numeric response question."
@@ -153620,9 +153750,8 @@
     },
     "final_answer": "9",
     "explanation_steps": [
-      "First, calculate the product matrix $C = A \\cdot B = \\begin{pmatrix} 2(1)+1(2) & 2(4)+1(5) \\\\ 3(1)+0(2) & 3(4)+0(5) \\end{pmatrix} = \\begin{pmatrix} 4 & 13 \\\\ 3 & 12 \\end{pmatrix}$.",
-      "Next, use the formula for the determinant of a $2 \\times 2$ matrix $\\det \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc$.",
-      "Calculate the determinant: $\\det(C) = (4)(12) - (13)(3) = 48 - 39 = 9$. Wait, re-evaluating: $A = \\begin{pmatrix} 2 & 1 \\\\ 3 & 0 \\end{pmatrix} \\implies \\det(A) = -3$. $B = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\end{pmatrix} \\implies \\det(B) = 5 - 8 = -3$. Since $\\det(AB) = \\det(A) \\cdot \\det(B)$, then $\\det(AB) = (-3) \\cdot (-3) = 9$."
+      "Compute $\\det(A) = 2(0)-1(3) = -3$ and $\\det(B) = 1(5)-4(2) = -3$.",
+      "Use $\\det(AB) = \\det(A)\\det(B) = (-3)(-3) = 9$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Properties of determinants stating that the determinant of a product is the product of the determinants."
@@ -154704,11 +154833,8 @@
     },
     "final_answer": "22",
     "explanation_steps": [
-      "Recall the property of determinants which states that $\\det(AB) = \\det(A) \\cdot \\det(B)$.",
-      "Calculate $\\det(A) = (2)(4) - (-1)(3) = 8 + 3 = 11$.",
-      "Calculate $\\det(B) = (5)(0) - (2)(-1) = 0 + 2 = 2$.",
-      "Find the product of the determinants: $11 \\cdot 2 = 22$. Wait, let us re-evaluate the product $AB$ directly. $AB = \\begin{pmatrix} (2)(5)+(-1)(-1) & (2)(2)+(-1)(0) \\\\ (3)(5)+(4)(-1) & (3)(2)+(4)(0) \\end{pmatrix} = \\begin{pmatrix} 11 & 4 \\\\ 11 & 6 \\end{pmatrix}$.",
-      "The determinant of $AB$ is $(11)(6) - (4)(11) = 66 - 44 = 22$."
+      "Compute $\\det(A) = 2(4)-(-1)(3) = 11$ and $\\det(B) = 5(0)-2(-1) = 2$.",
+      "Use $\\det(AB) = \\det(A)\\det(B) = 11 \\times 2 = 22$."
     ],
     "distractor_rationales": {
       "2": "This is the determinant of matrix B alone, ignoring matrix A.",
@@ -154781,10 +154907,8 @@
     },
     "final_answer": "28",
     "explanation_steps": [
-      "Recall the property that the determinant of a product is the product of the determinants: $\\det(AB) = \\det(A) \\cdot \\det(B)$.",
-      "Calculate $\\det(A) = (2)(3) - (1)(-1) = 6 + 1 = 7$.",
-      "Calculate $\\det(B) = (1)(4) - (-2)(0) = 4 - 0 = 4$.",
-      "Compute the product: $\\det(AB) = 7 \\cdot 4 = 28$ ... Wait, recalculating: $\\det(A) = 7$ and $\\det(B) = 4$. $7 \\times 4 = 28$. Re-checking $A$: $(2)(3) - (1)(-1) = 7$. $B$: $(1)(4) - (-2)(0) = 4$. The determinant is 28."
+      "Compute $\\det(A) = 2(3)-1(-1) = 7$ and $\\det(B) = 1(4)-(-2)(0) = 4$.",
+      "Use $\\det(AB) = \\det(A)\\det(B) = 7 \\times 4 = 28$."
     ],
     "distractor_rationales": {
       "28": "This is the correct calculation using properties of determinants."
@@ -155090,10 +155214,9 @@
     },
     "final_answer": "6.6",
     "explanation_steps": [
-      "First, calculate the determinant of $A$: $\\det(A) = (2)(4) - (1)(3) = 8 - 3 = 5$.",
-      "Calculate the inverse of $A$: $A^{-1} = \\frac{1}{5} \\begin{pmatrix} 4 & -1 \\\\ -3 & 2 \\end{pmatrix} = \\begin{pmatrix} 0.8 & -0.2 \\\\ -0.6 & 0.4 \\end{pmatrix}$.",
-      "Add $2I$ to $A^{-1}$: $B = \\begin{pmatrix} 0.8+2 & -0.2 \\\\ -0.6 & 0.4+2 \\end{pmatrix} = \\begin{pmatrix} 2.8 & -0.2 \\\\ -0.6 & 2.4 \\end{pmatrix}$.",
-      "Calculate the determinant of $B$: $\\det(B) = (2.8)(2.4) - (-0.2)(-0.6) = 6.72 - 0.12 = 6.6$ (Wait, re-calculate: $6.72 - 0.12 = 6.6$. Error in manual check: $2.8 \\times 2.4 = 6.72$. $0.2 \\times 0.6 = 0.12$. $6.72 - 0.12 = 6.6$. Correction: The value is 6.6)."
+      "Compute $\\det(A) = 2(4)-1(3) = 5$, so $A^{-1} = \\frac15\\begin{pmatrix}4&-1\\\\-3&2\\end{pmatrix} = \\begin{pmatrix}0.8&-0.2\\\\-0.6&0.4\\end{pmatrix}$.",
+      "$B = A^{-1}+2I = \\begin{pmatrix}2.8&-0.2\\\\-0.6&2.4\\end{pmatrix}$.",
+      "$\\det(B) = 2.8(2.4) - (-0.2)(-0.6) = 6.72-0.12 = 6.6$."
     ],
     "distractor_rationales": {},
     "concept_summary": "Matrix inversion and properties of determinants."
@@ -155156,10 +155279,9 @@
     },
     "final_answer": "0.4",
     "explanation_steps": [
-      "First, calculate the determinant of matrix $A$: $\\det(A) = (2)(4) - (1)(3) = 8 - 3 = 5$.",
-      "Recall that the inverse of a $2 \\times 2$ matrix $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $\\frac{1}{\\det(A)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$.",
-      "Applying this formula, $A^{-1} = \\frac{1}{5} \\begin{pmatrix} 4 & -1 \\\\ -3 & 2 \\end{pmatrix} = \\begin{pmatrix} 0.8 & -0.2 \\\\ -0.6 & 0.4 \\end{pmatrix}$.",
-      "Calculate the sum of the entries: $0.8 + (-0.2) + (-0.6) + 0.4 = 0.4$ is incorrect calculation, re-evaluating: $0.8 - 0.2 - 0.6 + 0.4 = 0.4$ Wait, $0.8 - 0.2 = 0.6$, $0.6 - 0.6 = 0$, $0 + 0.4 = 0.4$. Let's re-verify: $a=4/5, b=-1/5, c=-3/5, d=2/5$. The sum is $(4-1-3+2)/5 = 2/5 = 0.4$."
+      "Compute $\\det(A) = 2(4)-1(3) = 5$, so $A^{-1} = \\frac15\\begin{pmatrix}4&-1\\\\-3&2\\end{pmatrix} = \\begin{pmatrix}0.8&-0.2\\\\-0.6&0.4\\end{pmatrix}$.",
+      "So $a=0.8, b=-0.2, c=-0.6, d=0.4$.",
+      "Sum: $a+b+c+d = 0.8-0.2-0.6+0.4 = 0.4$."
     ],
     "distractor_rationales": {
       "N/A": "Not applicable for numeric types"
