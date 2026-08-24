@@ -18392,52 +18392,39 @@
     "topic_slug": "fractions",
     "type": "multi_mcq",
     "difficulty": "hard",
-    "stem": "Consider the following expressions. Simplify each expression and determine which ones are equivalent to $\\frac{5}{6}$.\n\nI. $\\frac{\\frac{1}{2} + \\frac{2}{3}}{\\frac{1}{3} + \\frac{1}{4}}$\nII. $1 - \\frac{1}{1 - \\frac{1}{6}}$\nIII. $\\frac{2}{3} \\div \\frac{4}{5} \\times \\frac{5}{3}$\nIV. $\\frac{14}{15} \\times \\frac{5}{7} + \\frac{1}{3}$",
+    "stem": "Consider the following expressions. Simplify each expression and determine which ones are equivalent to $\\frac{3}{4}$.\n\nI. $\\frac{\\frac{3}{4} + \\frac{1}{2}}{\\frac{5}{3}}$\nII. $1 - \\frac{1}{1 - \\frac{1}{4}}$\nIII. $\\frac{3}{5} \\div \\frac{4}{5}$\nIV. $\\frac{\\frac{2}{3} + \\frac{1}{6}}{\\frac{5}{6}}$",
     "options": [
       {
-        "content": "I and II only",
-        "is_correct": false
-      },
-      {
-        "content": "II and IV only",
-        "is_correct": false
-      },
-      {
-        "content": "I and IV only",
-        "is_correct": false
-      },
-      {
-        "content": "II and III only",
-        "is_correct": false
-      },
-      {
-        "content": "I, II, and IV only",
-        "is_correct": false
-      },
-      {
-        "content": "I and III only",
+        "content": "I",
         "is_correct": true
+      },
+      {
+        "content": "II",
+        "is_correct": false
+      },
+      {
+        "content": "III",
+        "is_correct": true
+      },
+      {
+        "content": "IV",
+        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
-    "numeric_answer": null,
-    "final_answer": "I and III only",
+    "final_answer": "I and III",
     "explanation_steps": [
-      "Simplify expression I: Find a common denominator for the numerator and denominator. Numerator: $\\frac{1}{2} + \\frac{2}{3} = \\frac{3}{6} + \\frac{4}{6} = \\frac{7}{6}$. Denominator: $\\frac{1}{3} + \\frac{1}{4} = \\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}$. Therefore, expression I is $\\frac{\\frac{7}{6}}{\\frac{7}{12}} = \\frac{7}{6} \\times \\frac{12}{7} = \\frac{12}{6} = 2$. This is not $\\frac{5}{6}$.",
-      "Simplify expression II: First, calculate the denominator $1 - \\frac{1}{6} = \\frac{5}{6}$. Then, the expression becomes $1 - \\frac{1}{\\frac{5}{6}} = 1 - \\frac{6}{5} = \\frac{5}{5} - \\frac{6}{5} = -\\frac{1}{5}$. This is not $\\frac{5}{6}$.",
-      "Simplify expression III: Perform the division first: $\\frac{2}{3} \\div \\frac{4}{5} = \\frac{2}{3} \\times \\frac{5}{4} = \\frac{10}{12} = \\frac{5}{6}$. Then, multiply by $\\frac{5}{3}$: $\\frac{5}{6} \\times \\frac{5}{3} = \\frac{25}{18}$. This is not $\\frac{5}{6}$.",
-      "Simplify expression IV: Perform the multiplication first: $\\frac{14}{15} \\times \\frac{5}{7} = \\frac{14 \\times 5}{15 \\times 7} = \\frac{2 \\times 7 \\times 5}{3 \\times 5 \\times 7} = \\frac{2}{3}$. Then, add $\\frac{1}{3}$: $\\frac{2}{3} + \\frac{1}{3} = \\frac{3}{3} = 1$. This is not $\\frac{5}{6}$."
+      "I: $\\frac{3}{4} + \\frac{1}{2} = \\frac{3}{4} + \\frac{2}{4} = \\frac{5}{4}$. Dividing by $\\frac{5}{3}$: $\\frac{5}{4} \\times \\frac{3}{5} = \\frac{15}{20} = \\frac{3}{4}$. Equivalent.",
+      "II: $1 - \\frac{1}{4} = \\frac{3}{4}$, so the expression is $1 - \\frac{1}{\\frac{3}{4}} = 1 - \\frac{4}{3} = -\\frac{1}{3}$. Not equivalent.",
+      "III: $\\frac{3}{5} \\div \\frac{4}{5} = \\frac{3}{5} \\times \\frac{5}{4} = \\frac{15}{20} = \\frac{3}{4}$. Equivalent.",
+      "IV: $\\frac{2}{3} + \\frac{1}{6} = \\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$. Dividing by $\\frac{5}{6}$ gives $\\frac{5}{6} \\times \\frac{6}{5} = 1$. Not equivalent."
     ],
     "distractor_rationales": {
-      "I and II only": "Students might incorrectly simplify the complex fractions or make errors in the order of operations.",
-      "II and IV only": "Students might miscalculate the reciprocal in expression II or incorrectly combine fractions in expression IV.",
-      "I and IV only": "Students might misinterpret the complex fraction in I or perform addition before multiplication in IV.",
-      "II and III only": "Students may incorrectly handle the subtraction within the denominator of II or make an error in the division and multiplication of III.",
-      "I, II, and IV only": "This option assumes multiple calculation errors across different expressions."
+      "II": "Students often forget to fully simplify the inner fraction before subtracting from 1.",
+      "IV": "Students may stop after adding the fractions in the numerator without completing the division."
     },
-    "concept_summary": "Simplifying complex fractions and performing order of operations on fractions.",
-    "status": "needs_review",
+    "concept_summary": "This question tests simplifying complex fractions and comparing the result to a target value.",
     "skill_id": "skl_fractions-perform-operations-on-complex-fractions"
   },
   {
@@ -23790,27 +23777,26 @@
     "topic_slug": "decimals",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "A chemical solution has a density of $1.45 \\times 10^{-3} \\text{ kg/cm}^{3}$. A researcher needs to convert this value into units of $\\text{mg/m}^{3}$ and then multiply the result by the expression $0.05x^{2} - 0.25$, where $x = 4$. Provide the final numerical value.",
+    "stem": "A sample has a mass of $2.4 \\times 10^{-3}$ kg. Convert this mass into milligrams, then multiply the result by the value of $0.02x^{2} + 0.5$, where $x = 5$. Provide the final numerical value.",
     "numeric_answer": {
-      "value": 27000,
+      "value": 2400,
       "tolerance": 0,
       "accepted": [
-        "27000"
+        "2400"
       ]
     },
-    "final_answer": "27000",
+    "final_answer": "2400",
     "explanation_steps": [
-      "First, convert the density from $\\text{kg/cm}^{3}$ to $\\text{mg/m}^{3}$. Note that $1 \\text{ kg} = 10^{6} \\text{ mg}$ and $1 \\text{ cm}^{3} = 10^{-6} \\text{ m}^{3}$. Thus, $1 \\text{ kg/cm}^{3} = 10^{6} \\text{ mg} / 10^{-6} \\text{ m}^{3} = 10^{12} \\text{ mg/m}^{3}$.",
-      "Multiply the given density: $1.45 \\times 10^{-3} \\cdot 10^{12} = 1.45 \\times 10^{9} \\text{ mg/m}^{3}$.",
-      "Evaluate the algebraic expression $0.05x^{2} - 0.25$ for $x = 4$: $0.05(16) - 0.25 = 0.8 - 0.25 = 0.55$.",
-      "Multiply the converted density by the result of the expression: $(1.45 \\times 10^{9}) \\times (0.55 \\times 10^{-5})$ (adjusting the coefficient to match the magnitude context) is not required here, simply calculate $1.45 \\times 10^{9} \\times 0.0000186...$ wait, the expression evaluates to $0.55$. The calculation is $(1.45 \\times 10^{-3} \\times 10^{12}) \\times 0.55 = 1.45 \\times 10^{9} \\times 0.55 / 10^{5} = 27000$."
+      "Convert kilograms to milligrams using $1 \\text{ kg} = 1{,}000{,}000 \\text{ mg} = 10^{6} \\text{ mg}$.",
+      "$2.4 \\times 10^{-3} \\text{ kg} \\times 10^{6} \\text{ mg/kg} = 2.4 \\times 10^{3} \\text{ mg} = 2400 \\text{ mg}$.",
+      "Evaluate the expression $0.02x^2 + 0.5$ at $x = 5$: $0.02(25) + 0.5 = 0.5 + 0.5 = 1.0$.",
+      "Multiply: $2400 \\times 1.0 = 2400$."
     ],
-    "distractor_rationales": {
-      "2700": "Result of failing to correctly account for the conversion factor between cubic centimeters and cubic meters.",
-      "2.7": "Result of miscalculating the scientific notation magnitude."
-    },
-    "concept_summary": "Metric unit conversion involving powers of ten combined with evaluation of algebraic expressions.",
-    "status": "needs_review"
+    "distractor_rationales": {},
+    "concept_summary": "This question tests unit conversion using scientific notation together with evaluating a simple algebraic expression.",
+    "options": [],
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_oeyf2wkrj3z6",
@@ -46948,90 +46934,39 @@
     "topic_slug": "laws-of-exponents",
     "type": "multi_mcq",
     "difficulty": "medium",
-    "stem": "Simplify the following expression. Which of the following are equivalent to the simplified expression?",
+    "stem": "Simplify $\\left(2x^{0}y^{2}\\right)^{3} \\cdot x^{2}$. Which of the following expressions are equivalent to the simplified result?",
     "options": [
       {
-        "content": "$$3x^3$$",
+        "content": "$8x^2y^6$",
         "is_correct": true
       },
       {
-        "content": "$$\\frac{3}{x^3}$$",
+        "content": "$6x^2y^6$",
         "is_correct": false
       },
       {
-        "content": "$$x^3$$",
+        "content": "$8x^2y^5$",
         "is_correct": false
       },
       {
-        "content": "$$\\frac{1}{x^{-3}}$$\n",
+        "content": "$2^3x^2y^6$",
         "is_correct": true
-      },
-      {
-        "content": "$$27x^3$$",
-        "is_correct": false
-      },
-      {
-        "content": "$$3x^{-3}$$",
-        "is_correct": false
       }
     ],
     "matches": [],
     "match_choices": [],
-    "numeric_answer": null,
-    "final_answer": "3x^3, 1/x^-3",
+    "final_answer": "$8x^2y^6$ and $2^3x^2y^6$",
     "explanation_steps": [
-      "Apply the power of a quotient rule: $(\\frac{a}{b})^n = \\frac{a^n}{b^n}$ and the power of a product rule: $(ab)^n = a^n b^n$.",
-      "Rewrite the expression as $\\frac{(3x)^3}{x^3} = \\frac{3^3 x^3}{x^3}$.",
-      "Simplify the expression: $\\frac{27x^3}{x^3} = 27$. This is incorrect, let's reevaluate.",
-      "Let's re-examine the initial expression. Assume the expression is $\\frac{(3x)^3}{x^3}$ is not intended. A likely intended expression for a medium difficulty question involving exponents rules might be something like $\\frac{3x^5}{x^2}$ or $\\frac{(3x)^2}{x^{-1}}$.",
-      "Given the options, let's assume a simplified form of $3x^3$ is the target. We need to find expressions that simplify to $3x^3$.",
-      "Consider the expression $\\frac{3x^6}{x^3}$. Using the quotient rule $\\frac{a^m}{a^n} = a^{m-n}$, this simplifies to $3x^{6-3} = 3x^3$.",
-      "Consider the expression $\\frac{1}{x^{-3}}$. Using the rule $a^{-n} = \\frac{1}{a^n}$, we have $\\frac{1}{x^{-3}} = x^3$. This does not match. Let's consider the rule $\\frac{1}{a^{-n}} = a^n$. So $\\frac{1}{x^{-3}} = x^3$. This is still not $3x^3$. There might be a misunderstanding of the intended original expression based on the provided options.",
-      "Let's assume the question intends to simplify an expression and then find equivalent forms. If we consider the expression $\\frac{3x^4}{x}$, it simplifies to $3x^{4-1} = 3x^3$.",
-      "Another expression that simplifies to $3x^3$ is $\\frac{9x^5}{3x^2}$, which simplifies to $\\frac{9}{3}x^{5-2} = 3x^3$.",
-      "The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. This is not $3x^3$. There appears to be an inconsistency in the question setup or options provided.",
-      "Let's re-evaluate the provided options assuming $3x^3$ is a correct simplified form. We need expressions that are *equivalent* to $3x^3$.",
-      "The expression $\\frac{1}{x^{-3}}$ is equivalent to $x^3$ (using $\\frac{1}{a^{-n}} = a^n$). This is not equivalent to $3x^3$. There is a definite issue with the question as presented.",
-      "If we assume the question meant to simplify an expression *like* $\\frac{3x^5}{x^2}$ which equals $3x^3$, then $3x^3$ is a correct simplified form.",
-      "Let's consider the option $\\frac{1}{x^{-3}}$. This simplifies to $x^3$. This is only correct if the coefficient '3' was not intended in the correct answer option. This suggests a flawed question.",
-      "Assuming $3x^3$ is the correct simplified form and the question asks for *equivalent* expressions to the *simplified result*, we need to find which other options *also* simplify to $3x^3$ or are direct representations of it.",
-      "The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. This is not $3x^3$. The question is flawed.",
-      "Given the constraint to produce valid JSON, and recognizing the flaw, I will proceed assuming the intent was to have $3x^3$ as one correct answer and another expression that is mathematically equivalent to $3x^3$ among the choices. However, the option $\\frac{1}{x^{-3}}$ is equal to $x^3$, not $3x^3$. This makes the question unanswerable as stated.",
-      "Let's assume, for the sake of generating a response, that the intended question had an expression that simplified to $3x^3$, and one of the other options was also equivalent to $3x^3$. Without a specific original expression, this is speculative.",
-      "If we consider the option $\\frac{1}{x^{-3}}$ and assume it was *meant* to be something like $\\frac{1}{3x^{-3}}$ or $\\frac{3}{x^{-3}}$, then it could be made equivalent. But as written, it is $x^3$.",
-      "The only way $\\frac{1}{x^{-3}}$ could be considered correct is if the question implicitly meant something like 'Which of the following expressions, when simplified, *could* result in a term similar to one of the other options', which is not standard.",
-      "Let's proceed by assuming there's a typo in the problem or options. If $3x^3$ is a correct choice, we seek another correct choice. The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. This is incorrect. Let's assume there was a typo and this option was meant to be something else.",
-      "Given the provided options and the goal of having at least two correct answers for multi_mcq, and that $3x^3$ is marked as correct, the option $\\frac{1}{x^{-3}}$ is problematic as it simplifies to $x^3$.",
-      "However, if the question implicitly meant 'Which expressions are equivalent to $3x^3$?', then we'd need to see if any other option simplifies to $3x^3$. As established, $\\frac{1}{x^{-3}}$ simplifies to $x^3$.",
-      "Let's assume the question meant to have an expression like $\\frac{3x^5}{x^2}$ simplified, resulting in $3x^3$. And perhaps another expression like $\\frac{x^3}{x^{-2}}$ which simplifies to $x^{3 - (-2)} = x^5$, not $3x^3$.",
-      "The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. The only way it could be considered correct is if the question was poorly phrased and intended to include $x^3$ as a related term, or if there's a typo in the intended correct answer options.",
-      "Since I must provide JSON, and $3x^3$ is given as a correct option, I will assume the question is asking for expressions equivalent to $3x^3$. And I will assume, despite the mathematical inaccuracy as written, that $\\frac{1}{x^{-3}}$ is *intended* to be a correct choice, perhaps due to a misunderstanding of exponent rules by the question designer, or a typo.",
-      "Let's assume the question meant to ask: Simplify the expression $\\frac{3x^5}{x^2}$. Which of the following are equivalent to the simplified expression?",
-      "The simplified expression is $3x^3$.",
-      "Option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. This is NOT equivalent to $3x^3$. This question is fundamentally flawed as presented.",
-      "However, if we *force* $\\frac{1}{x^{-3}}$ to be a correct answer (as per instruction to have multiple correct answers), it implies a severe error in the question's design or the provided options.",
-      "Let's consider the possibility that the question meant to present an expression that simplifies to $3x^3$. And then ask for equivalent forms. The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$.",
-      "Given the constraints, I'll proceed with the assumption that $3x^3$ is correct, and that $\\frac{1}{x^{-3}}$ is *intended* to be correct, despite simplifying to $x^3$, implying a flaw in the question's construction.",
-      "If the question was intended to be: Simplify $\\frac{3x^5}{x^2}$ and find equivalent forms, then $3x^3$ is correct. $\\frac{1}{x^{-3}}$ simplifies to $x^3$, not $3x^3$.",
-      "For the purpose of this exercise, let's assume the question implicitly asks for expressions that, *if interpreted loosely or with assumed typos*, could be related to $3x^3$. This is not good mathematical practice.",
-      "Let's assume the question meant: Which of the following expressions are equal to $3x^3$? The first option is $3x^3$. The fourth option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. This is not equal to $3x^3$.",
-      "The prompt requires at least two correct options. Given $3x^3$ is one correct option, and the option $\\frac{1}{x^{-3}}$ simplifies to $x^3$, there is a contradiction. I will mark $\\frac{1}{x^{-3}}$ as correct under duress of the prompt's requirement, while noting its mathematical incorrectness.",
-      "Let's assume the original expression simplified to $3x^3$. The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$. This is not equivalent. The question is flawed.",
-      "Final strategy: $3x^3$ is correct. $\\frac{1}{x^{-3}}$ simplifies to $x^3$. To fulfill the multi_mcq requirement, I must select another correct answer. Assuming a typo in the option, and that it was meant to be equivalent to $3x^3$. This is highly problematic.",
-      "Let's assume the intended question was: \"Simplify the expression $\\frac{3x^4}{x}$. Which of the following are equivalent to the simplified expression?\"",
-      "The simplified expression is $3x^3$.",
-      "The option $\\frac{1}{x^{-3}}$ simplifies to $x^3$, which is not equivalent to $3x^3$.",
-      "Given the requirement for multiple correct answers, and the flawed nature of the question, I will proceed with the provided correct answers, acknowledging the mathematical error in the option $\\frac{1}{x^{-3}}$ being equivalent.",
-      "Steps assuming the question *meant* to have equivalent forms: The simplified form is $3x^3$. The expression $\\frac{1}{x^{-3}}$ simplifies to $x^3$. Therefore, it is not equivalent. The question is invalid as written."
+      "Since $x^0 = 1$, the inner expression simplifies to $2x^0y^2 = 2y^2$.",
+      "Cubing: $(2y^2)^3 = 2^3 y^6 = 8y^6$.",
+      "Multiply by $x^2$: $8y^6 \\cdot x^2 = 8x^2y^6$.",
+      "$2^3x^2y^6$ is the same value written with $2^3$ left unevaluated, so it is also equivalent."
     ],
     "distractor_rationales": {
-      "1": "This option represents an incorrect application of the quotient rule or power of a product rule, possibly confusing subtraction of exponents with division.",
-      "2": "This distractor arises from incorrectly applying the rule for negative exponents, possibly forgetting the coefficient.",
-      "4": "This option results from a misunderstanding of how coefficients interact with exponent rules, or a misapplication of the power of a product rule.",
-      "5": "This is likely due to incorrectly cubing the coefficient '3', perhaps by calculating $3^3$ instead of $3$ or by misapplying the power rule."
+      "$6x^2y^6$": "This comes from adding $2+2+2=6$ instead of multiplying $2\\cdot2\\cdot2=8$ when cubing.",
+      "$8x^2y^5$": "This comes from forgetting to cube the exponent on $y$, leaving $y^5$ from $2+3$ instead of $y^6$ from $2\\times3$."
     },
-    "concept_summary": "Simplifying expressions with positive and zero exponents using product, quotient, and power rules.",
-    "status": "needs_review",
+    "concept_summary": "This question tests applying the zero-exponent rule and the power-of-a-product rule together.",
     "skill_id": "skl_laws-of-exponents-simplify-expressions-involving-zero-and-positive-exponents"
   },
   {
@@ -50734,30 +50669,25 @@
     "topic_slug": "laws-of-exponents",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "Simplify the following expression: $\\frac{(3x^4 y^{-2})^3}{6x^5 y^{-3}}$",
+    "stem": "Evaluate $\\frac{(2x^3y^{-1})^2}{4x^2y^{-3}}$ when $x = 3$ and $y = 2$. Give your answer as an integer.",
     "options": [],
     "matches": [],
     "match_choices": [],
     "numeric_answer": {
-      "value": 9,
+      "value": 162,
       "tolerance": 0,
       "accepted": [
-        "9x7",
-        "9x^7"
+        "162"
       ]
     },
-    "final_answer": "9x^7",
+    "final_answer": "162",
     "explanation_steps": [
-      "Apply the power of a product rule: $(ab)^n = a^n b^n$ and the power of a power rule: $(a^m)^n = a^{mn}$. So, $(3x^4 y^{-2})^3 = 3^3 (x^4)^3 (y^{-2})^3 = 27x^{12}y^{-6}$.",
-      "Substitute this back into the expression: $\\frac{27x^{12}y^{-6}}{6x^5 y^{-3}}$",
-      "Simplify the coefficients and apply the quotient rule for exponents: $\\frac{a^m}{a^n} = a^{m-n}$.",
-      "This gives: $\\frac{27}{6} x^{12-5} y^{-6 - (-3)} = \\frac{9}{2} x^7 y^{-3}$",
-      "Since the question asks for a simplified expression and does not specify that all exponents must be positive, and assuming there might be a misunderstanding in the problem setup or expected output format, let's re-evaluate if a numerical answer is truly expected or if there was a typo. If we assume the variables were meant to cancel out or lead to a numerical result, and given the constraints of a numeric answer type, let's consider a scenario where the intention was for the expression to simplify to a number. However, based strictly on the provided expression and rules of exponents, the simplification results in a variable term. If we are forced to provide a numeric answer, and assuming a potential error in the question's construction for a numeric type, and if 'x' and 'y' were intended to be specific values or cancel out to yield a number, we cannot proceed without further clarification. Let's assume there was an error and the question was intended to have a simpler numerical outcome. Reconsidering the prompt, it's possible that the 'numeric' type forces a numerical answer even if the simplification naturally yields a variable. If we ignore the variable parts and focus on coefficients, it's not directly applicable. Given the structure, a numerical answer is not directly derivable from the provided algebraic expression. However, if we hypothetically assume the question intended to test the simplification of coefficients only in a numeric context, $\\frac{27}{6}$ simplifies to $4.5$ or $\\frac{9}{2}$. If the intention was a purely numerical result, perhaps the variables were meant to cancel. Let's proceed under the assumption that the question implicitly requires a numerical answer, and there might be a misunderstanding of the 'numeric' field's application in this specific case. If we must output a number, and acknowledging the algebraic result is $4.5x^7y^{-3}$, and assuming a flawed question design for 'numeric' type, no correct numerical answer can be derived from the given expression alone. However, if we interpret the question as seeking a numerical simplification *component*, the coefficient simplification is $\\frac{27}{6} = 4.5$. But the expected answer is 9. This indicates a misunderstanding of the question or a significant error in its premise for a numeric answer. Let's assume the 'final_answer' and 'numeric_answer' are intended to reflect a *different* problem that *does* simplify to 9. For instance, if the expression was $\\frac{(3x^4 y^{-2})^3}{3x^5 y^{-3}}$ then $\\frac{27x^{12}y^{-6}}{3x^5 y^{-3}} = 9x^7y^{-3}$. If the question *intended* to result in a numerical answer, and the 'final_answer' is '9x^7', this conflicts with the 'numeric' type. Let's proceed with the assumption that the 'numeric_answer' and 'final_answer' fields are meant to reflect a *correct numerical result* that *should have been obtained* from a possibly flawed question. If the intended answer is 9, it implies the variable parts canceled out. This is not the case here. Therefore, there is an inconsistency. However, to fulfill the structure, we will assume the intended answer IS 9, and the algebraic simplification was a red herring or the question was poorly constructed for the 'numeric' type.",
-      "Revisiting the explanation: The simplification $\\frac{27x^{12}y^{-6}}{6x^5 y^{-3}}$ leads to $\\frac{9}{2} x^7 y^{-3}$. There is no direct path to a numerical answer of 9 from this expression. The 'numeric' type requires a number. Given the conflict, let's assume the question *intended* to produce a simple numerical answer, and that the 'final_answer' of '9' is the target, implying the variable terms were meant to resolve to 1, which they do not. Therefore, the provided question stem and the numeric answer are incongruent. If we *must* provide a numeric answer and the 'final_answer' is '9', it suggests a different original problem was intended. For the purpose of demonstration, we will proceed assuming that somehow, the variables were meant to cancel or the problem was different, leading to 9. The steps to reach 9 from THIS problem are: $\\frac{27}{6} x^{12-5} y^{-6-(-3)} = 4.5 x^7 y^{-3}$. None of this equals 9. Let's assume the question meant: Simplify $\\frac{(3x^4 y^{-2})^3}{3x^5 y^{-3}} \\cdot \\frac{y^3}{x^7}$. Then $\\frac{27x^{12}y^{-6}}{3x^5 y^{-3}} \\cdot \\frac{y^3}{x^7} = 9x^7y^{-3} \\cdot \\frac{y^3}{x^7} = 9y^{-3}y^3 = 9$. This is a hypothetical scenario to justify the numeric answer '9'."
+      "First simplify algebraically. $(2x^3y^{-1})^2 = 4x^6y^{-2}$.",
+      "Divide by $4x^2y^{-3}$: $\\frac{4x^6y^{-2}}{4x^2y^{-3}} = x^{6-2}y^{-2-(-3)} = x^4y^1 = x^4y$.",
+      "Substitute $x = 3$ and $y = 2$: $3^4 \\cdot 2 = 81 \\cdot 2 = 162$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Simplifying algebraic expressions using laws of exponents",
-    "status": "needs_review"
+    "concept_summary": "This question tests simplifying an expression with negative exponents before substituting numerical values."
   },
   {
     "id": "q_lxquysfju46t",
@@ -61555,43 +61485,42 @@
     "topic_slug": "polynomials",
     "type": "multi_mcq",
     "difficulty": "hard",
-    "stem": "Consider the polynomial $P(x) = (2x^2 - 3)(x + 4) - (x^2 - 5)^2$. Select all statements that are true regarding this polynomial.",
+    "stem": "Consider the polynomial $Q(x) = (3x^2 + 2)(x - 1) - (2x - 3)^2$. Select all statements that are true regarding this polynomial.",
     "options": [
       {
-        "content": "The degree of the polynomial $P(x)$ is 4.",
+        "content": "The coefficient of $x^2$ is $-7$.",
         "is_correct": true
       },
       {
-        "content": "The leading coefficient of the polynomial $P(x)$ is -1.",
+        "content": "The polynomial has degree $4$.",
+        "is_correct": false
+      },
+      {
+        "content": "The constant term is $-11$.",
         "is_correct": true
       },
       {
-        "content": "The constant term of $P(x)$ is -13.",
-        "is_correct": false
-      },
-      {
-        "content": "The polynomial $P(x)$ is a trinomial after simplification.",
-        "is_correct": false
-      },
-      {
-        "content": "The coefficient of the $x$ term in the simplified polynomial is 8.",
+        "content": "$Q(0) = 11$.",
         "is_correct": false
       }
     ],
-    "final_answer": "The degree is 4 and the leading coefficient is -1.",
+    "final_answer": "The coefficient of x^2 is -7; the constant term is -11.",
     "explanation_steps": [
-      "First, expand the product $(2x^2 - 3)(x + 4) = 2x^3 + 8x^2 - 3x - 12$.",
-      "Next, expand the square $(x^2 - 5)^2 = x^4 - 10x^2 + 25$.",
-      "Subtract the second expression from the first: $(2x^3 + 8x^2 - 3x - 12) - (x^4 - 10x^2 + 25) = -x^4 + 2x^3 + 18x^2 - 3x - 37$. Wait, recalculating: $2x^3 + 8x^2 - 3x - 12 - x^4 + 10x^2 - 25 = -x^4 + 2x^3 + 18x^2 - 3x - 37$.",
-      "Refined Calculation: $P(x) = 2x^3 + 8x^2 - 3x - 12 - (x^4 - 10x^2 + 25) = -x^4 + 2x^3 + 18x^2 - 3x - 37$. Correction: The problem asks for specific properties. Let's re-verify $(2x^2-3)(x+4) - (x^2-5)^2 = 2x^3+8x^2-3x-12 - (x^4-10x^2+25) = -x^4+2x^3+18x^2-3x-37$.",
-      "Actually, to fit the correct options: Let $P(x) = (2x-3)(x+4) - (x-5)^2 = (2x^2 + 5x - 12) - (x^2 - 10x + 25) = x^2 + 15x - 37$. Checking options: Degree is 2 (not 4), leading coeff is 1 (not -1), constant is -37. To match provided true options: $P(x) = -(x^2-4)(x^2+1) + 8x - 13 = -x^4 - 3x^2 + 8x - 9$. The provided correct logic fits $P(x) = -x^4 + 2x^3 + 18x^2 + 8x - 13$."
+      "Expand $(3x^2+2)(x-1) = 3x^3 - 3x^2 + 2x - 2$.",
+      "Expand $(2x-3)^2 = 4x^2 - 12x + 9$.",
+      "Subtract: $Q(x) = 3x^3 - 3x^2 + 2x - 2 - 4x^2 + 12x - 9 = 3x^3 - 7x^2 + 14x - 11$.",
+      "The polynomial has degree $3$, not $4$, so that statement is false.",
+      "The coefficient of $x^2$ is $-7$, matching the first statement.",
+      "The constant term is $-11$, matching the third statement.",
+      "$Q(0)$ equals the constant term, $-11$, not $11$, so the last statement is false."
     ],
     "distractor_rationales": {
-      "The degree of the polynomial P(x) is 4.": "Students often miscalculate the degree when squaring terms.",
-      "The polynomial P(x) is a trinomial after simplification.": "Students often fail to combine like terms correctly, leading to a count of three terms instead of five."
+      "The polynomial has degree $4$.": "Multiplying a degree-2 factor by a degree-1 factor gives degree 3, not 4; squaring a degree-1 binomial gives degree 2, which does not raise the overall degree.",
+      "$Q(0) = 11$.": "This has the correct magnitude but the wrong sign; $Q(0) = -11$."
     },
-    "concept_summary": "Expanding products and squares of polynomials and combining like terms.",
-    "status": "needs_review"
+    "concept_summary": "This question tests expanding and combining polynomial products, then reading off coefficients and evaluating at a point.",
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_ny8vm9dvcwmn",
@@ -63271,24 +63200,26 @@
     "topic_slug": "polynomials",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "Consider the polynomial expression $P(x) = (3x^2 - 4x + 2)(x + 3) - (2x - 1)^2$. When the expression is written in descending order $ax^2 + bx + c$, determine the value of the coefficient $b$.",
+    "stem": "Consider the polynomial expression $P(x) = (2x^2 + 3x - 1)(x - 2) - (x - 4)^2$. When the expression is written in the form $ax^3 + bx^2 + cx + d$, determine the value of the coefficient $b$.",
     "numeric_answer": {
-      "value": 1,
+      "value": -2,
       "tolerance": 0,
       "accepted": [
-        "1"
+        "-2"
       ]
     },
-    "final_answer": "1",
+    "final_answer": "-2",
     "explanation_steps": [
-      "Expand the product $(3x^2 - 4x + 2)(x + 3)$ to get $3x^3 + 9x^2 - 4x^2 - 12x + 2x + 6$, which simplifies to $3x^3 + 5x^2 - 10x + 6$.",
-      "Expand the square of the binomial $(2x - 1)^2$ to get $4x^2 - 4x + 1$.",
-      "Subtract the second expression from the first: $(3x^3 + 5x^2 - 10x + 6) - (4x^2 - 4x + 1) = 3x^3 + x^2 - 6x + 5$.",
-      "Identify the coefficient $b$ of the $x$ term in the resulting polynomial $3x^3 + 1x^2 - 6x + 5$ is $-6$ if the question asked for $x$, but re-evaluating the arithmetic: $5x^2 - 4x^2 = 1x^2$ and $-10x - (-4x) = -6x$. Wait, let me re-calculate: $(3x^3 + 9x^2 - 4x^2 - 12x + 2x + 6) - (4x^2 - 4x + 1) = 3x^3 + (5-4)x^2 + (-10+4)x + (6-1) = 3x^3 + x^2 - 6x + 5$. The coefficient $b$ of the $x$ term is $-6$."
+      "Expand $(2x^2+3x-1)(x-2) = 2x^3 - 4x^2 + 3x^2 - 6x - x + 2 = 2x^3 - x^2 - 7x + 2$.",
+      "Expand $(x-4)^2 = x^2 - 8x + 16$.",
+      "Subtract: $P(x) = 2x^3 - x^2 - 7x + 2 - (x^2 - 8x + 16) = 2x^3 - 2x^2 + x - 14$.",
+      "Comparing to $ax^3+bx^2+cx+d$, the coefficient of $x^2$ is $b = -2$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Polynomial multiplication, squaring binomials, and combining like terms.",
-    "status": "needs_review"
+    "concept_summary": "This question tests expanding a product of a trinomial and binomial along with a squared binomial, then combining like terms.",
+    "options": [],
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_5a8wuy6anu3u",
@@ -72969,61 +72900,41 @@
     "topic_slug": "rational-expressions",
     "type": "matching",
     "difficulty": "medium",
-    "stem": "Simplify the following rational expressions and match them with their equivalent forms. Assume all variables are non-zero.",
-    "options": [
-      {
-        "content": "$\\frac{x-3}{x+2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x+3}{x-2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{1}{x+2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x-2}{x-3}$",
-        "is_correct": true
-      }
-    ],
+    "stem": "Simplify the following rational expressions and match them with their equivalent simplified forms. Assume all variables are non-zero and denominators are not zero.",
+    "options": [],
     "matches": [
       {
-        "left_content": "$\\frac{x^{2}-9}{x^{2}-x-6}$",
-        "correct_choice_index": 0
-      },
-      {
-        "left_content": "$\\frac{x^{2}+x-6}{x^{2}-4}$",
-        "correct_choice_index": 2
-      },
-      {
-        "left_content": "$\\frac{x^{2}-5x+6}{x^{2}-9}$",
+        "left_content": "$\\frac{x^2-9}{x+3}$",
         "correct_choice_index": 3
       },
       {
-        "left_content": "$\\frac{x^{2}+5x+6}{x^{2}-4}$",
+        "left_content": "$\\frac{x^2-4x}{x}$",
+        "correct_choice_index": 0
+      },
+      {
+        "left_content": "$\\frac{2x+6}{x+3}$",
+        "correct_choice_index": 2
+      },
+      {
+        "left_content": "$\\frac{x^2-1}{x-1}$",
         "correct_choice_index": 1
       }
     ],
     "match_choices": [
-      "$\\frac{x-3}{x+2}$",
-      "$\\frac{x+3}{x-2}$",
-      "$\\frac{1}{x+2}$",
-      "$\\frac{x-2}{x-3}$"
+      "$x-4$",
+      "$x+1$",
+      "$2$",
+      "$x-3$"
     ],
-    "final_answer": "1: A, 2: C, 3: D, 4: B",
+    "final_answer": "x^2-9 over x+3 -> x-3; x^2-4x over x -> x-4; 2x+6 over x+3 -> 2; x^2-1 over x-1 -> x+1",
     "explanation_steps": [
-      "Factor the numerators and denominators for each expression: $\\frac{x^2-9}{x^2-x-6} = \\frac{(x-3)(x+3)}{(x-3)(x+2)} = \\frac{x+3}{x+2}$ is incorrect; re-evaluating: $\\frac{x^2-9}{x^2-x-6} = \\frac{(x-3)(x+3)}{(x-3)(x+2)} = \\frac{x+3}{x+2}$ wait, simplification is $\\frac{x+3}{x+2}$ which is not in choices, let's re-verify: $x^2-x-6 = (x-3)(x+2)$. The expression is $\\frac{(x-3)(x+3)}{(x-3)(x+2)} = \\frac{x+3}{x+2}$. Correcting matches: 1 is $\\frac{x+3}{x+2}$.",
-      "Factor $\\frac{x^2+x-6}{x^2-4} = \\frac{(x+3)(x-2)}{(x+2)(x-2)} = \\frac{x+3}{x+2}$.",
-      "Factor $\\frac{x^2-5x+6}{x^2-9} = \\frac{(x-2)(x-3)}{(x+3)(x-3)} = \\frac{x-2}{x+3}$.",
-      "Factor $\\frac{x^2+5x+6}{x^2-4} = \\frac{(x+3)(x+2)}{(x-2)(x+2)} = \\frac{x+3}{x-2}$."
+      "$\\frac{x^2-9}{x+3} = \\frac{(x-3)(x+3)}{x+3} = x-3$.",
+      "$\\frac{x^2-4x}{x} = \\frac{x(x-4)}{x} = x-4$.",
+      "$\\frac{2x+6}{x+3} = \\frac{2(x+3)}{x+3} = 2$.",
+      "$\\frac{x^2-1}{x-1} = \\frac{(x-1)(x+1)}{x-1} = x+1$."
     ],
-    "distractor_rationales": {
-      "Incorrect simplification": "Students often try to cancel terms that are part of a sum or difference rather than factors."
-    },
-    "concept_summary": "Factoring quadratic polynomials and simplifying rational expressions by canceling common binomial factors.",
-    "status": "needs_review"
+    "distractor_rationales": {},
+    "concept_summary": "This question tests factoring numerators to cancel common factors with the denominator."
   },
   {
     "id": "q_if6egmiizr87",
@@ -73286,60 +73197,41 @@
     "topic_slug": "rational-expressions",
     "type": "matching",
     "difficulty": "hard",
-    "stem": "Match each expression on the left to its equivalent simplified form on the right. Assume all variables represent positive real numbers such that denominators are non-zero.",
-    "options": [
-      {
-        "content": "$\\frac{x-3}{x+2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x+3}{x-2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x+3}{x+2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x-3}{x-2}$",
-        "is_correct": true
-      }
-    ],
+    "stem": "Match each expression on the left to its equivalent simplified form on the right. Assume all variables represent values for which the denominators are non-zero.",
+    "options": [],
     "matches": [
       {
-        "left_content": "$\\frac{x^{2}-x-6}{x^{2}+x-2} \\cdot \\frac{x-1}{x-3}$",
-        "correct_choice_index": 0
+        "left_content": "$\\frac{x^2-5x+6}{x^2-9}$",
+        "correct_choice_index": 1
       },
       {
-        "left_content": "$\\frac{x^{2}+5x+6}{x^{2}-4} \\div \\frac{x+3}{x-2}$",
+        "left_content": "$\\frac{x^2+x-6}{x^2-4}$",
         "correct_choice_index": 2
       },
       {
-        "left_content": "$\\frac{x^{2}+x-6}{x^{2}-4} \\cdot \\frac{x-2}{x-3}$",
+        "left_content": "$\\frac{2x^2-8}{x^2-x-2}$",
         "correct_choice_index": 3
       },
       {
-        "left_content": "$\\frac{x^{2}-9}{x^{2}-4} \\div \\frac{x-3}{x-2}$",
-        "correct_choice_index": 1
+        "left_content": "$\\frac{x^2-1}{x^2+2x+1}$",
+        "correct_choice_index": 0
       }
     ],
     "match_choices": [
-      "$\\frac{x-3}{x+2}$",
-      "$\\frac{x+3}{x-2}$",
+      "$\\frac{x-1}{x+1}$",
+      "$\\frac{x-2}{x+3}$",
       "$\\frac{x+3}{x+2}$",
-      "$\\frac{x-3}{x-2}$"
+      "$\\frac{2(x+2)}{x+1}$"
     ],
-    "final_answer": "1: A, 2: C, 3: D, 4: B",
+    "final_answer": "x^2-5x+6 over x^2-9 -> (x-2)/(x+3); x^2+x-6 over x^2-4 -> (x+3)/(x+2); 2x^2-8 over x^2-x-2 -> 2(x+2)/(x+1); x^2-1 over x^2+2x+1 -> (x-1)/(x+1)",
     "explanation_steps": [
-      "Factor all quadratic expressions: $x^{2}-x-6 = (x-3)(x+2)$, $x^{2}+x-2 = (x+2)(x-1)$, $x^{2}+5x+6 = (x+3)(x+2)$, $x^{2}-4 = (x-2)(x+2)$, $x^{2}+x-6 = (x+3)(x-2)$, and $x^{2}-9 = (x-3)(x+3)$.",
-      "For each expression, perform the multiplication or division (by multiplying by the reciprocal) and cancel common binomial factors.",
-      "Specifically for the first item: $\\frac{(x-3)(x+2)}{(x+2)(x-1)} \\cdot \\frac{x-1}{x-3} = 1$. Wait, re-evaluating: $\\frac{x^{2}-x-6}{x^{2}+x-2} = \\frac{(x-3)(x+2)}{(x+2)(x-1)} = \\frac{x-3}{x-1}$. Multiplying by $\\frac{x-1}{x-3}$ yields $1$. Correcting the mapping: Item 1 simplifies to $1$. Given the constraints, the user must match based on correct factoring logic."
+      "$\\frac{x^2-5x+6}{x^2-9} = \\frac{(x-2)(x-3)}{(x-3)(x+3)} = \\frac{x-2}{x+3}$.",
+      "$\\frac{x^2+x-6}{x^2-4} = \\frac{(x+3)(x-2)}{(x-2)(x+2)} = \\frac{x+3}{x+2}$.",
+      "$\\frac{2x^2-8}{x^2-x-2} = \\frac{2(x-2)(x+2)}{(x-2)(x+1)} = \\frac{2(x+2)}{x+1}$.",
+      "$\\frac{x^2-1}{x^2+2x+1} = \\frac{(x-1)(x+1)}{(x+1)^2} = \\frac{x-1}{x+1}$."
     ],
-    "distractor_rationales": {
-      "Incorrect simplification": "Students often cancel terms across addition or subtraction signs instead of factoring first."
-    },
-    "concept_summary": "Simplification of rational expressions through factoring and cancellation of common binomial factors.",
-    "status": "needs_review",
+    "distractor_rationales": {},
+    "concept_summary": "This question tests factoring quadratic numerators and denominators to find and cancel a common binomial factor.",
     "skill_id": "skl_rational-expressions-find-lowest-common-denominator-of-rational-algebraic"
   },
   {
@@ -73455,42 +73347,40 @@
     "topic_slug": "rational-expressions",
     "type": "multi_mcq",
     "difficulty": "hard",
-    "stem": "Consider the rational expression $R(x) = \\frac{x^{2} - 9}{x^{2} + 5x + 6} \\div \\frac{x - 3}{x + 4}$. Identify all true statements from the list below.",
+    "stem": "Consider the rational expression $R(x) = \\frac{x^{2} - 16}{x^{2} + 7x + 12} \\div \\frac{x - 4}{x + 5}$. Identify all true statements from the list below.",
     "options": [
       {
-        "content": "The expression is undefined for $x = -3$, $x = -2$, and $x = -4$.",
+        "content": "$R(x)$ simplifies to $\\frac{x+5}{x+3}$.",
         "is_correct": true
       },
       {
-        "content": "The simplified form of the expression is $\\frac{x + 4}{x + 2}$.",
+        "content": "$x = 4$ must be excluded from the domain.",
         "is_correct": true
       },
       {
-        "content": "The expression is undefined for $x = 3$.",
+        "content": "$R(x)$ is undefined at $x = 5$.",
         "is_correct": false
       },
       {
-        "content": "The expression is undefined for $x = 3$, $x = -2$, and $x = -4$.",
-        "is_correct": false
-      },
-      {
-        "content": "The simplified form of the expression is $\\frac{x - 3}{x + 2}$.",
+        "content": "$R(x)$ simplifies to $\\frac{x-5}{x+3}$.",
         "is_correct": false
       }
     ],
-    "final_answer": "The expression is undefined for $x = -3$, $x = -2$, and $x = -4$; the simplified form is $\\frac{x + 4}{x + 2}$.",
+    "final_answer": "R(x) simplifies to (x+5)/(x+3); x=4 must be excluded from the domain.",
     "explanation_steps": [
-      "Factor the terms: $R(x) = \\frac{(x - 3)(x + 3)}{(x + 3)(x + 2)} \\div \\frac{x - 3}{x + 4}$.",
-      "Identify excluded values from denominators and the divisor's numerator (since division by a fraction is multiplication by its reciprocal): $x \\neq -3, -2, -4, 3$. Wait, checking the original expression: $x^2+5x+6=0 \\Rightarrow x=-2, -3$; divisor denominator $x+4=0 \\Rightarrow x=-4$; divisor numerator $x-3=0 \\Rightarrow x=3$. Thus $x \\in \\{-4, -3, -2, 3\\}$.",
-      "Simplify the expression by multiplying by the reciprocal: $\\frac{(x - 3)(x + 3)}{(x + 3)(x + 2)} \\cdot \\frac{x + 4}{x - 3} = \\frac{x + 4}{x + 2}$, with restrictions $x \\neq -4, -3, -2, 3$."
+      "Factor: $x^2-16 = (x-4)(x+4)$ and $x^2+7x+12=(x+3)(x+4)$, so the first fraction is $\\frac{(x-4)(x+4)}{(x+3)(x+4)} = \\frac{x-4}{x+3}$ (for $x \\neq -4$).",
+      "Dividing by $\\frac{x-4}{x+5}$ means multiplying by its reciprocal $\\frac{x+5}{x-4}$: $\\frac{x-4}{x+3} \\cdot \\frac{x+5}{x-4} = \\frac{x+5}{x+3}$.",
+      "The divisor $\\frac{x-4}{x+5}$ must not equal zero, so $x-4 \\neq 0$, meaning $x = 4$ is excluded from the domain.",
+      "The final simplified form $\\frac{x+5}{x+3}$ has no zero at $x=5$ (that would require the denominator $x+3$ or an excluded value to involve $5$, which it does not), so the statement that $R(x)$ is undefined at $x=5$ is false.",
+      "The simplification $\\frac{x-5}{x+3}$ has the wrong sign and is not equivalent to the correct result."
     ],
     "distractor_rationales": {
-      "The expression is undefined for $x = 3$.": "This is incorrect because $x=3$ is a root of the numerator of the divisor, which becomes a denominator after flipping, but the first option list was incomplete.",
-      "The expression is undefined for $x = 3, x = -2, x = -4$.": "This misses the restriction $x = -3$ from the original first denominator.",
-      "The simplified form of the expression is $\\frac{x - 3}{x + 2}$.": "This occurs if the student fails to cancel the $(x+3)$ terms correctly or misinterprets the division step."
+      "$R(x)$ is undefined at $x = 5$.": "There is no factor of $(x-5)$ anywhere in this problem; this distractor tests whether the excluded values were tracked correctly rather than guessed.",
+      "$R(x)$ simplifies to $\\frac{x-5}{x+3}$.": "This has the right denominator but an incorrect numerator, testing whether the reciprocal step was applied correctly."
     },
-    "concept_summary": "Simplifying complex rational expressions involving division and identification of domain restrictions.",
-    "status": "needs_review"
+    "concept_summary": "This question tests dividing rational expressions by multiplying by the reciprocal, factoring first, and tracking domain restrictions.",
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_vnlarabb3cgl",
@@ -73950,60 +73840,41 @@
     "topic_slug": "rational-expressions",
     "type": "matching",
     "difficulty": "hard",
-    "stem": "Match each rational expression on the left with its equivalent simplified form on the right. Assume all variables are non zero and the denominators are not zero.",
-    "options": [
-      {
-        "content": "$\\frac{x+3}{x-2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x-2}{x+3}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x+2}{x-3}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x-3}{x+2}$",
-        "is_correct": true
-      }
-    ],
+    "stem": "Match each rational expression on the left with its equivalent simplified form on the right. Assume all variables are non-zero and the denominators are not zero.",
+    "options": [],
     "matches": [
       {
-        "left_content": "$\\frac{x^{2}+x-6}{x^{2}-4}$",
-        "correct_choice_index": 2
+        "left_content": "$\\frac{3x^2-12}{x^2-5x+6}$",
+        "correct_choice_index": 1
       },
       {
-        "left_content": "$\\frac{x^{2}-x-6}{x^{2}-4}$",
-        "correct_choice_index": 3
-      },
-      {
-        "left_content": "$\\frac{x^{2}+x-6}{x^{2}-x-2}$",
+        "left_content": "$\\frac{x^2+6x+9}{x^2-9}$",
         "correct_choice_index": 0
       },
       {
-        "left_content": "$\\frac{x^{2}-x-6}{x^{2}+x-2}$",
-        "correct_choice_index": 1
+        "left_content": "$\\frac{4x^2-4}{2x^2+2x-4}$",
+        "correct_choice_index": 2
+      },
+      {
+        "left_content": "$\\frac{x^2-2x-15}{x^2-25}$",
+        "correct_choice_index": 3
       }
     ],
     "match_choices": [
-      "$\\frac{x+3}{x-2}$",
-      "$\\frac{x-2}{x+3}$",
-      "$\\frac{x+2}{x-3}$",
-      "$\\frac{x-3}{x+2}$"
+      "$\\frac{x+3}{x-3}$",
+      "$\\frac{3(x+2)}{x-3}$",
+      "$\\frac{2(x+1)}{x+2}$",
+      "$\\frac{x+3}{x+5}$"
     ],
-    "final_answer": "Matching: (1: $\\frac{x+2}{x-3}$), (2: $\\frac{x-3}{x+2}$), (3: $\\frac{x+3}{x-2}$), (4: $\\frac{x-2}{x+3}$)",
+    "final_answer": "3x^2-12 over x^2-5x+6 -> 3(x+2)/(x-3); x^2+6x+9 over x^2-9 -> (x+3)/(x-3); 4x^2-4 over 2x^2+2x-4 -> 2(x+1)/(x+2); x^2-2x-15 over x^2-25 -> (x+3)/(x+5)",
     "explanation_steps": [
-      "Factor the numerators and denominators for each expression: $x^2+x-6 = (x+3)(x-2)$, $x^2-x-6 = (x-3)(x+2)$, $x^2-4 = (x-2)(x+2)$, $x^2-x-2 = (x-2)(x+1)$, and $x^2+x-2 = (x+2)(x-1)$.",
-      "Simplify $\\frac{(x+3)(x-2)}{(x-2)(x+2)}$ to get $\\frac{x+3}{x+2}$ (Note: re-evaluating matches based on common factors).",
-      "Perform cancellation of common binomial factors for each specific pair to reach the final simplified state."
+      "$\\frac{3x^2-12}{x^2-5x+6} = \\frac{3(x-2)(x+2)}{(x-2)(x-3)} = \\frac{3(x+2)}{x-3}$.",
+      "$\\frac{x^2+6x+9}{x^2-9} = \\frac{(x+3)^2}{(x-3)(x+3)} = \\frac{x+3}{x-3}$.",
+      "$\\frac{4x^2-4}{2x^2+2x-4} = \\frac{4(x-1)(x+1)}{2(x+2)(x-1)} = \\frac{2(x+1)}{x+2}$.",
+      "$\\frac{x^2-2x-15}{x^2-25} = \\frac{(x-5)(x+3)}{(x-5)(x+5)} = \\frac{x+3}{x+5}$."
     ],
-    "distractor_rationales": {
-      "algebraic manipulation": "Students often attempt to cancel terms across addition or subtraction signs improperly, such as canceling $x^2$ from the numerator and denominator."
-    },
-    "concept_summary": "Factoring quadratic polynomials and simplifying rational expressions by canceling common binomial factors.",
-    "status": "needs_review"
+    "distractor_rationales": {},
+    "concept_summary": "This question tests factoring quadratics, including a perfect-square trinomial, to simplify rational expressions."
   },
   {
     "id": "q_cixw87507042",
@@ -74432,60 +74303,40 @@
     "type": "matching",
     "difficulty": "hard",
     "stem": "Match each rational expression to its simplified form, given that all variables represent values for which the expressions are defined.",
-    "options": [
-      {
-        "content": "$\\frac{x-3}{x+2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x+3}{x-2}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x-2}{x+3}$",
-        "is_correct": true
-      },
-      {
-        "content": "$\\frac{x+2}{x-3}$",
-        "is_correct": true
-      }
-    ],
+    "options": [],
     "matches": [
       {
-        "left_content": "$\\frac{x^{2}-5x+6}{x^{2}-4}$",
-        "correct_choice_index": 2
+        "left_content": "$\\frac{x^2-7x+12}{x^2-16}$",
+        "correct_choice_index": 1
       },
       {
-        "left_content": "$\\frac{x^{2}-9}{x^{2}+5x+6}$",
+        "left_content": "$\\frac{2x^2+2x}{x^2-1}$",
         "correct_choice_index": 0
       },
       {
-        "left_content": "$\\frac{x^{2}-4}{x^{2}-x-6}$",
+        "left_content": "$\\frac{x^2-10x+25}{x^2-25}$",
         "correct_choice_index": 3
       },
       {
-        "left_content": "$\\frac{x^{2}+5x+6}{x^{2}-4}$",
-        "correct_choice_index": 1
+        "left_content": "$\\frac{3x^2-27}{x^2+2x-15}$",
+        "correct_choice_index": 2
       }
     ],
     "match_choices": [
-      "$\\frac{x-3}{x+2}$",
-      "$\\frac{x+3}{x-2}$",
-      "$\\frac{x-2}{x+3}$",
-      "$\\frac{x+2}{x-3}$"
+      "$\\frac{2x}{x-1}$",
+      "$\\frac{x-3}{x+4}$",
+      "$\\frac{3(x+3)}{x+5}$",
+      "$\\frac{x-5}{x+5}$"
     ],
-    "final_answer": "1: index 2, 2: index 0, 3: index 3, 4: index 1",
+    "final_answer": "x^2-7x+12 over x^2-16 -> (x-3)/(x+4); 2x^2+2x over x^2-1 -> 2x/(x-1); x^2-10x+25 over x^2-25 -> (x-5)/(x+5); 3x^2-27 over x^2+2x-15 -> 3(x+3)/(x+5)",
     "explanation_steps": [
-      "Factor each numerator and denominator: $x^{2}-5x+6 = (x-2)(x-3)$ and $x^{2}-4 = (x-2)(x+2)$, so $\\frac{(x-2)(x-3)}{(x-2)(x+2)} = \\frac{x-3}{x+2}$.",
-      "Factor the second expression: $\\frac{(x-3)(x+3)}{(x+2)(x+3)} = \\frac{x-3}{x+2}$ (Correcting: wait, re-evaluate: $\\frac{x^2-9}{x^2+5x+6} = \\frac{(x-3)(x+3)}{(x+2)(x+3)} = \\frac{x-3}{x+2}$).",
-      "Continue factoring all expressions and cancel common binomial factors to reach the simplified form.",
-      "Match the simplified results to the provided list of choices."
+      "$\\frac{x^2-7x+12}{x^2-16} = \\frac{(x-3)(x-4)}{(x-4)(x+4)} = \\frac{x-3}{x+4}$.",
+      "$\\frac{2x^2+2x}{x^2-1} = \\frac{2x(x+1)}{(x-1)(x+1)} = \\frac{2x}{x-1}$.",
+      "$\\frac{x^2-10x+25}{x^2-25} = \\frac{(x-5)^2}{(x-5)(x+5)} = \\frac{x-5}{x+5}$.",
+      "$\\frac{3x^2-27}{x^2+2x-15} = \\frac{3(x-3)(x+3)}{(x+5)(x-3)} = \\frac{3(x+3)}{x+5}$."
     ],
-    "distractor_rationales": {
-      "algebraic errors": "Students often fail to factor the quadratic expressions correctly, leading to incorrect cancellation of terms that are not factors."
-    },
-    "concept_summary": "Factoring quadratic expressions and simplifying rational expressions by canceling common factors.",
-    "status": "needs_review"
+    "distractor_rationales": {},
+    "concept_summary": "This question tests factoring quadratic expressions, including a perfect-square trinomial, to cancel common binomial factors."
   },
   {
     "id": "q_64b3n5okbamo",
@@ -102323,73 +102174,42 @@
     "topic_slug": "data-management",
     "type": "matching",
     "difficulty": "medium",
-    "stem": "The table below shows the number of hours spent studying per week and the corresponding score on a practice exam for five students. Match each student to their calculated Z-score for hours studied.",
-    "options": [
-      {
-        "content": "Student A",
-        "is_correct": false
-      },
-      {
-        "content": "Student B",
-        "is_correct": false
-      },
-      {
-        "content": "Student C",
-        "is_correct": false
-      },
-      {
-        "content": "Student D",
-        "is_correct": false
-      },
-      {
-        "content": "Student E",
-        "is_correct": false
-      }
-    ],
+    "stem": "In a class where exam scores are normally distributed with a mean of $75$ and a standard deviation of $5$, four students scored as follows: Amara scored $80$, Beto scored $70$, Chen scored $85$, and Dara scored $65$. Match each student to their calculated $z$-score.",
+    "options": [],
     "matches": [
       {
-        "left_content": "Student A",
-        "correct_choice_index": 1
-      },
-      {
-        "left_content": "Student B",
-        "correct_choice_index": 0
-      },
-      {
-        "left_content": "Student C",
-        "correct_choice_index": 3
-      },
-      {
-        "left_content": "Student D",
+        "left_content": "Amara (score 80)",
         "correct_choice_index": 2
       },
       {
-        "left_content": "Student E",
-        "correct_choice_index": 4
+        "left_content": "Beto (score 70)",
+        "correct_choice_index": 1
+      },
+      {
+        "left_content": "Chen (score 85)",
+        "correct_choice_index": 3
+      },
+      {
+        "left_content": "Dara (score 65)",
+        "correct_choice_index": 0
       }
     ],
     "match_choices": [
-      "1.41",
-      "0.71",
-      "-0.71",
-      "1.12",
-      "-1.12"
+      "z = -2",
+      "z = -1",
+      "z = 1",
+      "z = 2"
     ],
-    "final_answer": "",
+    "final_answer": "Amara: z = 1; Beto: z = -1; Chen: z = 2; Dara: z = -2.",
     "explanation_steps": [
-      "First, calculate the mean of the hours studied: $\\mu = \\frac{8+10+12+15+5}{5} = \\frac{50}{5} = 10$ hours.",
-      "Next, calculate the standard deviation of the hours studied. The variance is $s^2 = \\frac{\\sum (x_i - \\mu)^2}{n} = \\frac{(8-10)^2 + (10-10)^2 + (12-10)^2 + (15-10)^2 + (5-10)^2}{5} = \\frac{(-2)^2 + 0^2 + 2^2 + 5^2 + (-5)^2}{5} = \\frac{4+0+4+25+25}{5} = \\frac{58}{5} = 11.6$. The standard deviation is $s = \\sqrt{11.6} \\approx 3.406$ hours.",
-      "Finally, calculate the Z-score for each student using the formula $Z = \\frac{x - \\mu}{s}$, where $x$ is the hours studied for that student. Student A: $Z_A = \\frac{8 - 10}{3.406} \\approx -0.59$. Student B: $Z_B = \\frac{10 - 10}{3.406} = 0$. Student C: $Z_C = \\frac{12 - 10}{3.406} \\approx 0.59$. Student D: $Z_D = \\frac{15 - 10}{3.406} \\approx 1.47$. Student E: $Z_E = \\frac{5 - 10}{3.406} \\approx -1.47$.",
-      "Revisiting calculations with exact values and rounding for choices: Mean = 10. Variance = 58/5 = 11.6. Standard Deviation = sqrt(11.6). Student A: (8-10)/sqrt(11.6) = -2/sqrt(11.6) approx -0.587 -> 0.71. Student B: (10-10)/sqrt(11.6) = 0. Oops, there was a calculation error in the initial attempt. Let's re-calculate. The data presented does not lead to the provided choices with standard deviation calculation. Let's regenerate data to fit choices better. Corrected data table and recalculation needed."
+      "The $z$-score formula is $z = \\frac{x - \\mu}{\\sigma}$, where $\\mu = 75$ and $\\sigma = 5$.",
+      "Amara: $z = \\frac{80 - 75}{5} = \\frac{5}{5} = 1$.",
+      "Beto: $z = \\frac{70 - 75}{5} = \\frac{-5}{5} = -1$.",
+      "Chen: $z = \\frac{85 - 75}{5} = \\frac{10}{5} = 2$.",
+      "Dara: $z = \\frac{65 - 75}{5} = \\frac{-10}{5} = -2$."
     ],
-    "distractor_rationales": {
-      "1.41": "This value might be obtained if the standard deviation was incorrectly calculated or if the data points were misread.",
-      "0.71": "This is a plausible Z-score, but doesn't correspond to the correct student based on the provided data and standard Z-score calculation.",
-      "-0.71": "Similar to 0.71, this is a possible Z-score value but incorrect for the given data.",
-      "-1.12": "This value is close to some calculated Z-scores but doesn't match precisely, suggesting a potential calculation error or misinterpretation of data."
-    },
-    "concept_summary": "Calculating Z-scores to measure how many standard deviations a data point is from the mean.",
-    "status": "needs_review",
+    "distractor_rationales": {},
+    "concept_summary": "This question tests computing a $z$-score from a raw score, a given mean, and a given standard deviation.",
     "skill_id": "skl_data-management-calculate-the-mean-median-mode-and-range"
   },
   {
@@ -105653,62 +105473,42 @@
     "topic_slug": "data-management",
     "type": "matching",
     "difficulty": "hard",
-    "stem": "The following table shows the annual revenue (in thousands) and the number of employees for four small companies (A, B, C, D). Match each company to the statistical description that best characterizes its performance metrics.",
-    "options": [
-      {
-        "content": "Highest revenue per employee",
-        "is_correct": true
-      },
-      {
-        "content": "Lowest revenue per employee",
-        "is_correct": true
-      },
-      {
-        "content": "Revenue is exactly 10 times the number of employees",
-        "is_correct": true
-      },
-      {
-        "content": "Highest total revenue",
-        "is_correct": true
-      }
-    ],
+    "stem": "The table below lists four datasets of monthly temperature changes (in °C) recorded by four weather stations. Match each dataset to its range (maximum value minus minimum value).\n\nStation A: $-8, 3, 15, -2$\nStation B: $4, 4, 4, 4$\nStation C: $-10, -3, -1, 7$\nStation D: $20, -5, 9, 1$",
+    "options": [],
     "matches": [
       {
-        "left_content": "Company A: Revenue $240$, Employees $12$",
+        "left_content": "Station A",
         "correct_choice_index": 2
       },
       {
-        "left_content": "Company B: Revenue $300$, Employees $20$",
-        "correct_choice_index": 1
-      },
-      {
-        "left_content": "Company C: Revenue $450$, Employees $15$",
+        "left_content": "Station B",
         "correct_choice_index": 0
       },
       {
-        "left_content": "Company D: Revenue $480$, Employees $24$",
+        "left_content": "Station C",
+        "correct_choice_index": 1
+      },
+      {
+        "left_content": "Station D",
         "correct_choice_index": 3
       }
     ],
     "match_choices": [
-      "Highest revenue per employee",
-      "Lowest revenue per employee",
-      "Revenue is exactly 10 times the number of employees",
-      "Highest total revenue"
+      "0",
+      "17",
+      "23",
+      "25"
     ],
-    "final_answer": "Company A maps to index 2, Company B maps to index 1, Company C maps to index 0, and Company D maps to index 3.",
+    "final_answer": "Station A: 23; Station B: 0; Station C: 17; Station D: 25.",
     "explanation_steps": [
-      "Calculate revenue per employee for each: A ($240/12 = 20$), B ($300/20 = 15$), C ($450/15 = 30$), D ($480/24 = 20$).",
-      "Identify the highest revenue per employee: $30$ (Company C).",
-      "Identify the lowest revenue per employee: $15$ (Company B).",
-      "Check for the ratio of $10$: Company A has $240/12 = 20$, wait, re-evaluating: Company A ($240/12 = 20$), B ($300/20 = 15$), C ($450/15 = 30$), D ($480/24 = 20$). Correction: For A, $120$ employees would be $10$. Re-checking values: Company A ($120/12=10$), so A is index 2. Total revenue: D is $480$ (highest)."
+      "The range of a dataset is (maximum value) minus (minimum value).",
+      "Station A: max $= 15$, min $= -8$, so range $= 15 - (-8) = 23$.",
+      "Station B: all four values equal $4$, so max $=$ min $= 4$ and range $= 0$.",
+      "Station C: max $= 7$, min $= -10$, so range $= 7 - (-10) = 17$.",
+      "Station D: max $= 20$, min $= -5$, so range $= 20 - (-5) = 25$."
     ],
-    "distractor_rationales": {
-      "A": "Students often confuse total revenue with revenue per employee.",
-      "B": "Students often miscalculate the ratio by dividing employees by revenue instead of revenue by employees."
-    },
-    "concept_summary": "Data interpretation involving ratios and comparative analysis of metrics across a dataset.",
-    "status": "needs_review",
+    "distractor_rationales": {},
+    "concept_summary": "This question tests computing the range of a dataset, including careful handling of negative values.",
     "skill_id": "skl_data-management-calculate-the-mean-median-mode-and-range"
   },
   {
@@ -132035,40 +131835,42 @@
     "topic_slug": "polynomial-functions",
     "type": "single_mcq",
     "difficulty": "hard",
-    "stem": "Consider the polynomial function $f(x) = a(x - h)^2(x - k)^3$, where $a, h, k$ are non-zero real constants and $h < k$. Given that $f(x) > 0$ for all $x < h$ and $f(x) < 0$ for all $x$ in the interval $(h, k)$, which of the following must be true regarding the leading coefficient $a$ and the end behavior of $f(x)$?",
+    "stem": "Consider the polynomial function $f(x) = a(x - h)^3(x - k)^2$, where $a, h, k$ are non-zero real constants and $h < k$. Given that $f(x) < 0$ for all $x < h$ and $f(x) > 0$ for all $x$ in the interval $(h, k)$, which of the following must be true regarding the leading coefficient $a$ and the end behavior of $f(x)$?",
     "options": [
       {
-        "content": "$a > 0$ and $f(x) \\to -\\infty$ as $x \\to \\infty$",
-        "is_correct": false
-      },
-      {
-        "content": "$a < 0$ and $f(x) \\to \\infty$ as $x \\to \\infty$",
-        "is_correct": false
-      },
-      {
-        "content": "$a < 0$ and $f(x) \\to -\\infty$ as $x \\to \\infty$",
+        "content": "$a > 0$, and $f(x) \\to +\\infty$ as $x \\to +\\infty$, $f(x) \\to -\\infty$ as $x \\to -\\infty$",
         "is_correct": true
       },
       {
-        "content": "$a > 0$ and $f(x) \\to \\infty$ as $x \\to \\infty$",
+        "content": "$a < 0$, and $f(x) \\to -\\infty$ as $x \\to +\\infty$, $f(x) \\to +\\infty$ as $x \\to -\\infty$",
+        "is_correct": false
+      },
+      {
+        "content": "$a > 0$, and $f(x) \\to +\\infty$ as $x \\to +\\infty$, $f(x) \\to +\\infty$ as $x \\to -\\infty$",
+        "is_correct": false
+      },
+      {
+        "content": "$a < 0$, and $f(x) \\to +\\infty$ as $x \\to +\\infty$, $f(x) \\to -\\infty$ as $x \\to -\\infty$",
         "is_correct": false
       }
     ],
-    "final_answer": "a < 0 and f(x) to -infinity as x to infinity",
+    "final_answer": "a > 0, with f(x) -> +infinity as x -> +infinity and f(x) -> -infinity as x -> -infinity",
     "explanation_steps": [
-      "Analyze the signs of the factors: $(x - h)^2$ is always non-negative for all $x$. Thus, the sign of $f(x)$ is determined by $a$ and $(x - k)^3$.",
-      "For $x < h$, since $h < k$, both $(x - h)$ and $(x - k)$ are negative. Thus $(x - h)^2 > 0$ and $(x - k)^3 < 0$. Since $f(x) > 0$ in this region, $a$ must be negative ($a \\cdot (+) \\cdot (-) > 0$ implies $a < 0$).",
-      "Verify the interval $(h, k)$: here $(x - h)^2 > 0$ and $(x - k)^3 < 0$. With $a < 0$, we have $f(x) = (-) \\cdot (+) \\cdot (-) > 0$. Wait, checking the prompt requirement $f(x) < 0$ on $(h, k)$, this confirms $a$ must result in a negative product. With $a < 0$ and the odd degree of $(x-k)^3$, as $x \\to \\infty$, $(x-k)^3 \\to \\infty$, so $f(x) \\to a \\cdot (+) \\cdot (\\infty) = -\\infty$.",
-      "The degree of the polynomial is $2+3=5$ (odd). Since $a < 0$, the end behavior is $f(x) \\to \\infty$ as $x \\to -\\infty$ and $f(x) \\to -\\infty$ as $x \\to \\infty$."
+      "For $x < h$: $(x-h)^3 < 0$ (odd power of a negative), and $(x-k)^2 > 0$ (an even power, positive whenever $x \\neq k$). So the product $(x-h)^3(x-k)^2$ is negative.",
+      "Given $f(x) < 0$ there, and $f(x) = a \\cdot (\\text{negative})$, we need $a > 0$.",
+      "For $h < x < k$: $(x-h)^3 > 0$ (now $x > h$), and $(x-k)^2 > 0$ still. So the product is positive.",
+      "Given $f(x) > 0$ there, and $f(x) = a \\cdot (\\text{positive})$, this again requires $a > 0$, consistent with the first interval.",
+      "The total degree is $3 + 2 = 5$, which is odd. With a positive leading coefficient, an odd-degree polynomial falls to $-\\infty$ as $x \\to -\\infty$ and rises to $+\\infty$ as $x \\to +\\infty$."
     ],
     "distractor_rationales": {
-      "a > 0 and f(x) -> -infinity as x -> infinity": "Incorrectly assumes the sign of a based on a miscalculation of the factors' signs.",
-      "a < 0 and f(x) -> infinity as x -> infinity": "Fails to correctly identify the end behavior of a degree 5 polynomial with a negative leading coefficient.",
-      "a > 0 and f(x) -> infinity as x -> infinity": "Incorrectly assumes the sign of a and misidentifies the end behavior of an odd degree polynomial with a positive leading coefficient."
+      "$a < 0$, and $f(x) \\to -\\infty$ as $x \\to +\\infty$, $f(x) \\to +\\infty$ as $x \\to -\\infty$": "This reverses the sign of $a$ found from the given conditions.",
+      "$a > 0$, and $f(x) \\to +\\infty$ as $x \\to +\\infty$, $f(x) \\to +\\infty$ as $x \\to -\\infty$": "This applies even-degree end behavior to an odd-degree polynomial.",
+      "$a < 0$, and $f(x) \\to +\\infty$ as $x \\to +\\infty$, $f(x) \\to -\\infty$ as $x \\to -\\infty$": "This pairs the wrong end behavior with the wrong sign of $a$."
     },
-    "concept_summary": "Analysis of polynomial sign changes at roots and determination of end behavior based on degree and leading coefficient.",
-    "status": "needs_review",
-    "skill_id": "skl_polynomial-functions-determine-end-behaviour-of-a-polynomial-from"
+    "concept_summary": "This question tests reading the sign of a leading coefficient from local sign information about a factored polynomial, then applying odd-degree end-behavior rules.",
+    "skill_id": "skl_polynomial-functions-determine-end-behaviour-of-a-polynomial-from",
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_s35ug7uv6c0q",
@@ -132121,26 +131923,26 @@
     "topic_slug": "polynomial-functions",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "Let $P(x) = ax^3 + bx^2 + cx + d$ be a cubic polynomial with real coefficients. Given that $P(x)$ has a root at $x = 2 + i$, a relative minimum at $x = 0$ with $P(0) = 4$, and a leading coefficient $a = 1$, find the value of $P(1)$.",
+    "stem": "The polynomial $P(x) = x^3 - 4x^2 + kx - 6$ has $x = 3$ as a root. Find the value of $P(-1)$.",
     "numeric_answer": {
-      "value": 2,
+      "value": -16,
       "tolerance": 0,
       "accepted": [
-        "2"
+        "-16"
       ]
     },
-    "final_answer": "2",
+    "final_answer": "-16",
     "explanation_steps": [
-      "Since the coefficients are real and $x = 2 + i$ is a root, the conjugate $x = 2 - i$ must also be a root. The quadratic factor is $(x - (2 + i))(x - (2 - i)) = ((x - 2) - i)((x - 2) + i) = (x - 2)^2 + 1 = x^2 - 4x + 5$.",
-      "The polynomial is $P(x) = (x - k)(x^2 - 4x + 5) = x^3 - (4 + k)x^2 + (5 + 4k)x - 5k$. Since $P(0) = 4$, we have $-5k = 4$, so $k = -0.8$.",
-      "To ensure a relative minimum at $x=0$, check $P'(x) = 3x^2 - 2(4 + k)x + (5 + 4k)$. At $x=0$, $P'(0) = 5 + 4k$. Substituting $k = -0.8$, $P'(0) = 5 + 4(-0.8) = 5 - 3.2 = 1.8$. Wait, the condition $P'(0)=0$ implies $5+4k=0$, so $k = -1.25$. Recalculating $P(0) = -5k = 4$ leads to $k = -0.8$. The problem constraints imply $P(x) = (x + 0.8)(x^2 - 4x + 5) = x^3 - 3.2x^2 + 1.8x + 4$.",
-      "Evaluate $P(1) = 1^3 - 3.2(1)^2 + 1.8(1) + 4 = 1 - 3.2 + 1.8 + 4 = 3.6$ is incorrect. Let's re-evaluate: $P(x) = (x+k)(x^2-4x+5)$. $P(0) = 5k = 4 \\implies k = 0.8$. $P'(x) = (1)(x^2-4x+5) + (x+0.8)(2x-4)$. $P'(0) = 5 + (0.8)(-4) = 5 - 3.2 = 1.8$. Since $P'(0) \\neq 0$, the constraint requires $P(x) = (x-r)(x^2-4x+5)$. $P'(x) = x^2-4x+5 + (x-r)(2x-4)$. $P'(0) = 5 - 4r = 0 \\implies r = 1.25$. Then $P(0) = -1.25(5) = -6.25 \\neq 4$. Given the constraints, the only consistent evaluation is $P(1) = (1 - 1.25)(1^2 - 4(1) + 5) = (-0.25)(2) = -0.5$ if $P(0)$ was not fixed, but following $P(x) = x^3 - 3.2x^2 + 1.8x + 4$, $P(1) = 3.6$."
+      "Since $x = 3$ is a root, $P(3) = 0$: $27 - 36 + 3k - 6 = 0$.",
+      "Simplify: $-15 + 3k = 0$, so $k = 5$.",
+      "The polynomial is $P(x) = x^3 - 4x^2 + 5x - 6$.",
+      "Evaluate $P(-1) = (-1)^3 - 4(-1)^2 + 5(-1) - 6 = -1 - 4 - 5 - 6 = -16$."
     ],
-    "distractor_rationales": {
-      "Various algebraic errors in root expansion": "Students often fail to use the conjugate root theorem or miscalculate the product of roots."
-    },
-    "concept_summary": "Complex conjugate root theorem and polynomial construction from roots and extrema.",
-    "status": "needs_review"
+    "distractor_rationales": {},
+    "concept_summary": "This question tests using the factor/root condition to solve for an unknown coefficient, then evaluating the resulting polynomial.",
+    "options": [],
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_v3m6uqzs6uo0",
@@ -134694,65 +134496,42 @@
     "topic_slug": "rational-functions",
     "type": "matching",
     "difficulty": "hard",
-    "stem": "Match each rational function to its description of oblique asymptotes.",
-    "options": [
-      {
-        "content": "$f(x) = \\frac{x^3 + 2x^2 - 5}{x^2 - 1}$",
-        "is_correct": false
-      },
-      {
-        "content": "$g(x) = \\frac{2x^2 + 3x - 7}{x - 1}$",
-        "is_correct": false
-      },
-      {
-        "content": "$h(x) = \\frac{x^4 + 1}{x^3 - x^2}$",
-        "is_correct": false
-      },
-      {
-        "content": "$k(x) = \\frac{x^3 - 8}{x^2 + 4}$",
-        "is_correct": false
-      }
-    ],
+    "stem": "Match each rational function to its oblique (slant) asymptote.",
+    "options": [],
     "matches": [
       {
-        "left_content": "Oblique asymptote is $y = x + 2$",
+        "left_content": "$f_1(x) = \\frac{x^2+3x+2}{x-1}$",
         "correct_choice_index": 3
       },
       {
-        "left_content": "Oblique asymptote is $y = 2x + 5$",
+        "left_content": "$f_2(x) = \\frac{2x^2-5x+1}{x-2}$",
         "correct_choice_index": 1
       },
       {
-        "left_content": "Oblique asymptote is $y = x + 3$",
+        "left_content": "$f_3(x) = \\frac{x^2-4x-5}{x+1}$",
         "correct_choice_index": 0
       },
       {
-        "left_content": "No oblique asymptote",
+        "left_content": "$f_4(x) = \\frac{3x^2+2x-1}{x+1}$",
         "correct_choice_index": 2
       }
     ],
     "match_choices": [
-      "$f(x) = \\frac{x^3 + 2x^2 - 5}{x^2 - 1}$",
-      "$g(x) = \\frac{2x^2 + 3x - 7}{x - 1}$",
-      "$h(x) = \\frac{x^4 + 1}{x^3 - x^2}$",
-      "$k(x) = \\frac{x^3 - 8}{x^2 + 4}$"
+      "$y = x - 5$",
+      "$y = 2x - 1$",
+      "$y = 3x - 1$",
+      "$y = x + 4$"
     ],
-    "numeric_answer": null,
-    "final_answer": "The oblique asymptotes are: $y=x+3$ for $f(x)$, $y=2x+5$ for $g(x)$, $y=x+2$ for $k(x)$. $h(x)$ has no oblique asymptote.",
+    "final_answer": "f1 -> y=x+4; f2 -> y=2x-1; f3 -> y=x-5; f4 -> y=3x-1",
     "explanation_steps": [
-      "An oblique asymptote exists when the degree of the numerator is exactly one greater than the degree of the denominator. Perform polynomial long division to find the equation of the asymptote, which is the quotient.",
-      "For $f(x) = \\frac{x^3 + 2x^2 - 5}{x^2 - 1}$, long division yields $x+2$ with a remainder. The oblique asymptote is $y = x+2$. Oh wait, I made a mistake. Let me redo the division for $f(x)$. $x^3 + 2x^2 - 5$ divided by $x^2 - 1$ is $x+2$ with remainder $x-7$. So the oblique asymptote is $y=x+2$. Wait, I made a mistake again. Let me redo the division for $f(x)$ carefully. $x^3 + 2x^2 + 0x - 5$ divided by $x^2 + 0x - 1$. First term is $x$. $x(x^2-1) = x^3-x$. Subtract: $(x^3+2x^2-5) - (x^3-x) = 2x^2+x-5$. Next term is $2$. $2(x^2-1) = 2x^2-2$. Subtract: $(2x^2+x-5) - (2x^2-2) = x-3$. So the quotient is $x+2$, and the remainder is $x-3$. The oblique asymptote is $y=x+2$. Let me check $f(x)$ division again. $x^3+2x^2-5$ divided by $x^2-1$. $x$ times $x^2-1$ is $x^3-x$. Subtract from numerator: $x^3+2x^2-5 - (x^3-x) = 2x^2+x-5$. $2$ times $x^2-1$ is $2x^2-2$. Subtract from $2x^2+x-5$: $2x^2+x-5 - (2x^2-2) = x-3$. The quotient is $x+2$. The oblique asymptote is $y=x+2$. Let me check again the problem statement. The prompt states the function is $f(x) = \\frac{x^3 + 2x^2 - 5}{x^2 - 1}$. My division is correct, quotient is $x+2$. The target answer has $y=x+3$. There must be a typo in my original calculation or the problem generation. Let me assume the function was supposed to be $f(x) = \\frac{x^3 + 3x^2 - 5}{x^2 - 1}$. Then $x$ times $x^2-1$ is $x^3-x$. Subtract: $x^3+3x^2-5 - (x^3-x) = 3x^2+x-5$. $3$ times $x^2-1$ is $3x^2-3$. Subtract: $3x^2+x-5 - (3x^2-3) = x-2$. The quotient is $x+3$. So, the oblique asymptote is $y=x+3$. I will proceed with this corrected understanding for $f(x)$.",
-      "For $g(x) = \\frac{2x^2 + 3x - 7}{x - 1}$, long division of $2x^2+3x-7$ by $x-1$ yields $2x+5$ with a remainder of $-2$. The oblique asymptote is $y = 2x + 5$.",
-      "For $k(x) = \\frac{x^3 - 8}{x^2 + 4}$, long division of $x^3-8$ by $x^2+4$ yields $x$ with a remainder of $-4x-8$. The oblique asymptote is $y = x$. Wait, the options say $y=x+2$. Let me recheck the division. $x^3 + 0x^2 + 0x - 8$ divided by $x^2 + 0x + 4$. First term is $x$. $x(x^2+4) = x^3+4x$. Subtract: $(x^3-8) - (x^3+4x) = -4x-8$. The quotient is $x$. The remainder is $-4x-8$. The oblique asymptote is $y=x$. The provided correct answer is $y=x+2$. There is a discrepancy. Let me assume the function was $k(x) = \\frac{x^3 + 2x^2 - 8}{x^2 + 4}$. Then $x$ times $x^2+4$ is $x^3+4x$. Subtract: $x^3+2x^2-8 - (x^3+4x) = 2x^2-4x-8$. Next term is $2$. $2(x^2+4) = 2x^2+8$. Subtract: $2x^2-4x-8 - (2x^2+8) = -4x-16$. The quotient is $x+2$. So the oblique asymptote is $y=x+2$. I will proceed with this corrected understanding for $k(x)$.",
-      "For $h(x) = \\frac{x^4 + 1}{x^3 - x^2}$, the degree of the numerator (4) is greater than the degree of the denominator (3) by more than one. Thus, there is no oblique asymptote."
+      "For each function, divide the numerator by the denominator; the quotient (ignoring the remainder) is the oblique asymptote.",
+      "$f_1$: $(x^2+3x+2) \\div (x-1) = x + 4$ remainder $6$, so the asymptote is $y = x+4$.",
+      "$f_2$: $(2x^2-5x+1) \\div (x-2) = 2x - 1$ remainder $-1$, so the asymptote is $y = 2x-1$.",
+      "$f_3$: $(x^2-4x-5) \\div (x+1) = x - 5$ remainder $0$ (since $(x-5)(x+1)=x^2-4x-5$), so the asymptote is $y = x-5$.",
+      "$f_4$: $(3x^2+2x-1) \\div (x+1) = 3x - 1$ remainder $0$ (since $(3x-1)(x+1)=3x^2+2x-1$), so the asymptote is $y = 3x-1$."
     ],
-    "distractor_rationales": {
-      "Oblique asymptote is $y = x$": "This is the quotient obtained if one incorrectly divides $x^3-8$ by $x^2+4$ without considering the $2x^2$ term that would arise from a corrected function, or if one mistakenly stops the division process too early.",
-      "Oblique asymptote is $y = x+2$ for $f(x)$": "This is the quotient of the original, uncorrected $f(x)$ function, but the target answer for $f(x)$ is $y=x+3$. It reflects a common error in polynomial division.",
-      "No oblique asymptote for $g(x)$": "This would be the case if the degree of the numerator was not exactly one greater than the degree of the denominator, but for $g(x)$ it is."
-    },
-    "concept_summary": "Finding oblique asymptotes by polynomial long division when numerator degree is one greater than denominator degree.",
-    "status": "needs_review",
+    "distractor_rationales": {},
+    "concept_summary": "This question tests finding the oblique asymptote of a rational function via polynomial long division when the numerator's degree exceeds the denominator's degree by one.",
     "skill_id": "skl_rational-functions-find-vertical-asymptotes-from-the-denominator-s"
   },
   {
@@ -134950,29 +134729,26 @@
     "topic_slug": "rational-functions",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "Determine the sum of the $x$-coordinate of the vertical asymptote and the value of the horizontal asymptote for the rational function $f(x) = \\frac{6x^2 - 5x + 1}{2x^2 + 3x - 5}$.",
+    "stem": "Determine the sum of the $x$-coordinate of the vertical asymptote and the value of the horizontal asymptote for the rational function $f(x) = \\frac{5x^2-2x+1}{(x-3)^2}$.",
     "numeric_answer": {
-      "value": 2.5,
-      "tolerance": 0.005,
+      "value": 8,
+      "tolerance": 0,
       "accepted": [
-        "2.5",
-        "5/2",
-        "2.5"
+        "8"
       ]
     },
-    "final_answer": "2.5",
+    "final_answer": "8",
     "explanation_steps": [
-      "Factor the denominator: $2x^2 + 3x - 5 = (2x + 5)(x - 1)$.",
-      "Identify the vertical asymptote by setting the non-canceled denominator factor to zero: $2x + 5 = 0$ results in $x = -2.5$.",
-      "Identify the horizontal asymptote by comparing the leading coefficients of the numerator and denominator: $y = \\frac{6}{2} = 3$.",
-      "Calculate the sum: $-2.5 + 3 = 0.5$ is incorrect because the $x=1$ factor cancels with the numerator $(2x-1)(3x-1)$? No, numerator factors as $(2x-1)(3x-1)$. The factor $(x-1)$ does not cancel. Thus vertical asymptotes are $x=-2.5$ and $x=1$. Re-evaluating: The question implies a single vertical asymptote. Given the function, $x=-2.5$ is the only non-removable asymptote. Sum $= -2.5 + 3 = 0.5$."
+      "The denominator $(x-3)^2$ is zero only at $x=3$. The numerator $5(3)^2-2(3)+1 = 45-6+1=40$ is nonzero there, so $x=3$ is a genuine vertical asymptote and the only one.",
+      "The numerator and denominator both have degree $2$, so the horizontal asymptote is the ratio of leading coefficients: $\\frac{5}{1} = 5$.",
+      "Sum: $3 + 5 = 8$."
     ],
-    "distractor_rationales": {
-      "incorrect_sum": "Students often fail to simplify or identify all asymptotes correctly leading to sign errors."
-    },
-    "concept_summary": "Finding vertical and horizontal asymptotes of a rational function through factoring and limit behavior.",
-    "status": "needs_review",
-    "skill_id": "skl_rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing"
+    "distractor_rationales": {},
+    "concept_summary": "This question tests locating a vertical asymptote from a repeated linear factor in the denominator, and finding the horizontal asymptote by comparing leading coefficients when the numerator and denominator have equal degree.",
+    "skill_id": "skl_rational-functions-determine-horizontal-or-oblique-asymptotes-by-comparing",
+    "options": [],
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_t2d1hn6as2c5",
@@ -142929,25 +142705,28 @@
     "topic_slug": "composite-inverse-functions",
     "type": "numeric",
     "difficulty": "hard",
-    "stem": "Let $f(x) = \\frac{3x - 5}{x + 2}$ for $x \\neq -2$ and $g(x) = 2x + 1$. Find the value of $(f^{-1} \\circ g)(1)$.",
+    "stem": "Let $f(x) = \\frac{2x + 1}{x - 2}$ for $x \\neq 2$ and $g(x) = x + 1$. Find the value of $(f^{-1} \\circ g)(2)$.",
     "numeric_answer": {
-      "value": 1,
+      "value": 7,
       "tolerance": 0,
       "accepted": [
-        "1"
+        "7"
       ]
     },
-    "final_answer": "1",
+    "final_answer": "7",
     "explanation_steps": [
-      "First, find the inverse function $f^{-1}(x)$ by setting $y = \\frac{3x - 5}{x + 2}$ and solving for $x$: $y(x + 2) = 3x - 5 \\implies xy + 2y = 3x - 5 \\implies xy - 3x = -2y - 5 \\implies x(y - 3) = -2y - 5$.",
-      "Thus, $f^{-1}(x) = \\frac{-2x - 5}{x - 3}$, which simplifies to $f^{-1}(x) = \\frac{2x + 5}{3 - x}$.",
-      "Next, evaluate $g(1) = 2(1) + 1 = 3$.",
-      "Finally, evaluate $f^{-1}(3)$. Since the denominator $3 - x$ becomes $3 - 3 = 0$, we re-examine the composition: $(f^{-1} \\circ g)(1) = f^{-1}(3)$. Wait, checking the original function: $f(1) = \\frac{3-5}{1+2} = -2/3$. Thus $f^{-1}(-2/3) = 1$. Evaluating $g(1) = 3$ and calculating $f^{-1}(3)$ is undefined, but the question asks for $(f^{-1} \\circ g)(1)$. Let $y = f^{-1}(g(1))$. This is equivalent to $f(y) = g(1)$.",
-      "Set $f(y) = 3$, so $\\frac{3y - 5}{y + 2} = 3$. Then $3y - 5 = 3(y + 2) \\implies 3y - 5 = 3y + 6$. This indicates no solution for $y$. Re-calculating: $g(1) = 3$. $f^{-1}(3)$ is not defined in the domain. Correcting evaluation: $f(1) = -2/3$. To find $f^{-1}(3)$, $3 = \\frac{3x-5}{x+2} \\implies 3x+6 = 3x-5$, which is impossible. If $g(1) = 3$ is used, the result is undefined. Let us evaluate $g(1) = 3$. If the question intended $f^{-1}(g(0))$, $g(0)=1$, $f^{-1}(1): 1 = \\frac{3x-5}{x+2} \\implies x+2 = 3x-5 \\implies 7 = 2x \\implies x = 3.5$. Recalculating $(f^{-1} \\circ g)(1)$: $g(1)=3$. $f(1) = -2/3$. If the intended value is $x=1$, then $f(1) = -2/3$, so $f^{-1}(-2/3) = 1$. The value is 1."
+      "First evaluate $g(2) = 2 + 1 = 3$.",
+      "Next, find $f^{-1}(3)$ by solving $f(x) = 3$: $\\frac{2x+1}{x-2} = 3$.",
+      "Multiply both sides by $x - 2$: $2x + 1 = 3(x - 2) = 3x - 6$.",
+      "Solve for $x$: $1 + 6 = 3x - 2x$, so $x = 7$.",
+      "Check: $f(7) = \\frac{2(7)+1}{7-2} = \\frac{15}{5} = 3$, which confirms $f^{-1}(3) = 7$.",
+      "So $(f^{-1} \\circ g)(2) = f^{-1}(g(2)) = f^{-1}(3) = 7$."
     ],
     "distractor_rationales": {},
-    "concept_summary": "Composition of functions and finding the inverse of a rational function.",
-    "status": "needs_review"
+    "concept_summary": "This question tests evaluating a composition of an inverse function with another function, by solving the defining equation of the inverse rather than deriving a general formula.",
+    "options": [],
+    "matches": [],
+    "match_choices": []
   },
   {
     "id": "q_lwh0m1s3w10w",

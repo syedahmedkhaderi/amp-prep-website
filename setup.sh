@@ -4,8 +4,6 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
 
-PORT="${PORT:-3000}"
-HOST="${HOST:-0.0.0.0}"
 SKIP_CHECKS="${SKIP_CHECKS:-0}"
 RUN_PIPELINE="${RUN_PIPELINE:-0}"
 
@@ -51,5 +49,5 @@ else
   echo "4. Skipping verification because SKIP_CHECKS=1"
 fi
 
-echo "5. Starting AMP Prep on http://localhost:${PORT}"
-npm run dev -- --hostname "$HOST" --port "$PORT"
+echo
+echo "Setup complete. Start the app with ./start.sh"

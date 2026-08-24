@@ -11,7 +11,8 @@ Next.js App Router, TypeScript, Tailwind CSS, SQLite for local development, Vite
 ## Quick Start
 
 ```bash
-./setup.sh
+./setup.sh   # one-time: installs deps, creates .env.local, initializes and seeds the database, runs checks
+./start.sh   # every time: starts the dev server
 ```
 
 The app starts at: http://localhost:3000
@@ -19,10 +20,10 @@ The app starts at: http://localhost:3000
 Use another port if needed:
 
 ```bash
-PORT=3001 ./setup.sh
+PORT=3001 ./start.sh
 ```
 
-Skip verification during local startup:
+Skip verification during setup:
 
 ```bash
 SKIP_CHECKS=1 ./setup.sh
